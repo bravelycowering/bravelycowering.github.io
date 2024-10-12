@@ -1,6 +1,7 @@
 :root {
 	font-family: monospace;
 	color-scheme: light;
+	margin: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
