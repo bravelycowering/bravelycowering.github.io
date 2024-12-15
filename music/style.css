@@ -1,0 +1,34 @@
+body {
+	background: linear-gradient(-25deg, #808BFF, #ABE9FF);
+}
+
+.player {
+    text-align: center;
+}
+.player input[type=range] {
+    accent-color: red;
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.player input[type="range"]::-moz-range-progress {
+    background-color: red;
+    height: 8px;
+    border-radius: 10px;
+}
+.player input[type="range"]::-moz-range-thumb {
+    background-color: red;
+    border: none;
+    height: 16px;
+    width: 16px;
+}
+.player input[type="range"]::-moz-range-track {  
+    background-color: white;
+}
+.player input[type="range"]::-ms-fill-lower {
+    background-color: red; 
+}
+.player input[type="range"]::-ms-fill-upper {  
+    background-color: white;
+}

@@ -1,11 +1,10 @@
-:root {
-	font-family: monospace;
-	color-scheme: light;
-	margin: 20px;
-}
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		color-scheme: dark;
-	}
+html {
+	background: white;
+}
+body {
+	background: linear-gradient(-25deg, #FF81E1, #FFD080);
 }

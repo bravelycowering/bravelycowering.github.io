@@ -1,0 +1,29 @@
+body {
+    max-width: 800px;
+    margin: 50px auto;
+	padding: 20px;
+	box-sizing: border-box;
+}
+body, button, input, select {
+	font-family: Verdana;
+}
+button, input {
+    border: 1px solid;
+}
+html {
+	background: #171717;
+}
+hr {
+    border: none;
+    border-bottom: 1px solid currentcolor;
+}
+.nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+label {
+    user-select: none;
+}
+fieldset {
+    border: 1px solid currentcolor;
+}
