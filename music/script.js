@@ -122,6 +122,7 @@ const playlist = document.getElementById("playlist")
 function loadPlaylist(list) {
     playlist.innerHTML = ""
     songs = list
+    songid = null
     title.innerText = "-"
     author.innerText = "-"
     progress.max = 0
@@ -130,6 +131,7 @@ function loadPlaylist(list) {
     if (song) {
         song.pause()
     }
+    song = null
     for (let i = 0; i < list.length; i++) {
         const item = list[i]
         const s = document.createElement("p")
