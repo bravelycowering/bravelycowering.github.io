@@ -13,66 +13,76 @@ let songid = null
 let playlists = {
     "My Own Music": [
         {
+            name: "The End of the World",
+            by: "bravelycowering",
+            url: "/files/the end of the world.ogg"
+        },
+        {
+            name: "Magic Trick",
+            by: "bravelycowering",
+            url: "/files/magic trick.ogg"
+        },
+        {
             name: "Undertale - Predictable (Fan Song)",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/flowey jumpscare.ogg"
+            url: "/files/flowey jumpscare.ogg"
         },
         {
             name: "Castle Battle",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/goblin fight again mixed properly.ogg"
+            url: "/files/goblin fight again mixed properly.ogg"
         },
         {
             name: "Neurospastai",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/avventura.wav"
+            url: "/files/avventura.wav"
         },
         {
             name: "Where Credit is Due",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/where_credit_is_due.ogg",
+            url: "/files/where_credit_is_due.ogg",
         },
         {
             name: "Optometrist",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/optometrist.ogg",
+            url: "/files/optometrist.ogg",
         },
         {
             name: "Ocean battle",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/goblinbattle.mp3",
+            url: "/files/goblinbattle.mp3",
         },
         {
             name: "Funkle",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/funkle.mp3",
+            url: "/files/funkle.mp3",
         },
         {
             name: "And Now For Something Completely Different",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/and_now_for_something_completely_different.mp3",
+            url: "/files/and_now_for_something_completely_different.mp3",
         },
         {
             name: "Undertale - Another Medium (Remix)",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/another_medium.ogg",
+            url: "/files/another_medium.ogg",
         },
         {
             name: "Miscellaneous Battle Theme",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/misc_battle.wav",
+            url: "/files/misc_battle.wav",
         },
     ],
     "Undertale Stuff": [
         {
             name: "Undertale - Predictable (Fan Song)",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/flowey jumpscare.ogg"
+            url: "/files/flowey jumpscare.ogg"
         },
         {
             name: "Undertale - Another Medium (Remix)",
             by: "bravelycowering",
-            url: "https://bravelycowering.net/files/another_medium.ogg",
+            url: "/files/another_medium.ogg",
         },
     ]
 }
