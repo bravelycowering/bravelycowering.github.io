@@ -156,9 +156,10 @@ ifnot blockZ|=|0 set blockZ 1
 if below cmd tpp ~{blockX} ~1024 ~{blockZ}
 ifnot below cmd tpp ~{blockX} ~-1024 ~{blockZ}
 // effect
+effect electric {PX} {PY} {PZ} 0 0 0 true
 if below setadd PY 32
 ifnot below setsub PY 32
-effect explosionsteam {PX} {PY} {PZ} 0 0 0 false
+effect explosionsteam {PX} {PY} {PZ} 0 0 0 true
 // invert below
 if below jump #os3_usedevice2
 set below true
