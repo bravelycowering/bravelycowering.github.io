@@ -9,7 +9,7 @@ gui hand true
 quit
 
 #os2_setspawn
-setspawn 59 2 123 0 0
+// setspawn 59 2 123 0 0
 setdeathspawn 59 2 123 0 0
 quit
 
