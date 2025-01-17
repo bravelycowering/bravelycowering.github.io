@@ -136,9 +136,21 @@ definehotkey usedevice|Q
 quit
 
 #os3_usedevice
+// tpp initial
 ifnot device quit
 if below cmd tpp ~ ~1024 ~
 ifnot below cmd tpp ~ ~-1024 ~
+// check if X
+set X {PlayerX}
+setsub X 1
+setblockid block {X} {PlayerY} {PlayerZ}
+if block|=|0 cmd tpp ~1 ~ ~
+// check if Z
+set Z {PlayerZ}
+setsub Z 1
+setblockid block {PlayerX} {PlayerY} {Z}
+if block|=|0 cmd tpp ~ ~ ~1
+// invert below
 if below jump #os3_usedevice2
 set below true
 quit
