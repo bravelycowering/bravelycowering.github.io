@@ -127,7 +127,7 @@ cmd hold 0 false
 quit
 
 #os3_givedevice
-tempblock 0 MBX MBY MBZ
+tempblock 0 {MBX} {MBY} {MBZ}
 if device quit
 set device true
 set below false
