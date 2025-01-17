@@ -15,6 +15,7 @@ quit
 
 #os2_setup
 boost 0 2 0 1 1 1 1000 0
+msg &eWARNING!&c This map REQUIRES smooth lighting and fancy lighting mode to work properly.
 // randomize the first set of pillars
 setrandrange rand 1 2
 if rand|=|1 call #os2_swappillar1
