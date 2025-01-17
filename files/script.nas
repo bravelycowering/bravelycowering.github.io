@@ -12,9 +12,9 @@ quit
 if hasDied quit
 set hasDied true
 cmd tp 59 2 123 0 0
-setspawn 59 2 123
-setdeathspawn 59 2 123
-msg @p&7 hit the floor &chard.
+setspawn 59 2 123 0 0
+setdeathspawn 59 2 123 0 0
+msg @nick&7 hit the floor &chard.
 quit
 
 #os2_resetdie
