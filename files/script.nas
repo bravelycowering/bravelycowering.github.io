@@ -168,6 +168,19 @@ quit
 set below false
 quit
 
+#os4_setup
+if setup quit
+set setup true
+call #hidegui
+freeze
+call #say|&[ave|Hello!_Welcome_to_my_map.
+call #say|&[ave|A_lot_of_people_have_complained_recently...
+call #say|&[ave|that_the_maps_that_I_make_are_too_hard...
+call #say|&[ave|Well, that changes today!
+unfreeze
+call #say|&[ave|All you have to do is walk forward.
+quit
+
 #input
 if runArg1|=|"usedevice" jump #os3_usedevice
 quit
