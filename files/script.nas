@@ -20,7 +20,7 @@ set text {text}{targetText[{i}]}
 set length {targetText.Length}
 cpemsg smallannounce &a{speaker}: &f{text}
 setadd i 1
-delay 100
+delay 50
 if i|<|length jump #sayLoop
 delay 3000
 cpemsg smallannounce
