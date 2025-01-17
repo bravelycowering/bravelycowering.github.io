@@ -8,6 +8,22 @@ gui hotbar true
 gui hand true
 quit
 
+#say
+set speaker {runArg1}
+set targetText {runArg2}
+set text
+msg &a{speaker}: &f{targetText}
+setsplit targetText
+set i 0
+#sayLoop
+set text {text}{targetText[{i}]}
+cpemsg smallannounce &a{speaker}: &f
+setadd i 1
+if i|<|targetText.Length jump #sayLoop
+delay 3000
+cpemsg smallannounce
+quit
+
 #os2_setspawn
 // setspawn 59 2 123 0 0
 setdeathspawn 59 2 123 0 0
@@ -101,5 +117,5 @@ quit
 
 #os3_setup
 gui hotbar false
-cmd hold 0 true
+cmd hold 0 false
 quit
