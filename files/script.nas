@@ -98,13 +98,11 @@ tempchunk 50 12 27 50 16 27 47 12 27
 quit
 
 #os2_delleftpillar8
-tempchunk 50 12 27 50 16 27 50 12 24
-tempchunk 50 12 24 50 16 24 50 12 27
+tempchunk 50 12 27 50 16 27 47 12 24
 quit
 
 #os2_delrightpillar8
-tempchunk 47 12 27 47 16 27 50 12 24
-tempchunk 50 12 24 50 16 24 47 12 27
+tempchunk 50 12 27 50 16 27 50 12 24
 quit
 
 #os2_swappillar9
