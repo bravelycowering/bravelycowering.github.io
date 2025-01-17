@@ -147,5 +147,5 @@ set below false
 quit
 
 #input
-if runArg1|=|usedevice jump #os3_usedevice
+if runArg1|=|"usedevice" jump #os3_usedevice
 quit
