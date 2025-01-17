@@ -101,5 +101,5 @@ quit
 
 #os3_setup
 gui hotbar false
-cmd hold 0
+cmd hold 0 true
 quit
