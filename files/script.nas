@@ -136,6 +136,7 @@ definehotkey usedevice|Q
 quit
 
 #os3_usedevice
+ifnot device quit
 if below cmd tpp ~ ~1024 ~
 ifnot below cmd tpp ~ ~-1024 ~
 if below jump #os3_usedevice2
@@ -146,5 +147,5 @@ set below false
 quit
 
 #input
-if runArg1|=|usedevice if device jump #os3_usedevice
+if runArg1|=|usedevice jump #os3_usedevice
 quit
