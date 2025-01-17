@@ -138,20 +138,27 @@ definehotkey usedevice|Q
 quit
 
 #os3_usedevice
-// tpp initial
 ifnot device quit
-if below cmd tpp ~ ~1024 ~
-ifnot below cmd tpp ~ ~-1024 ~
-// check if X
-set X {PlayerX}
+// check if X or Z
+set PX {PlayerX}
+set PY {PlayerY}
+set PZ {PlayerZ}
+set X {PX}
 setsub X 1
-setblockid block {X} {PlayerY} {PlayerZ}
-ifnot block|=|0 cmd tpp ~1 ~ ~
+setblockid blockX {X} {PY} {PZ}
+ifnot blockX|=|0 set blockX 1
 // check if Z
-set Z {PlayerZ}
+set Z {PZ}
 setsub Z 1
-setblockid block {PlayerX} {PlayerY} {Z}
-ifnot block|=|0 cmd tpp ~ ~ ~1
+setblockid blockZ {PX} {PY} {Z}
+ifnot blockZ|=|0 set blockZ 1
+// tpp
+if below cmd tpp ~{blockX} ~1024 ~{blockZ}
+ifnot below cmd tpp ~{blockX} ~-1024 ~{blockZ}
+// effect
+if below setadd PY 32
+ifnot below setsub PY 32
+effect explosionsteam {PX} {PY} {PZ} 0 0 0 false
 // invert below
 if below jump #os3_usedevice2
 set below true
