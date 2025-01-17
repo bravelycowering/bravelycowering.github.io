@@ -39,13 +39,9 @@ setrandrange rand 1 2
 if rand|=|1 call #os2_swappillar6
 setrandrange rand 1 2
 if rand|=|1 call #os2_swappillar7
-// randomly delete a pillar
-setrandrange rand 1 3
-if rand|=|1 call #os2_delleftpillar8
-if rand|=|2 call #os2_delrightpillar8
 // randomize last pillar before harder mode
 setrandrange rand 1 2
-if rand|=|1 call #os2_swappillar9
+if rand|=|1 call #os2_swappillar8
 quit
 
 #os2_swappillar1
@@ -98,15 +94,12 @@ tempchunk 47 12 27 47 16 27 50 12 27
 tempchunk 50 12 27 50 16 27 47 12 27
 quit
 
-#os2_delleftpillar8
-tempchunk 50 12 27 50 16 27 47 12 24
-quit
-
-#os2_delrightpillar8
-tempchunk 50 12 27 50 16 27 50 12 24
-quit
-
-#os2_swappillar9
+#os2_swappillar8
 tempchunk 47 12 20 47 16 20 50 12 20
 tempchunk 50 12 20 50 16 20 47 12 20
+quit
+
+#os3_setup
+gui hotbar false
+cmd hold 0
 quit
