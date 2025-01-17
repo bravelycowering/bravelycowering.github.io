@@ -32,6 +32,8 @@ setdeathspawn 59 2 123 0 0
 quit
 
 #os2_setup
+if setup quit
+set setup true
 boost 0 2 0 1 1 1 1000 0
 msg &eWARNING!&c This map REQUIRES smooth lighting and fancy lighting mode to work properly.
 // randomize the first set of pillars
@@ -118,6 +120,31 @@ tempchunk 50 12 20 50 16 20 47 12 20
 quit
 
 #os3_setup
+if setup quit
+set setup true
 gui hotbar false
 cmd hold 0 false
+quit
+
+#os3_givedevice
+tempblock 0 MBX MBY MBZ
+if device quit
+set device true
+set below false
+cmd hold 755 false
+definehotkey usedevice|Q
+quit
+
+#os3_usedevice
+if below cmd tpp ~ ~1024 ~
+ifnot below cmd tpp ~ ~-1024 ~
+if below jump #os3_usedevice2
+set below true
+quit
+#os3_usedevice2
+set below false
+quit
+
+#input
+if runArg1|=|usedevice if device jump #os3_usedevice
 quit
