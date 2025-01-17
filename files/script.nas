@@ -17,10 +17,11 @@ setsplit targetText
 set i 0
 #sayLoop
 set text {text}{targetText[{i}]}
+set length {targetText.Length}
 cpemsg smallannounce &a{speaker}: &f
 setadd i 1
 delay 100
-if i|<|{targetText.Length} jump #sayLoop
+if i|<|length jump #sayLoop
 delay 3000
 cpemsg smallannounce
 quit
