@@ -127,8 +127,10 @@ cmd hold 0 false
 quit
 
 #os3_givedevice
-tempblock 0 {MBX} {MBY} {MBZ}
 if device quit
+tempblock 0 {MBX} {MBY} {MBZ}
+msg &aYou got the Strange Device!
+msg &fPress &aQ&f to use the Strange Device.
 set device true
 set below false
 cmd hold 755 false
