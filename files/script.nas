@@ -8,16 +8,9 @@ gui hotbar true
 gui hand true
 quit
 
-#os2_die
-if hasDied quit
-set hasDied true
+#os2_setspawn
 setspawn 59 2 123 0 0
 setdeathspawn 59 2 123 0 0
-kill @p&7 hit the floor &chard.
-quit
-
-#os2_resetdie
-set hasDied false
 quit
 
 #os2_setup
