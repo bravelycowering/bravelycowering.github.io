@@ -154,7 +154,7 @@ ifnot below cmd reltp 0 -32 0
 effect electric {PX} {PY} {PZ} 0 0 0 true
 if below setadd PY 32
 ifnot below setsub PY 32
-effect explosionsteam {PX} {PY} {PZ} 0 0 0 true
+effect electric {PX} {PY} {PZ} 0 0 0 true
 // invert below
 if below jump #os3_usedevice2
 set below true
