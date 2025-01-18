@@ -174,6 +174,71 @@ quit
 set below false
 quit
 
+#os3_opendoor
+set X {runArg1}
+set Y {runArg2}
+set Z {runArg3}
+setsub Z 1
+
+tempblock {X} {Y} {Z} 0
+setadd Z 1
+tempblock {X} {Y} {Z} 0
+setadd Z 1
+tempblock {X} {Y} {Z} 0
+setsub Z 2
+setadd {Y} 1
+delay 200
+
+tempblock {X} {Y} {Z} 0
+setadd Z 1
+tempblock {X} {Y} {Z} 0
+setadd Z 1
+tempblock {X} {Y} {Z} 0
+setsub Z 2
+setadd {Y} 1
+delay 200
+
+tempblock {X} {Y} {Z} 0
+setadd Z 1
+tempblock {X} {Y} {Z} 0
+setadd Z 1
+tempblock {X} {Y} {Z} 0
+setsub Z 2
+quit
+
+#os3_closedoor
+set X {runArg1}
+set Y {runArg2}
+set Z {runArg3}
+setsub Z 1
+setadd Y 2
+
+tempblock {X} {Y} {Z} 767
+setadd Z 1
+tempblock {X} {Y} {Z} 767
+setadd Z 1
+tempblock {X} {Y} {Z} 767
+setsub Z 2
+setsub {Y} 1
+delay 200
+
+tempblock {X} {Y} {Z} 767
+setadd Z 1
+tempblock {X} {Y} {Z} 767
+setadd Z 1
+tempblock {X} {Y} {Z} 767
+setsub Z 2
+setsub {Y} 1
+delay 200
+
+tempblock {X} {Y} {Z} 767
+setadd Z 1
+tempblock {X} {Y} {Z} 767
+setadd Z 1
+tempblock {X} {Y} {Z} 767
+setsub Z 2
+quit
+
 #os4_setup
 if setup quit
 set times 0
