@@ -143,6 +143,10 @@ quit
 
 #os3_usedevice
 ifnot device quit
+// player coords
+set PX {PlayerX}
+set PY {PlayerY}
+set PZ {PlayerZ}
 // tp
 if below cmd reltp 0 32 0
 ifnot below cmd reltp 0 -32 0
