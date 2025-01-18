@@ -31,7 +31,7 @@ cpemsg smallannounce
 quit
 
 #d
-call #type|Speaker|{runArg2}
+call #type|Speaker|{runArg1}
 delay 3000
 cpemsg smallannounce
 set Y {MBY}
