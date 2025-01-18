@@ -143,22 +143,9 @@ quit
 
 #os3_usedevice
 ifnot device quit
-// check if X or Z
-set PX {PlayerX}
-set PY {PlayerY}
-set PZ {PlayerZ}
-set X {PX}
-setsub X 1
-setblockid blockX {X} {PY} {PZ}
-ifnot blockX|=|0 set blockX 1
-// check if Z
-set Z {PZ}
-setsub Z 1
-setblockid blockZ {PX} {PY} {Z}
-ifnot blockZ|=|0 set blockZ 1
-// tpp
-if below cmd tpp ~{blockX} ~1024 ~{blockZ}
-ifnot below cmd tpp ~{blockX} ~-1024 ~{blockZ}
+// tp
+if below cmd reltp 0 32 0
+ifnot below cmd reltp 0 -32 0
 // effect
 effect electric {PX} {PY} {PZ} 0 0 0 true
 if below setadd PY 32
