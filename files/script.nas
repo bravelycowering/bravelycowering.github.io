@@ -134,11 +134,12 @@ quit
 if device quit
 tempblock 0 {MBX} {MBY} {MBZ}
 msg &aYou got the Strange Device!
-msg &fPress &aQ&f to use the Strange Device.
+msg &fPress &aQ&f or &aE&f to use the Strange Device.
 set device true
 set below false
 cmd hold 755 false
 definehotkey usedevice|Q
+definehotkey usedevice|E
 quit
 
 #os3_usedevice
