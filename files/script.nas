@@ -179,7 +179,6 @@ set X {runArg1}
 set Y {runArg2}
 set Z {runArg3}
 setsub Z 1
-
 tempblock 0 {X} {Y} {Z}
 setadd Z 1
 tempblock 0 {X} {Y} {Z}
@@ -188,7 +187,6 @@ tempblock 0 {X} {Y} {Z}
 setsub Z 2
 setadd {Y} 1
 delay 200
-
 tempblock 0 {X} {Y} {Z}
 setadd Z 1
 tempblock 0 {X} {Y} {Z}
@@ -197,7 +195,6 @@ tempblock 0 {X} {Y} {Z}
 setsub Z 2
 setadd {Y} 1
 delay 200
-
 tempblock 0 {X} {Y} {Z}
 setadd Z 1
 tempblock 0 {X} {Y} {Z}
@@ -212,7 +209,6 @@ set Y {runArg2}
 set Z {runArg3}
 setsub Z 1
 setadd Y 2
-
 tempblock 767 {X} {Y} {Z}
 setadd Z 1
 tempblock 767 {X} {Y} {Z}
@@ -221,7 +217,6 @@ tempblock 767 {X} {Y} {Z}
 setsub Z 2
 setsub {Y} 1
 delay 200
-
 tempblock 767 {X} {Y} {Z}
 setadd Z 1
 tempblock 767 {X} {Y} {Z}
@@ -230,7 +225,6 @@ tempblock 767 {X} {Y} {Z}
 setsub Z 2
 setsub {Y} 1
 delay 200
-
 tempblock 767 {X} {Y} {Z}
 setadd Z 1
 tempblock 767 {X} {Y} {Z}
