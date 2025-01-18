@@ -8,7 +8,7 @@ gui hotbar true
 gui hand true
 quit
 
-#say
+#type
 set speaker {runArg1}
 set targetText {runArg2}
 set text
@@ -22,6 +22,10 @@ cpemsg smallannounce &a{speaker}: &f{text}
 setadd i 1
 delay 50
 if i|<|length jump #sayLoop
+quit
+
+#say
+call #type|{runArg1}|{runArg2}
 delay 3000
 cpemsg smallannounce
 quit
@@ -170,15 +174,29 @@ quit
 
 #os4_setup
 if setup quit
+set times 0
 set setup true
 call #hidegui
 freeze
 call #say|&[ave|Hello!_Welcome_to_my_map.
 call #say|&[ave|A_lot_of_people_have_complained_recently...
 call #say|&[ave|that_the_maps_that_I_make_are_too_hard...
-call #say|&[ave|Well, that changes today!
+call #say|&[ave|Well,_that_changes_today!
 unfreeze
-call #say|&[ave|All you have to do is walk forward.
+call #say|&[ave|All_you_have_to_do_is_walk_forward.
+quit
+
+#os4_starthallway
+call #say|&[ave|And_now,_you_see_that_room_at_the_end?
+call #say|&[ave|Walk_all_the_way_over_there.
+quit
+
+#os4_endhallway
+call #type|&[ave|And_that's_it!_You_win!
+delay 500
+cpemsg bigannounce &aYOU WIN!
+delay 2000
+call #say|&[ave|I knew you had it in you.
 quit
 
 #input
