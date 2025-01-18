@@ -30,6 +30,16 @@ delay 3000
 cpemsg smallannounce
 quit
 
+#d
+call #type|Speaker|{runArg2}
+delay 3000
+cpemsg smallannounce
+set Y {MBY}
+setadd Y 1
+setblockid block {MBX} {Y} {MBZ}
+if block|=|36 cmd m {MBX} {Y} {MBZ}
+quit
+
 #os2_setspawn
 // setspawn 59 2 123 0 0
 setdeathspawn 59 2 123 0 0
