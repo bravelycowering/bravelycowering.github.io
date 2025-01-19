@@ -239,26 +239,56 @@ tempblock 767 {X} {Y} {Z}
 setsub Z 2
 quit
 
+#os3_carver
+if carver jump #os3_carver2
+set carver true
+clickevent sync register #os3_click
+quit
+#os3_carver2
+set carver false
+clickevent sync unregister
+quit
+
+#os3_click
+if click.button|=|"Left" call #os3_carve
+if click.button|=|"Right" call #os3_paint
+quit
+
+#os3_carve
+msg {click.coords}
+quit
+
 #os3_c1
 if c1 quit
-set c1 true
 call #os3_closedoor|67|38|64
 call #say|Speaker|explains the plot
 call #say|Speaker|wants me dead wants me to rot
 call #os3_opendoor|75|38|64
 call #say|Speaker|First, to make sure you are in good physical condition...
 call #say|Speaker|Please complete the following parkour to move to the next room.
+set c1 true
 quit
 
 #os3_c2
 if c2 quit
-set c2 true
 call #type|Speaker|Great job!
 delay 1250
 call #say|Speaker|These messages are prerecorded, so I cannot actually see you.
 call #say|Speaker|If you did not do a great job, please ignore my last statement.
 call #os3_opendoor|92|40|64
 call #say|Speaker|Please walk to the next room.
+set c2 true
+quit
+
+#os3_c3
+if c3 quit
+call #say|Speaker|something something time travel is possible
+call #say|Speaker|Yup, that's right. It's now possible to skip ahead in time.
+call #os3_opendoor|112|45|64
+set c3 true
+call #say|Speaker|In front of you, you should see a computer terminal.
+call #say|Speaker|Go ahead and punch it to time travel.
+call #say|Speaker|Yup, just punch it full force. We made sure it could take it.
 quit
 
 #os4_setup
