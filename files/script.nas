@@ -38,6 +38,7 @@ quit
 #os2_setup
 if setup quit
 set setup true
+call #hidegui
 boost 0 2 0 1 1 1 1000 0
 msg &eWARNING!&c This map REQUIRES smooth lighting and fancy lighting mode to work properly.
 reach 0
@@ -151,6 +152,7 @@ delay 500
 gui barcolor 000000 0.9
 delay 500
 gui barcolor 000000 1
+gui crosshair false
 delay 3000
 cpemsg smallannounce You win
 delay 5000
