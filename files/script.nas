@@ -260,7 +260,7 @@ quit
 set coords {click.coords}
 setsplit coords " "
 placeblock 0 {click.coords}
-setsub coords[2] 32
+setsub coords[1] 32
 placeblock 0 {coords[0]} {coords[1]} {coords[2]}
 quit
 
@@ -268,7 +268,7 @@ quit
 set coords {click.coords}
 setsplit coords " "
 placeblock 238 {click.coords}
-setsub coords[2] 32
+setsub coords[1] 32
 placeblock 42 {coords[0]} {coords[1]} {coords[2]}
 quit
 
