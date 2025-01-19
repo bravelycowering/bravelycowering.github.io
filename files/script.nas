@@ -156,6 +156,7 @@ effect electric {PX} {PY} {PZ} 0 0 0 true
 if below setadd PY 32
 ifnot below setsub PY 32
 effect electric {PX} {PY} {PZ} 0 0 0 false
+call #os3_useteleport
 quit
 
 #os3_useteleport
