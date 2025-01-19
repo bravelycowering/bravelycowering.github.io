@@ -132,25 +132,12 @@ set canend true
 delay 5000
 gui barcolor 000000 0
 gui barsize 1
-delay 500
-gui barcolor 000000 0.1
-delay 500
-gui barcolor 000000 0.2
-delay 500
-gui barcolor 000000 0.3
-delay 500
-gui barcolor 000000 0.4
-delay 500
-gui barcolor 000000 0.5
-delay 500
-gui barcolor 000000 0.6
-delay 500
-gui barcolor 000000 0.7
-delay 500
-gui barcolor 000000 0.8
-delay 500
-gui barcolor 000000 0.9
-delay 500
+set i 0
+#os2_loop1
+setadd i 0.01
+gui barcolor 000000 {i}
+delay 50
+if i|<|1 jump #os2_loop1
 gui barcolor 000000 1
 gui crosshair false
 cmd tp 122 12 75
