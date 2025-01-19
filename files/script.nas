@@ -242,11 +242,9 @@ quit
 #os3_c1
 if c1 quit
 set c1 true
-freeze
 call #os3_closedoor|67|38|64
 call #say|Speaker|explains the plot
 call #say|Speaker|wants me dead wants me to rot
-unfreeze
 call #os3_opendoor|75|38|64
 call #say|Speaker|First, to make sure you are in good physical condition...
 call #say|Speaker|Please complete the following parkour to move to the next room.
@@ -259,7 +257,6 @@ call #type|Speaker|Great job!
 delay 1250
 call #say|Speaker|These messages are prerecorded, so I cannot actually see you.
 call #say|Speaker|If you did not do a great job, please ignore my last statement.
-unfreeze
 call #os3_opendoor|92|40|64
 call #say|Speaker|Please walk to the next room.
 quit
