@@ -36,6 +36,7 @@ setdeathspawn 59 2 123 0 0
 quit
 
 #os2_setup
+reach 0
 if setup quit
 set setup true
 boost 0 2 0 1 1 1 1000 0
