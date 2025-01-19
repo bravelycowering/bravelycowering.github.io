@@ -129,6 +129,7 @@ quit
 if canend quit
 cmd reltp -18 0 -1
 set canend true
+gui crosshair false
 delay 7500
 gui barcolor 000000 0
 gui barsize 1
@@ -139,7 +140,6 @@ gui barcolor 000000 {i}
 delay 50
 if i|<|1 jump #os2_loop1
 gui barcolor 000000 1
-gui crosshair false
 cmd tp 122 12 75
 delay 3000
 cpemsg smallannounce You win
