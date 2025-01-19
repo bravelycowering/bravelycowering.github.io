@@ -241,10 +241,12 @@ quit
 
 #os3_carver
 if carver jump #os3_carver2
+msg &fCarver: &aEnabled
 set carver true
 clickevent sync register #os3_click
 quit
 #os3_carver2
+msg &fCarver: &cDisabled
 set carver false
 clickevent sync unregister
 quit
