@@ -123,6 +123,12 @@ tempchunk 47 12 20 47 16 20 50 12 20
 tempchunk 50 12 20 50 16 20 47 12 20
 quit
 
+#os2_startend
+if canend quit
+cmd reltp -18 0 -1
+set canend true
+quit
+
 #os3_setup
 if setup quit
 reach 4
