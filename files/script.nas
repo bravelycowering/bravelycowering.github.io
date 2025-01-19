@@ -36,11 +36,11 @@ setdeathspawn 59 2 123 0 0
 quit
 
 #os2_setup
-reach 0
 if setup quit
 set setup true
 boost 0 2 0 1 1 1 1000 0
 msg &eWARNING!&c This map REQUIRES smooth lighting and fancy lighting mode to work properly.
+reach 0
 // randomize the first set of pillars
 setrandrange rand 1 2
 if rand|=|1 call #os2_swappillar1
