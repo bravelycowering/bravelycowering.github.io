@@ -18,7 +18,7 @@ set i 0
 #sayLoop
 set text {text}{targetText[{i}]}
 set length {targetText.Length}
-cpemsg smallannounce &a{speaker}: &f{text}
+cpemsg smallannounce {text}
 setadd i 1
 delay 50
 if i|<|length jump #sayLoop
@@ -125,7 +125,7 @@ quit
 
 #os3_setup
 if setup quit
-reach 5
+reach 4
 set setup true
 gui hotbar false
 cmd hold 0 false
@@ -230,6 +230,7 @@ freeze
 call #os3_closedoor|67|38|64
 call #say|Speaker|something something welcome to this facility
 call #say|Speaker|blah blah portal type sentence
+unfreeze
 call #os3_opendoor|75|38|64
 call #say|Speaker|First, to make sure you are in good physical condition...
 call #say|Speaker|Please complete the following parkour.
