@@ -255,7 +255,19 @@ if click.button|=|"Right" call #os3_paint
 quit
 
 #os3_carve
-msg {click.coords}
+set coords {click.coords}
+setsplit coords " "
+placeblock 0 {click.coords}
+setsub coords[2] 32
+placeblock 0 {coords[0]} {coords[1]} {coords[2]}
+quit
+
+#os3_paint
+set coords {click.coords}
+setsplit coords " "
+placeblock 238 {click.coords}
+setsub coords[2] 32
+placeblock 42 {coords[0]} {coords[1]} {coords[2]}
 quit
 
 #os3_c1
