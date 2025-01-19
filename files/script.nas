@@ -153,11 +153,12 @@ gui barcolor 000000 0.9
 delay 500
 gui barcolor 000000 1
 gui crosshair false
+cmd tp 122 12 75
 delay 3000
 cpemsg smallannounce You win
 delay 5000
 cpemsg smallannounce Map by bravelycowering (ave)
-delay 3000
+delay 10000
 cmd main
 quit
 
