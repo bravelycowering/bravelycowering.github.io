@@ -33,12 +33,13 @@ quit
 #os2_setspawn
 // setspawn 59 2 123 0 0
 setdeathspawn 59 2 123 0 0
+gui hand false
 quit
 
 #os2_setup
 if setup quit
 set setup true
-call #hidegui
+gui hotbar false
 boost 0 2 0 1 1 1 1000 0
 msg &eWARNING!&c This map REQUIRES smooth lighting and fancy lighting mode to work properly.
 reach 0
