@@ -259,7 +259,8 @@ quit
 #os3_carve
 set coords {click.coords}
 setsplit coords " "
-placeblock 0 {click.coords}
+if below setadd coords[1] 32
+placeblock 0 {coords[0]} {coords[1]} {coords[2]}
 setsub coords[1] 32
 placeblock 0 {coords[0]} {coords[1]} {coords[2]}
 quit
@@ -267,7 +268,8 @@ quit
 #os3_paint
 set coords {click.coords}
 setsplit coords " "
-placeblock 238 {click.coords}
+if below setadd coords[1] 32
+placeblock 238 {coords[0]} {coords[1]} {coords[2]}
 setsub coords[1] 32
 placeblock 42 {coords[0]} {coords[1]} {coords[2]}
 quit
