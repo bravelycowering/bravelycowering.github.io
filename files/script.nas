@@ -30,16 +30,6 @@ delay 3000
 cpemsg smallannounce
 quit
 
-#d
-call #type|Speaker|{runArg1}
-delay 3000
-cpemsg smallannounce
-set Y {MBY}
-setadd Y 1
-setblockid block {MBX} {Y} {MBZ}
-if block|=|36 cmd m {MBX} {Y} {MBZ}
-quit
-
 #os2_setspawn
 // setspawn 59 2 123 0 0
 setdeathspawn 59 2 123 0 0
@@ -135,6 +125,7 @@ quit
 
 #os3_setup
 if setup quit
+reach 5
 set setup true
 gui hotbar false
 cmd hold 0 false
@@ -231,6 +222,17 @@ tempblock 767 {X} {Y} {Z}
 setadd Z 1
 tempblock 767 {X} {Y} {Z}
 setsub Z 2
+quit
+
+#os3_c1
+if c1 quit
+freeze
+call #os3_closedoor|67|38|64
+call #say|Speaker|something something welcome to this facility
+call #say|Speaker|blah blah portal type sentence
+call #os3_opendoor|75|38|64
+call #say|Speaker|First, to make sure you are in good physical condition...
+call #say|Speaker|Please complete the following parkour.
 quit
 
 #os4_setup
