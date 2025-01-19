@@ -128,6 +128,34 @@ quit
 if canend quit
 cmd reltp -18 0 -1
 set canend true
+gui barcolor 000000 0
+gui barsize 1
+delay 500
+gui barcolor 000000 0.1
+delay 500
+gui barcolor 000000 0.2
+delay 500
+gui barcolor 000000 0.3
+delay 500
+gui barcolor 000000 0.4
+delay 500
+gui barcolor 000000 0.5
+delay 500
+gui barcolor 000000 0.6
+delay 500
+gui barcolor 000000 0.7
+delay 500
+gui barcolor 000000 0.8
+delay 500
+gui barcolor 000000 0.9
+delay 500
+gui barcolor 000000 1
+delay 3000
+cpemsg smallannounce You win
+delay 5000
+cpemsg smallannounce Map by bravelycowering (ave)
+delay 3000
+cmd main
 quit
 
 #os3_setup
