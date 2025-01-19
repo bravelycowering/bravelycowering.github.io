@@ -145,6 +145,20 @@ quit
 
 #os3_usedevice
 ifnot device quit
+call #os3_useteleport
+quit
+
+#os3_walldevice
+set PX {MBX}
+set PY {MBY}
+set PZ {MBZ}
+effect electric {PX} {PY} {PZ} 0 0 0 true
+if below setadd PY 32
+ifnot below setsub PY 32
+effect electric {PX} {PY} {PZ} 0 0 0 false
+quit
+
+#os3_useteleport
 // player coords
 set PX {PlayerX}
 set PY {PlayerY}
@@ -158,10 +172,10 @@ if below setadd PY 32
 ifnot below setsub PY 32
 effect electric {PX} {PY} {PZ} 0 0 0 true
 // invert below
-if below jump #os3_usedevice2
+if below jump #os3_useteleport2
 set below true
 quit
-#os3_usedevice2
+#os3_useteleport2
 set below false
 quit
 
