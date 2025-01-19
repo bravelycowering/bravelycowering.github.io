@@ -129,7 +129,7 @@ quit
 if canend quit
 cmd reltp -18 0 -1
 set canend true
-delay 5000
+delay 7500
 gui barcolor 000000 0
 gui barsize 1
 set i 0
