@@ -30,8 +30,8 @@ if id|=|760 jump #BP-E
 if id|=|761 jump #BP-W
 if id|=|762 jump #BP-U
 if id|=|763 jump #BP-D
-// // Passthroughs
-// if id|=|756 jump #passthrough
+// Passthroughs
+if id|=|756 jump #passthrough
 // Swappers
 if id|=|755 jump #BS-UD
 if id|=|754 jump #BS-NS
