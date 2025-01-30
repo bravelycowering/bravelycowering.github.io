@@ -70,6 +70,7 @@ quit
 setblockid id {X} {Y} {Z}
 if id|=|27 placeblock 32 {X} {Y} {Z}
 if id|=|32 placeblock 27 {X} {Y} {Z}
+msg GIZMO ACTIVATED
 quit
 
 #box
