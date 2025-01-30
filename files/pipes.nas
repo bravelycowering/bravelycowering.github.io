@@ -124,7 +124,6 @@ quit
 		// loop through all and do boxes
 		set Pipes.temp 0
 		#Pipes:delayloop
-		msg delayloop
 			if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
 			setadd Pipes.temp 1
 			set X {Pipes.delay{Pipes.tick}[{Pipes.temp}].X}
@@ -138,10 +137,10 @@ quit
 	jump #Pipes:doalllines
 	// cleanup
 	#Pipes:cleanup
-	resetdata packages Pipes.delay*
-	resetdata packages Pipes.line*
-	resetdata packages Pipes.gizmo*
-	resetdata packages Pipes.box*
+	// resetdata packages Pipes.delay*
+	// resetdata packages Pipes.line*
+	// resetdata packages Pipes.gizmo*
+	// resetdata packages Pipes.box*
 	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s) and {actionCount} actions.
 	set Pipes.threads 0
 	set Pipes.inprogress false
