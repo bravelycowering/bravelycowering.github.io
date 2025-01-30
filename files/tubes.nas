@@ -20,6 +20,7 @@ quit
 
 #pipe-aY
 set box_lastdir{b} aY
+set lastdir aY
 setadd Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-aY
@@ -29,6 +30,7 @@ quit
 
 #pipe-sY
 set box_lastdir{b} sY
+set lastdir sY
 setsub Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-sY
@@ -38,6 +40,7 @@ quit
 
 #pipe-aX
 set box_lastdir{b} aX
+set lastdir aX
 setadd X 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-aX
@@ -47,6 +50,7 @@ quit
 
 #pipe-sX
 set box_lastdir{b} sX
+set lastdir sX
 setsub X 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-sX
@@ -56,6 +60,7 @@ quit
 
 #pipe-aZ
 set box_lastdir{b} aZ
+set lastdir aZ
 setadd Z 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-aZ
@@ -65,6 +70,7 @@ quit
 
 #pipe-sZ
 set box_lastdir{b} sZ
+set lastdir sZ
 setsub Z 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-sZ
