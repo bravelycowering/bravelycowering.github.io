@@ -5,6 +5,11 @@ using allow_include
 	msg &fRunning Pipes &a2.2.6
 quit
 
+#Pipes:debug
+// (no arguments)
+	ifnot Pipes.isdebug msg &cDebug mode is disabled
+quit
+
 // runs the pipestone at the message block
 #Pipes:messageblock
 // (message block) (no arguments)
@@ -106,8 +111,6 @@ quit
 		// and call gizmo if its not been called yet
 		if Pipes.gizmo{X},{Y},{Z} jump #Pipes:skip
 		set Pipes.gizmo{X},{Y},{Z} true
-		if label #Pipes:gizmo call #Pipes:gizmo
-		if label #Pipes:gizmo jump #Pipes:skip
 		if label #Pipes:gizmo[{id}] call #Pipes:gizmo[{id}]
 		#Pipes:skip
 		if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
