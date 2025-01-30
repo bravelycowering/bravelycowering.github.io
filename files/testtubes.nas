@@ -26,7 +26,12 @@ if id|=|760 jump #BP-E
 if id|=|761 jump #BP-W
 if id|=|762 jump #BP-U
 if id|=|763 jump #BP-D
+// Passthroughs
 if id|=|756 jump #passthrough
+// Swappers
+if id|=|755 jump #BS-UD
+if id|=|754 jump #BS-NS
+if id|=|753 jump #BS-WE
 quit
 
 #passthrough
@@ -85,4 +90,43 @@ setsub TEMP 1
 setblockid tempid {X} {TEMP} {Z}
 if tempid|=|0 placeblock 238 {X} {TEMP} {Z}
 if tempid|=|238 placeblock 0 {X} {TEMP} {Z}
+quit
+
+#BS-UD
+if lastdir|=|"aY" quit
+if lastdir|=|"sY" quit
+set TEMP1 {Y}
+setadd TEMP1 1
+setblockid tempid1 {X} {TEMP1} {Z}
+set TEMP2 {Y}
+setsub TEMP2 1
+setblockid tempid2 {X} {TEMP2} {Z}
+placeblock {tempid1} {X} {TEMP2} {Z}
+placeblock {tempid2} {X} {TEMP1} {Z}
+quit
+
+#BS-NS
+if lastdir|=|"aZ" quit
+if lastdir|=|"sZ" quit
+set TEMP1 {Z}
+setadd TEMP1 1
+setblockid tempid1 {X} {Y} {TEMP1}
+set TEMP2 {Z}
+setsub TEMP2 1
+setblockid tempid2 {X} {Y} {TEMP2}
+placeblock {tempid1} {X} {Y} {TEMP2}
+placeblock {tempid2} {X} {Y} {TEMP1}
+quit
+
+#BS-WE
+if lastdir|=|"aX" quit
+if lastdir|=|"sX" quit
+set TEMP1 {X}
+setadd TEMP1 1
+setblockid tempid1 {TEMP1} {Y} {Z}
+set TEMP2 {X}
+setsub TEMP2 1
+setblockid tempid2 {TEMP2} {Y} {Z}
+placeblock {tempid1} {TEMP2} {Y} {Z}
+placeblock {tempid2} {TEMP1} {Y} {Z}
 quit
