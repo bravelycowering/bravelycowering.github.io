@@ -30,7 +30,6 @@ if type|=|766 tempblock 765 {MBCoords}
 call #box
 resetdata packages box_*
 setblockid type {MBCoords}
-delay 1000
 if type|=|766 tempblock 766 {MBCoords}
 allowmbrepeat
 quit
