@@ -2,7 +2,6 @@ using allow_include
 
 // runs the pipestone at the message block
 #Pipes.messageblock
-msg #Pipes.messageblock
 // (message block) (no arguments)
 	allowmbrepeat
 	set line 0
@@ -20,9 +19,8 @@ quit
 
 // keep in mind, lines are 1-indexed
 #pushline
-msg #pushline
 // X, Y, Z, Direction
-	setadd lines 1
+	ifnot line{lines}.ceased setadd lines 1
 	set line{lines}.X {runArg1}
 	set line{lines}.Y {runArg2}
 	set line{lines}.Z {runArg3}
@@ -32,13 +30,11 @@ msg #pushline
 quit
 
 #doalllines
-msg #doalllines
 // (no arguments)
 	set inprogress true
 	set line 0
 	set validlines false
 	#lineloop
-	msg #lineloop
 	// (no arguments)
 		setadd line 1
 		if line{line}.ceased jump #skip
@@ -62,68 +58,60 @@ msg #doalllines
 		set temp:gizmo{X},{Y},{Z} true
 		if label #Pipes.gizmo call #Pipes.gizmo
 		#skip
-		msg #skip
 		if line|<=|lines jump #lineloop
 	if validlines jump #doalllines
 	resetdata packages
 quit
 
 #pipe:X+
-msg #pipe:X+
 // (no arguments)
 	setadd line{line}.X 1
 	set line{line}.dir X+
-	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
+	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
 #pipe:X-
-msg #pipe:X-
 // (no arguments)
 	setsub line{line}.X 1
 	set line{line}.dir X-
-	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
+	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
 #pipe:Y+
-msg #pipe:Y+
 // (no arguments)
 	setadd line{line}.Y 1
 	set line{line}.dir Y+
-	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
+	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
 #pipe:Y-
-msg #pipe:Y-
 // (no arguments)
 	setsub line{line}.Y 1
 	set line{line}.dir Y-
-	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
+	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
 #pipe:Z+
-msg #pipe:Z+
 // (no arguments)
 	setadd line{line}.Z 1
 	set line{line}.dir Z+
-	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
+	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
 #pipe:Z-
-msg #pipe:Z-
 // (no arguments)
 	setsub line{line}.Z 1
 	set line{line}.dir Z-
-	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
+	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
 #box
-msg #box
 // (no arguments)
 	// set generic packages
 	set X {line{line}.X}
@@ -137,7 +125,6 @@ msg #box
 quit
 
 #softbox
-msg #softbox
 // (no arguments)
 	if temp:box{X},{Y},{Z} quit
 	set temp:box{X},{Y},{Z} true
