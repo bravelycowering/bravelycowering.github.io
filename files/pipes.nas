@@ -147,6 +147,7 @@ quit
 	if Pipes.threads|>=|10 jump #Pipes:cleanup
 	if Pipes.threads|=|0 msg &eWarning: actions exceeded 50k ({actionCount}), using threads to complete...
 	setadd Pipes.threads 1
+	msg &bCreating thread #{Pipes.threads} with {actionCount} actions
 	newthread {runArg1}
 terminate
 
