@@ -1,9 +1,11 @@
 #setchar
-ifnot ascii.char[{{runArg1}}]|=|"" set {runArg1} ascii.char[{{runArg1}}]
+if ascii.char[{{runArg1}}]|=|"" error invalid char {{runArg1}}
+set {runArg1} {ascii.char[{{runArg1}}]}
 quit
 
 #setbyte
-ifnot ascii.byte[{{runArg1}}]|=|"" set {runArg1} ascii.byte[{{runArg1}}]
+if ascii.byte[{{runArg1}}]|=|"" error invalid char {{runArg1}}
+set {runArg1} {ascii.byte[{{runArg1}}]}
 quit
 
 #chardict
