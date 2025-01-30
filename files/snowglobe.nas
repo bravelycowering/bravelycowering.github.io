@@ -115,10 +115,6 @@ quit
 #update[6]
 quit
 
-// sapling
-#update[6]
-quit
-
 // log
 #update[17]
 quit
