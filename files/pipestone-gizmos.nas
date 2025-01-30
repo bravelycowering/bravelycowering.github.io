@@ -19,23 +19,23 @@ if id|=|215 placeblock 765 {X} {Y} {Z}
 // Lamps
 if id|=|764 placeblock 62 {X} {Y} {Z}
 if id|=|62 placeblock 764 {X} {Y} {Z}
-// // Message Blocks
-// if id|=|36 cmd m {X} {Y} {Z}
-// // Signs
-// if id|=|171 cmd m {X} {Y} {Z}
-// // Block dispensors
-// if id|=|758 jump #BP-N
-// if id|=|759 jump #BP-S
-// if id|=|760 jump #BP-E
-// if id|=|761 jump #BP-W
-// if id|=|762 jump #BP-U
-// if id|=|763 jump #BP-D
+// Message Blocks
+if id|=|36 cmd m {X} {Y} {Z}
+// Signs
+if id|=|171 cmd m {X} {Y} {Z}
+// Block dispensors
+if id|=|758 jump #BP-N
+if id|=|759 jump #BP-S
+if id|=|760 jump #BP-E
+if id|=|761 jump #BP-W
+if id|=|762 jump #BP-U
+if id|=|763 jump #BP-D
 // // Passthroughs
 // if id|=|756 jump #passthrough
-// // Swappers
-// if id|=|755 jump #BS-UD
-// if id|=|754 jump #BS-NS
-// if id|=|753 jump #BS-WE
+// Swappers
+if id|=|755 jump #BS-UD
+if id|=|754 jump #BS-NS
+if id|=|753 jump #BS-WE
 quit
 
 #passthrough
