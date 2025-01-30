@@ -9,6 +9,7 @@ if id|=|766 setsub Y 1
 quit
 
 #gizmo
+delay 500
 // LEDS
 if id|=|765 placeblock 215 {X} {Y} {Z}
 if id|=|215 placeblock 765 {X} {Y} {Z}
