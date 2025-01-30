@@ -1,5 +1,12 @@
 #onJoin
+	replysilent 1|Boot|#setup
+quit
+
+#setup
+	motd model=invisible -hax +speed +fly +respawn
+	reach 0
 	cpemsg announce Setting up... This may lag for a minute.
+	freeze
 	// default packages
 	set {} {} {}
 	// hide the mb
@@ -12,7 +19,16 @@
 	tempchunk 0 0 32 127 127 63 0 0 0
 	// create the screen
 	tempchunk 0 0 0 127 127 0 0 0 0
+	unfreeze
 quit
+
+#fill
+// X Y color
+
+quit
+
+#copychar
+// X Y
 
 #resume
 jump {resume}
