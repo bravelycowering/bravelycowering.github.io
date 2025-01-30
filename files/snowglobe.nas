@@ -16,7 +16,6 @@ quit
 		#X-loop
 			set gY {minY}
 			#Y-loop
-				if {actionCount}|>|60000 jump #failsafe
 				setblockid gid {gX} {gY} {gZ}
 				ifnot label #update[{gid}] placeblock 0 {X} {Y} {Z}
 				if label #update[{gid}] call #updateblock
@@ -67,6 +66,17 @@ quit
 
 // stone
 #update[1]
+	setsub Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #changeblock
+quit
+
+// water
+#update[9]
+	setrandrange DX -1 1
+	setrandrange DZ -1 1
+	setadd X {DX}
+	setadd Z {DZ}
 	setsub Y 1
 	setblockid id {X} {Y} {Z}
 	if id|=|0 jump #changeblock
