@@ -30,6 +30,7 @@ if id|=|756 jump #passthrough
 quit
 
 #passthrough
+set box_giz_{X}_{Y}_{Z}
 if lastdir|=|"aX" jump #pipe-aX
 if lastdir|=|"sX" jump #pipe-sX
 if lastdir|=|"aY" jump #pipe-aY
