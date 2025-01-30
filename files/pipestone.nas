@@ -86,8 +86,9 @@ quit
 quit
 
 #Pipes:failsafe
-msg &cWarning: actions exceeded 50k, moving to a new thread.
-newthread #Pipes:lineloop
+// (no arguments)
+	msg &cWarning: actions exceeded 50k, moving to a new thread.
+	newthread #Pipes:lineloop
 quit
 
 #Pipes:X+
