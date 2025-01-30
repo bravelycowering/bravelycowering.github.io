@@ -53,7 +53,7 @@ quit
 if debug msg PIPE +X AT {X} {Y} {Z}
 setadd X 1
 setblockid id {X} {Y} {Z}
-if id|=|552 jump #pipe-aX
+if id|=|551 jump #pipe-aX
 if id|=|238 jump #box
 jump #gizmo
 quit
@@ -62,7 +62,7 @@ quit
 if debug msg PIPE -X AT {X} {Y} {Z}
 setsub X 1
 setblockid id {X} {Y} {Z}
-if id|=|552 jump #pipe-sX
+if id|=|551 jump #pipe-sX
 if id|=|238 jump #box
 jump #gizmo
 quit
@@ -71,7 +71,7 @@ quit
 if debug msg PIPE +Z AT {X} {Y} {Z}
 setadd Z 1
 setblockid id {X} {Y} {Z}
-if id|=|551 jump #pipe-aZ
+if id|=|552 jump #pipe-aZ
 if id|=|238 jump #box
 jump #gizmo
 quit
@@ -80,7 +80,7 @@ quit
 if debug msg PIPE -Z AT {X} {Y} {Z}
 setsub Z 1
 setblockid id {X} {Y} {Z}
-if id|=|551 jump #pipe-sZ
+if id|=|552 jump #pipe-sZ
 if id|=|238 jump #box
 jump #gizmo
 quit
@@ -108,7 +108,7 @@ set box_{b}_Z {Z}
 setadd X 1
 setblockid id {X} {Y} {Z}
 setadd b 1
-if id|=|552 call #pipe-aX
+if id|=|551 call #pipe-aX
 setsub b 1
 //
 // check sub X
@@ -118,7 +118,7 @@ set Z {box_{b}_Z}
 setsub X 1
 setblockid id {X} {Y} {Z}
 setadd b 1
-if id|=|552 call #pipe-sX
+if id|=|551 call #pipe-sX
 setsub b 1
 //
 // check add Y
@@ -148,7 +148,7 @@ set Z {box_{b}_Z}
 setadd Y 1
 setblockid id {X} {Y} {Z}
 setadd b 1
-if id|=|551 call #pipe-aZ
+if id|=|552 call #pipe-aZ
 setsub b 1
 //
 // check sub Z
@@ -158,6 +158,6 @@ set Z {box_{b}_Z}
 setsub Y 1
 setblockid id {X} {Y} {Z}
 setadd b 1
-if id|=|551 call #pipe-sZ
+if id|=|552 call #pipe-sZ
 setsub b 1
 quit
