@@ -60,7 +60,7 @@ if tempid|=|0 placeblock 757 {X} {Y} {TEMP}
 if tempid|=|757 placeblock 0 {X} {Y} {TEMP}
 quit
 
-#BP-U
+#BP-D
 set TEMP {Y}
 setadd TEMP 1
 set tempid {X} {TEMP} {Z}
@@ -68,7 +68,7 @@ if tempid|=|0 placeblock 757 {X} {TEMP} {Z}
 if tempid|=|757 placeblock 0 {X} {TEMP} {Z}
 quit
 
-#BP-D
+#BP-U
 set TEMP {Y}
 setsub TEMP 1
 set tempid {X} {TEMP} {Z}
