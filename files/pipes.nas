@@ -131,13 +131,16 @@ quit
 			set Z {Pipes.delay{Pipes.tick}[{Pipes.temp}].Z}
 			set dir {Pipes.delay{Pipes.tick}[{Pipes.temp}].dir}
 			call #Pipes:softbox
-			// oh god did i cause a memory leak??????
-			resetdata packages Pipes.delay{Pipes.tick}*
 		if Pipes.temp|<|Pipes.delay{Pipes.tick}.length jump #Pipes:delayloop
+		// oh god did i cause a memory leak??????
+		resetdata packages Pipes.delay{Pipes.tick}*
 	jump #Pipes:doalllines
 	// cleanup
 	#Pipes:cleanup
 	resetdata packages Pipes.delay*
+	resetdata packages Pipes.line*
+	resetdata packages Pipes.gizmo*
+	resetdata packages Pipes.box*
 	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s) and {actionCount} actions.
 	set Pipes.threads 0
 	set Pipes.inprogress false
@@ -210,10 +213,11 @@ terminate
 	set X {Pipes.line{Pipes.index}.X}
 	set Y {Pipes.line{Pipes.index}.Y}
 	set Z {Pipes.line{Pipes.index}.Z}
-	set dir {Pipes.line{Pipes.index}.dir}
 	// prevent the same delay from being queued twice in the same tick
 	if Pipes.boxdelay{X},{Y},{Z} quit
 	set Pipes.boxdelay{X},{Y},{Z} true
+	// set dir
+	set dir {Pipes.line{Pipes.index}.dir}
 	// schedule the delay for the runarg
 	call #Pipes:schedulebox|{runArg1}
 	// cease the line
