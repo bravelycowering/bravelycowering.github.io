@@ -41,6 +41,7 @@ quit
 
 #Pipes:gizmo
 	call #getblock|{X}|{Y}|{Z}
+	msg {id}
 	if label #Pipes:gizmo[{id}] call #Pipes:gizmo[{id}]
 quit
 
