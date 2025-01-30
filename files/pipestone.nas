@@ -34,17 +34,16 @@ quit
 	set line 0
 	set validlines false
 	#lineloop
-msg #lineloop
 	// (no arguments)
 		setadd line 1
 		if line{line}.ceased jump #lineloop
 		set validlines true
 		// if pipes move in pipe direction
-		if line{line}.id|==|550 jump #pipe:{line{line}.dir}
-		if line{line}.id|==|551 jump #pipe:{line{line}.dir}
-		if line{line}.id|==|552 jump #pipe:{line{line}.dir}
+		if line{line}.id|=|550 jump #pipe:{line{line}.dir}
+		if line{line}.id|=|551 jump #pipe:{line{line}.dir}
+		if line{line}.id|=|552 jump #pipe:{line{line}.dir}
 		// if box then do box
-		if line{line}.id|==|238 jump #box
+		if line{line}.id|=|238 jump #box
 		// not a box or a pipe so set packages
 		set X {line{line}.X}
 		set Y {line{line}.Y}
@@ -58,7 +57,6 @@ msg #lineloop
 		set temp:gizmo{X},{Y},{Z} true
 		if label #Pipes.gizmo call #Pipes.gizmo
 		#skip
-msg #skip
 		if line|<=|lines jump #lineloop
 	if validlines jump #doalllines
 	resetdata packages
