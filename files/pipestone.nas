@@ -121,6 +121,7 @@ jump #doalllines
 	set id {line{line}.id}
 	// cease the line
 	set line{line}.ceased true
+	msg BOX AT {X} {Y} {Z}
 	jump #softbox
 quit
 
