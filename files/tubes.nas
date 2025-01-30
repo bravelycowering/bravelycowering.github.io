@@ -91,6 +91,7 @@ jump #gizmo
 quit
 
 #gizmo
+if debug msg GIZMO AT {X} {Y} {Z}
 setblockid id {X} {Y} {Z}
 if id|=|764 placeblock 62 {X} {Y} {Z}
 if id|=|62 placeblock 764 {X} {Y} {Z}
