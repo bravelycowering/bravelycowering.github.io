@@ -1,251 +1,171 @@
-using allow_include
+// Pipestone
+include os/bravelycowering+
 
-#Pipes:version
-// (no arguments)
-	msg &fRunning Pipes &a2.1
+// Print version number
+#onJoin
+jump #Pipes:version
+
+// Prevent every map ever from breaking
+#run
+jump #Pipes:messageblock
+
+// White
+#Pipes:prerun[36]
+	if id|=|36 msg &cWhite cannot be used as a switch
+	if id|=|36 jump #Pipes:terminate
 quit
 
-// runs the pipestone at the message block
-#Pipes:messageblock
-// (message block) (no arguments)
-	allowmbrepeat
-	set X {MBX}
-	set Y {MBY}
-	set Z {MBZ}
-	set coords {MBCoords}
-	set dir ?
-	setblockid id {coords}
-	// prerun
-	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
-	// adds the lines
-	call #Pipes:softbox
-	if Pipes.inprogress quit
-	set Pipes.tick 0
-	set Pipes.maxtick 0
-jump #Pipes:doalllines
-
-// runs the pipestone at the click event
-#Pipes:clickevent
-// (clickevent block) (no arguments)
-	allowmbrepeat
-	set coords {click.coords}
-	setsplit coords " "
-	set X {coords[0]}
-	set Y {coords[1]}
-	set Z {coords[2]}
-	set dir ?
-	setblockid id {coords}
-	// prerun
-	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
-	// adds the lines
-	call #Pipes:softbox
-	if Pipes.inprogress quit
-	set Pipes.tick 0
-	set Pipes.maxtick 0
-jump #Pipes:doalllines
-
-// delays are 1 indexed
-#Pipes:schedulebox
-// X, Y, Z, in
-	set Pipes.temp {Pipes.tick}
-	setadd Pipes.temp {runArg4}
-	if Pipes.maxtick|<|{Pipes.temp} set Pipes.maxtick {Pipes.temp}
-	setadd Pipes.delay{Pipes.temp}.length 1
-	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].X {runArg1}
-	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Y {runArg2}
-	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Z {runArg3}
+// Sign
+#Pipes:prerun[171]
+	if id|=|171 msg &cSign cannot be used as a switch
+	if id|=|171 jump #Pipes:terminate
 quit
 
-// keep in mind, lines are 1-indexed
-#Pipes:pushline
-// X, Y, Z, Direction
-	ifnot Pipes.line{Pipes.lines}.ceased setadd Pipes.lines 1
-	set Pipes.line{Pipes.lines}.X {runArg1}
-	set Pipes.line{Pipes.lines}.Y {runArg2}
-	set Pipes.line{Pipes.lines}.Z {runArg3}
-	setblockid Pipes.line{Pipes.lines}.id {runArg1} {runArg2} {runArg3}
-	set Pipes.line{Pipes.lines}.dir {runArg4}
-	set Pipes.line{Pipes.lines}.ceased false
+// Pressure plate
+#Pipes:prerun[766]
+	if id|=|766 setsub Y 1
 quit
 
-#Pipes:doalllines
-// (no arguments)
-	set Pipes.inprogress true
-	set Pipes.index 0
-	set Pipes.validlines false
-	#Pipes:lineloop
-	// (no arguments)
-		// spin up a new thread if action count is running high
-		if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:lineloop
-		setadd Pipes.index 1
-		if Pipes.line{Pipes.index}.ceased jump #Pipes:skip
-		set Pipes.validlines true
-		// if pipes move in pipe direction
-		if Pipes.line{Pipes.index}.id|=|550 jump #Pipes:{Pipes.line{Pipes.index}.dir}
-		if Pipes.line{Pipes.index}.id|=|551 jump #Pipes:{Pipes.line{Pipes.index}.dir}
-		if Pipes.line{Pipes.index}.id|=|552 jump #Pipes:{Pipes.line{Pipes.index}.dir}
-		// if box then do box
-		if Pipes.line{Pipes.index}.id|=|238 jump #Pipes:box
-		// not a box or a pipe so set packages
-		set X {Pipes.line{Pipes.index}.X}
-		set Y {Pipes.line{Pipes.index}.Y}
-		set Z {Pipes.line{Pipes.index}.Z}
-		set dir {Pipes.line{Pipes.index}.dir}
-		set id {Pipes.line{Pipes.index}.id}
-		set coords {X} {Y} {Z}
-		// cease line
-		set Pipes.line{Pipes.index}.ceased true
-		// and call gizmo if its not been called yet
-		if Pipes.gizmo{X},{Y},{Z} jump #Pipes:skip
-		set Pipes.gizmo{X},{Y},{Z} true
-		if label #Pipes:gizmo[{id}] call #Pipes:gizmo[{id}]
-		#Pipes:skip
-		if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
-	if Pipes.validlines jump #Pipes:doalllines
-	// erase everything
-	resetdata packages Pipes.line*
-	resetdata packages Pipes.gizmo*
-	resetdata packages Pipes.box*
-	// loop increment tick and delay 100ms until maxticks hit
-	#Pipes:tickloop
-		setadd Pipes.tick 1
-		if Pipes.tick|>|Pipes.maxtick jump #Pipes:cleanup
-		delay 100
-		// next iteration if it doesnt exist
-		if Pipes.delay{Pipes.tick}.length|=|"" jump #Pipes:tickloop
-		// loop through all and do boxes
-		set Pipes.temp 0
-		#Pipes:delayloop
-			// if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
-			setadd Pipes.temp 1
-			set X {Pipes.delay{Pipes.temp}.X}
-			set Y {Pipes.delay{Pipes.temp}.Y}
-			set Z {Pipes.delay{Pipes.temp}.Z}
-			call #softbox
-		if Pipes.temp|<|Pipes.delay{Pipes.tick}.length jump #Pipes:delayloop
-	jump #Pipes:doalllines
-	// cleanup
-	#Pipes:cleanup
-	resetdata packages Pipes.delay*
-	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s).
-	set Pipes.threads 0
-	set Pipes.inprogress false
+// Lamp Off
+#Pipes:gizmo[764]
+	placeblock 62 {X} {Y} {Z}
 quit
 
-#Pipes:failsafe
-// (no arguments)
-	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k, using threads to complete...
-	setadd Pipes.threads 1
-	newthread {runArg1}
+// Lamp
+#Pipes:gizmo[62]
+	placeblock 764 {X} {Y} {Z}
 quit
 
-#Pipes:X+
-// (no arguments)
-	setadd Pipes.line{Pipes.index}.X 1
-	set Pipes.line{Pipes.index}.dir X+
-	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
-jump #Pipes:doalllines
+// Light Off
+#Pipes:gizmo[765]
+	placeblock 215 {X} {Y} {Z}
+quit
 
-#Pipes:X-
-// (no arguments)
-	setsub Pipes.line{Pipes.index}.X 1
-	set Pipes.line{Pipes.index}.dir X-
-	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
-jump #Pipes:doalllines
+// Light
+#Pipes:gizmo[215]
+	placeblock 765 {X} {Y} {Z}
+quit
 
-#Pipes:Y+
-// (no arguments)
-	setadd Pipes.line{Pipes.index}.Y 1
-	set Pipes.line{Pipes.index}.dir Y+
-	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
-jump #Pipes:doalllines
+// White
+#Pipes:gizmo[36]
+	cmd m {X} {Y} {Z}
+quit
 
-#Pipes:Y-
-// (no arguments)
-	setsub Pipes.line{Pipes.index}.Y 1
-	set Pipes.line{Pipes.index}.dir Y-
-	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
-jump #Pipes:doalllines
+// Sign
+#Pipes:gizmo[171]
+	cmd m {X} {Y} {Z}
+quit
 
-#Pipes:Z+
-// (no arguments)
-	setadd Pipes.line{Pipes.index}.Z 1
-	set Pipes.line{Pipes.index}.dir Z+
-	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
-jump #Pipes:doalllines
+// Block placer-N
+#Pipes:gizmo[758]
+	set TEMP {Z}
+	setadd TEMP 1
+	setblockid tempid {X} {Y} {TEMP}
+	if tempid|=|0 placeblock 238 {X} {Y} {TEMP}
+	if tempid|=|238 placeblock 0 {X} {Y} {TEMP}
+quit
 
-#Pipes:Z-
-// (no arguments)
-	setsub Pipes.line{Pipes.index}.Z 1
-	set Pipes.line{Pipes.index}.dir Z-
-	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
-jump #Pipes:doalllines
+// Block placer-N
+#Pipes:gizmo[759]
+	set TEMP {Z}
+	setsub TEMP 1
+	setblockid tempid {X} {Y} {TEMP}
+	if tempid|=|0 placeblock 238 {X} {Y} {TEMP}
+	if tempid|=|238 placeblock 0 {X} {Y} {TEMP}
+quit
 
-#Pipes:terminate
-resetdata packages
-terminate
+// Block placer-E
+#Pipes:gizmo[760]
+	set TEMP {X}
+	setsub TEMP 1
+	setblockid tempid {TEMP} {Y} {Z}
+	if tempid|=|0 placeblock 238 {TEMP} {Y} {Z}
+	if tempid|=|238 placeblock 0 {TEMP} {Y} {Z}
+quit
 
-#Pipes:box
-// (no arguments)
-	// set generic packages
-	set X {Pipes.line{Pipes.index}.X}
-	set Y {Pipes.line{Pipes.index}.Y}
-	set Z {Pipes.line{Pipes.index}.Z}
-	set dir {Pipes.line{Pipes.index}.dir}
-	set id {Pipes.line{Pipes.index}.id}
-	// cease the line
-	set Pipes.line{Pipes.index}.ceased true
-	call #Pipes:softbox
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
-jump #Pipes:doalllines
+// Block placer-W
+#Pipes:gizmo[761]
+	set TEMP {X}
+	setadd TEMP 1
+	setblockid tempid {TEMP} {Y} {Z}
+	if tempid|=|0 placeblock 238 {TEMP} {Y} {Z}
+	if tempid|=|238 placeblock 0 {TEMP} {Y} {Z}
+quit
 
-#Pipes:softbox
-// (no arguments)
-	if Pipes.box{X},{Y},{Z} quit
-	set Pipes.box{X},{Y},{Z} true
-	//
-	// check X+
-	setadd X 1
-	setblockid id {X} {Y} {Z}
-	if dir|=|"X-" set id 0
-	if id|=|551 call #Pipes:pushline|{X}|{Y}|{Z}|X+
-	// check X-
-	setsub X 2
-	setblockid id {X} {Y} {Z}
-	if dir|=|"X+" set id 0
-	if id|=|551 call #Pipes:pushline|{X}|{Y}|{Z}|X-
-	// reset X
-	setadd X 1
-	//
-	// check Z+
-	setadd Z 1
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Z-" set id 0
-	if id|=|552 call #Pipes:pushline|{X}|{Y}|{Z}|Z+
-	// check Z-
-	setsub Z 2
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Z+" set id 0
-	if id|=|552 call #Pipes:pushline|{X}|{Y}|{Z}|Z-
-	// reset Z
-	setadd Z 1
-	//
-	// check Y+
-	setadd Y 1
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Y-" set id 0
-	if id|=|550 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
-	// check Y-
-	setsub Y 2
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Y+" set id 0
-	if id|=|550 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
-	// reset Y
-	setadd Y 1
+// Block placer-U
+#Pipes:gizmo[762]
+	set TEMP {Y}
+	setsub TEMP 1
+	setblockid tempid {X} {TEMP} {Z}
+	if tempid|=|0 placeblock 238 {X} {TEMP} {Z}
+	if tempid|=|238 placeblock 0 {X} {TEMP} {Z}
+quit
+
+// Block placer-D
+#Pipes:gizmo[763]
+	set TEMP {Y}
+	setadd TEMP 1
+	setblockid tempid {X} {TEMP} {Z}
+	if tempid|=|0 placeblock 238 {X} {TEMP} {Z}
+	if tempid|=|238 placeblock 0 {X} {TEMP} {Z}
+quit
+
+// Passthrough
+#Pipes:gizmo[756]
+	set Pipes.line{Pipes.index}.ceased false
+	set Pipes.gizmo{X},{Y},{Z}
+	if dir|=|"X+" jump #Pipes:X+
+	if dir|=|"X-" jump #Pipes:X-
+	if dir|=|"Y+" jump #Pipes:Y+
+	if dir|=|"Y-" jump #Pipes:Y-
+	if dir|=|"Z+" jump #Pipes:Z+
+	if dir|=|"Z-" jump #Pipes:Z-
+quit
+
+// Swapper-UD
+#Pipes:gizmo[755]
+	if dir|=|"Y+" quit
+	if dir|=|"Y-" quit
+	set TEMP1 {Y}
+	setadd TEMP1 1
+	setblockid tempid1 {X} {TEMP1} {Z}
+	set TEMP2 {Y}
+	setsub TEMP2 1
+	setblockid tempid2 {X} {TEMP2} {Z}
+	if tempid1|>|767 quit
+	if tempid2|>|767 quit
+	placeblock {tempid1} {X} {TEMP2} {Z}
+	placeblock {tempid2} {X} {TEMP1} {Z}
+quit
+
+// Swapper-NS
+#Pipes:gizmo[754]
+	if dir|=|"Z+" quit
+	if dir|=|"Z-" quit
+	set TEMP1 {Z}
+	setadd TEMP1 1
+	setblockid tempid1 {X} {Y} {TEMP1}
+	set TEMP2 {Z}
+	setsub TEMP2 1
+	setblockid tempid2 {X} {Y} {TEMP2}
+	if tempid1|>|767 quit
+	if tempid2|>|767 quit
+	placeblock {tempid1} {X} {Y} {TEMP2}
+	placeblock {tempid2} {X} {Y} {TEMP1}
+quit
+
+// Swapper-WE
+#Pipes:gizmo[753]
+	if dir|=|"X+" quit
+	if dir|=|"X-" quit
+	set TEMP1 {X}
+	setadd TEMP1 1
+	setblockid tempid1 {TEMP1} {Y} {Z}
+	set TEMP2 {X}
+	setsub TEMP2 1
+	setblockid tempid2 {TEMP2} {Y} {Z}
+	if tempid1|>|767 quit
+	if tempid2|>|767 quit
+	placeblock {tempid1} {TEMP2} {Y} {Z}
+	placeblock {tempid2} {TEMP1} {Y} {Z}
 quit
