@@ -87,12 +87,18 @@ quit
 		if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
 	if Pipes.validlines jump #Pipes:doalllines
 	// erase everything
-	resetdata packages Pipes.*
+	resetdata packages Pipes.line*
+	resetdata packages Pipes.gizmo*
+	resetdata packages Pipes.box*
+	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s).
+	set Pipes.threads 0
+	set Pipes.inprogress false
 quit
 
 #Pipes:failsafe
 // (no arguments)
-	msg &cWarning: actions exceeded 50k, moving to a new thread.
+	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k, using threads to complete...
+	setadd Pipes.threads 1
 	newthread #Pipes:lineloop
 quit
 
