@@ -9,13 +9,12 @@ set X {MBX}
 set Y {MBY}
 set Z {MBZ}
 set b 0
-setblockid type {MBCoords}
-call #runoffset
+setblockid id {MBCoords}
+if label #runoffset call #runoffset
 call #dogizmo
 setblockid id {X} {Y} {Z}
-if id|=|238 call #box
+call #box
 resetdata packages box_*
-setblockid type {MBCoords}
 allowmbrepeat
 quit
 
@@ -71,7 +70,7 @@ quit
 if box_giz_{X}_{Y}_{Z} quit
 set box_giz_{X}_{Y}_{Z} true
 setblockid id {X} {Y} {Z}
-call #gizmo
+if label #gizmo call #gizmo
 quit
 
 #box
