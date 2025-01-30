@@ -41,8 +41,8 @@ if debug msg PIPE +Y AT {X} {Y} {Z}
 setadd Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-aY
-call #gizmo
 if id|=|238 jump #box
+jump #gizmo
 quit
 
 #pipe-sY
@@ -50,8 +50,8 @@ if debug msg PIPE -Y AT {X} {Y} {Z}
 setsub Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-sY
-call #gizmo
 if id|=|238 jump #box
+jump #gizmo
 quit
 
 #pipe-aX
@@ -59,8 +59,8 @@ if debug msg PIPE +X AT {X} {Y} {Z}
 setadd X 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-aX
-call #gizmo
 if id|=|238 jump #box
+jump #gizmo
 quit
 
 #pipe-sX
@@ -68,8 +68,8 @@ if debug msg PIPE -X AT {X} {Y} {Z}
 setsub X 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-sX
-call #gizmo
 if id|=|238 jump #box
+jump #gizmo
 quit
 
 #pipe-aZ
@@ -77,8 +77,8 @@ if debug msg PIPE +Z AT {X} {Y} {Z}
 setadd Z 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-aZ
-call #gizmo
 if id|=|238 jump #box
+jump #gizmo
 quit
 
 #pipe-sZ
@@ -86,8 +86,8 @@ if debug msg PIPE -Z AT {X} {Y} {Z}
 setsub Z 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-sZ
-call #gizmo
 if id|=|238 jump #box
+jump #gizmo
 quit
 
 #gizmo
@@ -100,8 +100,6 @@ quit
 if debug msg BOX AT {X} {Y} {Z}
 // prevent infinite loops
 if box_pl_{X}_{Y}_{Z} quit
-// add a small delay when using a box
-delay 100
 set box_pl_{X}_{Y}_{Z} true
 // save coords of box #
 set box_{b}_X {X}
