@@ -1,5 +1,10 @@
 using allow_include
 
+#Pipes:version
+// (no arguments)
+	msg &fRunning PipeStone &a2.1
+quit
+
 // runs the pipestone at the message block
 #Pipes:messageblock
 // (message block) (no arguments)

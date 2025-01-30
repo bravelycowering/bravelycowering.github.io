@@ -1,6 +1,10 @@
 // Pipestone
 include os/bravelycowering+
 
+// Print version number
+#onJoin
+jump #Pipes:version
+
 // Prevent every map ever from breaking
 #run
 jump #Pipes:messageblock
