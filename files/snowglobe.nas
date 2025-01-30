@@ -31,7 +31,7 @@ quit
 
 #changeblock
 	placeblock 0 {gX} {gY} {gZ}
-	placeblock gid {X} {Y} {Z}
+	placeblock {gid} {X} {Y} {Z}
 quit
 
 // snow
