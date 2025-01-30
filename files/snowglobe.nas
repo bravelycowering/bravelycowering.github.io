@@ -28,6 +28,7 @@ quit
 		if gX|<=|{maxX} jump #X-loop
 		setadd gZ 1
 	if gZ|<=|{maxZ} jump #Z-loop
+	msg &aCompleted in {actionCount} actions!
 quit
 
 #changeblock
@@ -37,6 +38,13 @@ quit
 
 // snow
 #update[140]
+	setsub Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #changeblock
+quit
+
+// stone
+#update[1]
 	setsub Y 1
 	setblockid id {X} {Y} {Z}
 	if id|=|0 jump #changeblock
