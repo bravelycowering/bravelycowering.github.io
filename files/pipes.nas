@@ -46,7 +46,7 @@ jump #Pipes:doalllines
 
 // delays are 1 indexed
 #Pipes:schedulebox
-// X, Y, Z, in
+// in
 	set Pipes.temp {Pipes.tick}
 	setadd Pipes.temp {runArg1}
 	if Pipes.maxtick|<|{Pipes.temp} set Pipes.maxtick {Pipes.temp}
@@ -214,7 +214,7 @@ terminate
 	set Y {Pipes.line{Pipes.index}.Y}
 	set Z {Pipes.line{Pipes.index}.Z}
 	// prevent the same delay from being queued twice in the same tick
-	if Pipes.boxdelay{X},{Y},{Z} quit
+	if Pipes.boxdelay{X},{Y},{Z} jump #Pipes:skipdelay
 	set Pipes.boxdelay{X},{Y},{Z} true
 	// set dir
 	set dir {Pipes.line{Pipes.index}.dir}
@@ -222,6 +222,7 @@ terminate
 	call #Pipes:schedulebox|{runArg1}
 	// cease the line
 	set Pipes.line{Pipes.index}.ceased true
+	#Pipes:skipdelay
 	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
