@@ -145,7 +145,7 @@ setsub b 1
 set X {box_{b}_X}
 set Y {box_{b}_Y}
 set Z {box_{b}_Z}
-setadd Y 1
+setadd Z 1
 setblockid id {X} {Y} {Z}
 setadd b 1
 if id|=|552 call #pipe-aZ
@@ -155,7 +155,7 @@ setsub b 1
 set X {box_{b}_X}
 set Y {box_{b}_Y}
 set Z {box_{b}_Z}
-setsub Y 1
+setsub Z 1
 setblockid id {X} {Y} {Z}
 setadd b 1
 if id|=|552 call #pipe-sZ
