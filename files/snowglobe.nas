@@ -15,16 +15,22 @@ quit
 #swap[140]:9
 // swap snow with air
 #swap[140]:0
+// swap snow with sapling
+#swap[140]:6
 
 // swap stone with water
 #swap[1]:9
 // swap stone with air
 #swap[1]:0
+// swap stone with sapling
+#swap[1]:6
 
 // swap water with lava
 #swap[9]:11
 // swap water with air
 #swap[9]:0
+// swap water with sapling
+#swap[9]:6
 
 #update
 	// loop through literally every block
@@ -113,6 +119,10 @@ quit
 
 // sapling
 #update[6]
+	setsub Y 1
+	setblockid id {X} {Y} {Z}
+	ifnot id|=|3 placeblock 0 {gX} {gY} {gZ}
+	ifnot id|=|3 quit
 quit
 
 // log
