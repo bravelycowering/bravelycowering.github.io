@@ -109,7 +109,7 @@ quit
 // Passthrough
 #Pipes:gizmo[756]
 	set Pipes.line{Pipes.index}.ceased false
-	set temp:gizmo{X},{Y},{Z}
+	set Pipes.gizmo{X},{Y},{Z}
 	if dir|=|"X+" jump #Pipes:X+
 	if dir|=|"X-" jump #Pipes:X-
 	if dir|=|"Y+" jump #Pipes:Y+
