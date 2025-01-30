@@ -34,6 +34,7 @@ quit
 	set line 0
 	set validlines false
 	#lineloop
+msg #lineloop
 	// (no arguments)
 		setadd line 1
 		if line{line}.ceased jump #lineloop
@@ -57,6 +58,7 @@ quit
 		set temp:gizmo{X},{Y},{Z} true
 		if label #Pipes.gizmo call #Pipes.gizmo
 		#skip
+msg #skip
 		if line|<=|lines jump #lineloop
 	if validlines jump #doalllines
 	resetdata packages
@@ -68,8 +70,7 @@ quit
 	set line{line}.dir X+
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
-	if validlines jump #doalllines
-quit
+jump #doalllines
 
 #pipe:X-
 // (no arguments)
@@ -77,8 +78,7 @@ quit
 	set line{line}.dir X-
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
-	if validlines jump #doalllines
-quit
+jump #doalllines
 
 #pipe:Y+
 // (no arguments)
@@ -86,8 +86,7 @@ quit
 	set line{line}.dir Y+
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
-	if validlines jump #doalllines
-quit
+jump #doalllines
 
 #pipe:Y-
 // (no arguments)
@@ -95,8 +94,7 @@ quit
 	set line{line}.dir Y-
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
-	if validlines jump #doalllines
-quit
+jump #doalllines
 
 #pipe:Z+
 // (no arguments)
@@ -104,8 +102,7 @@ quit
 	set line{line}.dir Z+
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
-	if validlines jump #doalllines
-quit
+jump #doalllines
 
 #pipe:Z-
 // (no arguments)
@@ -113,8 +110,7 @@ quit
 	set line{line}.dir Z-
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
-	if validlines jump #doalllines
-quit
+jump #doalllines
 
 #box
 // (no arguments)
