@@ -31,7 +31,7 @@ quit
 #BP-W
 set TEMP {X}
 setadd TEMP 1
-set tempid {TEMP} {Y} {Z}
+setblockid tempid {TEMP} {Y} {Z}
 if tempid|=|0 placeblock 757 {TEMP} {Y} {Z}
 if tempid|=|757 placeblock 0 {TEMP} {Y} {Z}
 quit
@@ -39,7 +39,7 @@ quit
 #BP-E
 set TEMP {X}
 setsub TEMP 1
-set tempid {TEMP} {Y} {Z}
+setblockid tempid {TEMP} {Y} {Z}
 if tempid|=|0 placeblock 757 {TEMP} {Y} {Z}
 if tempid|=|757 placeblock 0 {TEMP} {Y} {Z}
 quit
@@ -47,7 +47,7 @@ quit
 #BP-N
 set TEMP {Z}
 setadd TEMP 1
-set tempid {X} {Y} {TEMP}
+setblockid tempid {X} {Y} {TEMP}
 if tempid|=|0 placeblock 757 {X} {Y} {TEMP}
 if tempid|=|757 placeblock 0 {X} {Y} {TEMP}
 quit
@@ -55,7 +55,7 @@ quit
 #BP-S
 set TEMP {Z}
 setsub TEMP 1
-set tempid {X} {Y} {TEMP}
+setblockid tempid {X} {Y} {TEMP}
 if tempid|=|0 placeblock 757 {X} {Y} {TEMP}
 if tempid|=|757 placeblock 0 {X} {Y} {TEMP}
 quit
@@ -63,7 +63,7 @@ quit
 #BP-D
 set TEMP {Y}
 setadd TEMP 1
-set tempid {X} {TEMP} {Z}
+setblockid tempid {X} {TEMP} {Z}
 if tempid|=|0 placeblock 757 {X} {TEMP} {Z}
 if tempid|=|757 placeblock 0 {X} {TEMP} {Z}
 quit
@@ -71,7 +71,7 @@ quit
 #BP-U
 set TEMP {Y}
 setsub TEMP 1
-set tempid {X} {TEMP} {Z}
+setblockid tempid {X} {TEMP} {Z}
 if tempid|=|0 placeblock 757 {X} {TEMP} {Z}
 if tempid|=|757 placeblock 0 {X} {TEMP} {Z}
 quit
