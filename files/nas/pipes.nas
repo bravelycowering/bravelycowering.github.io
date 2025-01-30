@@ -2,38 +2,67 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.2.7
+	msg &fRunning Pipes &a2.3
 quit
 
 #Pipes:debug
 // (no arguments)
-	ifnot Pipes.isdebug msg &cDebug mode is disabled
+	ifnot Pipes.conf.debug msg &cDebug mode is disabled
+	ifnot Pipes.conf.debug quit
 quit
 
-// runs the pipestone at the message block
+#Pipes:setup
+// (no arguments)
+	set Pipes.setup true
+// ids
+	// The block ID to use for UD pipes
+	if Pipes.id.pipe-UD|=|"" set Pipes.id.pipeUD 550
+	// The block ID to use for WE pipes
+	if Pipes.id.pipe-WE|=|"" set Pipes.id.pipeUD 551
+	// The block ID to use for NS pipes
+	if Pipes.id.pipe-NS|=|"" set Pipes.id.pipeUD 552
+	// The block ID to use for Boxes
+	if Pipes.id.box|=|"" set Pipes.id.box 238
+	// The block ID to use for the start of the list of delays [NOT FUNCTIONAL YET]
+	if Pipes.id.delays|=|"" set Pipes.id.delays 485
+// conf
+	// The amount of delays to use. If set to 0, this will disable the delay system entirely. [NOT FUNCTIONAL YET]
+	if Pipes.conf.delays|=|"" set Pipes.conf.delays 5
+	// The maximum number of threads Pipes will make to try and keep running (including the initial thread), setting this to less than 1 will disable making new threads
+	if Pipes.conf.maxthreads|=|"" set Pipes.conf.maxthreads 10
+	// Whether or not to show a warning after the first thread has been created
+	if Pipes.conf.showthreadwarning|=|"" set Pipes.conf.showthreadwarning true
+	// The length of each tick in milliseconds
+	if Pipes.conf.ticklength|=|"" set Pipes.conf.ticklength 100
+	// The length of each step in milliseconds
+	if Pipes.conf.steplength|=|"" set Pipes.conf.steplength 0
+	// Whether debug logging and stepping is enabled, uses more actions but shows useful information if you run /oss #Pipes:debug [NOT FUNCTIONAL YET]
+	if Pipes.conf.debug|=|"" set Pipes.conf.debug false
+	// Whether or not you are allowed to activate multiple pipes lines simultaneously, could make crashing due to low threads or actions faster [NOT FUNCTIONAL YET]
+	if Pipes.conf.allowsimultaneous|=|"" set Pipes.conf.allowsimultaneous false
+	// The maximum number of times pipes will attempt to mark a MB to restart itself when it runs out of threads [NOT FUNCTIONAL YET]
+	if Pipes.conf.maxrevives|=|"" set Pipes.conf.maxrevives 0
+	// Whether or not to show a warning after the first revive has occurred [NOT FUNCTIONAL YET]
+	if Pipes.conf.showrevivewarning|=|"" set Pipes.conf.showrevivewarning true
+	// The XYZ coordinates of the message block to mark when attempting to revive the script [NOT FUNCTIONAL YET]
+	if Pipes.conf.revivecoords|=|"" set Pipes.conf.revivecoords 0 0 0
+quit
+
+// runs the pipes at the message block
 #Pipes:messageblock
 // (message block) (no arguments)
 	allowmbrepeat
-	set X {MBX}
-	set Y {MBY}
-	set Z {MBZ}
-	set coords {MBCoords}
-	set dir ?
-	setblockid id {coords}
-	// prerun
-	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
-	// adds the lines
-	call #Pipes:softbox
-	if Pipes.inprogress quit
-	set Pipes.tick 0
-	set Pipes.maxtick 0
-jump #Pipes:doalllines
+jump #Pipes:run|{MBCoords}
 
-// runs the pipestone at the click event
+// runs the pipes at the click event
 #Pipes:clickevent
 // (clickevent block) (no arguments)
-	allowmbrepeat
-	set coords {click.coords}
+jump #Pipes:run|{click.coords}
+
+#Pipes:run
+// coords
+	ifnot Pipes.setup call #Pipes:setup
+	set coords {runArg1}
 	setsplit coords " "
 	set X {coords[0]}
 	set Y {coords[1]}
@@ -83,17 +112,18 @@ quit
 	// (no arguments)
 		// spin up a new thread if action count is running high
 		if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:lineloop
+		if Pipes.conf.steplength|>|0 delay {Pipes.conf.steplength}
 		setadd Pipes.index 1
 		if Pipes.line{Pipes.index}.ceased jump #Pipes:skip
 		set Pipes.validlines true
 		// unwrap once
 		set id {Pipes.line{Pipes.index}.id}
 		// if pipes move in pipe direction
-		if id|=|550 jump #Pipes:{Pipes.line{Pipes.index}.dir}
-		if id|=|551 jump #Pipes:{Pipes.line{Pipes.index}.dir}
-		if id|=|552 jump #Pipes:{Pipes.line{Pipes.index}.dir}
+		if id|=|{Pipes.id.pipe-UD} jump #Pipes:{Pipes.line{Pipes.index}.dir}
+		if id|=|{Pipes.id.pipe-WE} jump #Pipes:{Pipes.line{Pipes.index}.dir}
+		if id|=|{Pipes.id.pipe-NS} jump #Pipes:{Pipes.line{Pipes.index}.dir}
 		// if box then do box
-		if id|=|238 jump #Pipes:box
+		if id|=|{Pipes.id.box} jump #Pipes:box
 		// if delay do delay
 		if id|=|485 jump #Pipes:delay|1
 		if id|=|486 jump #Pipes:delay|2
@@ -123,7 +153,7 @@ quit
 	#Pipes:tickloop
 		setadd Pipes.tick 1
 		if Pipes.tick|>|Pipes.maxtick jump #Pipes:cleanup
-		delay 100
+		delay {Pipes.conf.ticklength}
 		// next iteration if it doesnt exist
 		if Pipes.delay{Pipes.tick}.length|=|"" jump #Pipes:tickloop
 		// loop through all and do boxes
@@ -153,10 +183,14 @@ terminate
 
 #Pipes:failsafe
 // (no arguments)
+	if Pipes.conf.maxthreads|<=|1 msg &cError: actions exceeded 50k ({actionCount}), pipes cannot complete, aborting...
+	if Pipes.conf.maxthreads|<=|1 jump #Pipes:cleanup
+	ifnot Pipes.conf.showthreadwarning jump #Pipes:skipwarning
 	if Pipes.threads|=|0 msg &eWarning: actions exceeded 50k ({actionCount}), using threads to complete...
+	#Pipes:skipwarning
 	setadd Pipes.threads 1
-	if Pipes.threads|>=|10 msg &cError: actions exceeded 500k total (10 threads and {actionCount} actions), pipes cannot complete, aborting...
-	if Pipes.threads|>=|10 jump #Pipes:cleanup
+	if Pipes.threads|>=|{Pipes.conf.maxthreads} msg &cError: threads exceeded the maximum of {Pipes.conf.maxthreads} total, pipes cannot complete, aborting...
+	if Pipes.threads|>=|{Pipes.conf.maxthreads} jump #Pipes:cleanup
 	newthread {runArg1}
 terminate
 
@@ -254,12 +288,12 @@ jump #Pipes:doalllines
 	setadd X 1
 	setblockid id {X} {Y} {Z}
 	if dir|=|"X-" set id 0
-	if id|=|551 call #Pipes:pushline|{X}|{Y}|{Z}|X+
+	if id|=|{Pipes.id.pipe-WE} call #Pipes:pushline|{X}|{Y}|{Z}|X+
 	// check X-
 	setsub X 2
 	setblockid id {X} {Y} {Z}
 	if dir|=|"X+" set id 0
-	if id|=|551 call #Pipes:pushline|{X}|{Y}|{Z}|X-
+	if id|=|{Pipes.id.pipe-WE} call #Pipes:pushline|{X}|{Y}|{Z}|X-
 	// reset X
 	setadd X 1
 	//
@@ -267,12 +301,12 @@ jump #Pipes:doalllines
 	setadd Z 1
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Z-" set id 0
-	if id|=|552 call #Pipes:pushline|{X}|{Y}|{Z}|Z+
+	if id|=|{Pipes.id.pipe-NS} call #Pipes:pushline|{X}|{Y}|{Z}|Z+
 	// check Z-
 	setsub Z 2
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Z+" set id 0
-	if id|=|552 call #Pipes:pushline|{X}|{Y}|{Z}|Z-
+	if id|=|{Pipes.id.pipe-NS} call #Pipes:pushline|{X}|{Y}|{Z}|Z-
 	// reset Z
 	setadd Z 1
 	//
@@ -280,12 +314,12 @@ jump #Pipes:doalllines
 	setadd Y 1
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Y-" set id 0
-	if id|=|550 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	if id|=|{Pipes.id.pipe-UD} call #Pipes:pushline|{X}|{Y}|{Z}|Y+
 	// check Y-
 	setsub Y 2
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Y+" set id 0
-	if id|=|550 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
+	if id|=|{Pipes.id.pipe-UD} call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 	// reset Y
 	setadd Y 1
 quit
