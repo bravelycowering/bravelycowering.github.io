@@ -131,6 +131,8 @@ quit
 			set Z {Pipes.delay{Pipes.tick}[{Pipes.temp}].Z}
 			set dir {Pipes.delay{Pipes.tick}[{Pipes.temp}].dir}
 			call #Pipes:softbox
+			// oh god did i cause a memory leak??????
+			resetdata packages Pipes.delay{Pipes.tick}*
 		if Pipes.temp|<|Pipes.delay{Pipes.tick}.length jump #Pipes:delayloop
 	jump #Pipes:doalllines
 	// cleanup
