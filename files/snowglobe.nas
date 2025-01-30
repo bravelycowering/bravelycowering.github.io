@@ -10,23 +10,23 @@ quit
 
 #update
 	// loop through literally every block
-	set gZ {maxZ}
+	set gZ {minZ}
 	#Z-loop
-		set gX {maxX}
+		set gX {minX}
 		#X-loop
-			set gY {maxY}
+			set gY {minY}
 			#Y-loop
 				set X {gX}
 				set Y {gY}
 				set Z {gZ}
 				setblockid gid {X} {Y} {Z}
 				if label #update[{gid}] call #update[{gid}]
-				setsub gY 1
-			if gY|>=|{minY} jump #Y-loop
-			setsub gX 1
-		if gX|>=|{minX} jump #X-loop
-		setsub gZ 1
-	if gZ|>=|{minZ} jump #Z-loop
+				setadd gY 1
+			if gY|<=|{maxY} jump #Y-loop
+			setadd gX 1
+		if gX|<=|{maxX} jump #X-loop
+		setadd gZ 1
+	if gZ|<=|{maxZ} jump #Z-loop
 quit
 
 #changeblock
