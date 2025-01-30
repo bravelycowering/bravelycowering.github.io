@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.2-a
+	msg &fRunning Pipes &a2.2
 quit
 
 // runs the pipestone at the message block
