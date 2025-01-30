@@ -211,6 +211,9 @@ terminate
 	set Y {Pipes.line{Pipes.index}.Y}
 	set Z {Pipes.line{Pipes.index}.Z}
 	set dir {Pipes.line{Pipes.index}.dir}
+	// prevent the same delay from being queued twice in the same tick
+	if Pipes.boxdelay{X},{Y},{Z} quit
+	set Pipes.boxdelay{X},{Y},{Z} true
 	// schedule the delay for the runarg
 	call #Pipes:schedulebox|{runArg1}
 	// cease the line
