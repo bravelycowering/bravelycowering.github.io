@@ -137,10 +137,10 @@ quit
 	jump #Pipes:doalllines
 	// cleanup
 	#Pipes:cleanup
-	// resetdata packages Pipes.delay*
-	// resetdata packages Pipes.line*
-	// resetdata packages Pipes.gizmo*
-	// resetdata packages Pipes.box*
+	resetdata packages Pipes.delay*
+	resetdata packages Pipes.line*
+	resetdata packages Pipes.gizmo*
+	resetdata packages Pipes.box*
 	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s) and {actionCount} actions.
 	set Pipes.threads 0
 	set Pipes.inprogress false
@@ -213,6 +213,8 @@ terminate
 	set X {Pipes.line{Pipes.index}.X}
 	set Y {Pipes.line{Pipes.index}.Y}
 	set Z {Pipes.line{Pipes.index}.Z}
+	// cease the line
+	set Pipes.line{Pipes.index}.ceased true
 	// prevent the same delay from being queued twice in the same tick
 	if Pipes.boxdelay{X},{Y},{Z} jump #Pipes:skipdelay
 	set Pipes.boxdelay{X},{Y},{Z} true
@@ -220,8 +222,6 @@ terminate
 	set dir {Pipes.line{Pipes.index}.dir}
 	// schedule the delay for the runarg
 	call #Pipes:schedulebox|{runArg1}
-	// cease the line
-	set Pipes.line{Pipes.index}.ceased true
 	#Pipes:skipdelay
 	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
