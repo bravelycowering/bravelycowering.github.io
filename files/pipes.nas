@@ -80,18 +80,25 @@ quit
 		setadd Pipes.index 1
 		if Pipes.line{Pipes.index}.ceased jump #Pipes:skip
 		set Pipes.validlines true
+		// unwrap once
+		set id {Pipes.line{Pipes.index}.id}
 		// if pipes move in pipe direction
-		if Pipes.line{Pipes.index}.id|=|550 jump #Pipes:{Pipes.line{Pipes.index}.dir}
-		if Pipes.line{Pipes.index}.id|=|551 jump #Pipes:{Pipes.line{Pipes.index}.dir}
-		if Pipes.line{Pipes.index}.id|=|552 jump #Pipes:{Pipes.line{Pipes.index}.dir}
+		if id|=|550 jump #Pipes:{Pipes.line{Pipes.index}.dir}
+		if id|=|551 jump #Pipes:{Pipes.line{Pipes.index}.dir}
+		if id|=|552 jump #Pipes:{Pipes.line{Pipes.index}.dir}
 		// if box then do box
-		if Pipes.line{Pipes.index}.id|=|238 jump #Pipes:box
+		if id|=|238 jump #Pipes:box
+		// if delay do delay
+		if id|=|485 jump #Pipes:delay|1
+		if id|=|486 jump #Pipes:delay|2
+		if id|=|487 jump #Pipes:delay|3
+		if id|=|488 jump #Pipes:delay|4
+		if id|=|489 jump #Pipes:delay|5
 		// not a box or a pipe so set packages
 		set X {Pipes.line{Pipes.index}.X}
 		set Y {Pipes.line{Pipes.index}.Y}
 		set Z {Pipes.line{Pipes.index}.Z}
 		set dir {Pipes.line{Pipes.index}.dir}
-		set id {Pipes.line{Pipes.index}.id}
 		set coords {X} {Y} {Z}
 		// cease line
 		set Pipes.line{Pipes.index}.ceased true
@@ -190,6 +197,19 @@ jump #Pipes:doalllines
 #Pipes:terminate
 resetdata packages
 terminate
+
+#Pipes:delay
+// in
+	// set generic packages
+	set X {Pipes.line{Pipes.index}.X}
+	set Y {Pipes.line{Pipes.index}.Y}
+	set Z {Pipes.line{Pipes.index}.Z}
+	// cease the line
+	set Pipes.line{Pipes.index}.ceased true
+	// schedule the delay for the runarg
+	call #Pipes:schedulebox|{X}|{Y}|{Z}|{runArg1}
+	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+jump #Pipes:doalllines
 
 #Pipes:box
 // (no arguments)
