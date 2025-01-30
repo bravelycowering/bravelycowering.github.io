@@ -5,7 +5,7 @@
 To use Pipestone in your own OS maps is easy, simply run the following commands in order:
 	/osus https://bravelycowering.net/files/nas/pipestone.nas
 		(This uploads the pipestone script.)
-	/os lb copyall bravelycowering+7
+	/os lb copyall pipestone+
 		(This copies all the custom blocks. You will need ids 766-753 reserved for the pipestone custom blocks.)
 	/os blockprops 766 mb
 		(This makes the pressure plate a message block, which is required for it to work properly.)

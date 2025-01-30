@@ -57,7 +57,7 @@ quit
 
 #setbyte
 set {runArg1} {ascii.byte[{{runArg1}}]}
-if ascii.byte[{{runArg1}}]|=|" " set {runArg1} {}
+if {runArg1}|=|"" set {runArg1} {}
 quit
 
 #chardict
