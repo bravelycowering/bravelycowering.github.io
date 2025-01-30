@@ -128,7 +128,7 @@ quit
 			set X {Pipes.delay{Pipes.temp}.X}
 			set Y {Pipes.delay{Pipes.temp}.Y}
 			set Z {Pipes.delay{Pipes.temp}.Z}
-			call #softbox
+			call #Pipes:softbox
 		if Pipes.temp|<|Pipes.delay{Pipes.tick}.length jump #Pipes:delayloop
 	jump #Pipes:doalllines
 	// cleanup
