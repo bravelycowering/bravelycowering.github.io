@@ -1,4 +1,4 @@
-include https://bravelycowering.net/files/tubes.nas
+include os/bravelycowering+
 
 #runoffset
 if type|=|766 setsub Y 1
