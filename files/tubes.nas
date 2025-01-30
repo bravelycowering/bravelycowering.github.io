@@ -2,6 +2,19 @@
 resetdata packages box_*
 quit
 
+#debug
+if debug jump #debugoff
+ifnot debug jump #debugon
+quit
+
+#debugoff
+set debug false
+quit
+
+#debugon
+set debug true
+quit
+
 #run
 set X {MBX}
 set Y {MBY}
@@ -19,7 +32,7 @@ allowmbrepeat
 quit
 
 #pipe-aY
-msg PIPE +Y AT {X} {Y} {Z}
+if debug msg PIPE +Y AT {X} {Y} {Z}
 setadd Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-aY
@@ -28,7 +41,7 @@ jump #gizmo
 quit
 
 #pipe-sY
-msg PIPE -Y AT {X} {Y} {Z}
+if debug msg PIPE -Y AT {X} {Y} {Z}
 setsub Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-sY
@@ -37,7 +50,7 @@ jump #gizmo
 quit
 
 #pipe-aX
-msg PIPE +X AT {X} {Y} {Z}
+if debug msg PIPE +X AT {X} {Y} {Z}
 setadd X 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-aX
@@ -46,7 +59,7 @@ jump #gizmo
 quit
 
 #pipe-sX
-msg PIPE -X AT {X} {Y} {Z}
+if debug msg PIPE -X AT {X} {Y} {Z}
 setsub X 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-sX
@@ -55,7 +68,7 @@ jump #gizmo
 quit
 
 #pipe-aZ
-msg PIPE +Z AT {X} {Y} {Z}
+if debug msg PIPE +Z AT {X} {Y} {Z}
 setadd Z 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-aZ
@@ -64,7 +77,7 @@ jump #gizmo
 quit
 
 #pipe-sZ
-msg PIPE -Z AT {X} {Y} {Z}
+if debug msg PIPE -Z AT {X} {Y} {Z}
 setsub Z 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-sZ
@@ -76,11 +89,10 @@ quit
 setblockid id {X} {Y} {Z}
 if id|=|27 placeblock 32 {X} {Y} {Z}
 if id|=|32 placeblock 27 {X} {Y} {Z}
-msg GIZMO AT {X} {Y} {Z}
 quit
 
 #box
-msg BOX AT {X} {Y} {Z}
+if debug msg BOX AT {X} {Y} {Z}
 // prevent infinite loops
 if box_pl_{X}_{Y}_{Z} quit
 set box_pl_{X}_{Y}_{Z} true
@@ -116,7 +128,7 @@ set Z {box_{b}_Z}
 setadd Y 1
 setblockid id {X} {Y} {Z}
 setadd b 1
-if id|=|552 call #pipe-aY
+if id|=|550 call #pipe-aY
 setsub b 1
 //
 // check sub Y
@@ -126,7 +138,7 @@ set Z {box_{b}_Z}
 setsub Y 1
 setblockid id {X} {Y} {Z}
 setadd b 1
-if id|=|552 call #pipe-sY
+if id|=|550 call #pipe-sY
 setsub b 1
 //
 // check add Z
@@ -136,7 +148,7 @@ set Z {box_{b}_Z}
 setadd Y 1
 setblockid id {X} {Y} {Z}
 setadd b 1
-if id|=|552 call #pipe-aZ
+if id|=|551 call #pipe-aZ
 setsub b 1
 //
 // check sub Z
@@ -146,6 +158,6 @@ set Z {box_{b}_Z}
 setsub Y 1
 setblockid id {X} {Y} {Z}
 setadd b 1
-if id|=|552 call #pipe-sZ
+if id|=|551 call #pipe-sZ
 setsub b 1
 quit
