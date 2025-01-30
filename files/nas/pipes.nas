@@ -52,12 +52,14 @@ quit
 #Pipes:messageblock
 // (message block) (no arguments)
 	allowmbrepeat
-cmd oss #Pipes:run|{MBCoords}
+	cmd oss #Pipes:run|{MBCoords}
+quit
 
 // runs the pipes at the click event
 #Pipes:clickevent
 // (clickevent block) (no arguments)
-cmd oss #Pipes:run|{click.coords}
+	cmd oss #Pipes:run|{click.coords}
+quit
 
 #Pipes:run
 // coords
