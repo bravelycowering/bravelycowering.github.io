@@ -68,6 +68,7 @@ quit
 	set line{line}.dir X+
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
+	if validlines jump #doalllines
 quit
 
 #pipe:X-
@@ -76,6 +77,7 @@ quit
 	set line{line}.dir X-
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
+	if validlines jump #doalllines
 quit
 
 #pipe:Y+
@@ -84,6 +86,7 @@ quit
 	set line{line}.dir Y+
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
+	if validlines jump #doalllines
 quit
 
 #pipe:Y-
@@ -92,6 +95,7 @@ quit
 	set line{line}.dir Y-
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
+	if validlines jump #doalllines
 quit
 
 #pipe:Z+
@@ -100,6 +104,7 @@ quit
 	set line{line}.dir Z+
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
+	if validlines jump #doalllines
 quit
 
 #pipe:Z-
@@ -108,6 +113,7 @@ quit
 	set line{line}.dir Z-
 	setblockid line{lines}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
 	if line|<=|lines jump #lineloop
+	if validlines jump #doalllines
 quit
 
 #box
