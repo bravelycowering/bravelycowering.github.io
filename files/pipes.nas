@@ -48,12 +48,12 @@ jump #Pipes:doalllines
 #Pipes:schedulebox
 // X, Y, Z, in
 	set Pipes.temp {Pipes.tick}
-	setadd Pipes.temp {runArg4}
+	setadd Pipes.temp {runArg1}
 	if Pipes.maxtick|<|{Pipes.temp} set Pipes.maxtick {Pipes.temp}
 	setadd Pipes.delay{Pipes.temp}.length 1
-	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].X {runArg1}
-	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Y {runArg2}
-	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Z {runArg3}
+	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].X {X}
+	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Y {Y}
+	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Z {Z}
 quit
 
 // keep in mind, lines are 1-indexed
@@ -204,10 +204,10 @@ terminate
 	set X {Pipes.line{Pipes.index}.X}
 	set Y {Pipes.line{Pipes.index}.Y}
 	set Z {Pipes.line{Pipes.index}.Z}
+	// schedule the delay for the runarg
+	call #Pipes:schedulebox|{runArg1}
 	// cease the line
 	set Pipes.line{Pipes.index}.ceased true
-	// schedule the delay for the runarg
-	call #Pipes:schedulebox|{X}|{Y}|{Z}|{runArg1}
 	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
