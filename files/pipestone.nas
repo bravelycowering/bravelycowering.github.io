@@ -1,145 +1,172 @@
 using allow_include
 
 // runs the pipestone at the message block
-#Pipes.messageblock
+#Pipes:messageblock
 // (message block) (no arguments)
 	allowmbrepeat
-	set line 0
 	set X {MBX}
 	set Y {MBY}
 	set Z {MBZ}
+	set coords {MBCoords}
 	set dir ?
-	setblockid id {MBCoords}
+	setblockid id {coords}
 	// prerun
-	if label #Pipes.prerun call #Pipes.prerun
+	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
+	if label #Pipes:prerun call #Pipes:prerun
 	// adds the lines
-	call #softbox
-	ifnot inprogress jump #doalllines
+	call #Pipes:softbox
+	ifnot Pipes.inprogress jump #Pipes:doalllines
+quit
+
+// runs the pipestone at the click event
+#Pipes:clickevent
+// (clickevent block) (no arguments)
+	allowmbrepeat
+	set coords {click.coords}
+	setsplit coords " "
+	set X {coords[0]}
+	set Y {coords[1]}
+	set Z {coords[2]}
+	set dir ?
+	setblockid id {coords}
+	// prerun
+	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
+	if label #Pipes:prerun call #Pipes:prerun
+	// adds the lines
+	call #Pipes:softbox
+	ifnot Pipes.inprogress jump #Pipes:doalllines
 quit
 
 // keep in mind, lines are 1-indexed
-#pushline
+#Pipes:pushline
 // X, Y, Z, Direction
-	ifnot line{lines}.ceased setadd lines 1
-	set line{lines}.X {runArg1}
-	set line{lines}.Y {runArg2}
-	set line{lines}.Z {runArg3}
-	setblockid line{lines}.id {runArg1} {runArg2} {runArg3}
-	set line{lines}.dir {runArg4}
-	set line{lines}.ceased false
+	ifnot Pipes.line{Pipes.lines}.ceased setadd Pipes.lines 1
+	set Pipes.line{Pipes.lines}.X {runArg1}
+	set Pipes.line{Pipes.lines}.Y {runArg2}
+	set Pipes.line{Pipes.lines}.Z {runArg3}
+	setblockid Pipes.line{Pipes.lines}.id {runArg1} {runArg2} {runArg3}
+	set Pipes.line{Pipes.lines}.dir {runArg4}
+	set Pipes.line{Pipes.lines}.ceased false
 quit
 
-#doalllines
+#Pipes:doalllines
 // (no arguments)
-	set inprogress true
-	set line 0
-	set validlines false
-	#lineloop
+	set Pipes.inprogress true
+	set Pipes.index 0
+	set Pipes.validlines false
+	#Pipes:lineloop
 	// (no arguments)
-		setadd line 1
-		if line{line}.ceased jump #skip
-		set validlines true
+		setadd Pipes.index 1
+		if Pipes.line{Pipes.index}.ceased jump #Pipes:skip
+		set Pipes.validlines true
 		// if pipes move in pipe direction
-		if line{line}.id|=|550 jump #Pipes.{line{line}.dir}
-		if line{line}.id|=|551 jump #Pipes.{line{line}.dir}
-		if line{line}.id|=|552 jump #Pipes.{line{line}.dir}
+		if Pipes.line{Pipes.index}.id|=|550 jump #Pipes:{Pipes.line{Pipes.index}.dir}
+		if Pipes.line{Pipes.index}.id|=|551 jump #Pipes:{Pipes.line{Pipes.index}.dir}
+		if Pipes.line{Pipes.index}.id|=|552 jump #Pipes:{Pipes.line{Pipes.index}.dir}
 		// if box then do box
-		if line{line}.id|=|238 jump #box
+		if Pipes.line{Pipes.index}.id|=|238 jump #Pipes:box
 		// not a box or a pipe so set packages
-		set X {line{line}.X}
-		set Y {line{line}.Y}
-		set Z {line{line}.Z}
-		set dir {line{line}.dir}
-		set id {line{line}.id}
+		set X {Pipes.line{Pipes.index}.X}
+		set Y {Pipes.line{Pipes.index}.Y}
+		set Z {Pipes.line{Pipes.index}.Z}
+		set dir {Pipes.line{Pipes.index}.dir}
+		set id {Pipes.line{Pipes.index}.id}
+		set coords {X} {Y} {Z}
 		// cease line
-		set line{line}.ceased true
+		set Pipes.line{Pipes.index}.ceased true
 		// and call gizmo if its not been called yet
-		if temp:gizmo{X},{Y},{Z} jump #skip
-		set temp:gizmo{X},{Y},{Z} true
-		if label #Pipes.gizmo call #Pipes.gizmo
-		#skip
-		if line|<=|lines jump #lineloop
-	if validlines jump #doalllines
-	resetdata packages
+		if Pipes.gizmo{X},{Y},{Z} jump #Pipes:skip
+		set Pipes.gizmo{X},{Y},{Z} true
+		if label #Pipes:gizmo[{id}] call #Pipes:gizmo[{id}]
+		if label #Pipes:gizmo call #Pipes:gizmo
+		#Pipes:skip
+		if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.validlines jump #Pipes:doalllines
+	// erase everything
+	resetdata packages Pipes.*
 quit
 
-#Pipes.X+
+#Pipes:X+
 // (no arguments)
-	setadd line{line}.X 1
-	set line{line}.dir X+
-	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
-	if line|<=|lines jump #lineloop
-jump #doalllines
+	setadd Pipes.line{Pipes.index}.X 1
+	set Pipes.line{Pipes.index}.dir X+
+	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
+	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+jump #Pipes:doalllines
 
-#Pipes.X-
+#Pipes:X-
 // (no arguments)
-	setsub line{line}.X 1
-	set line{line}.dir X-
-	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
-	if line|<=|lines jump #lineloop
-jump #doalllines
+	setsub Pipes.line{Pipes.index}.X 1
+	set Pipes.line{Pipes.index}.dir X-
+	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
+	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+jump #Pipes:doalllines
 
-#Pipes.Y+
+#Pipes:Y+
 // (no arguments)
-	setadd line{line}.Y 1
-	set line{line}.dir Y+
-	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
-	if line|<=|lines jump #lineloop
-jump #doalllines
+	setadd Pipes.line{Pipes.index}.Y 1
+	set Pipes.line{Pipes.index}.dir Y+
+	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
+	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+jump #Pipes:doalllines
 
-#Pipes.Y-
+#Pipes:Y-
 // (no arguments)
-	setsub line{line}.Y 1
-	set line{line}.dir Y-
-	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
-	if line|<=|lines jump #lineloop
-jump #doalllines
+	setsub Pipes.line{Pipes.index}.Y 1
+	set Pipes.line{Pipes.index}.dir Y-
+	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
+	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+jump #Pipes:doalllines
 
-#Pipes.Z+
+#Pipes:Z+
 // (no arguments)
-	setadd line{line}.Z 1
-	set line{line}.dir Z+
-	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
-	if line|<=|lines jump #lineloop
-jump #doalllines
+	setadd Pipes.line{Pipes.index}.Z 1
+	set Pipes.line{Pipes.index}.dir Z+
+	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
+	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+jump #Pipes:doalllines
 
-#Pipes.Z-
+#Pipes:Z-
 // (no arguments)
-	setsub line{line}.Z 1
-	set line{line}.dir Z-
-	setblockid line{line}.id {line{line}.X} {line{line}.Y} {line{line}.Z}
-	if line|<=|lines jump #lineloop
-jump #doalllines
+	setsub Pipes.line{Pipes.index}.Z 1
+	set Pipes.line{Pipes.index}.dir Z-
+	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
+	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+jump #Pipes:doalllines
 
-#box
+#Pipes:terminate
+resetdata packages
+terminate
+
+#Pipes:box
 // (no arguments)
 	// set generic packages
-	set X {line{line}.X}
-	set Y {line{line}.Y}
-	set Z {line{line}.Z}
-	set dir {line{line}.dir}
-	set id {line{line}.id}
+	set X {Pipes.line{Pipes.index}.X}
+	set Y {Pipes.line{Pipes.index}.Y}
+	set Z {Pipes.line{Pipes.index}.Z}
+	set dir {Pipes.line{Pipes.index}.dir}
+	set id {Pipes.line{Pipes.index}.id}
 	// cease the line
-	set line{line}.ceased true
-	call #softbox
-	if line|<=|lines jump #lineloop
-jump #doalllines
+	set Pipes.line{Pipes.index}.ceased true
+	call #Pipes:softbox
+	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+jump #Pipes:doalllines
 
-#softbox
+#Pipes:softbox
 // (no arguments)
-	if temp:box{X},{Y},{Z} quit
-	set temp:box{X},{Y},{Z} true
+	if Pipes.box{X},{Y},{Z} quit
+	set Pipes.box{X},{Y},{Z} true
 	//
 	// check X+
 	setadd X 1
 	setblockid id {X} {Y} {Z}
 	if dir|=|"X-" set id 0
-	if id|=|551 call #pushline|{X}|{Y}|{Z}|X+
+	if id|=|551 call #Pipes:pushline|{X}|{Y}|{Z}|X+
 	// check X-
 	setsub X 2
 	setblockid id {X} {Y} {Z}
 	if dir|=|"X+" set id 0
-	if id|=|551 call #pushline|{X}|{Y}|{Z}|X-
+	if id|=|551 call #Pipes:pushline|{X}|{Y}|{Z}|X-
 	// reset X
 	setadd X 1
 	//
@@ -147,12 +174,12 @@ jump #doalllines
 	setadd Z 1
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Z-" set id 0
-	if id|=|552 call #pushline|{X}|{Y}|{Z}|Z+
+	if id|=|552 call #Pipes:pushline|{X}|{Y}|{Z}|Z+
 	// check Z-
 	setsub Z 2
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Z+" set id 0
-	if id|=|552 call #pushline|{X}|{Y}|{Z}|Z-
+	if id|=|552 call #Pipes:pushline|{X}|{Y}|{Z}|Z-
 	// reset Z
 	setadd Z 1
 	//
@@ -160,12 +187,12 @@ jump #doalllines
 	setadd Y 1
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Y-" set id 0
-	if id|=|550 call #pushline|{X}|{Y}|{Z}|Y+
+	if id|=|550 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
 	// check Y-
 	setsub Y 2
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Y+" set id 0
-	if id|=|550 call #pushline|{X}|{Y}|{Z}|Y-
+	if id|=|550 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 	// reset Y
 	setadd Y 1
 quit
