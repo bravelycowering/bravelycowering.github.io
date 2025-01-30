@@ -52,19 +52,19 @@ quit
 #Pipes:messageblock
 // (message block) (no arguments)
 	allowmbrepeat
-	cmd oss #Pipes:run|{MBCoords}
+	set coords {MBCoords}
+	cmd oss #Pipes:run
 quit
 
 // runs the pipes at the click event
 #Pipes:clickevent
 // (clickevent block) (no arguments)
-	cmd oss #Pipes:run|{click.coords}
+	set coords {click.coords}
+	cmd oss #Pipes:run
 quit
 
 #Pipes:run
-// coords
 	ifnot Pipes.setup call #Pipes:setup
-	set coords {runArg1}
 	setsplit coords " "
 	set X {coords[0]}
 	set Y {coords[1]}
