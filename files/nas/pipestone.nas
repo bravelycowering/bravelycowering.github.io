@@ -7,7 +7,8 @@ jump #Pipes:version
 
 // Prevent every map ever from breaking
 #run
-jump #Pipes:messageblock
+newthread #Pipes:messageblock
+terminate
 
 // White
 #Pipes:prerun[36]

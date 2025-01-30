@@ -14,7 +14,7 @@ To use Pipestone in your own OS maps is easy, simply run the following commands 
     Using Pipes.nas in your own scripts.
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-Pipes.nas is the underlying script that controls the actual pipes and how they travel
+Pipes.nas is the underlying script that controls the actual pipes and how signals travel through them. Pipestone simply adds 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
     Adding custom Gizmos.
