@@ -75,9 +75,12 @@ quit
 #update[9]
 	setrandrange DX -1 1
 	setrandrange DZ -1 1
+	setsub Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #changeblock
+	if id|=|9 setadd Y 1
 	setadd X {DX}
 	setadd Z {DZ}
-	setsub Y 1
 	setblockid id {X} {Y} {Z}
 	if id|=|0 jump #changeblock
 quit
