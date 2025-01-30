@@ -157,6 +157,7 @@ quit
 		if Pipes.tick|>|Pipes.maxtick jump #Pipes:cleanup
 		delay {Pipes.conf.ticklength}
 		// next iteration if it doesnt exist
+		if Pipes.lines|>|0 jump #Pipes:doalllines
 		if Pipes.delay{Pipes.tick}.length|=|"" jump #Pipes:tickloop
 		// loop through all and do boxes
 		set Pipes.temp 0
