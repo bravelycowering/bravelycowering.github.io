@@ -1,8 +1,9 @@
 // Pipestone
 include os/bravelycowering+
 
-// Print version number
+// Print version number and do configuration
 #onJoin
+	set Pipes.conf.mbrepeatable true
 jump #Pipes:version
 
 // Prevent every map ever from breaking
