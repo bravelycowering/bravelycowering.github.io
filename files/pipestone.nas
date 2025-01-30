@@ -36,7 +36,7 @@ quit
 	#lineloop
 	// (no arguments)
 		setadd line 1
-		if line{line}.ceased jump #lineloop
+		if line{line}.ceased jump #skip
 		set validlines true
 		// if pipes move in pipe direction
 		if line{line}.id|=|550 jump #pipe:{line{line}.dir}
@@ -52,7 +52,6 @@ quit
 		set id {line{line}.id}
 		// cease line
 		set line{line}.ceased true
-		msg &eYou found the issue!
 		// and call gizmo if its not been called yet
 		if temp:gizmo{X},{Y},{Z} jump #skip
 		set temp:gizmo{X},{Y},{Z} true
@@ -121,7 +120,6 @@ jump #doalllines
 	set id {line{line}.id}
 	// cease the line
 	set line{line}.ceased true
-	msg &aYou found the issue!
 	jump #softbox
 quit
 
