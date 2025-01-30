@@ -20,6 +20,7 @@ quit
 				set Y {gY}
 				set Z {gZ}
 				setblockid gid {X} {Y} {Z}
+				ifnot label #update[{gid}] placeblock 0 {X} {Y} {Z}
 				if label #update[{gid}] call #update[{gid}]
 				setadd gY 1
 			if gY|<=|{maxY} jump #Y-loop
