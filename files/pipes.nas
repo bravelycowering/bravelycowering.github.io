@@ -54,6 +54,7 @@ jump #Pipes:doalllines
 	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].X {X}
 	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Y {Y}
 	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Z {Z}
+	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].dir {dir}
 quit
 
 // keep in mind, lines are 1-indexed
@@ -128,6 +129,7 @@ quit
 			set X {Pipes.delay{Pipes.tick}[{Pipes.temp}].X}
 			set Y {Pipes.delay{Pipes.tick}[{Pipes.temp}].Y}
 			set Z {Pipes.delay{Pipes.tick}[{Pipes.temp}].Z}
+			set dir {Pipes.delay{Pipes.tick}[{Pipes.temp}].dir}
 			call #Pipes:softbox
 		if Pipes.temp|<|Pipes.delay{Pipes.tick}.length jump #Pipes:delayloop
 	jump #Pipes:doalllines
