@@ -2,6 +2,10 @@
 resetdata packages box_*
 quit
 
+#p
+cmd /mb 766 /oss #run
+quit
+
 #debug
 if debug jump #debugoff
 ifnot debug jump #debugon
@@ -87,14 +91,16 @@ quit
 
 #gizmo
 setblockid id {X} {Y} {Z}
-if id|=|27 placeblock 32 {X} {Y} {Z}
-if id|=|32 placeblock 27 {X} {Y} {Z}
+if id|=|764 placeblock 62 {X} {Y} {Z}
+if id|=|62 placeblock 764 {X} {Y} {Z}
 quit
 
 #box
 if debug msg BOX AT {X} {Y} {Z}
 // prevent infinite loops
 if box_pl_{X}_{Y}_{Z} quit
+// add a small delay when using a box
+delay 100
 set box_pl_{X}_{Y}_{Z} true
 // save coords of box #
 set box_{b}_X {X}
