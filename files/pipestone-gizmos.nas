@@ -38,6 +38,7 @@ if id|=|753 jump #BS-WE
 quit
 
 #passthrough
+set line{line}.ceased false
 set temp:gizmo{X},{Y},{Z}
 if dir|=|"X+" jump #Pipes.X+
 if dir|=|"X-" jump #Pipes.X-
