@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.2
+	msg &fRunning Pipes &a2.2-a
 quit
 
 // runs the pipestone at the message block
@@ -206,6 +206,7 @@ terminate
 	set X {Pipes.line{Pipes.index}.X}
 	set Y {Pipes.line{Pipes.index}.Y}
 	set Z {Pipes.line{Pipes.index}.Z}
+	set dir {Pipes.line{Pipes.index}.dir}
 	// schedule the delay for the runarg
 	call #Pipes:schedulebox|{runArg1}
 	// cease the line
