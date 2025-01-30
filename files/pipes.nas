@@ -139,15 +139,14 @@ quit
 	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s) and {actionCount} actions.
 	set Pipes.threads 0
 	set Pipes.inprogress false
-quit
+terminate
 
 #Pipes:failsafe
 // (no arguments)
-	if Pipes.threads|>=|10 msg &cError: actions exceeded 550k total (10 threads and {actionCount} actions), pipes cannot complete, aborting...
-	if Pipes.threads|>=|10 jump #Pipes:cleanup
 	if Pipes.threads|=|0 msg &eWarning: actions exceeded 50k ({actionCount}), using threads to complete...
 	setadd Pipes.threads 1
-	msg &bCreating thread #{Pipes.threads} with {actionCount} actions
+	if Pipes.threads|>=|10 msg &cError: actions exceeded 500k total (10 threads and {actionCount} actions), pipes cannot complete, aborting...
+	if Pipes.threads|>=|10 jump #Pipes:cleanup
 	newthread {runArg1}
 terminate
 
