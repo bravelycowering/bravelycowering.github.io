@@ -136,7 +136,7 @@ quit
 	// cleanup
 	#Pipes:cleanup
 	resetdata packages Pipes.delay*
-	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s).
+	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s) and {actionCount} actions.
 	set Pipes.threads 0
 	set Pipes.inprogress false
 quit
@@ -145,7 +145,6 @@ quit
 // (no arguments)
 	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k ({actionCount}), using threads to complete...
 	setadd Pipes.threads 1
-	delay 100
 	newthread {runArg1}
 quit
 
