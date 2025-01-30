@@ -51,7 +51,7 @@ quit
 terminate
 
 #changeblock
-	placeblock 0 {gX} {gY} {gZ}
+	placeblock {id} {gX} {gY} {gZ}
 	placeblock {gid} {X} {Y} {Z}
 quit
 
