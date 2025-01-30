@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3
+	msg &fRunning Pipes &a2.3-a
 quit
 
 #Pipes:debug
@@ -23,10 +23,10 @@ quit
 	if Pipes.id.pipe-NS|=|"" set Pipes.id.pipe-NS 552
 	// The block ID to use for Boxes
 	if Pipes.id.box|=|"" set Pipes.id.box 238
-	// The block ID to use for the start of the list of delays [NOT FUNCTIONAL YET]
-	if Pipes.id.delays|=|"" set Pipes.id.delays 485
+	// The block ID to use for the start of the list of delays
+	if Pipes.id.delay|=|"" set Pipes.id.delay 485
 // conf
-	// The amount of delays to use. If set to 0, this will disable the delay system entirely. [NOT FUNCTIONAL YET]
+	// The amount of delays to use. If set to 0, this will disable the delay system entirely.
 	if Pipes.conf.delays|=|"" set Pipes.conf.delays 5
 	// The maximum number of threads Pipes will make to try and keep running (including the initial thread), setting this to less than 1 will disable making new threads
 	if Pipes.conf.maxthreads|=|"" set Pipes.conf.maxthreads 10
@@ -52,12 +52,12 @@ quit
 #Pipes:messageblock
 // (message block) (no arguments)
 	allowmbrepeat
-jump #Pipes:run|{MBCoords}
+cmd oss #Pipes:run|{MBCoords}
 
 // runs the pipes at the click event
 #Pipes:clickevent
 // (clickevent block) (no arguments)
-jump #Pipes:run|{click.coords}
+cmd oss #Pipes:run|{click.coords}
 
 #Pipes:run
 // coords
@@ -125,11 +125,12 @@ quit
 		// if box then do box
 		if id|=|{Pipes.id.box} jump #Pipes:box
 		// if delay do delay
-		if id|=|485 jump #Pipes:delay|1
-		if id|=|486 jump #Pipes:delay|2
-		if id|=|487 jump #Pipes:delay|3
-		if id|=|488 jump #Pipes:delay|4
-		if id|=|489 jump #Pipes:delay|5
+		set Pipes.temp {Pipes.id.delay}
+		setadd Pipes.temp {Pipes.conf.delays}
+		if id|<|{Pipes.id.delay} jump #Pipes:attemptgizmo
+		if id|>=|{Pipes.temp} jump #Pipes:attemptgizmo
+		jump #Pipes:delay
+		#Pipes:attemptgizmo
 		// not a box or a pipe so set packages
 		set X {Pipes.line{Pipes.index}.X}
 		set Y {Pipes.line{Pipes.index}.Y}
@@ -247,7 +248,10 @@ call #Pipes:cleanup
 terminate
 
 #Pipes:delay
-// in
+// (no arguments)
+	set Pipes.temp {id}
+	setsub Pipes.temp {Pipes.id.delay}
+	setadd Pipes.temp 1
 	// set generic packages
 	set X {Pipes.line{Pipes.index}.X}
 	set Y {Pipes.line{Pipes.index}.Y}
@@ -260,7 +264,7 @@ terminate
 	// set dir
 	set dir {Pipes.line{Pipes.index}.dir}
 	// schedule the delay for the runarg
-	call #Pipes:schedulebox|{runArg1}
+	call #Pipes:schedulebox|{Pipes.temp}
 	#Pipes:skipdelay
 	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
