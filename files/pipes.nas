@@ -148,7 +148,7 @@ quit
 	if Pipes.threads|=|0 msg &eWarning: actions exceeded 50k ({actionCount}), using threads to complete...
 	setadd Pipes.threads 1
 	newthread {runArg1}
-quit
+terminate
 
 #Pipes:X+
 // (no arguments)
@@ -199,7 +199,7 @@ jump #Pipes:doalllines
 jump #Pipes:doalllines
 
 #Pipes:terminate
-resetdata packages
+call #Pipes:cleanup
 terminate
 
 #Pipes:delay
