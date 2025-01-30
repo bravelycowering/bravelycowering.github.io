@@ -16,6 +16,7 @@ quit
 		#X-loop
 			set gY {minY}
 			#Y-loop
+				if {actionCount}|>|60000 jump #failsafe
 				set X {gX}
 				set Y {gY}
 				set Z {gZ}
@@ -31,6 +32,10 @@ quit
 	msg &aCompleted in {actionCount} actions!
 quit
 
+#failsafe
+	newthread #Y-loop
+terminate
+
 #changeblock
 	placeblock 0 {gX} {gY} {gZ}
 	placeblock {gid} {X} {Y} {Z}
@@ -39,6 +44,19 @@ quit
 // snow
 #update[140]
 	setsub Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #changeblock
+	setadd X 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #changeblock
+	setsub X 2
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #changeblock
+	setadd X 1
+	setadd Z 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #changeblock
+	setsub Z 2
 	setblockid id {X} {Y} {Z}
 	if id|=|0 jump #changeblock
 quit
