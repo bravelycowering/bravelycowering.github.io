@@ -1,4 +1,7 @@
 #onJoin
+	// hide the mb
+	tempblock 0 127 127 127
+	// give the option to boot
 	replysilent 1|Boot|#setup
 quit
 
@@ -9,26 +12,28 @@ quit
 	freeze
 	// default packages
 	set {} {} {}
-	// hide the mb
-	tempblock 0 127 127 127
 	// create the standing platform
-	tempblock 1 64 59 78
+	tempblock 751 64 59 78
+	// clear the colors, leave black to be the screen
+	tempchunk 0 0 33 127 127 63 0 0 1
 	// teleport to it
 	cmd tp 64 60 78 0 0
-	// clear the colors
-	tempchunk 0 0 32 127 127 63 0 0 0
-	// create the screen
-	tempchunk 0 0 0 127 127 0 0 0 0
 	unfreeze
 quit
 
 #fill
-// X Y color
-
+// X Y X2 Y2 color
+	tempchunk {runArg1} {runArg2} {runArg5} {runArg3} {runArg4} {runArg5} {runArg1} {runArg2} 0
 quit
 
 #copychar
-// X Y
+// sX sY X Y
+	set sX2 {runArg1}
+	set sY2 {runArg2}
+	setadd sX2 3
+	setadd sY2 7
+	tempchunk {runArg1} {runArg2} 17 {sX2} {sY2} 17 {runArg3} {runArg4} 0
+quit
 
 #resume
 jump {resume}
