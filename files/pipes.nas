@@ -106,6 +106,8 @@ quit
 		// and call gizmo if its not been called yet
 		if Pipes.gizmo{X},{Y},{Z} jump #Pipes:skip
 		set Pipes.gizmo{X},{Y},{Z} true
+		if label #Pipes:gizmo call #Pipes:gizmo
+		if label #Pipes:gizmo jump #Pipes:skip
 		if label #Pipes:gizmo[{id}] call #Pipes:gizmo[{id}]
 		#Pipes:skip
 		if Pipes.index|<|Pipes.lines jump #Pipes:lineloop

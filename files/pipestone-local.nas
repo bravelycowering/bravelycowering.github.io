@@ -39,20 +39,30 @@ quit
 	if id|=|766 setsub Y 1
 quit
 
+#Pipes:gizmo
+	call #getblock|{X}|{Y}|{Z}
+	if label #Pipes:gizmo[{id}] call #Pipes:gizmo[{id}]
+quit
+
 // Lamp
 #Pipes:gizmo[62]
+	call #setblock|764|{X}|{Y}|{Z}
+quit
 #Pipes:gizmo[764]
-	call #getblock|{X}|{Y}|{Z}
-	if id|=|62 call #setblock|764|{X}|{Y}|{Z}
-	if id|=|764 call #setblock|62|{X}|{Y}|{Z}
+	call #setblock|62|{X}|{Y}|{Z}
 quit
 
 // Light
 #Pipes:gizmo[215]
+	call #setblock|765|{X}|{Y}|{Z}
+quit
 #Pipes:gizmo[765]
-	call #getblock|{X}|{Y}|{Z}
-	if id|=|215 call #setblock|765|{X}|{Y}|{Z}
-	if id|=|765 call #setblock|215|{X}|{Y}|{Z}
+	call #setblock|215|{X}|{Y}|{Z}
+quit
+
+// Fake box
+#Pipes:gizmo[238]
+	call #Pipes:softbox
 quit
 
 // Message blocks
