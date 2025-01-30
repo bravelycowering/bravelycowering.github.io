@@ -125,9 +125,9 @@ quit
 		#Pipes:delayloop
 			// if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
 			setadd Pipes.temp 1
-			set X {Pipes.delay{Pipes.temp}.X}
-			set Y {Pipes.delay{Pipes.temp}.Y}
-			set Z {Pipes.delay{Pipes.temp}.Z}
+			set X {Pipes.delay{Pipes.tick}[{Pipes.temp}].X}
+			set Y {Pipes.delay{Pipes.tick}[{Pipes.temp}].Y}
+			set Z {Pipes.delay{Pipes.tick}[{Pipes.temp}].Z}
 			call #Pipes:softbox
 		if Pipes.temp|<|Pipes.delay{Pipes.tick}.length jump #Pipes:delayloop
 	jump #Pipes:doalllines
