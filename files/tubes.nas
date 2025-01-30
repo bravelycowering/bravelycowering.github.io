@@ -1,5 +1,7 @@
 using allow_include
 
+// THIS IS THE ORIGINAL IMPLEMENTATION OF PIPESTONE. PLEASE USE THE NEW VERSION.
+
 #p
 cmd mb {runArg1} /oss #run
 quit
