@@ -143,9 +143,8 @@ quit
 
 #Pipes:failsafe
 // (no arguments)
-	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k, using threads to complete...
+	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k ({actionCount}), using threads to complete...
 	setadd Pipes.threads 1
-	delay 100
 	newthread {runArg1}
 quit
 
