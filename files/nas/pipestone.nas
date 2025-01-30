@@ -7,6 +7,7 @@ jump #Pipes:version
 
 // Prevent every map ever from breaking
 #run
+msg &aNew Thread
 newthread #Pipes:messageblock
 terminate
 
