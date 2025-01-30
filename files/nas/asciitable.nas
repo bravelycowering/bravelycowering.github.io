@@ -1,11 +1,10 @@
 #setchar
-if ascii.char[{{runArg1}}]|=|"" error invalid char {{runArg1}}
 set {runArg1} {ascii.char[{{runArg1}}]}
 quit
 
 #setbyte
-if ascii.byte[{{runArg1}}]|=|"" error invalid char {{runArg1}}
 set {runArg1} {ascii.byte[{{runArg1}}]}
+if ascii.byte[{{runArg1}}]|=|" " set {runArg1} {}
 quit
 
 #chardict
@@ -71,7 +70,6 @@ set ascii.byte[▲] 30
 set ascii.char[30] ▲
 set ascii.byte[▼] 31
 set ascii.char[31] ▼
-set ascii.byte[ ] 32
 set ascii.char[32] {}
 set ascii.byte[!] 33
 set ascii.char[33] !
