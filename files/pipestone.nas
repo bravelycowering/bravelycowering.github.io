@@ -121,9 +121,9 @@ jump #doalllines
 	set id {line{line}.id}
 	// cease the line
 	set line{line}.ceased true
-	msg BOX AT {X} {Y} {Z}
-	jump #softbox
-quit
+	call #softbox
+	if line|<=|lines jump #lineloop
+jump #doalllines
 
 #softbox
 // (no arguments)
@@ -168,5 +168,4 @@ quit
 	if id|=|550 call #pushline|{X}|{Y}|{Z}|Y-
 	// reset Y
 	setadd Y 1
-	if line|<=|lines jump #lineloop
-jump #doalllines
+quit
