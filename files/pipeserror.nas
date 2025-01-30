@@ -1,5 +1,9 @@
 using allow_include
 
+// build a configuration in which two pipes go into the same delay
+// on the same tick, then try to /osa show every single package while
+// it's running
+
 #Pipes:version
 // (no arguments)
 	msg &fRunning Pipes &a2.2.5
@@ -124,7 +128,6 @@ quit
 		// loop through all and do boxes
 		set Pipes.temp 0
 		#Pipes:delayloop
-		msg delayloop
 			if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
 			setadd Pipes.temp 1
 			set X {Pipes.delay{Pipes.tick}[{Pipes.temp}].X}
