@@ -144,9 +144,9 @@ quit
 #Pipes:failsafe
 // (no arguments)
 	if Pipes.threads|=|0 msg &aWarning: actions exceeded 50k ({actionCount}), using threads to complete...
+	setadd Pipes.threads 1
 	if Pipes.threads|>=|10 msg &cError: actions exceeded 550k total (10 threads and {actionCount} actions), pipes cannot complete, aborting...
 	if Pipes.threads|>=|10 jump #Pipes:cleanup
-	setadd Pipes.threads 1
 	newthread {runArg1}
 quit
 
