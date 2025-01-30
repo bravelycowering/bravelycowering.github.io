@@ -124,7 +124,7 @@ quit
 		// loop through all and do boxes
 		set Pipes.temp 0
 		#Pipes:delayloop
-			// if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
+			if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
 			setadd Pipes.temp 1
 			set X {Pipes.delay{Pipes.tick}[{Pipes.temp}].X}
 			set Y {Pipes.delay{Pipes.tick}[{Pipes.temp}].Y}
@@ -145,6 +145,7 @@ quit
 // (no arguments)
 	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k, using threads to complete...
 	setadd Pipes.threads 1
+	delay 100
 	newthread {runArg1}
 quit
 
