@@ -20,8 +20,6 @@ quit
 #pushline
 // X, Y, Z, Direction
 	setadd lines 1
-	msg {runArg1} {runArg2} {runArg3} {runArg4} {lines}
-	if lines|>|10 msg &cThat's enough buddy
 	set line{lines}.X {runArg1}
 	set line{lines}.Y {runArg2}
 	set line{lines}.Z {runArg3}
@@ -54,6 +52,7 @@ quit
 		set id {line{line}.id}
 		// cease line
 		set line{line}.ceased true
+		msg &eYou found the issue!
 		// and call gizmo if its not been called yet
 		if temp:gizmo{X},{Y},{Z} jump #skip
 		set temp:gizmo{X},{Y},{Z} true
@@ -122,6 +121,7 @@ jump #doalllines
 	set id {line{line}.id}
 	// cease the line
 	set line{line}.ceased true
+	msg &aYou found the issue!
 	jump #softbox
 quit
 
