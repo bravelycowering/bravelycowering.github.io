@@ -87,7 +87,7 @@ quit
 #update[1]
 	setsub Y 1
 	setblockid id {X} {Y} {Z}
-	if label #swap[{gid}]:{id} #changeblock
+	if label #swap[{gid}]:{id} jump #changeblock
 quit
 
 // water
