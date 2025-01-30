@@ -128,6 +128,8 @@ quit
 	set TEMP2 {Y}
 	setsub TEMP2 1
 	setblockid tempid2 {X} {TEMP2} {Z}
+	if tempid1|>|767 quit
+	if tempid2|>|767 quit
 	placeblock {tempid1} {X} {TEMP2} {Z}
 	placeblock {tempid2} {X} {TEMP1} {Z}
 quit
@@ -142,6 +144,8 @@ quit
 	set TEMP2 {Z}
 	setsub TEMP2 1
 	setblockid tempid2 {X} {Y} {TEMP2}
+	if tempid1|>|767 quit
+	if tempid2|>|767 quit
 	placeblock {tempid1} {X} {Y} {TEMP2}
 	placeblock {tempid2} {X} {Y} {TEMP1}
 quit
@@ -156,6 +160,8 @@ quit
 	set TEMP2 {X}
 	setsub TEMP2 1
 	setblockid tempid2 {TEMP2} {Y} {Z}
+	if tempid1|>|767 quit
+	if tempid2|>|767 quit
 	placeblock {tempid1} {TEMP2} {Y} {Z}
 	placeblock {tempid2} {TEMP1} {Y} {Z}
 quit

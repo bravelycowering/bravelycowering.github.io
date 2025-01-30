@@ -12,7 +12,6 @@ using allow_include
 	setblockid id {coords}
 	// prerun
 	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
-	if label #Pipes:prerun call #Pipes:prerun
 	// adds the lines
 	call #Pipes:softbox
 	ifnot Pipes.inprogress jump #Pipes:doalllines
@@ -31,7 +30,6 @@ quit
 	setblockid id {coords}
 	// prerun
 	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
-	if label #Pipes:prerun call #Pipes:prerun
 	// adds the lines
 	call #Pipes:softbox
 	ifnot Pipes.inprogress jump #Pipes:doalllines
@@ -78,7 +76,6 @@ quit
 		if Pipes.gizmo{X},{Y},{Z} jump #Pipes:skip
 		set Pipes.gizmo{X},{Y},{Z} true
 		if label #Pipes:gizmo[{id}] call #Pipes:gizmo[{id}]
-		if label #Pipes:gizmo call #Pipes:gizmo
 		#Pipes:skip
 		if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
 	if Pipes.validlines jump #Pipes:doalllines
