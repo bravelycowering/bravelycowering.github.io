@@ -16,11 +16,11 @@ quit
 	set Pipes.setup true
 // ids
 	// The block ID to use for UD pipes
-	if Pipes.id.pipe-UD|=|"" set Pipes.id.pipeUD 550
+	if Pipes.id.pipe-UD|=|"" set Pipes.id.pipe-UD 550
 	// The block ID to use for WE pipes
-	if Pipes.id.pipe-WE|=|"" set Pipes.id.pipeUD 551
+	if Pipes.id.pipe-WE|=|"" set Pipes.id.pipe-WE 551
 	// The block ID to use for NS pipes
-	if Pipes.id.pipe-NS|=|"" set Pipes.id.pipeUD 552
+	if Pipes.id.pipe-NS|=|"" set Pipes.id.pipe-NS 552
 	// The block ID to use for Boxes
 	if Pipes.id.box|=|"" set Pipes.id.box 238
 	// The block ID to use for the start of the list of delays [NOT FUNCTIONAL YET]
