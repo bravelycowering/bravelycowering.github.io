@@ -108,7 +108,7 @@ quit
 		set Pipes.gizmo{X},{Y},{Z} true
 		if label #Pipes:gizmo[{id}] call #Pipes:gizmo[{id}]
 		#Pipes:skip
-		if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+		if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 	if Pipes.validlines jump #Pipes:doalllines
 	// erase everything
 	resetdata packages Pipes.line*
