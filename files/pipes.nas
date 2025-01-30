@@ -162,7 +162,7 @@ terminate
 	setadd Pipes.line{Pipes.index}.X 1
 	set Pipes.line{Pipes.index}.dir X+
 	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
 #Pipes:X-
@@ -170,7 +170,7 @@ jump #Pipes:doalllines
 	setsub Pipes.line{Pipes.index}.X 1
 	set Pipes.line{Pipes.index}.dir X-
 	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
 #Pipes:Y+
@@ -178,7 +178,7 @@ jump #Pipes:doalllines
 	setadd Pipes.line{Pipes.index}.Y 1
 	set Pipes.line{Pipes.index}.dir Y+
 	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
 #Pipes:Y-
@@ -186,7 +186,7 @@ jump #Pipes:doalllines
 	setsub Pipes.line{Pipes.index}.Y 1
 	set Pipes.line{Pipes.index}.dir Y-
 	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
 #Pipes:Z+
@@ -194,7 +194,7 @@ jump #Pipes:doalllines
 	setadd Pipes.line{Pipes.index}.Z 1
 	set Pipes.line{Pipes.index}.dir Z+
 	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
 #Pipes:Z-
@@ -202,7 +202,7 @@ jump #Pipes:doalllines
 	setsub Pipes.line{Pipes.index}.Z 1
 	set Pipes.line{Pipes.index}.dir Z-
 	setblockid Pipes.line{Pipes.index}.id {Pipes.line{Pipes.index}.X} {Pipes.line{Pipes.index}.Y} {Pipes.line{Pipes.index}.Z}
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
 #Pipes:terminate
@@ -225,7 +225,7 @@ terminate
 	// schedule the delay for the runarg
 	call #Pipes:schedulebox|{runArg1}
 	#Pipes:skipdelay
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
 #Pipes:box
@@ -239,7 +239,7 @@ jump #Pipes:doalllines
 	// cease the line
 	set Pipes.line{Pipes.index}.ceased true
 	call #Pipes:softbox
-	if Pipes.index|<=|Pipes.lines jump #Pipes:lineloop
+	if Pipes.index|<|Pipes.lines jump #Pipes:lineloop
 jump #Pipes:doalllines
 
 #Pipes:softbox
