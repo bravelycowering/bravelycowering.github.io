@@ -1,5 +1,5 @@
 // Pipestone
-include os/bravelycowering+
+include os/pipestone+
 
 // Print version number
 #onJoin
