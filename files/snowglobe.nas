@@ -17,12 +17,9 @@ quit
 			set gY {minY}
 			#Y-loop
 				if {actionCount}|>|60000 jump #failsafe
-				set X {gX}
-				set Y {gY}
-				set Z {gZ}
-				setblockid gid {X} {Y} {Z}
+				setblockid gid {gX} {gY} {gZ}
 				ifnot label #update[{gid}] placeblock 0 {X} {Y} {Z}
-				if label #update[{gid}] call #update[{gid}]
+				if label #update[{gid}] call #updateblock
 				setadd gY 1
 			if gY|<=|{maxY} jump #Y-loop
 			setadd gX 1
@@ -39,6 +36,13 @@ terminate
 #changeblock
 	placeblock 0 {gX} {gY} {gZ}
 	placeblock {gid} {X} {Y} {Z}
+quit
+
+#updateblock
+	set X {gX}
+	set Y {gY}
+	set Z {gZ}
+	jump #update[{gid}]
 quit
 
 // snow
