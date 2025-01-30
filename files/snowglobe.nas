@@ -51,6 +51,7 @@ quit
 terminate
 
 #changeblock
+	if label #crush:{id} set id 0
 	placeblock {id} {gX} {gY} {gZ}
 	placeblock {gid} {X} {Y} {Z}
 quit
