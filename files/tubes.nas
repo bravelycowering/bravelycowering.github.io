@@ -3,7 +3,7 @@ resetdata packages box_*
 quit
 
 #p
-cmd /mb 766 /oss #run
+cmd mb 766 /oss #run
 quit
 
 #debug
@@ -41,8 +41,8 @@ if debug msg PIPE +Y AT {X} {Y} {Z}
 setadd Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-aY
-if id|=|238 jump #box
 jump #gizmo
+if id|=|238 jump #box
 quit
 
 #pipe-sY
@@ -50,8 +50,8 @@ if debug msg PIPE -Y AT {X} {Y} {Z}
 setsub Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-sY
-if id|=|238 jump #box
 jump #gizmo
+if id|=|238 jump #box
 quit
 
 #pipe-aX
@@ -59,8 +59,8 @@ if debug msg PIPE +X AT {X} {Y} {Z}
 setadd X 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-aX
-if id|=|238 jump #box
 jump #gizmo
+if id|=|238 jump #box
 quit
 
 #pipe-sX
@@ -68,8 +68,8 @@ if debug msg PIPE -X AT {X} {Y} {Z}
 setsub X 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-sX
-if id|=|238 jump #box
 jump #gizmo
+if id|=|238 jump #box
 quit
 
 #pipe-aZ
@@ -77,8 +77,8 @@ if debug msg PIPE +Z AT {X} {Y} {Z}
 setadd Z 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-aZ
-if id|=|238 jump #box
 jump #gizmo
+if id|=|238 jump #box
 quit
 
 #pipe-sZ
@@ -86,8 +86,8 @@ if debug msg PIPE -Z AT {X} {Y} {Z}
 setsub Z 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-sZ
-if id|=|238 jump #box
 jump #gizmo
+if id|=|238 jump #box
 quit
 
 #gizmo
