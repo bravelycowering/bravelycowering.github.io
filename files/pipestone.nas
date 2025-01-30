@@ -2,6 +2,7 @@ using allow_include
 
 // runs the pipestone at the message block
 #Pipes.messageblock
+msg #Pipes.messageblock
 // (message block) (no arguments)
 	allowmbrepeat
 	set line 0
@@ -19,6 +20,7 @@ quit
 
 // keep in mind, lines are 1-indexed
 #pushline
+msg #pushline
 // X, Y, Z, Direction
 	setadd lines 1
 	set line{lines}.X {runArg1}
@@ -30,11 +32,13 @@ quit
 quit
 
 #doalllines
+msg #doalllines
 // (no arguments)
 	set inprogress true
 	set line 0
 	set validlines false
 	#lineloop
+	msg #lineloop
 	// (no arguments)
 		setadd line 1
 		if line{line}.ceased jump #skip
@@ -58,12 +62,14 @@ quit
 		set temp:gizmo{X},{Y},{Z} true
 		if label #Pipes.gizmo call #Pipes.gizmo
 		#skip
+		msg #skip
 		if line|<=|lines jump #lineloop
 	if validlines jump #doalllines
 	resetdata packages
 quit
 
 #pipe:X+
+msg #pipe:X+
 // (no arguments)
 	setadd line{line}.X 1
 	set line{line}.dir X+
@@ -72,6 +78,7 @@ quit
 jump #doalllines
 
 #pipe:X-
+msg #pipe:X-
 // (no arguments)
 	setsub line{line}.X 1
 	set line{line}.dir X-
@@ -80,6 +87,7 @@ jump #doalllines
 jump #doalllines
 
 #pipe:Y+
+msg #pipe:Y+
 // (no arguments)
 	setadd line{line}.Y 1
 	set line{line}.dir Y+
@@ -88,6 +96,7 @@ jump #doalllines
 jump #doalllines
 
 #pipe:Y-
+msg #pipe:Y-
 // (no arguments)
 	setsub line{line}.Y 1
 	set line{line}.dir Y-
@@ -96,6 +105,7 @@ jump #doalllines
 jump #doalllines
 
 #pipe:Z+
+msg #pipe:Z+
 // (no arguments)
 	setadd line{line}.Z 1
 	set line{line}.dir Z+
@@ -104,6 +114,7 @@ jump #doalllines
 jump #doalllines
 
 #pipe:Z-
+msg #pipe:Z-
 // (no arguments)
 	setsub line{line}.Z 1
 	set line{line}.dir Z-
@@ -112,6 +123,7 @@ jump #doalllines
 jump #doalllines
 
 #box
+msg #box
 // (no arguments)
 	// set generic packages
 	set X {line{line}.X}
@@ -125,6 +137,7 @@ jump #doalllines
 quit
 
 #softbox
+msg #softbox
 // (no arguments)
 	if temp:box{X},{Y},{Z} quit
 	set temp:box{X},{Y},{Z} true
