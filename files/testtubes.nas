@@ -20,7 +20,12 @@ if id|=|36 cmd m {X} {Y} {Z}
 // Signs
 if id|=|171 cmd m {X} {Y} {Z}
 // Block dispensors
-if id|=|758 #BP-N
+if id|=|758 jump #BP-N
+if id|=|759 jump #BP-S
+if id|=|760 jump #BP-E
+if id|=|761 jump #BP-W
+if id|=|762 jump #BP-U
+if id|=|763 jump #BP-D
 quit
 
 #BP-N
