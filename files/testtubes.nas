@@ -28,7 +28,7 @@ if id|=|762 jump #BP-U
 if id|=|763 jump #BP-D
 quit
 
-#BP-N
+#BP-W
 set TEMP {X}
 setadd TEMP 1
 set tempid {TEMP} {Y} {Z}
@@ -36,7 +36,7 @@ if tempid|=|0 placeblock 757 {TEMP} {Y} {Z}
 if tempid|=|757 placeblock 0 {TEMP} {Y} {Z}
 quit
 
-#BP-S
+#BP-E
 set TEMP {X}
 setsub TEMP 1
 set tempid {TEMP} {Y} {Z}
@@ -44,7 +44,7 @@ if tempid|=|0 placeblock 757 {TEMP} {Y} {Z}
 if tempid|=|757 placeblock 0 {TEMP} {Y} {Z}
 quit
 
-#BP-W
+#BP-N
 set TEMP {Z}
 setadd TEMP 1
 set tempid {X} {Y} {TEMP}
@@ -52,7 +52,7 @@ if tempid|=|0 placeblock 757 {X} {Y} {TEMP}
 if tempid|=|757 placeblock 0 {X} {Y} {TEMP}
 quit
 
-#BP-E
+#BP-S
 set TEMP {Z}
 setsub TEMP 1
 set tempid {X} {Y} {TEMP}
