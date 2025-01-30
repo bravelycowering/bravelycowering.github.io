@@ -1,5 +1,9 @@
 include os/bravelycowering+
 
+#run
+jump #Pipes.messageblock
+quit
+
 #Pipes.prerun
 if id|=|36 msg &cWhite cannot be used as a switch
 if id|=|36 terminate
