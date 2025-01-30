@@ -3,6 +3,7 @@ using allow_include
 // runs the pipestone at the message block
 #Pipes.messageblock
 // (message block) (no arguments)
+	allowmbrepeat
 	set line 0
 	set X {MBX}
 	set Y {MBY}
@@ -166,4 +167,5 @@ quit
 	if id|=|550 call #pushline|{X}|{Y}|{Z}|Y-
 	// reset Y
 	setadd Y 1
-quit
+	if line|<=|lines jump #lineloop
+jump #doalllines
