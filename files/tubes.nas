@@ -1,9 +1,5 @@
 using allow_include
 
-#onJoin
-resetdata packages box_*
-quit
-
 #p
 cmd mb {runArg1} /oss #run
 quit
