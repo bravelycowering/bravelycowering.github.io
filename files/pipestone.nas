@@ -40,9 +40,9 @@ quit
 		if line{line}.ceased jump #skip
 		set validlines true
 		// if pipes move in pipe direction
-		if line{line}.id|=|550 jump #pipe:{line{line}.dir}
-		if line{line}.id|=|551 jump #pipe:{line{line}.dir}
-		if line{line}.id|=|552 jump #pipe:{line{line}.dir}
+		if line{line}.id|=|550 jump #Pipes.{line{line}.dir}
+		if line{line}.id|=|551 jump #Pipes.{line{line}.dir}
+		if line{line}.id|=|552 jump #Pipes.{line{line}.dir}
 		// if box then do box
 		if line{line}.id|=|238 jump #box
 		// not a box or a pipe so set packages
@@ -63,7 +63,7 @@ quit
 	resetdata packages
 quit
 
-#pipe:X+
+#Pipes.X+
 // (no arguments)
 	setadd line{line}.X 1
 	set line{line}.dir X+
@@ -71,7 +71,7 @@ quit
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
-#pipe:X-
+#Pipes.X-
 // (no arguments)
 	setsub line{line}.X 1
 	set line{line}.dir X-
@@ -79,7 +79,7 @@ jump #doalllines
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
-#pipe:Y+
+#Pipes.Y+
 // (no arguments)
 	setadd line{line}.Y 1
 	set line{line}.dir Y+
@@ -87,7 +87,7 @@ jump #doalllines
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
-#pipe:Y-
+#Pipes.Y-
 // (no arguments)
 	setsub line{line}.Y 1
 	set line{line}.dir Y-
@@ -95,7 +95,7 @@ jump #doalllines
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
-#pipe:Z+
+#Pipes.Z+
 // (no arguments)
 	setadd line{line}.Z 1
 	set line{line}.dir Z+
@@ -103,7 +103,7 @@ jump #doalllines
 	if line|<=|lines jump #lineloop
 jump #doalllines
 
-#pipe:Z-
+#Pipes.Z-
 // (no arguments)
 	setsub line{line}.Z 1
 	set line{line}.dir Z-
