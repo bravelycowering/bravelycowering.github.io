@@ -106,3 +106,35 @@ quit
 	if id|=|11 set gid 1
 	if label #swap[{myid}]:{id} jump #changeblock
 quit
+
+// lava
+#update[11]
+quit
+
+// sapling
+#update[6]
+quit
+
+// sapling
+#update[6]
+quit
+
+// log
+#update[17]
+quit
+
+// leaves
+#update[18]
+quit
+
+// dirt
+#update[3]
+quit
+
+// tnt
+#update[195]
+quit
+
+// fire
+#update[54]
+quit
