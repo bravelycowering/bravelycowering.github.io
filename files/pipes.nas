@@ -137,6 +137,9 @@ quit
 	jump #Pipes:doalllines
 	// cleanup
 	#Pipes:cleanup
+	resetdata packages Pipes.line*
+	resetdata packages Pipes.gizmo*
+	resetdata packages Pipes.box*
 	resetdata packages Pipes.delay*
 	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s) and {actionCount} actions.
 	set Pipes.threads 0
