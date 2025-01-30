@@ -54,6 +54,8 @@ quit
 	set Pipes.validlines false
 	#Pipes:lineloop
 	// (no arguments)
+		// spin up a new thread if action count is running high
+		if actionCount|>|50000 jump #Pipes:failsafe
 		setadd Pipes.index 1
 		if Pipes.line{Pipes.index}.ceased jump #Pipes:skip
 		set Pipes.validlines true
@@ -81,6 +83,11 @@ quit
 	if Pipes.validlines jump #Pipes:doalllines
 	// erase everything
 	resetdata packages Pipes.*
+quit
+
+#Pipes:failsafe
+msg &cWarning: actions exceeded 50k, moving to a new thread.
+newthread #Pipes:lineloop
 quit
 
 #Pipes:X+
