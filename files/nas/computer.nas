@@ -9,7 +9,7 @@
 	// teleport to it
 	cmd tp 64 60 78 0 0
 	// clear the colors
-	tempchunk 0 0 16 127 127 31 0 0 0
+	tempchunk 0 0 32 127 127 63 0 0 0
 	// create the screen
 	tempchunk 0 0 0 127 127 0 0 0 0
 quit
