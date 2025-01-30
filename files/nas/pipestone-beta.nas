@@ -3,8 +3,20 @@ include os/bravelycowering+
 
 // Print version number and do configuration
 #onJoin
-	set Pipes.conf.mbrepeatable true
 jump #Pipes:version
+
+// Input commands
+#input
+	if runArg1|=|help jump #inputHelp
+	if runArg1|=|plate cmd mb 766 /oss #run repeatable
+	if runArg1|=|plaque cmd mb plaque /oss #run repeatable
+quit
+
+// Input help
+#inputHelp
+	msg &a/input plate&f will create a Plate activator
+	msg &a/input plaque&f will create a Plaque activator
+quit
 
 // Prevent every map ever from breaking
 #run

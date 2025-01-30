@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3-b
+	msg &fRunning Pipes &a2.3-c
 quit
 
 #Pipes:debug
@@ -38,8 +38,6 @@ quit
 	if Pipes.conf.steplength|=|"" set Pipes.conf.steplength 0
 	// Whether debug logging and stepping is enabled, uses more actions but shows useful information if you run /oss #Pipes:debug [NOT FUNCTIONAL YET]
 	if Pipes.conf.debug|=|"" set Pipes.conf.debug false
-	// Whether or not you are allowed to activate multiple pipes lines simultaneously from message blocks, could make crashing due to low threads or actions faster [NOT FUNCTIONAL YET]
-	if Pipes.conf.mbrepeatable|=|"" set Pipes.conf.mbrepeatable false
 	// The maximum number of times pipes will attempt to mark a MB to restart itself when it runs out of threads [NOT FUNCTIONAL YET]
 	if Pipes.conf.maxrevives|=|"" set Pipes.conf.maxrevives 0
 	// Whether or not to show a warning after the first revive has occurred [NOT FUNCTIONAL YET]
