@@ -13,7 +13,6 @@ using allow_include
 	if label #Pipes.prerun call #Pipes.prerun
 	// adds the lines
 	call #softbox
-	set inprogress true
 	ifnot inprogress jump #doalllines
 quit
 
@@ -31,6 +30,7 @@ quit
 
 #doalllines
 // (no arguments)
+	set inprogress true
 	set line 0
 	set validlines false
 	#lineloop
