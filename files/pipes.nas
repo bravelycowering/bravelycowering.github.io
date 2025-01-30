@@ -77,10 +77,7 @@ quit
 	#Pipes:lineloop
 	// (no arguments)
 		// spin up a new thread if action count is running high
-		set Pipes.actionCount {Pipes.threads}
-		setmul Pipes.actionCount -50000
-		setadd Pipes.actionCount {actionCount}
-		if Pipes.actionCount|>|50000 jump #Pipes:failsafe|#Pipes:lineloop
+		if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:lineloop
 		setadd Pipes.index 1
 		if Pipes.line{Pipes.index}.ceased jump #Pipes:skip
 		set Pipes.validlines true
@@ -127,10 +124,7 @@ quit
 		// loop through all and do boxes
 		set Pipes.temp 0
 		#Pipes:delayloop
-			set Pipes.actionCount {Pipes.threads}
-			setmul Pipes.actionCount -50000
-			setadd Pipes.actionCount {actionCount}
-			if Pipes.actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
+			if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
 			setadd Pipes.temp 1
 			set X {Pipes.delay{Pipes.tick}[{Pipes.temp}].X}
 			set Y {Pipes.delay{Pipes.tick}[{Pipes.temp}].Y}
@@ -149,7 +143,7 @@ quit
 
 #Pipes:failsafe
 // (no arguments)
-	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k ({Pipes.actionCount}), using threads to complete...
+	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k ({actionCount}), using threads to complete...
 	setadd Pipes.threads 1
 	delay 100
 	newthread {runArg1}
