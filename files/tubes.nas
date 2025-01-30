@@ -15,10 +15,12 @@ call #dogizmo
 setblockid id {X} {Y} {Z}
 call #box
 resetdata packages box_*
+set lastdir
 allowmbrepeat
 quit
 
 #pipe-aY
+set lastdir aY
 setadd Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-aY
@@ -27,6 +29,7 @@ jump #dogizmo
 quit
 
 #pipe-sY
+set lastdir sY
 setsub Y 1
 setblockid id {X} {Y} {Z}
 if id|=|550 jump #pipe-sY
@@ -35,6 +38,7 @@ jump #dogizmo
 quit
 
 #pipe-aX
+set lastdir aX
 setadd X 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-aX
@@ -43,6 +47,7 @@ jump #dogizmo
 quit
 
 #pipe-sX
+set lastdir sX
 setsub X 1
 setblockid id {X} {Y} {Z}
 if id|=|551 jump #pipe-sX
@@ -51,6 +56,7 @@ jump #dogizmo
 quit
 
 #pipe-aZ
+set lastdir aZ
 setadd Z 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-aZ
@@ -59,6 +65,7 @@ jump #dogizmo
 quit
 
 #pipe-sZ
+set lastdir sZ
 setsub Z 1
 setblockid id {X} {Y} {Z}
 if id|=|552 jump #pipe-sZ
@@ -88,6 +95,7 @@ set box_{b}_Z {Z}
 // set Z {box_{b}_Z}
 setadd X 1
 setblockid id {X} {Y} {Z}
+if lastdir|=|"sX" set id 0
 setadd b 1
 if id|=|551 call #pipe-aX
 setsub b 1
@@ -98,6 +106,7 @@ set Y {box_{b}_Y}
 set Z {box_{b}_Z}
 setsub X 1
 setblockid id {X} {Y} {Z}
+if lastdir|=|"aX" set id 0
 setadd b 1
 if id|=|551 call #pipe-sX
 setsub b 1
@@ -108,6 +117,7 @@ set Y {box_{b}_Y}
 set Z {box_{b}_Z}
 setadd Y 1
 setblockid id {X} {Y} {Z}
+if lastdir|=|"sY" set id 0
 setadd b 1
 if id|=|550 call #pipe-aY
 setsub b 1
@@ -118,6 +128,7 @@ set Y {box_{b}_Y}
 set Z {box_{b}_Z}
 setsub Y 1
 setblockid id {X} {Y} {Z}
+if lastdir|=|"aY" set id 0
 setadd b 1
 if id|=|550 call #pipe-sY
 setsub b 1
@@ -128,6 +139,7 @@ set Y {box_{b}_Y}
 set Z {box_{b}_Z}
 setadd Z 1
 setblockid id {X} {Y} {Z}
+if lastdir|=|"sZ" set id 0
 setadd b 1
 if id|=|552 call #pipe-aZ
 setsub b 1
@@ -138,6 +150,7 @@ set Y {box_{b}_Y}
 set Z {box_{b}_Z}
 setsub Z 1
 setblockid id {X} {Y} {Z}
+if lastdir|=|"aZ" set id 0
 setadd b 1
 if id|=|552 call #pipe-sZ
 setsub b 1
