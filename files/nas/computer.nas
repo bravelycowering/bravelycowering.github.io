@@ -35,7 +35,7 @@ quit
 	set sY2 {runArg2}
 	setadd sX2 3
 	setadd sY2 7
-	tempchunk {runArg1} {runArg2} 17 {sX2} {sY2} 17 {runArg3} {runArg4} 0
+	tempchunk {runArg1} {runArg2} 17 {sX2} {sY2} 17 {runArg3} {runArg4} 0 false false
 quit
 
 #resume
