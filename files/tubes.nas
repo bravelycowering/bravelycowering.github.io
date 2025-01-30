@@ -27,7 +27,9 @@ set b 0
 setblockid type {MBCoords}
 if type|=|766 setsub Y 1
 if type|=|766 tempblock 765 {MBCoords}
-call #box
+call #gizmo
+setblockid id {X} {Y} {Z}
+if id|=|238 call #box
 resetdata packages box_*
 setblockid type {MBCoords}
 if type|=|766 tempblock 766 {MBCoords}
