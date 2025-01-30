@@ -19,8 +19,10 @@ quit
 	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
 	// adds the lines
 	call #Pipes:softbox
-	ifnot Pipes.inprogress jump #Pipes:doalllines
-quit
+	if Pipes.inprogress quit
+	set Pipes.tick 0
+	set Pipes.maxtick 0
+jump #Pipes:doalllines
 
 // runs the pipestone at the click event
 #Pipes:clickevent
@@ -37,7 +39,21 @@ quit
 	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
 	// adds the lines
 	call #Pipes:softbox
-	ifnot Pipes.inprogress jump #Pipes:doalllines
+	if Pipes.inprogress quit
+	set Pipes.tick 0
+	set Pipes.maxtick 0
+jump #Pipes:doalllines
+
+// delays are 1 indexed
+#Pipes:schedulebox
+// X, Y, Z, in
+	set Pipes.temp {Pipes.tick}
+	setadd Pipes.temp {runArg4}
+	if Pipes.maxtick|<|{Pipes.temp} set Pipes.maxtick {Pipes.temp}
+	setadd Pipes.delay{Pipes.temp}.length 1
+	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].X {runArg1}
+	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Y {runArg2}
+	set Pipes.delay{Pipes.temp}[{Pipes.delay{Pipes.temp}.length}].Z {runArg3}
 quit
 
 // keep in mind, lines are 1-indexed
@@ -60,7 +76,7 @@ quit
 	#Pipes:lineloop
 	// (no arguments)
 		// spin up a new thread if action count is running high
-		if actionCount|>|50000 jump #Pipes:failsafe
+		if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:lineloop
 		setadd Pipes.index 1
 		if Pipes.line{Pipes.index}.ceased jump #Pipes:skip
 		set Pipes.validlines true
@@ -90,6 +106,27 @@ quit
 	resetdata packages Pipes.line*
 	resetdata packages Pipes.gizmo*
 	resetdata packages Pipes.box*
+	// loop increment tick and delay 100ms until maxticks hit
+	#Pipes:tickloop
+		setadd Pipes.tick 1
+		if Pipes.tick|>|Pipes.maxtick jump #Pipes:cleanup
+		delay 100
+		// next iteration if it doesnt exist
+		if Pipes.delay{Pipes.tick}.length|=|"" jump #Pipes:tickloop
+		// loop through all and do boxes
+		set Pipes.temp 0
+		#Pipes:delayloop
+			// if actionCount|>|50000 jump #Pipes:failsafe|#Pipes:delayloop
+			setadd Pipes.temp 1
+			set X {Pipes.delay{Pipes.temp}.X}
+			set Y {Pipes.delay{Pipes.temp}.Y}
+			set Z {Pipes.delay{Pipes.temp}.Z}
+			call #softbox
+		if Pipes.temp|<|Pipes.delay{Pipes.tick}.length jump #Pipes:delayloop
+	jump #Pipes:doalllines
+	// cleanup
+	#Pipes:cleanup
+	resetdata packages Pipes.delay*
 	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s).
 	set Pipes.threads 0
 	set Pipes.inprogress false
@@ -99,7 +136,7 @@ quit
 // (no arguments)
 	if Pipes.threads|=|0 msg &cWarning: actions exceeded 50k, using threads to complete...
 	setadd Pipes.threads 1
-	newthread #Pipes:lineloop
+	newthread {runArg1}
 quit
 
 #Pipes:X+
