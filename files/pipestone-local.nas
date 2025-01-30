@@ -18,7 +18,7 @@ jump #Pipes:messageblock
 quit
 #getblock
 // x y z
-	set id tempblock{runArg1},{runArg2},{runArg3}
+	set id {tempblock{runArg1},{runArg2},{runArg3}}
 	if id|=|"" setblockid id {runArg1} {runArg2} {runArg3}
 quit
 
