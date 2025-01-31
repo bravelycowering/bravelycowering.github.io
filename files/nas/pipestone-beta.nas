@@ -7,10 +7,9 @@ jump #Pipes:version
 
 // Input commands
 #input
-	msg {runArg1}
-	if runArg1|=|help jump #inputHelp
-	if runArg1|=|plate cmd mb 766 /oss #run repeatable
-	if runArg1|=|plaque cmd mb plaque /oss #run repeatable
+	if runArg1|=|"help" jump #inputHelp
+	if runArg1|=|"plate" cmd mb 766 /oss #run repeatable
+	if runArg1|=|"plaque" cmd mb plaque /oss #run repeatable
 quit
 
 // Input help
