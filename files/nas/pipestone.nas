@@ -11,13 +11,13 @@ jump #Pipes:messageblock
 
 // White
 #Pipes:prerun[36]
-	if id|=|36 msg &cWhite cannot be used as a switch
+	if id|=|36 msg &cWhite cannot be used as an activator
 	if id|=|36 jump #Pipes:terminate
 quit
 
 // Sign
 #Pipes:prerun[171]
-	if id|=|171 msg &cSign cannot be used as a switch
+	if id|=|171 msg &cSign cannot be used as an activator
 	if id|=|171 jump #Pipes:terminate
 quit
 

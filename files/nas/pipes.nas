@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3-c
+	msg &fRunning Pipes &a2.3
 quit
 
 #Pipes:debug
