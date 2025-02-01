@@ -479,7 +479,7 @@ quit
 	setadd Z 1
 	setblockid id2 {X} {Y} {Z}
 	placeblock {id1} {X} {Y} {Z}
-	setsub X  1
+	setsub X 1
 	setadd Z 1
 	placeblock {id0} {X} {Y} {Z}
 quit
