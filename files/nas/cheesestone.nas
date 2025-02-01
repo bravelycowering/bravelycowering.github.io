@@ -367,6 +367,7 @@ quit
 
 // Cactus
 #Pipes:gizmo[88]
+	if id|>|767 quit
 	setadd Y 1
 	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[88]
@@ -375,6 +376,7 @@ quit
 
 // Spitter-N
 #Pipes:gizmo[758]
+	if id|>|767 quit
 	setadd Z 1
 	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[758]
@@ -383,6 +385,7 @@ quit
 
 // Spitter-S
 #Pipes:gizmo[757]
+	if id|>|767 quit
 	setsub Z 1
 	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[757]
@@ -391,6 +394,7 @@ quit
 
 // Block placer-E
 #Pipes:gizmo[754]
+	if id|>|767 quit
 	setsub X 1
 	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[754]
@@ -399,6 +403,7 @@ quit
 
 // Block placer-W
 #Pipes:gizmo[755]
+	if id|>|767 quit
 	setadd X 1
 	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[755]

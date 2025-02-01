@@ -1,4 +1,4 @@
-// Pipestone
+// Pipes
 include os/pipestone+
 
 // Print version number
