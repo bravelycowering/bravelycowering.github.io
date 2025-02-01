@@ -375,7 +375,7 @@ quit
 // Spitter-N
 #Pipes:gizmo[758]
 	setadd Z 1
-	setblockid tempid {X} {Y} {Z}
+	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[758]
 	placeblock 9 {X} {Y} {Z}
 quit
@@ -383,7 +383,7 @@ quit
 // Spitter-S
 #Pipes:gizmo[757]
 	setsub Z 1
-	setblockid tempid {X} {Y} {Z}
+	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[757]
 	placeblock 9 {X} {Y} {Z}
 quit
@@ -391,7 +391,7 @@ quit
 // Block placer-E
 #Pipes:gizmo[754]
 	setsub X 1
-	setblockid tempid {X} {Y} {Z}
+	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[754]
 	placeblock 9 {X} {Y} {Z}
 quit
@@ -399,7 +399,7 @@ quit
 // Block placer-W
 #Pipes:gizmo[755]
 	setadd X 1
-	setblockid tempid {X} {Y} {Z}
+	setblockid id {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[755]
 	placeblock 9 {X} {Y} {Z}
 quit
