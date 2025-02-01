@@ -459,6 +459,31 @@ quit
 	if id|=|9 placeblock 0 {X} {Y} {Z}
 	setadd Y 1
 quit
+
+#Pipes:gizmo[751]
+	if dir|=|X+ quit
+	if dir|=|X- quit
+	if dir|=|Z+ quit
+	if dir|=|Z- quit
+	setadd Z 1
+	setblockid id0 {X} {Y} {Z}
+	setsub Z 1
+	setsub X 1
+	setblockid id2 {X} {Y} {Z}
+	placeblock {id0} {X} {Y} {Z}
+	setadd X 1
+	setsub Z 1
+	setblockid id1 {X} {Y} {Z}
+	placeblock {id2} {X} {Y} {Z}
+	setadd X 1
+	setadd Z 1
+	setblockid id2 {X} {Y} {Z}
+	placeblock {id1} {X} {Y} {Z}
+	setsub X  1
+	setadd Z 1
+	placeblock {id0} {X} {Y} {Z}
+quit
+
 // Block placer-U
 #Pipes:gizmo[762]NO
 	set TEMP {Y}
