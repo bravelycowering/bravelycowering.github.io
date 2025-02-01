@@ -404,6 +404,33 @@ quit
 	placeblock 9 {X} {Y} {Z}
 quit
 
+// wet detector
+#Pipes:gizmo[753]
+	set wet false
+	setadd X 1
+	setblockid {X} {Y} {Z}
+	if id|=|9 set wet true
+	setsub X 2
+	setblockid {X} {Y} {Z}
+	if id|=|9 set wet true
+	setadd X 1
+	setadd Z 1
+	setblockid {X} {Y} {Z}
+	if id|=|9 set wet true
+	setsub Z 2
+	setblockid {X} {Y} {Z}
+	if id|=|9 set wet true
+	setadd Z 1
+	setadd Y 1
+	setblockid {X} {Y} {Z}
+	if id|=|9 set wet true
+	setsub Y 2
+	setblockid {X} {Y} {Z}
+	if id|=|9 set wet true
+	setadd Y 1
+	if wet jump #Pipes:softbox
+quit
+
 // Block placer-U
 #Pipes:gizmo[762]NO
 	set TEMP {Y}
