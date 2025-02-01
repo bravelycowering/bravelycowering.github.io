@@ -364,6 +364,14 @@ quit
 	cmd m {X} {Y} {Z}
 quit
 
+// Cactus
+#Pipes:gizmo[88]
+	setadd Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|88 jump #Pipes:gizmo[88]
+	placeblock 88 {X} {Y} {Z}
+quit
+
 // Block placer-N
 #Pipes:gizmo[758]NO
 	set TEMP {Z}
