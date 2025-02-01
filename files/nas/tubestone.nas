@@ -436,6 +436,12 @@ quit
 	msg kaboom or something
 quit
 
+#Pipes:gizmo[750]
+	msg &eHeroin joined the game
+	msg &fHeroin: ooga booga im heroin
+	boost 0 100 0 0 1 0
+quit
+
 #Pipes:gizmo[752]
 	setadd X 1
 	setblockid id {X} {Y} {Z}
