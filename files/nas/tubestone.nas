@@ -3,7 +3,7 @@ using cef
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning &hCHEESEstone &r2.3,000
+	msg &fRunning &hCHEESEstone &r2.3,001
 quit
 
 #Pipes:debug
