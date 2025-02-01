@@ -397,7 +397,7 @@ quit
 quit
 
 // Block placer-W
-#Pipes:gizmo[755]NO
+#Pipes:gizmo[755]
 	setadd X 1
 	setblockid tempid {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[755]
