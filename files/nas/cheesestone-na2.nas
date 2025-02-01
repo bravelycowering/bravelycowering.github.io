@@ -5,15 +5,15 @@ include os/pipestone+
 #onJoin
 msg &6Cheesestone
 	// The block ID to use for UD pipes
-	if Pipes.id.pipe-UD|=|"" set Pipes.id.pipe-UD 764
+	set Pipes.id.pipe-UD 764
 	// The block ID to use for WE pipes
-	if Pipes.id.pipe-WE|=|"" set Pipes.id.pipe-WE 765
+	set Pipes.id.pipe-WE 765
 	// The block ID to use for NS pipes
-	if Pipes.id.pipe-NS|=|"" set Pipes.id.pipe-NS 766
+	set Pipes.id.pipe-NS 766
 	// The block ID to use for Boxes
-	if Pipes.id.box|=|"" set Pipes.id.box 767
+	set Pipes.id.box 767
 	// The block ID to use for the start of the list of delays
-	if Pipes.id.delay|=|"" set Pipes.id.delay 748
+	set Pipes.id.delay 748
 jump #Pipes:version
 
 // Prevent every map ever from breaking
