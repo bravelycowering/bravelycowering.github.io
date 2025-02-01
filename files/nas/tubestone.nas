@@ -1,4 +1,5 @@
 // this version is specifically for mcgalaxy w cheese
+using cef
 
 #Pipes:version
 // (no arguments)
@@ -431,6 +432,33 @@ quit
 	if wet jump #Pipes:softbox
 quit
 
+#Pipes:gizmo[46]
+	msg kaboom or something
+quit
+
+#Pipes:gizmo[752]
+	setadd X 1
+	setblockid id {X} {Y} {Z}
+	if id|=|9 placeblock 0 {X} {Y} {Z}
+	setsub X 2
+	setblockid id {X} {Y} {Z}
+	if id|=|9 placeblock 0 {X} {Y} {Z}
+	setadd X 1
+	setadd Z 1
+	setblockid id {X} {Y} {Z}
+	if id|=|9 placeblock 0 {X} {Y} {Z}
+	setsub Z 2
+	setblockid id {X} {Y} {Z}
+	if id|=|9 placeblock 0 {X} {Y} {Z}
+	setadd Z 1
+	setadd Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|9 placeblock 0 {X} {Y} {Z}
+	setsub Y 2
+	setblockid id {X} {Y} {Z}
+	if id|=|9 placeblock 0 {X} {Y} {Z}
+	setadd Y 1
+quit
 // Block placer-U
 #Pipes:gizmo[762]NO
 	set TEMP {Y}
