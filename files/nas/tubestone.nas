@@ -372,40 +372,36 @@ quit
 	placeblock 88 {X} {Y} {Z}
 quit
 
-// Block placer-N
-#Pipes:gizmo[758]NO
-	set TEMP {Z}
-	setadd TEMP 1
-	setblockid tempid {X} {Y} {TEMP}
-	if tempid|=|0 placeblock 238 {X} {Y} {TEMP}
-	if tempid|=|238 placeblock 0 {X} {Y} {TEMP}
+// Spitter-N
+#Pipes:gizmo[758]
+	setadd Z 1
+	setblockid tempid {X} {Y} {Z}
+	ifnot id|=|0 jump #Pipes:gizmo[758]
+	placeblock 9 {X} {Y} {Z}
 quit
 
-// Block placer-N
-#Pipes:gizmo[759]NO
-	set TEMP {Z}
-	setsub TEMP 1
-	setblockid tempid {X} {Y} {TEMP}
-	if tempid|=|0 placeblock 238 {X} {Y} {TEMP}
-	if tempid|=|238 placeblock 0 {X} {Y} {TEMP}
+// Spitter-S
+#Pipes:gizmo[757]NO
+	setsub Z 1
+	setblockid tempid {X} {Y} {Z}
+	ifnot id|=|0 jump #Pipes:gizmo[757]
+	placeblock 9 {X} {Y} {Z}
 quit
 
 // Block placer-E
-#Pipes:gizmo[760]NO
-	set TEMP {X}
-	setsub TEMP 1
-	setblockid tempid {TEMP} {Y} {Z}
-	if tempid|=|0 placeblock 238 {TEMP} {Y} {Z}
-	if tempid|=|238 placeblock 0 {TEMP} {Y} {Z}
+#Pipes:gizmo[754]NO
+	setsub X 1
+	setblockid tempid {X} {Y} {Z}
+	ifnot id|=|0 jump #Pipes:gizmo[754]
+	placeblock 9 {X} {Y} {Z}
 quit
 
 // Block placer-W
-#Pipes:gizmo[761]NO
-	set TEMP {X}
-	setadd TEMP 1
-	setblockid tempid {TEMP} {Y} {Z}
-	if tempid|=|0 placeblock 238 {TEMP} {Y} {Z}
-	if tempid|=|238 placeblock 0 {TEMP} {Y} {Z}
+#Pipes:gizmo[755]NO
+	setadd X 1
+	setblockid tempid {X} {Y} {Z}
+	ifnot id|=|0 jump #Pipes:gizmo[755]
+	placeblock 9 {X} {Y} {Z}
 quit
 
 // Block placer-U
