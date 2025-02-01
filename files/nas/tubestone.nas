@@ -2,7 +2,7 @@
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning &hCHEESEstone &r2.3
+	msg &fRunning &hCHEESEstone &r2.3,000
 quit
 
 #Pipes:debug
