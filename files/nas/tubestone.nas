@@ -381,7 +381,7 @@ quit
 quit
 
 // Spitter-S
-#Pipes:gizmo[757]NO
+#Pipes:gizmo[757]
 	setsub Z 1
 	setblockid tempid {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[757]
@@ -389,7 +389,7 @@ quit
 quit
 
 // Block placer-E
-#Pipes:gizmo[754]NO
+#Pipes:gizmo[754]
 	setsub X 1
 	setblockid tempid {X} {Y} {Z}
 	ifnot id|=|0 jump #Pipes:gizmo[754]
