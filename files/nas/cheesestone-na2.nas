@@ -123,24 +123,24 @@ quit
 	set wet false
 	setadd X 1
 	setblockid id {X} {Y} {Z}
-	if id|=|88 set wet true
+	if id|=|106 set wet true
 	setsub X 2
 	setblockid id {X} {Y} {Z}
-	if id|=|88 set wet true
+	if id|=|106 set wet true
 	setadd X 1
 	setadd Z 1
 	setblockid id {X} {Y} {Z}
-	if id|=|88 set wet true
+	if id|=|106 set wet true
 	setsub Z 2
 	setblockid id {X} {Y} {Z}
-	if id|=|88 set wet true
+	if id|=|106 set wet true
 	setadd Z 1
 	setadd Y 1
 	setblockid id {X} {Y} {Z}
-	if id|=|88 set wet true
+	if id|=|106 set wet true
 	setsub Y 2
 	setblockid id {X} {Y} {Z}
-	if id|=|88 set wet true
+	if id|=|106 set wet true
 	setadd Y 1
 	if wet jump #Pipes:softbox
 quit
