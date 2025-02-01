@@ -536,7 +536,7 @@ quit
 quit
 
 // Passthrough
-#Pipes:gizmo[756]NO
+#Pipes:gizmo[137]
 	set Pipes.line{Pipes.index}.ceased false
 	set Pipes.gizmo{X},{Y},{Z}
 	if dir|=|"X+" jump #Pipes:X+
