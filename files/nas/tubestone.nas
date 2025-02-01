@@ -368,7 +368,7 @@ quit
 #Pipes:gizmo[88]
 	setadd Y 1
 	setblockid id {X} {Y} {Z}
-	if id|=|88 jump #Pipes:gizmo[88]
+	ifnot id|=|0 jump #Pipes:gizmo[88]
 	placeblock 88 {X} {Y} {Z}
 quit
 
