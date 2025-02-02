@@ -21,6 +21,22 @@ quit
 	if id|=|171 jump #Pipes:terminate
 quit
 
+// Box
+#Pipes:gizmo[238]
+	// check Y+ for lantern
+	setadd Y 1
+	setblockid id {X} {Y} {Z}
+	if dir|=|"Y-" set id 0
+	if id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	if id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	// check Y-
+	setsub Y 2 for lantern
+	setblockid id {X} {Y} {Z}
+	if dir|=|"Y+" set id 0
+	if id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
+	if id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
+quit
+
 // Pressure plate
 #Pipes:prerun[766]
 	if id|=|766 setsub Y 1
@@ -45,6 +61,30 @@ quit
 #Pipes:gizmo[215]
 	placeblock 765 {X} {Y} {Z}
 quit
+
+// Lantern Off
+#Pipes:gizmo[757]
+	if dir|=|Y+ jump #Pipes:gizmo[757].Y+
+	if dir|=|Y- jump #Pipes:gizmo[757].Y-
+quit
+#Pipes:gizmo[757].Y+
+	placeblock 656 {X} {Y} {Z}
+jump #Pipes:Y+
+#Pipes:gizmo[757].Y-
+	placeblock 656 {X} {Y} {Z}
+jump #Pipes:Y-
+
+// Lantern
+#Pipes:gizmo[656]
+	if dir|=|Y+ jump #Pipes:gizmo[656].Y+
+	if dir|=|Y- jump #Pipes:gizmo[656].Y-
+quit
+#Pipes:gizmo[656].Y+
+	placeblock 757 {X} {Y} {Z}
+jump #Pipes:Y+
+#Pipes:gizmo[656].Y-
+	placeblock 757 {X} {Y} {Z}
+jump #Pipes:Y-
 
 // White
 #Pipes:gizmo[36]
