@@ -23,6 +23,7 @@ quit
 
 // Box
 #Pipes:box[238]
+msg {Y-id} {Y+id}
 	// check Y+ for lantern
 	if Y+id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
 	if Y+id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
