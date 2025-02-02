@@ -27,14 +27,14 @@ quit
 	setadd Y 1
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Y-" set id 0
-	if id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
-	if id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	if id|=|757 call #Pipes:gizmo[757].pushY+
+	if id|=|656 call #Pipes:gizmo[656].pushY+
 	// check Y-
 	setsub Y 2 for lantern
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Y+" set id 0
-	if id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
-	if id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
+	if id|=|757 call #Pipes:gizmo[757].pushY-
+	if id|=|656 call #Pipes:gizmo[656].pushY-
 quit
 
 // Pressure plate
