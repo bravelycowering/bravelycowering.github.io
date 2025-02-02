@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.2
+	msg &fRunning Pipes &a2.3.3
 quit
 
 #Pipes:debug
@@ -289,44 +289,45 @@ jump #Pipes:doalllines
 // (no arguments)
 	if Pipes.box{X},{Y},{Z} quit
 	set Pipes.box{X},{Y},{Z} true
+	setblockid id {X} {Y} {Z}
 	//
 	// check X+
 	setadd X 1
-	setblockid id {X} {Y} {Z}
-	if dir|=|"X-" set id 0
-	if id|=|{Pipes.id.pipe-WE} call #Pipes:pushline|{X}|{Y}|{Z}|X+
+	setblockid X+id {X} {Y} {Z}
+	if dir|=|"X-" set X+id 0
+	if X+id|=|{Pipes.id.pipe-WE} call #Pipes:pushline|{X}|{Y}|{Z}|X+
 	// check X-
 	setsub X 2
-	setblockid id {X} {Y} {Z}
-	if dir|=|"X+" set id 0
-	if id|=|{Pipes.id.pipe-WE} call #Pipes:pushline|{X}|{Y}|{Z}|X-
+	setblockid X-id {X} {Y} {Z}
+	if dir|=|"X+" set X-id 0
+	if X-id|=|{Pipes.id.pipe-WE} call #Pipes:pushline|{X}|{Y}|{Z}|X-
 	// reset X
 	setadd X 1
 	//
 	// check Z+
 	setadd Z 1
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Z-" set id 0
-	if id|=|{Pipes.id.pipe-NS} call #Pipes:pushline|{X}|{Y}|{Z}|Z+
+	setblockid Z+id {X} {Y} {Z}
+	if dir|=|"Z-" set Z+id 0
+	if Z+id|=|{Pipes.id.pipe-NS} call #Pipes:pushline|{X}|{Y}|{Z}|Z+
 	// check Z-
 	setsub Z 2
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Z+" set id 0
-	if id|=|{Pipes.id.pipe-NS} call #Pipes:pushline|{X}|{Y}|{Z}|Z-
+	setblockid Z-id {X} {Y} {Z}
+	if dir|=|"Z+" set Z-id 0
+	if Z-id|=|{Pipes.id.pipe-NS} call #Pipes:pushline|{X}|{Y}|{Z}|Z-
 	// reset Z
 	setadd Z 1
 	//
 	// check Y+
 	setadd Y 1
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Y-" set id 0
-	if id|=|{Pipes.id.pipe-UD} call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	setblockid Y+id {X} {Y} {Z}
+	if dir|=|"Y-" set Y+id 0
+	if Y+id|=|{Pipes.id.pipe-UD} call #Pipes:pushline|{X}|{Y}|{Z}|Y+
 	// check Y-
 	setsub Y 2
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Y+" set id 0
-	if id|=|{Pipes.id.pipe-UD} call #Pipes:pushline|{X}|{Y}|{Z}|Y-
+	setblockid Y-id {X} {Y} {Z}
+	if dir|=|"Y+" set Y-id 0
+	if Y-id|=|{Pipes.id.pipe-UD} call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 	// reset Y
 	setadd Y 1
-	if label #Pipes:gizmo[{Pipes.id.box}] call #Pipes:gizmo[{Pipes.id.box}]
+	if label #Pipes:box[{id}] call #Pipes:box[{id}]
 quit

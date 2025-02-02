@@ -22,19 +22,13 @@ quit
 quit
 
 // Box
-#Pipes:gizmo[238]
+#Pipes:box[238]
 	// check Y+ for lantern
-	setadd Y 1
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Y-" set id 0
-	if id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
-	if id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
-	// check Y-
-	setsub Y 2 for lantern
-	setblockid id {X} {Y} {Z}
-	if dir|=|"Y+" set id 0
-	if id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
-	if id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
+	if Y+id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	if Y+id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	// check Y- for lantern
+	if Y-id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
+	if Y-id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 quit
 
 // Pressure plate
