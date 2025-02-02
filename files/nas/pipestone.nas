@@ -64,8 +64,8 @@ quit
 
 // Lantern Off
 #Pipes:gizmo[757]
-	if dir|=|Y+ jump #Pipes:gizmo[757].Y+
-	if dir|=|Y- jump #Pipes:gizmo[757].Y-
+	if dir|=|"Y+" jump #Pipes:gizmo[757].Y+
+	if dir|=|"Y-" jump #Pipes:gizmo[757].Y-
 quit
 #Pipes:gizmo[757].Y+
 	placeblock 656 {X} {Y} {Z}
@@ -76,8 +76,8 @@ jump #Pipes:Y-
 
 // Lantern
 #Pipes:gizmo[656]
-	if dir|=|Y+ jump #Pipes:gizmo[656].Y+
-	if dir|=|Y- jump #Pipes:gizmo[656].Y-
+	if dir|=|"Y+" jump #Pipes:gizmo[656].Y+
+	if dir|=|"Y-" jump #Pipes:gizmo[656].Y-
 quit
 #Pipes:gizmo[656].Y+
 	placeblock 757 {X} {Y} {Z}
