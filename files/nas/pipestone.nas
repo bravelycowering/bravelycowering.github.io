@@ -27,14 +27,14 @@ quit
 	setadd Y 1
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Y-" set id 0
-	if id|=|757 call #Pipes:gizmo[757].pushY+
-	if id|=|656 call #Pipes:gizmo[656].pushY+
-	// check Y- for lantern
-	setsub Y 2
+	if id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	if id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y+
+	// check Y-
+	setsub Y 2 for lantern
 	setblockid id {X} {Y} {Z}
 	if dir|=|"Y+" set id 0
-	if id|=|757 call #Pipes:gizmo[757].pushY-
-	if id|=|656 call #Pipes:gizmo[656].pushY-
+	if id|=|757 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
+	if id|=|656 call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 quit
 
 // Pressure plate
@@ -67,16 +67,10 @@ quit
 	if dir|=|"Y+" jump #Pipes:gizmo[757].Y+
 	if dir|=|"Y-" jump #Pipes:gizmo[757].Y-
 quit
-
-#Pipes:gizmo[757].pushY+
-	call #Pipes:pushline|{X}|{Y}|{Z}|Y+
 #Pipes:gizmo[757].Y+
 	placeblock 656 {X} {Y} {Z}
 	set Pipes.line{Pipes.index}.ceased false
 jump #Pipes:Y+
-
-#Pipes:gizmo[757].pushY-
-	call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 #Pipes:gizmo[757].Y-
 	placeblock 656 {X} {Y} {Z}
 	set Pipes.line{Pipes.index}.ceased false
@@ -87,16 +81,10 @@ jump #Pipes:Y-
 	if dir|=|"Y+" jump #Pipes:gizmo[656].Y+
 	if dir|=|"Y-" jump #Pipes:gizmo[656].Y-
 quit
-
-#Pipes:gizmo[656].pushY+
-	call #Pipes:pushline|{X}|{Y}|{Z}|Y+
 #Pipes:gizmo[656].Y+
 	placeblock 757 {X} {Y} {Z}
 	set Pipes.line{Pipes.index}.ceased false
 jump #Pipes:Y+
-
-#Pipes:gizmo[656].pushY-
-	call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 #Pipes:gizmo[656].Y-
 	placeblock 757 {X} {Y} {Z}
 	set Pipes.line{Pipes.index}.ceased false
