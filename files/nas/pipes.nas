@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.1
+	msg &fRunning Pipes &a2.3.2
 quit
 
 #Pipes:debug
@@ -328,5 +328,5 @@ jump #Pipes:doalllines
 	if id|=|{Pipes.id.pipe-UD} call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 	// reset Y
 	setadd Y 1
-	if #Pipes:gizmo[{Pipes.id.box}] call #Pipes:gizmo[{Pipes.id.box}]
+	if label #Pipes:gizmo[{Pipes.id.box}] call #Pipes:gizmo[{Pipes.id.box}]
 quit
