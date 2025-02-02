@@ -5,6 +5,7 @@ include os/pipestone+
 
 quit
 
-#defoggening
+#hax
+	motd +hax
 	env maxfog 0
 quit
