@@ -67,11 +67,19 @@ quit
 	if dir|=|"Y+" jump #Pipes:gizmo[757].Y+
 	if dir|=|"Y-" jump #Pipes:gizmo[757].Y-
 quit
+
+#Pipes:gizmo[757].pushY+
+	call #Pipes:pushline|{X}|{Y}|{Z}|Y+
 #Pipes:gizmo[757].Y+
 	placeblock 656 {X} {Y} {Z}
+	set Pipes.line{Pipes.index}.ceased false
 jump #Pipes:Y+
+
+#Pipes:gizmo[757].pushY-
+	call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 #Pipes:gizmo[757].Y-
 	placeblock 656 {X} {Y} {Z}
+	set Pipes.line{Pipes.index}.ceased false
 jump #Pipes:Y-
 
 // Lantern
@@ -79,11 +87,19 @@ jump #Pipes:Y-
 	if dir|=|"Y+" jump #Pipes:gizmo[656].Y+
 	if dir|=|"Y-" jump #Pipes:gizmo[656].Y-
 quit
+
+#Pipes:gizmo[656].pushY+
+	call #Pipes:pushline|{X}|{Y}|{Z}|Y+
 #Pipes:gizmo[656].Y+
 	placeblock 757 {X} {Y} {Z}
+	set Pipes.line{Pipes.index}.ceased false
 jump #Pipes:Y+
+
+#Pipes:gizmo[656].pushY-
+	call #Pipes:pushline|{X}|{Y}|{Z}|Y-
 #Pipes:gizmo[656].Y-
 	placeblock 757 {X} {Y} {Z}
+	set Pipes.line{Pipes.index}.ceased false
 jump #Pipes:Y-
 
 // White
