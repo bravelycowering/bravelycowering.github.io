@@ -38,6 +38,7 @@ quit
 
 #freeze
 	freeze
+	boost 0 0 0 1 1 1
 quit
 
 #unfreeze
