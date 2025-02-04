@@ -30,3 +30,11 @@ quit
 	delay 300
 	tempchunk 262 190 231 264 193 233 262 194 231
 quit
+
+#freeze
+	freeze
+quit
+
+#unfreeze
+	unfreeze
+quit
