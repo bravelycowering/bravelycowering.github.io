@@ -17,6 +17,7 @@ quit
 
 #1
 	if plot|>=|1 quit
+	ifnot MBCoords|=|PlayerCoords quit
 	set plot 1
 	msg You hear a rumble...
 	freeze
