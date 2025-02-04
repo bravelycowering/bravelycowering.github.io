@@ -16,12 +16,12 @@ quit
 quit
 
 #1
-	if plot|>=|1 quit
 	if PlayerX|>|264 quit
 	if PlayerX|<|262 quit
 	ifnot PlayerY|=|MBY quit
 	if PlayerZ|>|236 quit
 	if PlayerZ|<|238 quit
+	if plot|>=|1 quit
 	set plot 1
 	msg You hear a rumble...
 	freeze
@@ -43,4 +43,22 @@ quit
 
 #unfreeze
 	unfreeze
+quit
+
+#breakfloor
+	set Y {MBY}
+	setsub Y 1
+	tempblock 0 {MBX} {Y} {MBZ}
+quit
+
+#2
+	if plot|>=|2 quit
+	set plot 2
+	unfreeze
+	delay 1200
+	tempblock 763 263 73 232
+	delay 300
+	tempblock 762 263 73 232
+	delay 50
+	tempblock 763 263 73 232
 quit
