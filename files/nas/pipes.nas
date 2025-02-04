@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.9
+	msg &fRunning Pipes &a2.3.10
 quit
 
 #Pipes:debug
@@ -39,6 +39,8 @@ quit
 	if Pipes.conf.steplength|=|"" set Pipes.conf.steplength 0
 	// Whether debug logging and stepping is enabled, uses more actions but shows useful information if you run /oss #Pipes:debug [NOT FUNCTIONAL YET]
 	if Pipes.conf.debug|=|"" set Pipes.conf.debug false
+	// Whether simaltaneous pipestone lines can be triggered by message blocks [NOT FUNCTIONAL YET]
+	if Pipes.conf.mbrepeatable|=|"" set Pipes.conf.mbrepeatable true
 	// The maximum number of times pipes will attempt to mark a MB to restart itself when it runs out of threads [NOT FUNCTIONAL YET]
 	if Pipes.conf.maxrevives|=|"" set Pipes.conf.maxrevives 0
 	// Whether or not to show a warning after the first revive has occurred [NOT FUNCTIONAL YET]
@@ -51,12 +53,14 @@ quit
 #Pipes:messageblock
 // (message block) (no arguments)
 	allowmbrepeat
-jump #Pipes:run|{MBCoords}
+	set coords {MBCoords}
+jump #Pipes:run
 
 // runs the pipes at the click event
 #Pipes:clickevent
 // (clickevent block) (no arguments)
-jump #Pipes:run|{click.coords}
+	set coords {click.coords}
+jump #Pipes:run
 
 #Pipes:run
 // coords
@@ -65,12 +69,9 @@ jump #Pipes:run|{click.coords}
 	setsub 10
 	setsub {Pipes.conf.ticklength}
 	if Pipes.temp|<|{Pipes.laststart} quit
-	set Pipes.temp {Pipes.conf.ticklength}
-	setdiv Pipes.temp 2
-	// wait half a tick if in the middle of one
-	if Pipes.doingthings delay {Pipes.temp}
+	// if in the middle of a tick throw the input out
+	if Pipes.doingthings quit
 	set Pipes.laststart {epochMS}
-	set coords {runArg1}
 	setsplit coords " "
 	set X {coords[0]}
 	set Y {coords[1]}
