@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.8
+	msg &fRunning Pipes &a2.3.9
 quit
 
 #Pipes:debug
@@ -51,16 +51,12 @@ quit
 #Pipes:messageblock
 // (message block) (no arguments)
 	allowmbrepeat
-	set coords {MBCoords}
-	ifnot Pipes.conf.mbrepeatable jump #Pipes:run
-	cmd oss #Pipes:run repeatable
-quit
+jump #Pipes:run|{MBCoords}
 
 // runs the pipes at the click event
 #Pipes:clickevent
 // (clickevent block) (no arguments)
-	set coords {click.coords}
-jump #Pipes:run
+jump #Pipes:run|{click.coords}
 
 #Pipes:run
 // coords
@@ -74,6 +70,7 @@ jump #Pipes:run
 	// wait half a tick if in the middle of one
 	if Pipes.doingthings delay {Pipes.temp}
 	set Pipes.laststart {epochMS}
+	set coords {runArg1}
 	setsplit coords " "
 	set X {coords[0]}
 	set Y {coords[1]}
