@@ -18,9 +18,8 @@ quit
 #1
 	if PlayerX|>|264 quit
 	if PlayerX|<|262 quit
-	ifnot PlayerY|=|MBY quit
-	if PlayerZ|>|236 quit
-	if PlayerZ|<|238 quit
+	if PlayerZ|>|238 quit
+	if PlayerZ|<|236 quit
 	if plot|>=|1 quit
 	set plot 1
 	msg You hear a rumble...
