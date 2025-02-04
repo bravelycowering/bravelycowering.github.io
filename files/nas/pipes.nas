@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.3
+	msg &fRunning Pipes &a2.3.4
 quit
 
 #Pipes:debug
@@ -153,11 +153,11 @@ quit
 	resetdata packages Pipes.box*
 	// loop increment tick and delay 100ms until maxticks hit
 	#Pipes:tickloop
+		if Pipes.lines|>|0 jump #Pipes:doalllines
 		setadd Pipes.tick 1
 		if Pipes.tick|>|Pipes.maxtick jump #Pipes:cleanup
 		delay {Pipes.conf.ticklength}
 		// next iteration if it doesnt exist
-		if Pipes.lines|>|0 jump #Pipes:doalllines
 		if Pipes.delay{Pipes.tick}.length|=|"" jump #Pipes:tickloop
 		// loop through all and do boxes
 		set Pipes.temp 0
