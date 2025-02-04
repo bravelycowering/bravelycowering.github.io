@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.4
+	msg &fRunning Pipes &a2.3.5
 quit
 
 #Pipes:debug
@@ -63,15 +63,20 @@ jump #Pipes:run
 
 #Pipes:run
 // coords
+	set Pipes.temp {epochMS}
+	setsub 10
+	setsub {Pipes.conf.ticklength}
+	if Pipes.temp|<|{Pipes.laststart} quit
+	set Pipes.laststart {epochMS}
 	ifnot Pipes.setup call #Pipes:setup
 	setsplit coords " "
 	set X {coords[0]}
 	set Y {coords[1]}
 	set Z {coords[2]}
 	set dir ?
-	setblockid id {coords}
+	setblockid Pipes.temp {coords}
 	// prerun
-	if label #Pipes:prerun[{id}] call #Pipes:prerun[{id}]
+	if label #Pipes:prerun[{Pipes.temp}] call #Pipes:prerun[{Pipes.temp}]
 	// adds the lines
 	call #Pipes:softbox
 	if Pipes.inprogress quit
