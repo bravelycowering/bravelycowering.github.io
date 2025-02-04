@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.10
+	msg &fRunning Pipes &a2.3.11
 quit
 
 #Pipes:debug
@@ -66,7 +66,7 @@ jump #Pipes:run
 // coords
 	ifnot Pipes.setup call #Pipes:setup
 	set Pipes.temp {epochMS}
-	setsub 10
+	setsub {Pipes.conf.ticklength}
 	setsub {Pipes.conf.ticklength}
 	if Pipes.temp|<|{Pipes.laststart} quit
 	// if in the middle of a tick throw the input out
