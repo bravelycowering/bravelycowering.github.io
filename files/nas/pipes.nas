@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.11
+	msg &fRunning Pipes &a2.3.12
 quit
 
 #Pipes:debug
@@ -65,12 +65,12 @@ jump #Pipes:run
 #Pipes:run
 // coords
 	ifnot Pipes.setup call #Pipes:setup
+	// if in the middle of a tick throw the input out
+	if Pipes.doingthings quit
 	set Pipes.temp {epochMS}
 	setsub {Pipes.conf.ticklength}
 	setsub {Pipes.conf.ticklength}
 	if Pipes.temp|<|{Pipes.laststart} quit
-	// if in the middle of a tick throw the input out
-	if Pipes.doingthings quit
 	set Pipes.laststart {epochMS}
 	setsplit coords " "
 	set X {coords[0]}
