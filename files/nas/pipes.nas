@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.5
+	msg &fRunning Pipes &a2.3.6
 quit
 
 #Pipes:debug
@@ -14,6 +14,7 @@ quit
 #Pipes:setup
 // (no arguments)
 	set Pipes.setup true
+	set Pipes.laststart 0
 // ids
 	// The block ID to use for UD pipes
 	if Pipes.id.pipe-UD|=|"" set Pipes.id.pipe-UD 550
@@ -63,12 +64,12 @@ jump #Pipes:run
 
 #Pipes:run
 // coords
+	ifnot Pipes.setup call #Pipes:setup
 	set Pipes.temp {epochMS}
 	setsub 10
 	setsub {Pipes.conf.ticklength}
 	if Pipes.temp|<|{Pipes.laststart} quit
 	set Pipes.laststart {epochMS}
-	ifnot Pipes.setup call #Pipes:setup
 	setsplit coords " "
 	set X {coords[0]}
 	set Y {coords[1]}
