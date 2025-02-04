@@ -2,7 +2,7 @@ using allow_include
 
 #Pipes:version
 // (no arguments)
-	msg &fRunning Pipes &a2.3.7
+	msg &fRunning Pipes &a2.3.8
 quit
 
 #Pipes:debug
@@ -69,6 +69,10 @@ jump #Pipes:run
 	setsub 10
 	setsub {Pipes.conf.ticklength}
 	if Pipes.temp|<|{Pipes.laststart} quit
+	set Pipes.temp {Pipes.conf.ticklength}
+	setdiv Pipes.temp 2
+	// wait half a tick if in the middle of one
+	if Pipes.doingthings delay {Pipes.temp}
 	set Pipes.laststart {epochMS}
 	setsplit coords " "
 	set X {coords[0]}
@@ -112,6 +116,7 @@ quit
 
 #Pipes:doalllines
 // (no arguments)
+	set Pipes.doingthings true
 	set Pipes.inprogress true
 	set Pipes.index 0
 	set Pipes.validlines false
@@ -162,7 +167,9 @@ quit
 		if Pipes.lines|>|0 jump #Pipes:doalllines
 		setadd Pipes.tick 1
 		if Pipes.tick|>|Pipes.maxtick jump #Pipes:cleanup
+		set Pipes.doingthings false
 		delay {Pipes.conf.ticklength}
+		set Pipes.doingthings true
 		// next iteration if it doesnt exist
 		if Pipes.delay{Pipes.tick}.length|=|"" jump #Pipes:tickloop
 		// loop through all and do boxes
@@ -188,6 +195,7 @@ quit
 	if Pipes.threads|>|0 msg &eUsed {Pipes.threads} thread(s) and {actionCount} actions.
 	set Pipes.threads 0
 	set Pipes.inprogress false
+	set Pipes.doingthings false
 terminate
 
 #Pipes:failsafe
