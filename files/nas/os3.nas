@@ -29,11 +29,13 @@ quit
 quit
 
 #nokeycards
-	msg Seems like a scanner of some kind... You will need an &6ID CARD&7 to get past this.
+	msg Seems like a scanner of some kind...
+	msg You will need an &6ID CARD&7 to get past this.
 quit
 
 #nokeys
-	msg Seems like a lock of some kind... You will need a &6KEY&7 to unlock this.
+	msg Seems like a lock of some kind...
+	msg You will need a &6KEY&7 to unlock this.
 quit
 
 // lamp off
@@ -130,6 +132,15 @@ quit
 	set state{MBX},{MBY},{MBZ} true
 	tempblock 624 {MBCoords}
 	msg There's nothing of use inside.
+quit
+
+#usefulchest1
+	if state{MBX},{MBY},{MBZ} quit
+	set state{MBX},{MBY},{MBZ} true
+	tempblock 624 {MBCoords}
+	msg You found the &6ID CARD
+	cpemsg bot1 ITEMS:
+	cpemsg bot2 &6ID CARD
 quit
 
 // plot
