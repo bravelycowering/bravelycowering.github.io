@@ -7,24 +7,40 @@ jump #Pipes:messageblock
 #Pipes:prerun[765]
 	setsub Y 1
 quit
+
+#Pipes:prerun[735]
+	ifnot key jump #nokeys
+	jump #Pipes:prerun[757]
 #Pipes:prerun[745]
 	ifnot keycard jump #nokeycards
 	tempblock 740 {X} {Y} {Z}
 #Pipes:prerun[757]
 	setsub X 1
 quit
+
+#Pipes:prerun[736]
+	ifnot key jump #nokeys
+	jump #Pipes:prerun[758]
 #Pipes:prerun[746]
 	ifnot keycard jump #nokeycards
 	tempblock 741 {X} {Y} {Z}
 #Pipes:prerun[758]
 	setadd X 1
 quit
+
+#Pipes:prerun[737]
+	ifnot key jump #nokeys
+	jump #Pipes:prerun[759]
 #Pipes:prerun[747]
 	ifnot keycard jump #nokeycards
 	tempblock 742 {X} {Y} {Z}
 #Pipes:prerun[759]
 	setadd Z 1
 quit
+
+#Pipes:prerun[738]
+	ifnot key jump #nokeys
+	jump #Pipes:prerun[760]
 #Pipes:prerun[748]
 	ifnot keycard jump #nokeycards
 	tempblock 743 {X} {Y} {Z}
