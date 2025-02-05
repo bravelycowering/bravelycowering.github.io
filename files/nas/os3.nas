@@ -13,7 +13,7 @@ quit
 	ifnot key jump #nokeys
 	jump #Pipes:prerun[757]
 #Pipes:prerun[745]
-	if plot|<|3 jump #nokeycards
+	ifnot keycard jump #nokeycards
 	tempblock 740 {X} {Y} {Z}
 #Pipes:prerun[757]
 	setsub X 1
@@ -23,7 +23,7 @@ quit
 	ifnot key jump #nokeys
 	jump #Pipes:prerun[758]
 #Pipes:prerun[746]
-	if plot|<|3 jump #nokeycards
+	ifnot keycard jump #nokeycards
 	tempblock 741 {X} {Y} {Z}
 #Pipes:prerun[758]
 	setadd X 1
@@ -33,7 +33,7 @@ quit
 	ifnot key jump #nokeys
 	jump #Pipes:prerun[759]
 #Pipes:prerun[747]
-	if plot|<|3 jump #nokeycards
+	ifnot keycard jump #nokeycards
 	tempblock 742 {X} {Y} {Z}
 #Pipes:prerun[759]
 	setadd Z 1
@@ -43,7 +43,7 @@ quit
 	ifnot key jump #nokeys
 	jump #Pipes:prerun[760]
 #Pipes:prerun[748]
-	if plot|<|3 jump #nokeycards
+	ifnot keycard jump #nokeycards
 	tempblock 743 {X} {Y} {Z}
 #Pipes:prerun[760]
 	setsub Z 1
@@ -199,9 +199,9 @@ quit
 	msg There's nothing of use inside.
 quit
 
-#3
-	if plot|>=|3 quit
-	set plot 3
+#usefulchest1
+	if keycard quit
+	set keycard true
 	tempblock 624 {MBCoords}
 	msg You found the &6ID CARD
 	cpemsg bot1 ITEMS:
