@@ -31,6 +31,12 @@ quit
 	allowmbrepeat
 	if checkpoint{MBZ} quit
 	set checkpoint{MBZ} true
+	set min {MBZ}
+	setsub min 1
+	set max {MBZ}
+	setadd max 1
+	if PlayerZ|<|{min} set cheatedcheckpoints true
+	if PlayerZ|>|{max} set cheatedcheckpoints true
 	setadd checkpoints 1
 quit
 
@@ -44,9 +50,11 @@ quit
 	if PlayerX|>|65 jump #outofbounds
 	if PlayerZ|<|4 jump #outofbounds
 	if PlayerZ|>|6 jump #outofbounds
+	if checkpoints|=|0 jump #teleported
 	if time|<|5 jump #tooquick
 	if checkpoints|<|28 jump #notenoughcheckpoints
 	if checkpoints|>|28 jump #toomanycheckpoints
+	if cheatedcheckpoints jump #cheatedcheckpoints
 	msg &aCongratulations!
 	delay 3000
 	msg &fThat took you {time} seconds.
@@ -72,6 +80,14 @@ quit
 	cmd goto hell
 quit
 
+#cheatedcheckpoints
+	msg &fClever... You saw my checkpoint system.
+	delay 3000
+	msg &fSorry to burst your bubble but you can't just mark them.
+	delay 3000
+	cmd goto hell
+quit
+
 #toomanycheckpoints
 	msg &f...
 	delay 3000
@@ -81,14 +97,24 @@ quit
 quit
 
 #tooquick
+	msg &fWow, that was fast.
+	delay 3000
+	msg &fWhat did you enable speed hacks or something?
+	delay 3000
+	msg &fWell we both know you didn't do that legitimately. So...
+	delay 3000
+	cmd goto hell
+quit
+
+#teleported
 	msg &fCongratulations!
 	delay 3000
 	msg &fYou fucking cheated!
 	delay 3000
-	msg &fI hope you feel good about yourself.
+	msg &fI mean come on, if you are going to cheat, get more creative than just teleporting!
 	delay 3000
-	msg &fI mean come on, if you are going to cheat, get more creative than just teleporting.
-	delay 3000
+	msg &fGo to hell
+	delay 1000
 	cmd goto hell
 quit
 
