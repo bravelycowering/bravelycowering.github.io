@@ -23,8 +23,8 @@ quit
 #Pipes:gizmo[762]
 	if state{X},{Y},{Z} set state{X},{Y},{Z} false
 	else set state{X},{Y},{Z} true
-	else tempblock{X},{Y},{Z} 762
-	else tempblock{X},{Y},{Z} 763
+	else tempblock 762 {X} {Y} {Z}
+	else tempblock 763 {X} {Y} {Z}
 quit
 
 // hax with vision
