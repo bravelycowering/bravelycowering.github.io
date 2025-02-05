@@ -27,8 +27,8 @@ quit
 	setdiv time 1000
 	if PlayerX|<|63 jump #outofbounds
 	if PlayerX|>|65 jump #outofbounds
-	if PlayerZ|<|63 jump #outofbounds
-	if PlayerZ|>|65 jump #outofbounds
+	if PlayerZ|<|4 jump #outofbounds
+	if PlayerZ|>|6 jump #outofbounds
 	if time|<|5 jump #tooquick
 	if checkpoints|<|28 jump #notenoughcheckpoints
 	msg &aCongratulations!
