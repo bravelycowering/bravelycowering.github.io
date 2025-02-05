@@ -7,17 +7,33 @@ jump #Pipes:messageblock
 #Pipes:prerun[765]
 	setsub Y 1
 quit
+#Pipes:prerun[745]
+	ifnot keycard jump #nokeycards
 #Pipes:prerun[757]
 	setsub X 1
 quit
+#Pipes:prerun[746]
+	ifnot keycard jump #nokeycards
 #Pipes:prerun[758]
 	setadd X 1
 quit
+#Pipes:prerun[747]
+	ifnot keycard jump #nokeycards
 #Pipes:prerun[759]
 	setadd Z 1
 quit
+#Pipes:prerun[748]
+	ifnot keycard jump #nokeycards
 #Pipes:prerun[760]
 	setsub Z 1
+quit
+
+#nokeycards
+	msg Seems like a scanner of some kind... You will need an &6ID CARD&7 to get past this.
+quit
+
+#nokeys
+	msg Seems like a lock of some kind... You will need a &6KEY&7 to unlock this.
 quit
 
 // lamp off
