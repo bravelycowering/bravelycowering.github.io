@@ -95,17 +95,28 @@ quit
 	if rivitediron{X},{Y},{Z} jump #Pipes:softbox
 quit
 
+#Pipes:gizmo[744]
+	ifnot state{X},{Y},{Z} jump #Pipes:softbox
+quit
+
 // Block placer-D
 #Pipes:gizmo[749]
 	setadd Y 1
 	setblockid id {X} {Y} {Z}
 	if id|=|0 jump #place
+	if id|=|744 jump #unplace
 quit
 #place
 	if rivitediron{X},{Y},{Z} set rivitediron{X},{Y},{Z} false
 	else set rivitediron{X},{Y},{Z} true
 	else tempblock 0 {X} {Y} {Z}
 	else tempblock 238 {X} {Y} {Z}
+quit
+#unplace
+	if state{X},{Y},{Z} set state{X},{Y},{Z} false
+	else set state{X},{Y},{Z} true
+	else tempblock 744 {X} {Y} {Z}
+	else tempblock 0 {X} {Y} {Z}
 quit
 
 // hax with vision
