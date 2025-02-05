@@ -126,7 +126,8 @@ quit
 quit
 
 #uselesschest
-	if state{X},{Y},{Z} quit
+	if state{MBX},{MBY},{MBZ} quit
+	set state{MBX},{MBY},{MBZ} true
 	tempblock 624 {MBCoords}
 	msg There's nothing of use inside.
 quit
