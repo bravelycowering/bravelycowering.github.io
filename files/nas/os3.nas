@@ -137,6 +137,7 @@ quit
 #usefulchest1
 	if state{MBX},{MBY},{MBZ} quit
 	set state{MBX},{MBY},{MBZ} true
+	set keycard true
 	tempblock 624 {MBCoords}
 	msg You found the &6ID CARD
 	cpemsg bot1 ITEMS:
