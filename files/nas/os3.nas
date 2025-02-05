@@ -4,6 +4,29 @@ include os/pipestone+
 #run
 jump #Pipes:messageblock
 
+#Pipes:prerun[765]
+	setsub Y 1
+quit
+#Pipes:prerun[757]
+	setsub X 1
+quit
+#Pipes:prerun[758]
+	setadd X 1
+quit
+#Pipes:prerun[759]
+	setadd Z 1
+quit
+#Pipes:prerun[760]
+	setsub Z 1
+quit
+
+#Pipes:gizmo[762]
+	if state{X},{Y},{Z} set state{X},{Y},{Z} false
+	else set state{X},{Y},{Z} true
+	else tempblock{X},{Y},{Z} 762
+	else tempblock{X},{Y},{Z} 763
+quit
+
 // hax with vision
 #hax
 	motd +hax
