@@ -1,4 +1,5 @@
 #onJoin
+	if spawn jump #triedrunningonjoin
 	set spawn 64 64 121
 	set starttime {epochMS}
 	delay 500
@@ -10,6 +11,20 @@
 	delay 3000
 	if triggeredend quit
 	msg &fYour time started when you joined the map.
+quit
+
+#triedrunningonjoin
+	if triggeredend quit
+	set triggeredend true
+	msg &aWelcome to Walking Simulator!
+	delay 3000
+	msg &fAll you have to do to win is walk to the end of the hall.
+	delay 3000
+	msg &fHA! Had you for a second didn't I?
+	delay 3000
+	msg &fSorry, but no. Try again.
+	delay 3000
+	cmd goto hell
 quit
 
 #checkpoint
@@ -37,6 +52,8 @@ quit
 	msg &fThat took you {time} seconds.
 	delay 3000
 	msg &fThink you can do it any faster?
+	delay 3000
+	cmd main
 quit
 
 #outofbounds
@@ -51,12 +68,16 @@ quit
 	msg &fThough, we both know you didn't actually walk that hallway.
 	delay 3000
 	msg &fNice try though.
+	delay 3000
+	cmd goto hell
 quit
 
 #toomanycheckpoints
 	msg &f...
 	delay 3000
-	msg &fSomehow you managed to walk more hallway than exists.
+	msg &fSomehow you managed to walk more hallway than exists in the world.
+	delay 3000
+	cmd goto hell
 quit
 
 #tooquick
@@ -67,10 +88,14 @@ quit
 	msg &fI hope you feel good about yourself.
 	delay 3000
 	msg &fI mean come on, if you are going to cheat, get more creative than just teleporting.
+	delay 3000
+	cmd goto hell
 quit
 
 #literallyjustguessedandranwin
 	msg &fNice try, but no.
 	delay 3000
 	msg &fYou cannot just run the #win label.
+	delay 3000
+	cmd goto hell
 quit
