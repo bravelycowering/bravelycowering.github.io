@@ -56,41 +56,85 @@ quit
 
 // door
 #Pipes:gizmo[756]
+	if state{X},{Y},{Z} set state{X},{Y},{Z} false
+	else set state{X},{Y},{Z} true
+	else jump #closer
+	else jump #opener
+quit
+
+#opener
 	setadd X 1
 	setblockid id {X} {Y} {Z}
-	if id|=|595 jump #dodoor|X|1
+	if id|=|595 jump #opendoor|X|1
 	setsub X 2
 	setblockid id {X} {Y} {Z}
-	if id|=|595 jump #dodoor|X|-1
+	if id|=|595 jump #opendoor|X|-1
 	setadd X 1
 	setadd Z 1
 	setblockid id {X} {Y} {Z}
-	if id|=|595 jump #dodoor|Z|1
+	if id|=|595 jump #opendoor|Z|1
 	setsub Z 2
 	setblockid id {X} {Y} {Z}
-	if id|=|595 jump #dodoor|Z|-1
+	if id|=|595 jump #opendoor|Z|-1
+quit
+#closer
+	setadd X 1
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #closedoor|X|1
+	setsub X 2
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #closedoor|X|-1
+	setadd X 1
+	setadd Z 1
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #closedoor|Z|1
+	setsub Z 2
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #closedoor|Z|-1
 quit
 
-#dodoor
+#opendoor
 // direction, velocity
 	setsub Y 1
 	setblockid id {X} {Y} {Z}
-	if id|=|595 jump #dodoor
+	if id|=|595 jump #opendoor
 	setadd Y 1
 	set start {{runArg1}}
-	jump #doorloop
-	#resetdoorloop
+	jump #opendoorloop
+	#resetopendoorloop
 		set {runArg1} {start}
 		setadd Y 1
 		setblockid id {X} {Y} {Z}
 		ifnot id|=|595 quit
 		delay 150
-	#doorloop
+	#opendoorloop
 		setblockid id {X} {Y} {Z}
 		if id|=|595 tempblock 0 {X} {Y} {Z}
-		else jump #resetdoorloop
+		else jump #resetopendoorloop
 		setadd {runArg1} {runArg2}
-	jump #doorloop
+	jump #opendoorloop
+quit
+
+#closedoor
+// direction, velocity
+	setadd Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #closedoor
+	setsub Y 1
+	set start {{runArg1}}
+	jump #closedoorloop
+	#resetclosedoorloop
+		set {runArg1} {start}
+		setsub Y 1
+		setblockid id {X} {Y} {Z}
+		ifnot id|=|595 quit
+		delay 150
+	#closedoorloop
+		setblockid id {X} {Y} {Z}
+		if id|=|595 tempblock 0 {X} {Y} {Z}
+		else jump #resetclosedoorloop
+		setadd {runArg1} {runArg2}
+	jump #closedoorloop
 quit
 
 #Pipes:gizmo[0]
