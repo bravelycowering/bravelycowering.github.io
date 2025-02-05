@@ -62,7 +62,7 @@ quit
 	set start {{runArg1}}
 	jump #doorloop
 	#resetdoorloop
-		set {runArg1} start
+		set {runArg1} {start}
 		setadd Y 1
 		setblockid id {X} {Y} {Z}
 		ifnot id|=|595 quit
