@@ -66,12 +66,12 @@ quit
 		setadd Y 1
 		setblockid id {X} {Y} {Z}
 		ifnot id|=|595 quit
-		delay 100
+		delay 150
 	#doorloop
 		setblockid id {X} {Y} {Z}
 		if id|=|595 tempblock 0 {X} {Y} {Z}
 		else jump #resetdoorloop
-		setadd {runArg1} 1
+		setadd {runArg1} {runArg2}
 	jump #doorloop
 quit
 
