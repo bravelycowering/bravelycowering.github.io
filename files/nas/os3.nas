@@ -75,6 +75,23 @@ quit
 	jump #doorloop
 quit
 
+#Pipes:gizmo[0]
+	if rivitediron{X},{Y},{Z} jump #Pipes:softbox
+quit
+
+// Block placer-D
+#Pipes:gizmo[749]
+	setadd Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #place
+quit
+#place
+	if rivitediron{X},{Y},{Z} set rivitediron{X},{Y},{Z} false
+	else set rivitediron{X},{Y},{Z} true
+	else tempblock 0 {X} {Y} {Z}
+	else tempblock 238 {X} {Y} {Z}
+quit
+
 // hax with vision
 #hax
 	motd +hax
