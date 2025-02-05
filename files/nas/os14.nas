@@ -24,7 +24,7 @@ quit
 	delay 3000
 	msg &fSorry, but no. Try again.
 	delay 3000
-	cmd goto hell
+	cmd m 0 0 0
 quit
 
 #checkpoint
@@ -70,7 +70,7 @@ quit
 	delay 3000
 	msg &fRemind me to finish this one, otherwise I will forget.
 	delay 3000
-	cmd goto hell
+	cmd m 0 0 0
 quit
 
 #notenoughcheckpoints
@@ -82,7 +82,7 @@ quit
 	delay 3000
 	msg &fNice try though.
 	delay 3000
-	cmd goto hell
+	cmd m 0 0 0
 quit
 
 #cheatedcheckpoints
@@ -90,7 +90,7 @@ quit
 	delay 3000
 	msg &fSorry to burst your bubble but you can't just mark them.
 	delay 3000
-	cmd goto hell
+	cmd m 0 0 0
 quit
 
 #toomanycheckpoints
@@ -98,7 +98,7 @@ quit
 	delay 3000
 	msg &fSomehow you managed to walk more hallway than exists in the world.
 	delay 3000
-	cmd goto hell
+	cmd m 0 0 0
 quit
 
 #tooquick
@@ -108,7 +108,7 @@ quit
 	delay 3000
 	msg &fWell we both know you didn't do that legitimately. So...
 	delay 3000
-	cmd goto hell
+	cmd m 0 0 0
 quit
 
 #teleported
@@ -120,7 +120,7 @@ quit
 	delay 3000
 	msg &fGo to hell
 	delay 1000
-	cmd goto hell
+	cmd m 0 0 0
 quit
 
 #literallyjustguessedandranwin
@@ -128,5 +128,5 @@ quit
 	delay 3000
 	msg &fYou cannot just run the #win label.
 	delay 3000
-	cmd goto hell
+	cmd m 0 0 0
 quit
