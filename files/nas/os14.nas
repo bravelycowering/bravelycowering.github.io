@@ -1,4 +1,5 @@
 #onJoin
+	set spawn 64 64 121
 	set starttime {epochMS}
 	delay 500
 	if triggeredend quit
@@ -38,7 +39,7 @@ quit
 quit
 
 #outofbounds
-	if PlayerCoords|=|"64 64 121" jump #literallyjustguessedandranwin
+	if PlayerCoords|=|spawn jump #literallyjustguessedandranwin
 quit
 
 #notenoughcheckpoints
