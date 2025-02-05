@@ -20,11 +20,59 @@ quit
 	setsub Z 1
 quit
 
+// lamp off
 #Pipes:gizmo[762]
 	if state{X},{Y},{Z} set state{X},{Y},{Z} false
 	else set state{X},{Y},{Z} true
 	else tempblock 762 {X} {Y} {Z}
 	else tempblock 763 {X} {Y} {Z}
+quit
+
+// lamp on
+#Pipes:gizmo[763]
+	if state{X},{Y},{Z} set state{X},{Y},{Z} false
+	else set state{X},{Y},{Z} true
+	else tempblock 763 {X} {Y} {Z}
+	else tempblock 762 {X} {Y} {Z}
+quit
+
+// door
+#Pipes:gizmo[756]
+	setadd X 1
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #dodoor|X|1
+	setsub X 2
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #dodoor|X|-1
+	setadd X 1
+	setadd Z 1
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #dodoor|Z|1
+	setsub Z 2
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #dodoor|Z|-1
+quit
+
+#dodoor
+// direction, velocity
+	setsub Y 1
+	setblockid id {X} {Y} {Z}
+	if id|=|595 jump #dodoor
+	setadd Y 1
+	set start {{runArg1}}
+	jump #doorloop
+	#resetdoorloop
+		set {runArg1} start
+		setadd Y 1
+		setblockid id {X} {Y} {Z}
+		ifnot id|=|595 quit
+		delay 100
+	#doorloop
+		setblockid id {X} {Y} {Z}
+		if id|=|595 tempblock 0 {X} {Y} {Z}
+		else jump #resetdoorloop
+		setadd {runArg1} 1
+	jump #doorloop
 quit
 
 // hax with vision
