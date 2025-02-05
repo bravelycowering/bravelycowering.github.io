@@ -52,8 +52,8 @@ quit
 	if PlayerZ|>|6 jump #outofbounds
 	if checkpoints|=|0 jump #teleported
 	if time|<|5 jump #tooquick
-	if checkpoints|<|28 jump #notenoughcheckpoints
-	if checkpoints|>|28 jump #toomanycheckpoints
+	if checkpoints|<|8 jump #notenoughcheckpoints
+	if checkpoints|>|8 jump #toomanycheckpoints
 	if cheatedcheckpoints jump #cheatedcheckpoints
 	msg &aCongratulations!
 	delay 3000
