@@ -66,6 +66,11 @@ quit
 
 #outofbounds
 	if PlayerCoords|=|spawn jump #literallyjustguessedandranwin
+	msg &fLook, I don't know where you are but you sure as hell aren't at the finish.
+	delay 3000
+	msg &fRemind me to finish this one, otherwise I will forget.
+	delay 3000
+	cmd goto hell
 quit
 
 #notenoughcheckpoints
