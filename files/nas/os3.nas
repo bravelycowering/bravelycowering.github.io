@@ -131,7 +131,7 @@ quit
 		delay 150
 	#closedoorloop
 		setblockid id {X} {Y} {Z}
-		if id|=|595 tempblock 0 {X} {Y} {Z}
+		if id|=|595 tempblock 595 {X} {Y} {Z}
 		else jump #resetclosedoorloop
 		setadd {runArg1} {runArg2}
 	jump #closedoorloop
