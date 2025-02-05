@@ -1,6 +1,7 @@
-// Pipes related
 include os/pipestone+
+include os/backtick+21
 
+// Pipes related
 #run
 jump #Pipes:messageblock
 
@@ -12,7 +13,7 @@ quit
 	ifnot key jump #nokeys
 	jump #Pipes:prerun[757]
 #Pipes:prerun[745]
-	ifnot keycard jump #nokeycards
+	if plot|<|3 jump #nokeycards
 	tempblock 740 {X} {Y} {Z}
 #Pipes:prerun[757]
 	setsub X 1
@@ -22,7 +23,7 @@ quit
 	ifnot key jump #nokeys
 	jump #Pipes:prerun[758]
 #Pipes:prerun[746]
-	ifnot keycard jump #nokeycards
+	if plot|<|3 jump #nokeycards
 	tempblock 741 {X} {Y} {Z}
 #Pipes:prerun[758]
 	setadd X 1
@@ -32,7 +33,7 @@ quit
 	ifnot key jump #nokeys
 	jump #Pipes:prerun[759]
 #Pipes:prerun[747]
-	ifnot keycard jump #nokeycards
+	if plot|<|3 jump #nokeycards
 	tempblock 742 {X} {Y} {Z}
 #Pipes:prerun[759]
 	setadd Z 1
@@ -42,7 +43,7 @@ quit
 	ifnot key jump #nokeys
 	jump #Pipes:prerun[760]
 #Pipes:prerun[748]
-	ifnot keycard jump #nokeycards
+	if plot|<|3 jump #nokeycards
 	tempblock 743 {X} {Y} {Z}
 #Pipes:prerun[760]
 	setsub Z 1
@@ -210,6 +211,7 @@ quit
 // plot
 #onJoin
 	set plot 0
+	setrandrange safecode 111111 999999
 	env fog 775533
 quit
 
