@@ -125,13 +125,11 @@ quit
 	env maxfog 0
 quit
 
-// code related
-include os/backtick+21
-
-#save
-msg &fYour save code is:
-msg &a
-msg &fCopy it somewhere you will remember it!
+#uselesschest
+	if state{X},{Y},{Z} quit
+	tempblock 624 {MBCoords}
+	msg There's nothing of use inside.
+quit
 
 // plot
 #onJoin
