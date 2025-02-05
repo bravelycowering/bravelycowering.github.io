@@ -31,6 +31,7 @@ quit
 	if PlayerZ|>|6 jump #outofbounds
 	if time|<|5 jump #tooquick
 	if checkpoints|<|28 jump #notenoughcheckpoints
+	if checkpoints|>|28 jump #toomanycheckpoints
 	msg &aCongratulations!
 	delay 3000
 	msg &fThat took you {time} seconds.
@@ -50,6 +51,12 @@ quit
 	msg &fThough, we both know you didn't actually walk that hallway.
 	delay 3000
 	msg &fNice try though.
+quit
+
+#toomanycheckpoints
+	msg &f...
+	delay 3000
+	msg &fSomehow you managed to walk more hallway than exists.
 quit
 
 #tooquick
