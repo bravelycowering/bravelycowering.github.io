@@ -10,9 +10,18 @@ jump #Pipes:messageblock
 	env maxfog 0
 quit
 
+// code related
+include os/backtick+8
+
+#save
+msg &fYour save code is:
+msg &a
+msg &fCopy it somewhere you will remember it!
+
 // plot
 #onJoin
 	set plot 0
+	env fog 775533
 quit
 
 #1
@@ -53,6 +62,7 @@ quit
 #2
 	if plot|>=|2 quit
 	set plot 2
+	env fog 000
 	unfreeze
 	delay 1200
 	tempblock 763 263 73 232
