@@ -208,6 +208,14 @@ quit
 	cpemsg bot2 &6ID CARD
 quit
 
+#foundkey
+	if key quit
+	set key true
+	tempblock 0 {MBCoords}
+	msg You found the &6KEY
+	cpemsg bot3 &6KEY
+quit
+
 // plot
 #onJoin
 	set plot 0
