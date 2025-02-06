@@ -238,7 +238,7 @@ quit
 // util
 #looptp
 	allowmbrepeat
-	cmd reltp {runArg1} 0 {runArg3}
+	cmd reltp {runArg1} 0 {runArg2}
 quit
 
 // plot
