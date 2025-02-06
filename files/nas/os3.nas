@@ -271,7 +271,7 @@ quit
 	if keycard quit
 	set keycard true
 	tempblock 624 {MBCoords}
-	msg You found the &6ID CARD
+	msg You found the &6ID CARD&7 and put it in your pockets.
 	cpemsg bot2 &6ID CARD
 quit
 
@@ -279,7 +279,7 @@ quit
 	if key quit
 	set key true
 	tempblock 0 {MBCoords}
-	msg You found the &6KEY
+	msg You found the &6KEY&7 and put it in your pockets.
 	cpemsg bot3 &6KEY
 quit
 
