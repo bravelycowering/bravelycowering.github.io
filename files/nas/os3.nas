@@ -198,6 +198,7 @@ quit
 
 // hax with vision
 #hax
+	ifnot canhax cmd goto hell
 	if hax set hax false
 	else set hax true
 	else cmd maphack off
@@ -239,6 +240,9 @@ quit
 	set plot 0
 	setrandrange safecode 111111 999999
 	env fog 775533
+	set canhax false
+	set PlayerName @p
+	if PlayerName|=|"bravelycowering+" set canhax true
 quit
 
 #1
