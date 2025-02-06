@@ -34,9 +34,16 @@ quit
 // setspawn 59 2 123 0 0
 setdeathspawn 59 2 123 0 0
 gui hand false
+cpemsg bot1 
+cpemsg bot2 
+cpemsg bot3 
 quit
 
 #os2_setup
+setrandrange dollars 4 12
+cpemsg bot1 POCKETS: &u${dollars}
+cpemsg bot2 &gNOTHING
+cpemsg bot3 &6BROKEN DEVICE
 if setup quit
 set setup true
 gui hotbar false
