@@ -235,6 +235,12 @@ quit
 	cpemsg bot3 &6KEY
 quit
 
+// util
+#looptp
+	allowmbrepeat
+	cmd reltp {runArg1} 0 {runArg3}
+quit
+
 // plot
 #onJoin
 	set plot 0
