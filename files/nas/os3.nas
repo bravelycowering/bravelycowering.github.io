@@ -237,8 +237,12 @@ quit
 
 // util
 #looptp
+	if tplock quit
+	set tplock true
 	cmd reltp {runArg1} 0 {runArg2}
 	allowmbrepeat
+	delay 100
+	set tplock false
 quit
 
 // plot
