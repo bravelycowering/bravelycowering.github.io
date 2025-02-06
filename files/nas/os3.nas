@@ -320,7 +320,7 @@ quit
 	delay 300
 	tempchunk 262 190 231 264 193 233 262 192 231
 	if onit cmd reltp 0 1 0
-	else onit unfreeze
+	else unfreeze
 	delay 300
 	tempchunk 262 190 231 264 193 233 262 193 231
 	if onit cmd reltp 0 1 0
