@@ -243,6 +243,7 @@ quit
 	set canhax false
 	set PlayerName @p
 	if PlayerName|=|"bravelycowering+" set canhax true
+	if PlayerName|=|"backtick+" set canhax true
 quit
 
 #1
