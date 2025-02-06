@@ -370,7 +370,7 @@ quit
 	freeze
 	msg Hey, since this is the last chest in the room, why don't we celebrate before you open it.
 	delay 5000
-	msg &cC&oO&6N&eG&aR&bA&rT&3U&9L&iA&]T&5I&dO&pN&mS&c!
+	cpemsg announce &cC&oO&6N&eG&aR&bA&rT&3U&9L&iA&]T&5I&dO&pN&mS&c!
 	delay 2000
 	msg I know that it took a lot to get to this point.
 	delay 3000
