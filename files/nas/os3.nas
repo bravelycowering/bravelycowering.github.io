@@ -206,7 +206,6 @@ quit
 	if id|=|744 jump #unplace
 quit
 
-
 #place
 	if rivitediron{X},{Y},{Z} set rivitediron{X},{Y},{Z} false
 	else set rivitediron{X},{Y},{Z} true
@@ -228,6 +227,18 @@ quit
 
 #Pipes:box[731]
 	tempblock 731 {X} {Y} {Z}
+quit
+
+// Passthrough
+#Pipes:gizmo[739]
+	set Pipes.line{Pipes.index}.ceased false
+	set Pipes.gizmo{X},{Y},{Z}
+	if dir|=|"X+" jump #Pipes:X+
+	if dir|=|"X-" jump #Pipes:X-
+	if dir|=|"Y+" jump #Pipes:Y+
+	if dir|=|"Y-" jump #Pipes:Y-
+	if dir|=|"Z+" jump #Pipes:Z+
+	if dir|=|"Z-" jump #Pipes:Z-
 quit
 
 // hax with vision
