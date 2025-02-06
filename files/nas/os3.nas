@@ -305,23 +305,29 @@ quit
 quit
 
 #1
-	if PlayerX|>|264 quit
-	if PlayerX|<|262 quit
-	if PlayerZ|>|238 quit
-	if PlayerZ|<|236 quit
+	set onit true
+	if PlayerX|>|264 set onit false
+	if PlayerX|<|262 set onit false
+	if PlayerZ|>|233 set onit false
+	if PlayerZ|<|231 set onit false
 	if plot|>=|1 quit
 	set plot 1
 	msg You hear a rumble...
 	freeze
 	delay 2000
 	tempchunk 262 190 231 264 193 233 262 191 231
+	if onit cmd reltp 0 1 0
 	delay 300
 	tempchunk 262 190 231 264 193 233 262 192 231
-	unfreeze
+	if onit cmd reltp 0 1 0
+	else onit unfreeze
 	delay 300
 	tempchunk 262 190 231 264 193 233 262 193 231
+	if onit cmd reltp 0 1 0
 	delay 300
 	tempchunk 262 190 231 264 193 233 262 194 231
+	if onit cmd reltp 0 1 0
+	if onit unfreeze
 quit
 
 #freeze
