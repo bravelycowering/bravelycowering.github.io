@@ -237,12 +237,14 @@ quit
 
 // util
 #looptp
-	if tplock quit
-	set tplock true
+	set lockname tplockX
+	if runArg1|=|0 set lockname tplockZ
+	if {lockname} quit
+	set {lockname} true
 	cmd reltp {runArg1} 0 {runArg2}
 	allowmbrepeat
 	delay 100
-	set tplock false
+	set {lockname} false
 quit
 
 // plot
