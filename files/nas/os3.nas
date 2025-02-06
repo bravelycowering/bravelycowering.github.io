@@ -202,7 +202,7 @@ quit
 	else set hax true
 	else cmd maphack off
 	else cmd maphack
-	else maxfog 20
+	else env maxfog 20
 	else env maxfog 0
 	else env sun 775533
 	else env sun fff
