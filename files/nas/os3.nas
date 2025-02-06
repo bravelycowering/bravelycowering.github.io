@@ -200,6 +200,9 @@ quit
 #hax
 	motd +hax
 	env maxfog 0
+	env sun fff
+	env shadow fff
+	cmd maphack
 quit
 
 #uselesschest
