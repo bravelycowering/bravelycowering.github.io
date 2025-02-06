@@ -186,6 +186,16 @@ quit
 	else tempblock 0 {X} {Y} {Z}
 quit
 
+// delay
+#Pipes:gizmo[731]
+	tempblock 730 {X} {Y} {Z}
+	jump #Pipes:schedulebox|10
+quit
+
+#Pipes:box[731]
+	tempblock 731 {X} {Y} {Z}
+quit
+
 // hax with vision
 #hax
 	motd +hax
