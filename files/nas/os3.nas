@@ -268,7 +268,6 @@ quit
 	set keycard true
 	tempblock 624 {MBCoords}
 	msg You found the &6ID CARD
-	cpemsg bot1 ITEMS:
 	cpemsg bot2 &6ID CARD
 quit
 
@@ -294,6 +293,9 @@ quit
 
 // plot
 #onJoin
+	cpemsg bot1 POCKETS: &u$0
+	cpemsg bot2 &gNOTHING
+	cpemsg bot3 &gNOTHING
 	set plot 0
 	setrandrange safecode 111111 999999
 	motd -hax -push model=humanoid horspeed=1 maxspeed=1.5
