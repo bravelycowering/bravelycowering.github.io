@@ -260,7 +260,11 @@ quit
 	if state{MBX},{MBY},{MBZ} quit
 	set state{MBX},{MBY},{MBZ} true
 	tempblock 624 {MBCoords}
-	msg There's nothing of use inside.
+	setrandrange i 1 4
+	msg {uselessmsg{i}}
+	if i|<|4 quit
+	setadd dollars 1
+	cpemsg bot1 POCKETS: &u${dollars}
 quit
 
 #usefulchest1
@@ -297,6 +301,7 @@ quit
 	cpemsg bot2 &gNOTHING
 	cpemsg bot3 &gNOTHING
 	set plot 0
+	set dollars 0
 	setrandrange safecode 111111 999999
 	motd -hax -push model=humanoid horspeed=1 maxspeed=1.5
 	env fog 775533
@@ -304,6 +309,11 @@ quit
 	set PlayerName @p
 	if PlayerName|=|"bravelycowering+" set canhax true
 	if PlayerName|=|"backtick+" set canhax true
+	// useless chest messages
+	set uselessmsg1 There's nothing of use inside.
+	set uselessmsg2 You look inside, it's empty.
+	set uselessmsg3 Looking inside, you discover a distinct lack of anything useful.
+	set uselessmsg4 You found &u$1! You put it safely in your pockets.
 quit
 
 #1
