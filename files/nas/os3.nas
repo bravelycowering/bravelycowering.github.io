@@ -256,6 +256,142 @@ quit
 	else env shadow fff
 quit
 
+#extremelyuselesschest
+	if replying quit
+	if state{MBX},{MBY},{MBZ} quit
+	set state{MBX},{MBY},{MBZ} true
+	setadd extremelyuselesschestsopened 1
+	if extremelyuselesschestsopened|<|10 tempblock 624 {MBCoords}
+	jump #extremelyuselessmsg{extremelyuselesschestsopened}
+quit
+
+#extremelyuselessmsg1
+	msg There's nothing of use inside.
+quit
+
+#extremelyuselessmsg2
+	msg You look inside, it's empty.
+quit
+
+#extremelyuselessmsg3
+	msg Looking inside, you discover a distinct lack of anything useful.
+quit
+
+#extremelyuselessmsg4
+	msg Incredibly, the chest is empty.
+quit
+
+#extremelyuselessmsg5
+	freeze
+	msg You look inside, it's-
+	delay 1000
+	msg Wait! What's that???
+	delay 2000
+	msg Amazing...
+	delay 3000
+	msg It's an empty chest.
+	unfreeze
+quit
+
+#extremelyuselessmsg6
+	freeze
+	msg There's nothing in this one either.
+	delay 3000
+	msg Actually, it couldn't be emptier. There's not even a speck of dust in here.
+	unfreeze
+quit
+
+#extremelyuselessmsg7
+	freeze
+	msg You got the &6CHEST LID&7.
+	delay 2000
+	msg You try putting it in your pockets, but it doesn't fit.
+	unfreeze
+quit
+
+#extremelyuselessmsg8
+	freeze
+	msg This is the 8th chest in this room that you've opened.
+	delay 3000
+	msg This room is kind of baffling when you think about it.
+	delay 3000
+	msg Why would anyone in their right mind create this room...
+	delay 3000
+	msg Guard it behind needing special clearance via the &6ID CARD&7...
+	delay 3000
+	msg Just to fill it with nothing?
+	delay 3000
+	msg This must be some kind of inside joke between whoever worked here.
+	delay 5000
+	msg Oh right. That chest was empty by the way.
+	unfreeze
+quit
+
+#extremelyuselessmsg9
+	freeze
+	msg There's nothing of use inside.
+	delay 3000
+	msg Hey, clearly this whole room is scripted.
+	delay 3000
+	msg Each time you open one of these chests the cutscene gets longer, and you still haven't found anything.
+	delay 5000
+	msg I mean come on, do you really think anything is going to be in that last chest?
+	delay 2000
+	set replying true
+	reply 2|Yes|#extremelyuselessmsgYes
+	reply 3|No|#extremelyuselessmsgNo
+quit
+
+#extremelyuselessmsgYes
+	msg At least you are optimistic about it.
+	delay 3000
+	msg Given how long this is taking I would've thrown in the towel by now.
+	delay 3000
+	msg The world needs more people like you.
+	delay 3000
+	msg Well, don't let me stop you. Go ahead and open that last chest.
+	unfreeze
+	set replying false
+quit
+
+#extremelyuselessmsgNo
+	msg Then don't waste your time here anymore.
+	delay 3000
+	msg Go ahead and walk back out that other door, I won't judge you if you leave one chest unopened.
+	delay 5000
+	msg Though, you never know. What if I put something in that last chest just to reward anyone.
+	delay 3000
+	msg I probably didn't do that though.
+	unfreeze
+	set replying false
+quit
+
+#extremelyuselessmsg10
+	freeze
+	msg Hey, since this is the last chest in the room, why don't we celebrate before you open it.
+	delay 5000
+	msg &cC&oO&6N&eG&aR&bA&rT&3U&9L&iA&]T&5I&dO&pN&mS&c!
+	delay 2000
+	msg I know that it took a lot to get to this point.
+	delay 3000
+	msg That's 10 whole chests worth of nothing you had to push yourself to open.
+	delay 4000
+	msg Well, the anticipation is killing me. Let's see what is inside!
+	delay 3000
+	tempblock 624 {MBCoords}
+	delay 5000
+	msg What's this?
+	delay 2000
+	msg Oh my goodness.
+	delay 3000
+	msg {uselessmsg4}
+	setadd dollars 1
+	cpemsg bot1 POCKETS: &u${dollars}
+	delay 3000
+	msg At least all that effort was worth it.
+	unfreeze
+quit
+
 #uselesschest
 	if state{MBX},{MBY},{MBZ} quit
 	set state{MBX},{MBY},{MBZ} true
@@ -313,7 +449,7 @@ quit
 	set uselessmsg1 There's nothing of use inside.
 	set uselessmsg2 You look inside, it's empty.
 	set uselessmsg3 Looking inside, you discover a distinct lack of anything useful.
-	set uselessmsg4 You found &u$1! You put it safely in your pockets.
+	set uselessmsg4 You found &u$1&7! You put it safely in your pockets.
 quit
 
 #1
