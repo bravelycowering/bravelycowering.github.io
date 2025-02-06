@@ -173,6 +173,40 @@ quit
 	if id|=|0 jump #place
 	if id|=|744 jump #unplace
 quit
+
+// Block placer-N
+#Pipes:gizmo[727]
+	setadd Z 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #place
+	if id|=|744 jump #unplace
+quit
+
+// Block placer-S
+#Pipes:gizmo[726]
+	setsub Z 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #place
+	if id|=|744 jump #unplace
+quit
+
+// Block placer-E
+#Pipes:gizmo[725]
+	setsub X 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #place
+	if id|=|744 jump #unplace
+quit
+
+// Block placer-W
+#Pipes:gizmo[724]
+	setadd X 1
+	setblockid id {X} {Y} {Z}
+	if id|=|0 jump #place
+	if id|=|744 jump #unplace
+quit
+
+
 #place
 	if rivitediron{X},{Y},{Z} set rivitediron{X},{Y},{Z} false
 	else set rivitediron{X},{Y},{Z} true
