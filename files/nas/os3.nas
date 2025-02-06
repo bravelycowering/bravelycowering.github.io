@@ -198,11 +198,16 @@ quit
 
 // hax with vision
 #hax
-	motd +hax
-	env maxfog 0
-	env sun fff
-	env shadow fff
-	cmd maphack
+	if hax set hax false
+	else set hax true
+	else cmd maphack off
+	else cmd maphack
+	else maxfog 20
+	else env maxfog 0
+	else env sun 775533
+	else env sun fff
+	else env shadow 292929
+	else env shadow fff
 quit
 
 #uselesschest
