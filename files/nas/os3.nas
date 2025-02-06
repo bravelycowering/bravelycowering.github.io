@@ -330,6 +330,16 @@ quit
 	if onit unfreeze
 quit
 
+#treesecret
+	if foundtreesecret quit
+	set foundtreesecret true
+	msg * You pressed the switch...
+	delay 3000
+	msg * Click!
+	delay 1000
+	msg * Nothing happened.
+quit
+
 #freeze
 	freeze
 	boost 0 0 0 1 0 1
