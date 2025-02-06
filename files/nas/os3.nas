@@ -296,6 +296,7 @@ quit
 #onJoin
 	set plot 0
 	setrandrange safecode 111111 999999
+	motd -hax -push model=humanoid horspeed=1 maxspeed=1.5
 	env fog 775533
 	set canhax false
 	set PlayerName @p
@@ -342,7 +343,12 @@ quit
 	if plot|>=|2 quit
 	set plot 2
 	env fog 000
+	msg *CRUNCH*
+	delay 1000
+	msg You can't feel your legs...
+	delay 3000
 	unfreeze
+	motd -hax -push model=humanoid
 	delay 1200
 	tempblock 763 263 73 232
 	delay 300
