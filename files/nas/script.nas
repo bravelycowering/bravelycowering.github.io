@@ -42,7 +42,7 @@ quit
 #os2_setup
 setrandrange dollars 4 12
 cpemsg bot1 POCKETS: &u${dollars}
-cpemsg bot2 &gNOTHING
+cpemsg bot2 &6ID CARD
 cpemsg bot3 &6BROKEN DEVICE
 if setup quit
 set setup true
