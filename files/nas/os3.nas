@@ -392,6 +392,13 @@ quit
 	unfreeze
 quit
 
+#note
+	if state{MBX},{MBY},{MBZ} quit
+	set state{MBX},{MBY},{MBZ} true
+	msg There's a note on the ground here.
+	msg {runArg1}
+quit
+
 #uselesschest
 	if state{MBX},{MBY},{MBZ} quit
 	set state{MBX},{MBY},{MBZ} true
