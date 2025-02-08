@@ -432,14 +432,25 @@ quit
 	tempblock 624 {MBCoords}
 	msg You found the &6ID CARD&7 and put it in your pockets.
 	cpemsg bot2 &6ID CARD
+	if screwdriver set screwdriver false
 quit
 
 #foundkey
 	if key quit
 	set key true
+	if screwdriver set keycard true
 	tempblock 0 {MBCoords}
 	msg You found the &6KEY&7 and put it in your pockets.
 	cpemsg bot3 &6KEY
+	cpemsg bot2 &6ID CARD
+	if screwdriver set screwdriver false
+quit
+
+#foundscrewdriver
+	if screwdriver quit
+	set screwdriver true
+	tempblock 0 {MBCoords}
+	cpemsg bot2 &gSCREWDRIVER
 quit
 
 // util
@@ -477,6 +488,8 @@ quit
 	// anti fun measures
 	if fun|<|40 tempblock 0 298 68 181
 	if fun|>|60 tempblock 0 220 69 187
+	if fun|<|45 tempchunk 240 65 235 248 191 242 259 65 235
+	if fun|>|55 tempchunk 240 65 235 248 191 242 259 65 235
 	// fun measures
 	if label #doFun[{fun}] jump #doFun[{fun}]
 quit
@@ -493,7 +506,7 @@ quit
 #doFun[3]
 #doFun[4]
 #doFun[5]
-	tempchunk 262 68 235 264 69 237 262 68 231
+	tempchunk 262 66 231 264 67 233 262 68 231
 quit
 
 #1
@@ -525,11 +538,14 @@ quit
 #treesecret
 	if foundtreesecret quit
 	set foundtreesecret true
-	msg * You pressed the switch...
-	delay 3000
-	msg * Click!
-	delay 1000
-	msg * Nothing happened.
+	if fun|<|45 jump #lametreesecret
+	if fun|>|55 jump #lametreesecret
+	tempchunk 263 69 233 263 70 233 263 69 234
+	msg You hear a faint click...
+quit
+
+#lametreesecret
+	msg You hear a faint click... Nothing happens.
 quit
 
 #freeze
