@@ -10,41 +10,89 @@ jump #Pipes:messageblock
 quit
 
 #Pipes:prerun[735]
-	ifnot key jump #nokeys
+	set allowed {key}
+	if screwdriver set allowed {triedkey}
+	set triedkey true
+	ifnot allowed jump #nokeys
+	if screwdriver jump ##Pipes:prerun[757]:try
 	jump #Pipes:prerun[757]
 #Pipes:prerun[745]
-	ifnot keycard jump #nokeycards
+	set allowed {keycard}
+	if screwdriver set allowed {triedkeycard}
+	set triedkeycard true
+	ifnot allowed jump #nokeycards
+	if screwdriver jump ##Pipes:prerun[757]:try
 	tempblock 740 {X} {Y} {Z}
+#Pipes:prerun[757]:try
+	setrandrange success 1 5
+	effect electric {X} {Y} {Z} 0 0 0
+	ifnot success|=|3 quit
 #Pipes:prerun[757]
 	setsub X 1
 quit
 
 #Pipes:prerun[736]
-	ifnot key jump #nokeys
+	set allowed {key}
+	if screwdriver set allowed {triedkey}
+	set triedkey true
+	ifnot allowed jump #nokeys
+	if screwdriver jump ##Pipes:prerun[758]:try
 	jump #Pipes:prerun[758]
 #Pipes:prerun[746]
-	ifnot keycard jump #nokeycards
+	set allowed {keycard}
+	if screwdriver set allowed {triedkeycard}
+	set triedkeycard true
+	ifnot allowed jump #nokeycards
+	if screwdriver jump ##Pipes:prerun[758]:try
 	tempblock 741 {X} {Y} {Z}
+#Pipes:prerun[758]:try
+	setrandrange success 1 5
+	effect electric {X} {Y} {Z} 0 0 0
+	ifnot success|=|3 quit
 #Pipes:prerun[758]
 	setadd X 1
 quit
 
 #Pipes:prerun[737]
-	ifnot key jump #nokeys
+	set allowed {key}
+	if screwdriver set allowed {triedkey}
+	set triedkey true
+	ifnot allowed jump #nokeys
+	if screwdriver jump ##Pipes:prerun[759]:try
 	jump #Pipes:prerun[759]
 #Pipes:prerun[747]
-	ifnot keycard jump #nokeycards
+	set allowed {keycard}
+	if screwdriver set allowed {triedkeycard}
+	set triedkeycard true
+	ifnot allowed jump #nokeycards
+	if screwdriver jump ##Pipes:prerun[759]:try
 	tempblock 742 {X} {Y} {Z}
+#Pipes:prerun[759]:try
+	setrandrange success 1 5
+	effect electric {X} {Y} {Z} 0 0 0
+	ifnot success|=|3 quit
 #Pipes:prerun[759]
 	setadd Z 1
 quit
 
 #Pipes:prerun[738]
-	ifnot key jump #nokeys
+	set allowed {key}
+	if screwdriver set allowed {triedkey}
+	set triedkey true
+	ifnot allowed jump #nokeys
+	if screwdriver jump ##Pipes:prerun[760]:try
 	jump #Pipes:prerun[760]
 #Pipes:prerun[748]
-	ifnot keycard jump #nokeycards
+	set allowed {keycard}
+	if screwdriver set allowed {triedkeycard}
+	set triedkeycard true
+	ifnot allowed jump #nokeycards
+	if screwdriver jump ##Pipes:prerun[760]:try
 	tempblock 743 {X} {Y} {Z}
+#Pipes:prerun[760]:try
+	setrandrange success 1 5
+	effect electric {X} {Y} {Z} 0 0 0
+	ifnot success|=|3 quit
 #Pipes:prerun[760]
 	setsub Z 1
 quit
@@ -450,7 +498,7 @@ quit
 	if screwdriver quit
 	set screwdriver true
 	tempblock 0 {MBCoords}
-	cpemsg bot2 &gSCREWDRIVER
+	cpemsg bot2 &6SCREWDRIVER
 quit
 
 // util
@@ -538,14 +586,8 @@ quit
 #treesecret
 	if foundtreesecret quit
 	set foundtreesecret true
-	if fun|<|45 jump #lametreesecret
-	if fun|>|55 jump #lametreesecret
 	tempchunk 263 69 233 263 70 233 263 69 234
 	msg You hear a faint click...
-quit
-
-#lametreesecret
-	msg You hear a faint click... Nothing happens.
 quit
 
 #freeze
