@@ -530,7 +530,7 @@ quit
 	cpemsg bot1 POCKETS: &u$0
 	cpemsg bot2 &gNOTHING
 	cpemsg bot3 &gNOTHING
-	setrandrange fun 1 100
+	if fun|=|"" setrandrange fun 1 100
 	set plot 0
 	set dollars 0
 	setrandrange safecode 111111 999999
@@ -554,6 +554,8 @@ quit
 	if label #doFun[{fun}] jump #doFun[{fun}]
 quit
 
+#thatIsMyFun
+	set fun {runArg1}
 #whatIsMyFun
 	if fun|=|"" msg You're no fun...
 	else msg Your 'fun' is &a{fun}&7!
