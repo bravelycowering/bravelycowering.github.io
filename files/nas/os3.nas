@@ -537,7 +537,7 @@ quit
 	if fun|<|40 tempblock 0 298 68 181
 	if fun|>|60 tempblock 0 220 69 187
 	if fun|<|45 tempchunk 240 65 235 248 191 242 259 65 235
-	if fun|>|55 tempchunk 240 65 235 248 191 242 259 65 235
+	if fun|>|50 tempchunk 240 65 235 248 191 242 259 65 235
 	// fun measures
 	if label #doFun[{fun}] jump #doFun[{fun}]
 quit
