@@ -274,6 +274,7 @@ quit
 
 #extremelyuselessdrill
 	freeze
+	tempblock 719 {MBCoords}
 	msg You found the &6SUPER DRILL&7.
 	delay 3000
 	msg This item lets you drill through metal.
@@ -281,7 +282,6 @@ quit
 	msg The same type of metal that the giant doors constantly blocking your way are made of.
 	delay 3000
 	msg Unforuntately for you, this is way too big to fit in your pockets.
-	tempblock 719 {MBCoords}
 	unfreeze
 quit
 
@@ -482,7 +482,9 @@ quit
 quit
 
 #whatIsMyFun
-	msg Your 'fun' is &a{fun}&7!
+	if fun|=|"" msg You're no fun...
+	else msg Your 'fun' is &a{fun}&7!
+	else quit
 	msg Don't forget it!
 quit
 
