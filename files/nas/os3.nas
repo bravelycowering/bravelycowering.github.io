@@ -582,19 +582,64 @@ quit
 	msg You hear a rumble...
 	freeze
 	delay 2000
-	tempchunk 262 190 231 264 193 233 262 191 231
+	call #9waytempchunk|262|190|231|264|193|233|262|191|231
 	if onit cmd reltp 0 1 0
 	delay 300
-	tempchunk 262 190 231 264 193 233 262 192 231
+	call #9waytempchunk|262|190|231|264|193|233|262|192|231
 	if onit cmd reltp 0 1 0
 	else unfreeze
 	delay 300
-	tempchunk 262 190 231 264 193 233 262 193 231
+	call #9waytempchunk|262|190|231|264|193|233|262|193|231
 	if onit cmd reltp 0 1 0
 	delay 300
-	tempchunk 262 190 231 264 193 233 262 194 231
+	call #9waytempchunk|262|190|231|264|193|233|262|194|231
 	if onit cmd reltp 0 1 0
 	if onit unfreeze
+quit
+
+#9waytempchunk
+	set X1 {runArg1}
+	set Y1 {runArg2}
+	set Z1 {runArg3}
+	set X2 {runArg4}
+	set Y2 {runArg5}
+	set Z2 {runArg6}
+	set X3 {runArg7}
+	set Y3 {runArg8}
+	set Z3 {runArg9}
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
+	setsub X1 63
+	setsub X2 63
+	setsub X3 63
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
+	setsub Z1 63
+	setsub Z2 63
+	setsub Z3 63
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
+	setadd X1 63
+	setadd X2 63
+	setadd X3 63
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
+	setadd X1 63
+	setadd X2 63
+	setadd X3 63
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
+	setadd Z1 63
+	setadd Z2 63
+	setadd Z3 63
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
+	setadd Z1 63
+	setadd Z2 63
+	setadd Z3 63
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
+	setsub X1 63
+	setsub X2 63
+	setsub X3 63
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
+	setsub X1 63
+	setsub X2 63
+	setsub X3 63
+	tempchunk {X1} {Y1} {Z1} {X2} {Y2} {Z2} {X3} {Y3} {Z3}
 quit
 
 #treesecret
