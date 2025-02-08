@@ -15,7 +15,8 @@ quit
 	set triedkey true
 	ifnot allowed jump #nokeys
 	if screwdriver jump #Pipes:prerun[757]:try
-	jump #Pipes:prerun[757]
+jump #Pipes:prerun[757]
+
 #Pipes:prerun[745]
 	set allowed {keycard}
 	if screwdriver set allowed {triedkeycard}
@@ -23,6 +24,8 @@ quit
 	ifnot allowed jump #nokeycards
 	if screwdriver jump #Pipes:prerun[757]:try
 	tempblock 740 {X} {Y} {Z}
+jump #Pipes:prerun[757]
+
 #Pipes:prerun[757]:try
 	setrandrange success 1 5
 	effect electric {X} {Y} {Z} 0 0 0
@@ -37,7 +40,8 @@ quit
 	set triedkey true
 	ifnot allowed jump #nokeys
 	if screwdriver jump #Pipes:prerun[758]:try
-	jump #Pipes:prerun[758]
+jump #Pipes:prerun[758]
+
 #Pipes:prerun[746]
 	set allowed {keycard}
 	if screwdriver set allowed {triedkeycard}
@@ -45,6 +49,8 @@ quit
 	ifnot allowed jump #nokeycards
 	if screwdriver jump #Pipes:prerun[758]:try
 	tempblock 741 {X} {Y} {Z}
+jump #Pipes:prerun[758]
+
 #Pipes:prerun[758]:try
 	setrandrange success 1 5
 	effect electric {X} {Y} {Z} 0 0 0
@@ -59,7 +65,8 @@ quit
 	set triedkey true
 	ifnot allowed jump #nokeys
 	if screwdriver jump #Pipes:prerun[759]:try
-	jump #Pipes:prerun[759]
+jump #Pipes:prerun[759]
+
 #Pipes:prerun[747]
 	set allowed {keycard}
 	if screwdriver set allowed {triedkeycard}
@@ -67,6 +74,8 @@ quit
 	ifnot allowed jump #nokeycards
 	if screwdriver jump #Pipes:prerun[759]:try
 	tempblock 742 {X} {Y} {Z}
+jump #Pipes:prerun[759]
+
 #Pipes:prerun[759]:try
 	setrandrange success 1 5
 	effect electric {X} {Y} {Z} 0 0 0
@@ -81,7 +90,8 @@ quit
 	set triedkey true
 	ifnot allowed jump #nokeys
 	if screwdriver jump #Pipes:prerun[760]:try
-	jump #Pipes:prerun[760]
+jump #Pipes:prerun[760]
+
 #Pipes:prerun[748]
 	set allowed {keycard}
 	if screwdriver set allowed {triedkeycard}
@@ -89,6 +99,8 @@ quit
 	ifnot allowed jump #nokeycards
 	if screwdriver jump #Pipes:prerun[760]:try
 	tempblock 743 {X} {Y} {Z}
+jump #Pipes:prerun[760]
+
 #Pipes:prerun[760]:try
 	setrandrange success 1 5
 	effect electric {X} {Y} {Z} 0 0 0
