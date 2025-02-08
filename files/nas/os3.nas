@@ -266,7 +266,23 @@ quit
 quit
 
 #extremelyuselessmsg1
+	if fun|=|72 jump #extremelyuselessdrill
+	if fun|=|73 jump #extremelyuselessdrill
+	if fun|=|74 jump #extremelyuselessdrill
 	msg There's nothing of use inside.
+quit
+
+#extremelyuselessdrill
+	freeze
+	msg You found the &6SUPER DRILL&7.
+	delay 3000
+	msg This item lets you drill through metal.
+	delay 3000
+	msg The same type of metal that the giant doors constantly blocking your way are made of.
+	delay 3000
+	msg Unforuntately for you, this is way too big to fit in your pockets.
+	tempblock 719 {MBCoords}
+	unfreeze
 quit
 
 #extremelyuselessmsg2
@@ -443,6 +459,7 @@ quit
 	cpemsg bot1 POCKETS: &u$0
 	cpemsg bot2 &gNOTHING
 	cpemsg bot3 &gNOTHING
+	setrandrange fun 1 100
 	set plot 0
 	set dollars 0
 	setrandrange safecode 111111 999999
@@ -457,6 +474,24 @@ quit
 	set uselessmsg2 You look inside, it's empty.
 	set uselessmsg3 Looking inside, you discover a distinct lack of anything useful.
 	set uselessmsg4 You found &u$1&7! You put it safely in your pockets.
+	// anti fun measures
+	if fun|<|40 tempblock 0 298 68 181
+	if fun|>|60 tempblock 0 220 69 187
+	// fun measures
+	if label #doFun[{fun}] jump #doFun[{fun}]
+quit
+
+#whatIsMyFun
+	msg Your 'fun' is &a{fun}&7!
+	msg Don't forget it!
+quit
+
+#doFun[1]
+#doFun[2]
+#doFun[3]
+#doFun[4]
+#doFun[5]
+	tempchunk 262 68 235 264 69 237 262 68 231
 quit
 
 #1
