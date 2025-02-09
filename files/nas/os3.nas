@@ -554,8 +554,6 @@ quit
 	if label #doFun[{fun}] jump #doFun[{fun}]
 quit
 
-#thatIsMyFun
-	set fun {runArg1}
 #whatIsMyFun
 	if fun|=|"" msg You're no fun...
 	else msg Your 'fun' is &a{fun}&7!
