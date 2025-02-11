@@ -121,7 +121,7 @@ quit
 
 // lamp off
 #Pipes:gizmo[762]
-	if clicked{click-X},{click-Y},{click-Z}|>|3 quit
+	if clicked{X},{Y},{Z}|>|3 quit
 	if state{X},{Y},{Z} set state{X},{Y},{Z} false
 	else set state{X},{Y},{Z} true
 	else tempblock 762 {X} {Y} {Z}
@@ -130,7 +130,7 @@ quit
 
 // lamp on
 #Pipes:gizmo[763]
-	if clicked{click-X},{click-Y},{click-Z}|>|3 quit
+	if clicked{X},{Y},{Z}|>|3 quit
 	if state{X},{Y},{Z} set state{X},{Y},{Z} false
 	else set state{X},{Y},{Z} true
 	else tempblock 763 {X} {Y} {Z}
