@@ -121,6 +121,7 @@ quit
 
 // lamp off
 #Pipes:gizmo[762]
+	if clicked{click-X},{click-Y},{click-Z}|>|3 quit
 	if state{X},{Y},{Z} set state{X},{Y},{Z} false
 	else set state{X},{Y},{Z} true
 	else tempblock 762 {X} {Y} {Z}
@@ -129,6 +130,7 @@ quit
 
 // lamp on
 #Pipes:gizmo[763]
+	if clicked{click-X},{click-Y},{click-Z}|>|3 quit
 	if state{X},{Y},{Z} set state{X},{Y},{Z} false
 	else set state{X},{Y},{Z} true
 	else tempblock 763 {X} {Y} {Z}
@@ -525,8 +527,36 @@ quit
 	set {lockname} false
 quit
 
+#clickEvent
+	setblockid click-id {click.coords}
+	set click-coords {click.coords}
+	setsplit click-coords " "
+	set click-X {click-coords[0]}
+	set click-Y {click-coords[1]}
+	set click-Z {click-coords[2]}
+	if label #clickEvent[{click-id}] jump #clickEvent[{click-id}]
+quit
+
+#clickEvent[216]
+#clickEvent[217]
+#clickEvent[218]
+#clickEvent[219]
+	jump #uselesschest
+quit
+
+#clickEvent[763]
+#clickEvent[762]
+	if clicked{click-X},{click-Y},{click-Z}|>|3 quit
+	setadd clicked{click-X},{click-Y},{click-Z} 1
+	effect explosionsteamsmall {click-X} {click-Y} {click-Z} 0 0 0
+	if clicked{click-X},{click-Y},{click-Z}|<=|3 quit
+	effect explosion {click-X} {click-Y} {click-Z} 0 0 0
+	tempblock 762 {click-X} {click-Y} {click-Z}
+quit
+
 // plot
 #onJoin
+	clickevent async register #clickEvent
 	cpemsg bot1 POCKETS: &u$0
 	cpemsg bot2 &gNOTHING
 	cpemsg bot3 &gNOTHING
