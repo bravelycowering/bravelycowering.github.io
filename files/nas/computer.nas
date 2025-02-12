@@ -6,8 +6,10 @@
 quit
 
 #setup
+	gui hide hotbar
+	gui hide hand
 	resetdata packages
-	motd model=invisible -hax +speed +fly +respawn
+	motd -hax +speed +fly +respawn
 	reach 0
 	freeze
 	// set char dictionary
