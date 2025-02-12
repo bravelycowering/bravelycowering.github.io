@@ -6,8 +6,8 @@
 quit
 
 #setup
-	gui hotbar hide
-	gui hand hide
+	gui hotbar false
+	gui hand false
 	resetdata packages
 	motd -hax +speed +fly +respawn
 	reach 0
