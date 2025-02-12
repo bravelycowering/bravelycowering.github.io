@@ -2,7 +2,7 @@
 	// hide the mb
 	tempblock 0 127 127 127
 	// give the option to boot
-	replysilent 1|Boot|#setup
+	replysilent 1|Run setup|#setup
 quit
 
 #setup
