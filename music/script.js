@@ -13,29 +13,75 @@ let songid = null
 let playlists = {
     "My Own Music": [
         {
+            name: "NEO TO THE [[CORE]]",
+            by: "bravelycowering",
+            url: "/files/CORE.mp3",
+        },
+        {
+            name: "Track F (waves)",
+            by: "bravelycowering",
+            url: "/files/8bit-waves.mp3",
+        },
+        {
+            name: "The End of the",
+            by: "bravelycowering",
+            url: "/files/the end of the.ogg",
+			className: "hiddenOverflow",
+        },
+        {
+            name: "Track B (ball)",
+            by: "bravelycowering",
+            url: "/files/ball.ogg",
+        },
+        {
+            name: "give me a (break)",
+            by: "bravelycowering",
+            url: "/files/actual breakcore.ogg",
+        },
+        {
+            name: "INDEPENDANCE",
+            by: "bravelycowering",
+            url: "/files/level1.ogg",
+        },
+        {
+            name: "Discordance",
+            by: "bravelycowering",
+            url: "/files/battle!.mp3",
+        },
+        {
+            name: "Loss Of Identity",
+            by: "bravelycowering",
+            url: "/files/lossofidentity.mp3",
+        },
+        {
+            name: "The End of the Game",
+            by: "bravelycowering",
+            url: "/files/the end of the game.ogg",
+        },
+        {
             name: "The End of the World",
             by: "bravelycowering",
-            url: "/files/the end of the world.ogg"
+            url: "/files/the end of the world.ogg",
         },
         {
             name: "Magic Trick",
             by: "bravelycowering",
-            url: "/files/magic trick.ogg"
+            url: "/files/magic trick.ogg",
         },
         {
             name: "Undertale - Predictable (Fan Song)",
             by: "bravelycowering",
-            url: "/files/flowey jumpscare.ogg"
+            url: "/files/flowey jumpscare.ogg",
         },
         {
             name: "Castle Battle",
             by: "bravelycowering",
-            url: "/files/goblin fight again mixed properly.ogg"
+            url: "/files/goblin fight again mixed properly.ogg",
         },
         {
             name: "Neurospastai",
             by: "bravelycowering",
-            url: "/files/avventura.wav"
+            url: "/files/avventura.wav",
         },
         {
             name: "Where Credit is Due",
@@ -73,7 +119,19 @@ let playlists = {
             url: "/files/misc_battle.wav",
         },
     ],
+	"Celerdec Stuff": [
+        {
+            name: "INDEPENDANCE",
+            by: "bravelycowering",
+            url: "/files/level1.ogg",
+        },
+	],
     "Undertale Stuff": [
+        {
+            name: "NEO TO THE [[CORE]]",
+            by: "bravelycowering",
+            url: "/files/CORE.mp3",
+        },
         {
             name: "Undertale - Predictable (Fan Song)",
             by: "bravelycowering",
@@ -151,7 +209,7 @@ function loadPlaylist(list) {
             e.preventDefault()
             loadSong(index)
         }
-        s.innerHTML = `<div><a href="${item.url}">${item.name}</a></div><div><small>${item.by}</small></div>`
+        s.innerHTML = `<div class="${item.className || ""}"><a href="${item.url}">${item.name}</a></div><div><small>${item.by}</small></div>`
         playlist.appendChild(s)
     }
 }
