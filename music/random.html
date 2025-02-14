@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+	<body>
+	    <p>Redirecting to a random song...</p>
+		<script src="playlists.js"></script>
+    	<script>
+			location.href = mainplaylist[Math.floor(Math.random() * mainplaylist.length)].url
+		</script>
+	</body>
+</html>
