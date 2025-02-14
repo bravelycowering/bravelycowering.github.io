@@ -2,8 +2,8 @@
 	call #setupsongs
 	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	setrandrange index 1 {songs}
-	kill cef create -n m -sgq bravelycowering.net/files/{song[{index}]}
-	kill &fNow playing &e{songname[{index}]}
+	kill cef create -n m -sg bravelycowering.net/files/{song[{index}]}
+	kill &fNow playing &b{songname[{index}]}
 quit
 
 #onJoin
