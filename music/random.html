@@ -4,7 +4,12 @@
 	<body>
 		<script src="playlists.js"></script>
     	<script>
-			location.href = mainplaylist[Math.floor(Math.random() * mainplaylist.length)].url
+			let song
+			while (true) {
+				song = mainplaylist[Math.floor(Math.random() * mainplaylist.length)]
+				if (!song.uncool) break
+			}
+			location.href = song.url
 		</script>
 	</body>
 </html>

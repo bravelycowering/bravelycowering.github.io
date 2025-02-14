@@ -8,6 +8,7 @@ let mainplaylist = [
 		name: "Track F (waves)",
 		by: "bravelycowering",
 		url: "/files/8bit-waves.mp3",
+		uncool: true,
 	},
 	{
 		name: "The End of the",
@@ -34,6 +35,7 @@ let mainplaylist = [
 		name: "Discordance",
 		by: "bravelycowering",
 		url: "/files/battle!.mp3",
+		uncool: true,
 	},
 	{
 		name: "Loss Of Identity",
@@ -74,6 +76,7 @@ let mainplaylist = [
 		name: "Where Credit is Due",
 		by: "bravelycowering",
 		url: "/files/where_credit_is_due.ogg",
+		uncool: true,
 	},
 	{
 		name: "Optometrist",
