@@ -16,7 +16,7 @@ quit
 	set songname[1] NEO TO THE [[CORE]]
 	set song[1] CORE.mp3
 	// The End of the
-	set songname[2] The End of the
+	set songname[2] End
 	set song[2] end.ogg
 	// Track B (ball)
 	set songname[3] Track B (ball)
