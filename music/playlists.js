@@ -13,7 +13,7 @@ let mainplaylist = [
 	{
 		name: "The End of the",
 		by: "bravelycowering",
-		url: "/files/the end of the.ogg",
+		url: "/files/end.ogg",
 		className: "hiddenOverflow",
 	},
 	{
@@ -24,7 +24,7 @@ let mainplaylist = [
 	{
 		name: "give me a (break)",
 		by: "bravelycowering",
-		url: "/files/actual breakcore.ogg",
+		url: "/files/breakcore.ogg",
 	},
 	{
 		name: "INDEPENDANCE",
@@ -40,17 +40,17 @@ let mainplaylist = [
 	{
 		name: "Loss Of Identity",
 		by: "bravelycowering",
-		url: "/files/lossofidentity.mp3",
+		url: "/files/loss.mp3",
 	},
 	{
 		name: "The End of the Game",
 		by: "bravelycowering",
-		url: "/files/the end of the game.ogg",
+		url: "/files/endgame.ogg",
 	},
 	{
 		name: "The End of the World",
 		by: "bravelycowering",
-		url: "/files/the end of the world.ogg",
+		url: "/files/endworld.ogg",
 	},
 	{
 		name: "Magic Trick",
@@ -60,12 +60,12 @@ let mainplaylist = [
 	{
 		name: "Undertale - Predictable (Fan Song)",
 		by: "bravelycowering",
-		url: "/files/flowey jumpscare.ogg",
+		url: "/files/predictable.ogg",
 	},
 	{
 		name: "Castle Battle",
 		by: "bravelycowering",
-		url: "/files/goblin fight again mixed properly.ogg",
+		url: "/files/castlebat.ogg",
 	},
 	{
 		name: "Neurospastai",
@@ -86,7 +86,7 @@ let mainplaylist = [
 	{
 		name: "Ocean battle",
 		by: "bravelycowering",
-		url: "/files/goblinbattle.mp3",
+		url: "/files/goblinbat.mp3",
 	},
 	{
 		name: "Funkle",
@@ -96,12 +96,12 @@ let mainplaylist = [
 	{
 		name: "And Now For Something Completely Different",
 		by: "bravelycowering",
-		url: "/files/and_now_for_something_completely_different.mp3",
+		url: "/files/different.mp3",
 	},
 	{
 		name: "Undertale - Another Medium (Remix)",
 		by: "bravelycowering",
-		url: "/files/another_medium.ogg",
+		url: "/files/medium.ogg",
 	},
 	{
 		name: "Miscellaneous Battle Theme",
@@ -127,12 +127,12 @@ let playlists = {
         {
             name: "Undertale - Predictable (Fan Song)",
             by: "bravelycowering",
-            url: "/files/flowey jumpscare.ogg"
+            url: "/files/predictable.ogg"
         },
         {
             name: "Undertale - Another Medium (Remix)",
             by: "bravelycowering",
-            url: "/files/another_medium.ogg",
+            url: "/files/medium.ogg",
         },
     ]
 }
