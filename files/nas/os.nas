@@ -1,4 +1,5 @@
 #globalrandommusic
+	call #setupsongs
 	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	setrandrange index 1 {songs}
 	kill cef create -n m -sgq bravelycowering.net/files/{song[{index}]}
@@ -6,6 +7,10 @@
 quit
 
 #onJoin
+	call #setupsongs
+quit
+
+#setupsongs
 	set songs 18
 	// NEO TO THE [[CORE]]
 	set songname[1] NEO TO THE [[CORE]]
