@@ -55,7 +55,7 @@ let mainplaylist = [
 	{
 		name: "Magic Trick",
 		by: "bravelycowering",
-		url: "/files/magic trick.ogg",
+		url: "/files/magictrick.ogg",
 	},
 	{
 		name: "Undertale - Predictable (Fan Song)",

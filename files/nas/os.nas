@@ -38,7 +38,7 @@ quit
 	set song[8] endworld.ogg
 	// Magic Trick
 	set songname[9] Magic Trick
-	set song[9] magic trick.ogg
+	set song[9] magictrick.ogg
 	// Undertale - Predictable (Fan Song)
 	set songname[10] Undertale - Predictable (Fan Song)
 	set song[10] predictable.ogg
