@@ -31,6 +31,7 @@ quit
 	setsub time {ms}
 	setdiv time 1000
 	set s {blocksong[{id}]}
+	msg {epochMS} resuming song {id} ({s}: {songname[{s}]}) at epoch {ms} ({time}s) 
 	msg cef create -n m -sgq bravelycowering.net/files/{song[{s}]}
 	msg cef time -n m {time}
 quit
