@@ -2,8 +2,7 @@ using cef
 
 #snowcrunch
 	ifnot snowy quit
-	tempblock 53 {x} {y} {z} true
-	allowmbrepeat
+	tempblock 53 {runArg1} true
 quit
 
 #globalrandommusic
@@ -39,21 +38,21 @@ quit
 
 #setupsnow
 	set snowy true
-	env weather 2
+	env weather snow
 	env sky d0d7e0
 	tempchunk 53 63 47 79 63 53 53 65 47
 quit
 
 #setupsun
 	set snowy false
-	env weather 0
+	env weather sun
 	env sky 99ccff
 	tempchunk 53 65 47 79 65 53 53 65 47
 quit
 
 #setuprain
 	set snowy false
-	env weather 1
+	env weather rain
 	env sky 778899
 	tempchunk 53 65 47 79 65 53 53 65 47
 quit
