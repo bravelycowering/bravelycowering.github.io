@@ -51,7 +51,7 @@ quit
 	set snowy false
 	env weather rain
 	env sky 778899
-	tempchunk 53 65 47 79 65 53 53 65 47
+	tempchunk 53 62 47 79 62 53 53 65 47
 quit
 
 #mainloop
