@@ -1,10 +1,14 @@
 using cef
 
 #globalrandommusic
+	call #setrandomsong
+	call #playsong
+quit
+
+#setrandomsong
 	ifnot cef jump #nocef
 	setrandrange song 1 {songs}
 	call #setsong|{song}
-	call #playsong
 quit
 
 #playsong
