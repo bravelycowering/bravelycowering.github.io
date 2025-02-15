@@ -1,10 +1,5 @@
 using cef
 
-#snowcrunch
-	ifnot snowy quit
-	tempblock 53 {runArg1} true
-quit
-
 #globalrandommusic
 	ifnot cef jump #nocef
 	setrandrange song 1 {songs}
@@ -30,10 +25,12 @@ quit
 #onJoin
 	call #setupsongs
 	call #setupsnow
-	ifnot cef quit
+	ifnot cef jump #endJoin
 	setblockid id 69 69 67
 	ifnot id|=|709 jump #resumesong
 	msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
+#endJoin
+	cmd oss #mainloop repeatable
 quit
 
 #setupsnow
@@ -57,13 +54,16 @@ quit
 	tempchunk 53 65 47 79 65 53 53 65 47
 quit
 
-#gamelooprevive
-	msg revived!
-#gameloop
-	setadd actions 1
-	if actionCount|>=|50000 cmd oss #gamelooprevive repeatable
+#mainloop
+	ifnot snowy jump #endofsnowy
+		set coords {PlayerCoords}
+		setblockid id {coords}
+		if id|=|706 tempblock 53 {coords} true
+	#endofsnowy
+	delay 100
+	if actionCount|>=|50000 cmd oss #mainloop repeatable
 	if actionCount|>|50000 terminate
-jump #gameloop
+jump #mainloop
 
 #resumesong
 	ifnot cef jump #nocef
