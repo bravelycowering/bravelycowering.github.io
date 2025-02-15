@@ -44,6 +44,22 @@ quit
 	cmd m {X} {Y} {Z}
 quit
 
+#saveepochms
+	set ms {epochMS}
+	setsplit ms
+	set index 0
+	#saveloop
+		call #getnumblock|{ms[{index}]}
+		placeblock {id} {index} 0 0
+		setadd index 1
+	if index|<|{ms.Length} jump #saveloop
+quit
+
+#getnumblock
+	set id {runArg1}
+	setadd id 484
+quit
+
 #setupsongs
 	set songs 18
 	// NEO TO THE [[CORE]]
