@@ -19,10 +19,10 @@ quit
 
 #onJoin
 	call #setupsongs
-	delay 250
+	delay 1000
 	setblockid id 69 69 67
 	ifnot id|=|709 jump #resumesong
-	msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
+	msg cef create -n m -sgqa
 quit
 
 #resumesong
