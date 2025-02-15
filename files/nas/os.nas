@@ -2,7 +2,7 @@ using cef
 
 #snowcrunch
 	ifnot snowy quit
-	tempblock 53 {MBCoords} true
+	tempblock 53 {x} {y} {z} true
 	allowmbrepeat
 quit
 
@@ -30,12 +30,41 @@ quit
 
 #onJoin
 	call #setupsongs
-	set snowy true
+	call #setupsnow
 	ifnot cef quit
 	setblockid id 69 69 67
 	ifnot id|=|709 jump #resumesong
 	msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
 quit
+
+#setupsnow
+	set snowy true
+	env weather 2
+	env sky d0d7e0
+	tempchunk 53 63 47 79 63 53 53 65 47
+quit
+
+#setupsun
+	set snowy false
+	env weather 0
+	env sky 99ccff
+	tempchunk 53 65 47 79 65 53 53 65 47
+quit
+
+#setuprain
+	set snowy false
+	env weather 1
+	env sky 778899
+	tempchunk 53 65 47 79 65 53 53 65 47
+quit
+
+#gamelooprevive
+	msg revived!
+#gameloop
+	setadd actions 1
+	if actionCount|>=|50000 cmd oss #gamelooprevive repeatable
+	if actionCount|>|50000 terminate
+jump #gameloop
 
 #resumesong
 	ifnot cef jump #nocef
