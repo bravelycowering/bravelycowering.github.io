@@ -1,5 +1,10 @@
 using cef
 
+#snowcrunch
+	ifnot snowy quit
+	tempblock 53 {MBCoords} true
+quit
+
 #globalrandommusic
 	ifnot cef jump #nocef
 	setrandrange song 1 {songs}
@@ -24,6 +29,7 @@ quit
 
 #onJoin
 	call #setupsongs
+	set snowy true
 	ifnot cef quit
 	setblockid id 69 69 67
 	ifnot id|=|709 jump #resumesong
