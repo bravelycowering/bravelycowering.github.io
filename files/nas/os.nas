@@ -1,7 +1,7 @@
 #globalrandommusic
 	setrandrange song 1 {songs}
 	call #setsong|{song}
-	call #placesong
+	call #playsong
 quit
 
 #playsong
