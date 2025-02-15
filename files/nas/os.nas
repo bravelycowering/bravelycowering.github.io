@@ -3,7 +3,7 @@ using cef
 #snowcrunch
 	ifnot snowy quit
 	tempblock 53 {MBCoords} true
-	mbrepeatable
+	allowmbrepeat
 quit
 
 #globalrandommusic
