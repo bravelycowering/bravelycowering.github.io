@@ -1,3 +1,5 @@
+using cef
+
 #globalrandommusic
 	setrandrange song 1 {songs}
 	call #setsong|{song}
@@ -19,7 +21,6 @@ quit
 
 #onJoin
 	call #setupsongs
-	delay 1000
 	setblockid id 69 69 67
 	ifnot id|=|709 jump #resumesong
 	msg cef create -n m -sgqa
