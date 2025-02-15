@@ -23,7 +23,6 @@ quit
 
 #setsong
 	set song {runArg1}
-	msg &fSelected &b{songname[{song}]}
 	cpemsg bot1 &fSelected song:
 	cpemsg bot2 &b{songname[{song}]}
 quit
