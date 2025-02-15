@@ -10,7 +10,6 @@ quit
 	kill cef create -n m -sgq bravelycowering.net/files/{song[{song}]}
 	kill &fNow playing &b{songname[{song}]}
 	placeblock {songblock[{song}]} 69 69 67
-	ck {songblock[{song}]} blocksong[67] 6
 quit
 
 #nosong
