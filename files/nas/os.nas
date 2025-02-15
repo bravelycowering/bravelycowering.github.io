@@ -27,7 +27,7 @@ quit
 	ifnot cef quit
 	setblockid id 69 69 67
 	ifnot id|=|709 jump #resumesong
-	msg cef create -n m -sgqa
+	msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
 quit
 
 #resumesong
