@@ -5,10 +5,15 @@
 quit
 
 #playsong
+	if song|=|"" jump #nosong
 	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
-	kill cef play -n m -sq bravelycowering.net/files/{song[{song}]}
+	kill cef create -n m -sgq bravelycowering.net/files/{song[{song}]}
 	kill &fNow playing &b{songname[{song}]}
 	placeblock {songblock[{song}]} 69 69 67
+quit
+
+#nosong
+	msg &cYou must select a song first
 quit
 
 #onJoin
