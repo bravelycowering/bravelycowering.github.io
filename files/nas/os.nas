@@ -1,12 +1,14 @@
 using cef
 
 #globalrandommusic
+	ifnot cef jump #nocef
 	setrandrange song 1 {songs}
 	call #setsong|{song}
 	call #playsong
 quit
 
 #playsong
+	ifnot cef jump #nocef
 	if song|=|"" jump #nosong
 	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	kill cef create -n m -sgq bravelycowering.net/files/{song[{song}]}
@@ -16,17 +18,20 @@ quit
 quit
 
 #nosong
+	ifnot cef jump #nocef
 	msg &cYou must select a song first
 quit
 
 #onJoin
 	call #setupsongs
+	ifnot cef quit
 	setblockid id 69 69 67
 	ifnot id|=|709 jump #resumesong
 	msg cef create -n m -sgqa
 quit
 
 #resumesong
+	ifnot cef jump #nocef
 	call #getepochms
 	setblockid id 69 69 67
 	set time {epochMS}
@@ -39,12 +44,14 @@ quit
 quit
 
 #setsong
+	ifnot cef jump #nocef
 	set song {runArg1}
 	cpemsg bot1 &fSelected song:
 	cpemsg bot2 &b{songname[{song}]}
 quit
 
 #togglesong
+	ifnot cef jump #nocef
 	setblockid id 69 69 67
 	if id|=|709 jump #playsong
 	placeblock 709 69 69 67
@@ -94,6 +101,11 @@ quit
 	set id {runArg1}
 	setadd id 484
 quit
+
+#nocef
+	msg &cYou need to have the CEF plugin installed to play or pick up records.
+	msg $cef
+terminate
 
 #setupsongs
 	set songs 18
