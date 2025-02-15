@@ -6,13 +6,11 @@ using cef
 quit
 
 #setrandomsong
-	ifnot cef jump #nocef
 	setrandrange song 1 {songs}
 	call #setsong|{song}
 quit
 
 #playsong
-	ifnot cef jump #nocef
 	if song|=|"" jump #nosong
 	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	kill cef create -n m -sgq bravelycowering.net/files/{song[{song}]}
@@ -22,14 +20,12 @@ quit
 quit
 
 #nosong
-	ifnot cef jump #nocef
 	msg &cYou must select a song first
 quit
 
 #onJoin
 	call #setupsongs
 	call #setupsnow
-	ifnot cef jump #endJoin
 	setblockid id 69 69 67
 	ifnot id|=|709 call #resumesong
 	msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
@@ -70,7 +66,6 @@ quit
 jump #mainloop
 
 #resumesong
-	ifnot cef jump #nocef
 	call #getepochms
 	setblockid id 69 69 67
 	set time {epochMS}
@@ -83,14 +78,12 @@ jump #mainloop
 quit
 
 #setsong
-	ifnot cef jump #nocef
 	set song {runArg1}
 	cpemsg bot1 &fSelected song:
 	cpemsg bot2 &b{songname[{song}]}
 quit
 
 #togglesong
-	ifnot cef jump #nocef
 	setblockid id 69 69 67
 	if id|=|709 jump #playsong
 	placeblock 709 69 69 67
