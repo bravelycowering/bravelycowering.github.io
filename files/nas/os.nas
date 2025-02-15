@@ -84,7 +84,7 @@ quit
 	set song[9] magictrick.ogg
 	set songblock[9] 383
 	// Undertale - Predictable (Fan Song)
-	set songname[10] Undertale - Predictable (Fan Song)
+	set songname[10] Predictable
 	set song[10] predictable.ogg
 	set songblock[10] 381
 	// Castle Battle
@@ -112,7 +112,7 @@ quit
 	set song[16] different.mp3
 	set songblock[16] 385
 	// Undertale - Another Medium (Remix)
-	set songname[17] Undertale - Another Medium (Remix)
+	set songname[17] Another Medium (Remix)
 	set song[17] medium.ogg
 	set songblock[17] 375
 	// Miscellaneous Battle Theme
