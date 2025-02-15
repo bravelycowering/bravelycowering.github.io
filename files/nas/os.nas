@@ -10,6 +10,7 @@ quit
 	kill cef create -n m -sgq bravelycowering.net/files/{song[{song}]}
 	kill &fNow playing &b{songname[{song}]}
 	placeblock {songblock[{song}]} 69 69 67
+	call #saveepochms
 quit
 
 #nosong
@@ -17,8 +18,21 @@ quit
 quit
 
 #onJoin
-	msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
 	call #setupsongs
+	delay 250
+	setblockid id 69 69 67
+	ifnot id|=|709 jump #resumesong
+	msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
+quit
+
+#resumesong
+	call #getepochms
+	set time {epochMS}
+	setsub time {ms}
+	setdiv time 1000
+	set s {blocksong[{id}]}
+	msg cef create -n m -sgq bravelycowering.net/files/{song[{s}]}
+	msg cef time -n m {time}
 quit
 
 #setsong
