@@ -64,6 +64,7 @@ quit
 		if id|=|0 quit
 		call #idtonum|{id}
 		set ms {ms}{num}
+		setadd index 1
 	jump #getloop
 quit
 
