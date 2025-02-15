@@ -53,6 +53,23 @@ quit
 		placeblock {id} {index} 0 0
 		setadd index 1
 	if index|<|{ms.Length} jump #saveloop
+	placeblock 0 {index} 0 0
+quit
+
+#getepochms
+	set ms
+	set index 0
+	#getloop
+		setblockid id {index} 0 0
+		if id|=|0 quit
+		call #idtonum|{id}
+		set ms {ms}{num}
+	jump #getloop
+quit
+
+#idtonum
+	set num {runArg1}
+	setsub num 484
 quit
 
 #getnumblock
