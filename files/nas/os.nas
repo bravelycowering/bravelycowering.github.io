@@ -29,11 +29,9 @@ quit
 #onJoin
 	call #setupsongs
 	call #setupsnow
-	ifnot cef jump #endJoin
 	setblockid id 69 69 67
 	ifnot id|=|709 call #resumesong
 	msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
-#endJoin
 	cmd oss #mainloop repeatable
 quit
 
