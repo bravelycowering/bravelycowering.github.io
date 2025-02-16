@@ -1,5 +1,24 @@
 using cef
 
+#puter
+	if puter jump #click
+	set puter true
+	ifnot cef jump #noputer
+	msg You turn on the computer...
+	msg cef create -n s bravelycowering.net/ccputer
+	msg cef resolution 64 64
+	msg cef size 4 4
+	msg cef at 68.99 66 59.5 270 0
+quit
+
+#noputer
+	msg &cYou need the CEF plugin to use the computer.
+quit
+
+#click
+	msg cef click
+quit
+
 #globalrandommusic
 	call #setrandomsong
 	call #playsong
