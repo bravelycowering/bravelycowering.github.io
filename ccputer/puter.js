@@ -186,6 +186,7 @@ function update() {
 		state.blink = 6
 		state.comline = state.comline.substring(0, state.comline.length - 1)
 	}
+	drawString(state.comline+" ", 0, state.line)
 	if (events[0]) {
 		state.blink = 6
 		state.line++
