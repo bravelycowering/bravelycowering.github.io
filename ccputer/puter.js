@@ -198,7 +198,10 @@ set cursor = _
 set background = 0
 echo type 'help' for command info
 `.trimStart().trimEnd()
-state.program = state.files.autorun.split(/[\n\r]+/gm)
+
+state.files.arg = `
+echo %1%
+`.trimStart().trimEnd()
 
 function drawChar(char, x, y) {
 	let c = chars[char]
@@ -231,14 +234,23 @@ function printLine(str) {
 
 const commands = {}
 
-function doCom(com) {
-	const args = com.replace(/\%(\w+)\%/gm, function(m) {
-		return state.vars[m] || ""
-	}).split(/\s+/)
-	const cmd = args.shift()
+function doCom(com, progargs=[]) {
+	const [cmd] = com.trimStart().split(/\s+/)
+	const args = com.replace(cmd, "").trimStart().replace(/\%([^\s\%]+)\%/gm, function(_, m) {
+		return progargs[m] || state.vars[m] || ""
+	}).split(/\s+/gm)
 	const func = commands[cmd]
 	if (!func) {
-		printLine("Invalid command.")
+		const file = state.files[cmd]
+		if (!file) {
+			printLine("Invalid command.")
+		} else {
+			state.program.push({
+				lines: file.split(/[\n\r]+/gm),
+				line: 0,
+				args: [cmd, ...args],
+			})
+		}
 	} else {
 		func(...args)
 	}
@@ -256,6 +268,10 @@ commands.clear = () => {
 
 commands.bg = (col) => {
 	state.vars["background"] = col
+}
+
+commands.do = (...com) => {
+	doCom(com.join(" "))
 }
 
 commands.ifset = (varname, ...com) => {
@@ -325,6 +341,8 @@ commands.help = commands["?"] = (page) => {
 			printLine("  Clears the screen")
 			printLine("bg [color code]")
 			printLine("  Changes the background")
+			printLine("do [com...]")
+			printLine("  Runs com as a command")
 		break;
 		case "2":
 		case "var":
@@ -365,13 +383,14 @@ function loop() {
 	let events = state.events
 	state.input = ""
 	state.events = {}
-	if (state.program) {
-		const line = state.program[state.execline]
+	if (state.program.length > 0) {
+		const program = state.program[state.program.length - 1]
+		const line = program.lines[program.line]
 		if (typeof(line) == "string") {
-			doCom(line)
-			state.execline++
+			doCom(line, program.args)
+			program.line++
 		} else {
-			state.program = false
+			state.program.pop()
 		}
 	} else {
 		if (input.length > 0) {
@@ -392,20 +411,21 @@ function loop() {
 			printLine("")
 			state.blink = 6
 			state.comline = ""
-		}
-		const [x, y] = drawString(state.comline.substring(state.comline.length-27, state.comline.length), 0, state.line)
-		if (state.blink > 5) {
-			let cursor = state.vars["cursor"]
-			if (cursor == null) {
-				cursor = "_"
-			} else {
-				cursor = cursor[0] || "_"
-			}
-			drawChar(cursor, x, y)
 		} else {
-			drawChar(" ", x, y)
+			const [x, y] = drawString(state.comline.substring(state.comline.length-27, state.comline.length), 0, state.line)
+			if (state.blink > 5) {
+				let cursor = state.vars["cursor"]
+				if (cursor == null) {
+					cursor = "_"
+				} else {
+					cursor = cursor[0] || "_"
+				}
+				drawChar(cursor, x, y)
+			} else {
+				drawChar(" ", x, y)
+			}
+			drawChar(" ", x + 1, y)
 		}
-		drawChar(" ", x + 1, y)
 	}
 }
 
@@ -420,5 +440,7 @@ function click(x, y) {
 function customEvent(number) {
 	state.events[number] = true
 }
+
+doCom("autorun")
 
 setInterval(loop, 50)
