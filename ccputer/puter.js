@@ -145,7 +145,7 @@ const state = {
 	background: "#000000",
 	foreground: "#ffffff",
 	input: "",
-	sentevent: {},
+	events: {},
 	comline: "",
 	blink: 0,
 	line: 0,
@@ -166,10 +166,6 @@ function drawString(str, x, y) {
 	for (let i = 0; i < str.length; i++) {
 		drawChar(str[i], x, y)
 		x++
-		if (x >= 14) {
-			x = 0
-			y++
-		}
 	}
 	return [x, y]
 }
@@ -180,11 +176,20 @@ function update() {
 	state.input = ""
 	state.events = {}
 	if (input.length > 0) {
-		state.comline += input
+		state.comline = (state.comline + input).substring(0, 14)
 	}
 	state.blink += 1
 	if (state.blink > 10) {
 		state.blink = 0
+	}
+	if (events[1]) {
+		state.blink = 6
+		state.comline = state.comline.substring(0, state.comline.length - 1)
+	}
+	if (events[0]) {
+		state.blink = 6
+		state.line++
+		state.comline = ""
 	}
 }
 
@@ -195,6 +200,7 @@ function draw() {
 	} else {
 		drawChar(" ", x, y)
 	}
+	drawChar(" ", x + 1, y)
 }
 
 function loop() {
@@ -211,23 +217,7 @@ function click(x, y) {
 }
 
 function customEvent(number) {
-	switch (number) {
-		case 0:
-			// send
-		break;
-		case 1:
-			// up
-		break;
-		case 2:
-			// down
-		break;
-		case 3:
-			// left
-		break;
-		case 4:
-			// right
-		break;
-	}
+	state.events[number] = true
 }
 
 setInterval(loop, 100)
