@@ -7,11 +7,10 @@ using cef
 	msg You turn on the computer.
 	msg Use &a/input type [text]&f to type stuff, and click on the screen to, well, click.
 	msg You can press the red pixel in the lower left to restart the computer at any time.
-	msg cef create -n s -tq bravelycowering.net/ccputer
+	msg cef create -n s -t bravelycowering.net/ccputer
 	msg cef resolution 64 64
 	msg cef size 4 4
 	msg cef at 68.999 66 59.5 270 0
-	tempblock 696 69 66 59
 quit
 
 #input
