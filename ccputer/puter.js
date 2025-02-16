@@ -19,12 +19,12 @@ addEventListener("click", function(e) {
 	e.stopPropagation()
 	e.stopImmediatePropagation()
 	input.focus()
-	if (e.clientX >= 4 && e.clientX < canvas.width + 4) {
-		if (e.clientY >= 4 && e.clientY < canvas.height + 4) {
-			click(e.clientX - 4, e.clientY - 4)
+	if (e.clientX >= 8 && e.clientX < canvas.width + 8) {
+		if (e.clientY >= 8 && e.clientY < canvas.height + 8) {
+			click(e.clientX - 8, e.clientY - 8)
 		}
 	}
-	if (e.clientY >= 56 && e.clientY < 60 && e.clientX >= 4 && e.clientX < 8) {
+	if (e.clientY >= 112 && e.clientY < 120 && e.clientX >= 8 && e.clientX < 16) {
 		document.getElementById("restart").remove()
 		canvas.remove()
 		setTimeout(() => {
@@ -33,6 +33,15 @@ addEventListener("click", function(e) {
 	}
 	if (e.clientY == 100) {
 		customEvent(e.clientX)
+	}
+})
+
+addEventListener("keydown", function(e) {
+	if (e.key == "Enter") {
+		customEvent(0)
+	}
+	if (e.key == "Backspace") {
+		customEvent(1)
 	}
 })
 
@@ -151,6 +160,9 @@ const state = {
 	line: 0,
 }
 
+ctx.fillStyle = state.background
+ctx.fillRect(0, 0, canvas.width, canvas.height)
+
 function drawChar(char, x, y) {
 	let c = chars[char]
 	if (c == undefined) {
@@ -176,7 +188,7 @@ function update() {
 	state.input = ""
 	state.events = {}
 	if (input.length > 0) {
-		state.comline = (state.comline + input).substring(0, 14)
+		state.comline = (state.comline + input).substring(0, 28)
 	}
 	state.blink += 1
 	if (state.blink > 10) {
@@ -191,6 +203,12 @@ function update() {
 		state.blink = 6
 		state.line++
 		state.comline = ""
+		while (state.line > 11) {
+			state.line--
+			ctx.drawImage(canvas, 0, -8)
+			ctx.fillStyle = state.background
+			ctx.fillRect(0, canvas.height - 8, canvas.width, 8)
+		}
 	}
 }
 
