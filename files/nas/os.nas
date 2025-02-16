@@ -16,7 +16,7 @@ quit
 quit
 
 #click
-	msg cef click
+	msg cef click -n s
 quit
 
 #globalrandommusic
