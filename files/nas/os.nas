@@ -14,9 +14,8 @@ quit
 #playsong
 	ifnot cef jump #nocef
 	if song|=|"" jump #nosong
-	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
-	kill cef create -n m -sgq bravelycowering.net/files/{song[{song}]}
-	kill &fNow playing &b{songname[{song}]}
+	localmsg chat cef create -n m -sgq bravelycowering.net/files/{song[{song}]}
+	localmsg chat &fNow playing &b{songname[{song}]}
 	placeblock {songblock[{song}]} 69 69 67
 	call #saveepochms
 quit
@@ -94,8 +93,7 @@ quit
 	setblockid id 69 69 67
 	if id|=|709 jump #playsong
 	placeblock 709 69 69 67
-	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
-	kill cef stop -n m
+	localmsg chat cef stop -n m
 quit
 
 #fakeshelf
