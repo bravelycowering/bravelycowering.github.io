@@ -6,7 +6,7 @@ using cef
 	ifnot cef jump #noputer
 	msg You turn on the computer.
 	msg Use &a/input type [text]&f to type stuff, and click on the screen to, well, click.
-	msg You can press the green pixel in the lower left to restart the computer at any time.
+	msg You can press the red pixel in the lower left to restart the computer at any time.
 	msg cef create -n s -tq bravelycowering.net/ccputer
 	msg cef resolution 64 64
 	msg cef size 4 4
