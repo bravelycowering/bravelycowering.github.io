@@ -22,7 +22,7 @@ quit
 	ifnot puter msg &cYou need to turn the computer on first.
 	ifnot puter quit
 	msg cef type {runArg1}
-	msg cef click 0 100
+	msg cef click 0 1000
 quit
 
 #noputer

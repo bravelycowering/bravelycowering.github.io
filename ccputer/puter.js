@@ -31,7 +31,7 @@ addEventListener("click", function(e) {
 			location.reload()
 		}, 500)
 	}
-	if (e.clientY == 100) {
+	if (e.clientY == 1000) {
 		customEvent(e.clientX)
 	}
 })
