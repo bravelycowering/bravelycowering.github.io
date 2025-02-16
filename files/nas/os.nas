@@ -8,7 +8,8 @@ using cef
 	msg cef create -n s -t bravelycowering.net/ccputer
 	msg cef resolution 64 64
 	msg cef size 4 4
-	msg cef at 68.99 66 59.5 270 0
+	msg cef at 69 66 59.5 270 0
+	tempblock 696 69 66 59
 quit
 
 #noputer
