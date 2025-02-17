@@ -6,6 +6,7 @@ include os/backtick+21
 jump #Pipes:messageblock
 
 #mapnotdone
+	if hax quit
 	if didfunny quit
 	set didfunny true
 	freeze
@@ -26,7 +27,7 @@ jump #Pipes:messageblock
 	delay 1800
 	cpemsg smallannounce You wanna know a secret?
 	delay 7000
-	cpemsg bigannounce This map isn't done yet
+	cpemsg bigannounce &cm&oa&6p &kn&eo&at &bd&ro&9n&ie &]y&de&pt
 	delay 5000
 	cmd tp 217 69 202 180 0
 	gui barsize 0
