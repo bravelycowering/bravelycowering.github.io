@@ -193,7 +193,7 @@ getcolor = col => {
 
 state.files.autorun = `
 clear
-echo ccDOS v1.0
+echo tinycos v1.0
 set cursor = _
 set background = 0
 echo type 'help' for command info
@@ -392,9 +392,11 @@ function loop() {
 		} else {
 			state.program.pop()
 		}
+		setTimeout(loop, 0)
 	} else {
 		if (input.length > 0) {
 			state.comline = state.comline + input
+			state.input = ""
 			state.blink = 6
 		}
 		state.blink += 1
@@ -426,6 +428,7 @@ function loop() {
 			}
 			drawChar(" ", x + 1, y)
 		}
+		setTimeout(loop, 50)
 	}
 }
 
@@ -443,4 +446,4 @@ function customEvent(number) {
 
 doCom("autorun")
 
-setInterval(loop, 50)
+loop()
