@@ -234,7 +234,7 @@ function doCom(com, progargs=[]) {
 	const [cmd] = com.trimStart().split(/\s+/)
 	const args = com.replace(cmd, "").trimStart().replace(/\$([^\s\$]+)\$/gm, function(_, m) {
 		return progargs[m] || state.vars[m] || ""
-	}).split(/\s+/gm)
+	}).match(/\S+/gm) || []
 	const func = commands[cmd]
 	if (!func) {
 		const file = state.files[cmd]

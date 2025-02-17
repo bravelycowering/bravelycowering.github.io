@@ -5,6 +5,37 @@ include os/backtick+21
 #run
 jump #Pipes:messageblock
 
+#mapnotdone
+	if didfunny quit
+	set didfunny true
+	freeze
+	gui barcolor 000000 1
+	gui barsize 1
+	gui hotbar false
+	gui hand false
+	gui crosshair false
+	cmd tp 0 0 0
+	delay 3000
+	cpemsg smallannounce Hey
+	delay 700
+	cpemsg smallannounce Psst
+	delay 700
+	cpemsg smallannounce You
+	delay 1800
+	cpemsg smallannounce Yes you
+	delay 1800
+	cpemsg smallannounce You wanna know a secret?
+	delay 7000
+	cpemsg bigannounce This map isn't done yet
+	delay 5000
+	cmd tp 217 69 202 180 0
+	gui barsize 0
+	gui hotbar true
+	gui hand true
+	gui crosshair true
+	unfreeze
+quit
+
 #Pipes:prerun[765]
 	setsub Y 1
 quit
