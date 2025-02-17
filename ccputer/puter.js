@@ -199,10 +199,6 @@ set background = 0
 echo type 'help' for command info
 `.trimStart().trimEnd()
 
-state.files.arg = `
-echo %1%
-`.trimStart().trimEnd()
-
 function drawChar(char, x, y) {
 	let c = chars[char]
 	if (c == undefined) {
@@ -236,7 +232,7 @@ const commands = {}
 
 function doCom(com, progargs=[]) {
 	const [cmd] = com.trimStart().split(/\s+/)
-	const args = com.replace(cmd, "").trimStart().replace(/\%([^\s\%]+)\%/gm, function(_, m) {
+	const args = com.replace(cmd, "").trimStart().replace(/\$([^\s\$]+)\$/gm, function(_, m) {
 		return progargs[m] || state.vars[m] || ""
 	}).split(/\s+/gm)
 	const func = commands[cmd]
@@ -352,7 +348,7 @@ commands.help = commands["?"] = (page) => {
 			printLine("set [var] [op] [value...]")
 			printLine("  Sets a variable")
 			printLine("  Vars can be unwrapped by")
-			printLine("  surrounding them with %")
+			printLine("  surrounding them with $")
 			printLine("  op can be: = += -= *= /=")
 			printLine("set [var]")
 			printLine("  Deletes a variable")
