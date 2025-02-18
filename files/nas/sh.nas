@@ -78,8 +78,3 @@ using allow_include
 	quit
 
 // section end
-
-#onJoin
-	call #Date:setday|currentday
-	msg {currentday}
-quit

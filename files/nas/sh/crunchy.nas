@@ -16,7 +16,7 @@ terminate
 
 #Crunchy:_loop
 	setblockid Crunchy.ID {PlayerCoords}
-	if Crunchy.blocks[{Crunchy.ID}] tempblock {Crunchy.blocks[{Crunchy.ID}]} {PlayerCoords} true
+	ifnot Crunchy.blocks[{Crunchy.ID}]|=|"" tempblock {Crunchy.blocks[{Crunchy.ID}]} {PlayerCoords} true
 	delay 100
 	if actionCount|>=|50000 jump #Crunchy:_reloop
 jump #Crunchy:_loop
