@@ -162,7 +162,6 @@ quit
 	if dir|=|"Z+" setsub DZ 1
 	if dir|=|"Z-" setadd DZ 1
 	effect explosionsteamsmall {X} {Y} {Z} {DX} {DY} {DZ}
-	effect steam {X} {Y} {Z} {DX} {DY} {DZ}
 quit
 
 // lamp off
