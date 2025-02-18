@@ -151,6 +151,20 @@ quit
 	msg You will need a &6KEY&7 to unlock this.
 quit
 
+#endofpipe
+	set DX 0
+	set DY 0
+	set DZ 0
+	if dir|=|"X+" setsub DX 1
+	if dir|=|"X-" setadd DX 1
+	if dir|=|"Y+" setsub DY 1
+	if dir|=|"Y-" setadd DY 1
+	if dir|=|"Z+" setsub DZ 1
+	if dir|=|"Z-" setadd DZ 1
+	effect explosionsteamsmall {X} {Y} {Z} {DX} {DY} {DZ}
+	effect steam {X} {Y} {Z} {DX} {DY} {DZ}
+quit
+
 // lamp off
 #Pipes:gizmo[762]
 	if clicked{X},{Y},{Z}|>|3 quit
@@ -254,11 +268,11 @@ quit
 
 #Pipes:gizmo[0]
 	if rivitediron{X},{Y},{Z} jump #Pipes:softbox
-quit
+jump #endofpipe
 
 #Pipes:gizmo[744]
 	ifnot state{X},{Y},{Z} jump #Pipes:softbox
-quit
+jump #endofpipe
 
 // Block placer-D
 #Pipes:gizmo[749]
