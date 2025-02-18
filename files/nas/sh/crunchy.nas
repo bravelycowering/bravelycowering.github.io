@@ -1,6 +1,7 @@
 using allow_include
 
 #Crunchy
+	ifnot Crunchy.config|=|"" quit
 	set Crunchy.config {runArg1}
 	setsplit Crunchy.config ,
 	set i 0
@@ -8,7 +9,7 @@ using allow_include
 		setsplit Crunchy.config[i] =
 		set Crunchy.blocks[{Crunchy.config[i][0]}] {Crunchy.config[i][1]}
 		setadd i 1
-	jump #Crunchy:_setuploop
+	ifnot Crunchy.config[i]|=|"" jump #Crunchy:_setuploop
 #Crunchy:_reloop
 	cmd oss #Crunchy:loop repeatable
 terminate
