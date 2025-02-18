@@ -1,80 +1,52 @@
-using allow_include
+#ominoustype
+	set targetText {runArg1}
+	set text 
+	setsplit targetText
+	set i 0
+	#ominoustypeloop
+		set text {text}{targetText[{i}]}
+		set length {targetText.Length}
+		cpemsg smallannounce &7{text}
+		setadd i 1
+		delay 150
+	if i|<|length jump #ominoustypeloop
+	delay 1500
+	cpemsg smallannounce &g{text}
+	delay 200
+	cpemsg smallannounce &8{text}
+	delay 200
+	cpemsg smallannounce &0{text}
+	delay 200
+	cpemsg smallannounce
+	delay 200
+quit
 
-// section start Time
+#ominoustypecut
+	set targetText {runArg1}
+	set text 
+	setsplit targetText
+	set i 0
+	#ominoustypecutloop
+		set text {text}{targetText[{i}]}
+		set length {targetText.Length}
+		cpemsg smallannounce &7{text}
+		setadd i 1
+		delay 150
+	if i|<|length jump #ominoustypecutloop
+quit
 
-	// units to convert:
-	// milliseconds
-	// seconds
-	// minutes
-	// hours
-	// days
-	// weeks
-	// years
-
-	#Time:ms->seconds
-		setdiv {runArg1} 1000
-		setrounddown {runArg1}
-	quit
-
-	#Time:ms->minutes
-		setdiv {runArg1} 60000
-		setrounddown {runArg1}
-	quit
-
-	#Time:ms->hours
-		setdiv {runArg1} 3600000
-		setrounddown {runArg1}
-	quit
-
-	#Time:ms->days
-		setdiv {runArg1} 86400000
-		setrounddown {runArg1}
-	quit
-
-	#Time:ms->weeks
-		setdiv {runArg1} 604800000
-		setrounddown {runArg1}
-	quit
-
-	#Time:ms->years
-		setdiv {runArg1} 31536000000
-		setrounddown {runArg1}
-	quit
-
-// section end
-
-// section start Date
-
-	#Date:settotalminutes
-	// pkgname, ms (epochMS)
-		if runArg2|=|"" set {runArg1} {epochMS}
-		else set {runArg1} {runArg2}
-		setdiv {runArg1} 86400000
-		setrounddown {runArg1}
-	quit
-
-	#Date:settotalhours
-	// pkgname, ms (epochMS)
-		if runArg2|=|"" set {runArg1} {epochMS}
-		else set {runArg1} {runArg2}
-		setdiv {runArg1} 86400000
-		setrounddown {runArg1}
-	quit
-
-	#Date:settotaldays
-	// pkgname, ms (epochMS)
-		if runArg2|=|"" set {runArg1} {epochMS}
-		else set {runArg1} {runArg2}
-		setdiv {runArg1} 86400000
-		setrounddown {runArg1}
-	quit
-
-	#Date:setyear
-	// pkgname, ms (epochMS)
-		if runArg2|=|"" set {runArg1} {epochMS}
-		else set {runArg1} {runArg2}
-		setdiv {runArg1} 31536000000
-		setrounddown {runArg1}
-	quit
-
-// section end
+#onJoin
+	gui hotbar false
+	gui hand false
+	gui crosshair false
+	delay 30000
+	call #ominoustype|There is nothing for you here.
+	call #ominoustype|No story... No world...
+	call #ominoustype|Nothing made with you in mind.
+	delay 120000
+	call #ominoustype|You are quite patient.
+	call #ominoustype|Waiting in a world that is not yours...
+	call #ominoustype|Peculiar...
+	call #ominoustypecut|Maybe we can reach an agre
+	cmd tp 64 64 64 0 0
+quit
