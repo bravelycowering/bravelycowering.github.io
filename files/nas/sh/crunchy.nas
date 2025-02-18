@@ -11,7 +11,7 @@ using allow_include
 		setadd i 1
 	ifnot Crunchy.config[i]|=|"" jump #Crunchy:_setuploop
 #Crunchy:_reloop
-	cmd oss #Crunchy:loop repeatable
+	cmd oss #Crunchy:_loop repeatable
 terminate
 
 #Crunchy:_loop
