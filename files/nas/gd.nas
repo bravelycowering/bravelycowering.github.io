@@ -5,7 +5,7 @@ terminate
 
 #loop
 	if abort quit
-	boost 1 0 0 1 0 1
+	boost 0.9 0 0 1 0 1
 	delay 100
 	if actionCount|>=|50000 jump #reloop
 jump #loop
@@ -22,4 +22,5 @@ quit
 #hax
 	cmd maphack
 	set abort true
+	env cloudheight 0
 quit
