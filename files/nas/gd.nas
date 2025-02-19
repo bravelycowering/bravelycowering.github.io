@@ -5,7 +5,7 @@ terminate
 
 #loop
 	if abort quit
-	boost 1 0 0 1 1 1
+	boost 1 0 0 1 0 1
 	delay 100
 	if actionCount|>=|50000 jump #reloop
 jump #loop
