@@ -60,7 +60,7 @@ quit
 
 #onJoin
 	call #setupsongs
-	call #setupsnow
+	call #setupsun
 	ifnot cef jump #endJoin
 	setblockid id 69 69 67
 	ifnot id|=|709 call #resumesong
