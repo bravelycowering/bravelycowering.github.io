@@ -1,0 +1,13 @@
+body {
+	background: linear-gradient(-25deg, #ff8080, #ffabab);
+}
+
+html {
+	background-image: url(bg_red.png) !important;
+}
+
+.player {
+	width: 100%;
+	aspect-ratio: 16/9;
+	border: none;
+}
