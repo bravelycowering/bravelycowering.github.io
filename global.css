@@ -27,3 +27,6 @@ label {
 fieldset {
     border: 1px solid currentcolor;
 }
+.small {
+	font-size: 50%;
+}
