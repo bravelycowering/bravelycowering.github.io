@@ -21,7 +21,7 @@ quit
 	if click.face|=|"TowardsX" setsub x 1
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
-	jump #setblock|1|{x}|{y}|{z}
+	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
 quit
 
 #pick
