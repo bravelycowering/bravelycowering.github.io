@@ -28,7 +28,7 @@ quit
 
 #pick
 	call #getblock|{runArg1}|{runArg2}|{runArg3}
-	cmd hold {id}
+	cmd holdsilent {id}
 quit
 
 #getblock
