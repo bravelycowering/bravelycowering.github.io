@@ -1,7 +1,9 @@
 #click
 	set coords {click.coords}
-	msg {click.coords}
 	setsplit coords " "
+	if coords[0]|>|1000 quit
+	if coords[1]|>|1000 quit
+	if coords[2]|>|1000 quit
 	if click.button|=|"Left" jump #mine|{coords[0]}|{coords[1]}|{coords[2]}
 	if click.button|=|"Right" jump #place|{coords[0]}|{coords[1]}|{coords[2]}
 	if click.button|=|"Middle" jump #pick|{coords[0]}|{coords[1]}|{coords[2]}
