@@ -8,10 +8,7 @@
 quit
 
 #mine
-	set x {runArg1}
-	set y {runArg2}
-	set z {runArg3}
-	tempblock 0 {x} {y} {z}
+	jump #setblock|0|{runArg1}|{runArg2}|{runArg3}
 quit
 
 #place
@@ -24,7 +21,7 @@ quit
 	if click.face|=|"TowardsX" setsub x 1
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
-	tempblock 1 {x} {y} {z}
+	jump #setblock|1|{x}|{y}|{z}
 quit
 
 #pick
@@ -35,6 +32,11 @@ quit
 #getblock
 	set id {block_{runArg1}_{runArg2}_{runArg3}}
 	if id|=|"" setblockid id {runArg1} {runArg2} {runArg3}
+quit
+
+#setblock
+	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
+	set block_{runArg2}_{runArg3}_{runArg4} {runArg1}
 quit
 
 #onJoin
