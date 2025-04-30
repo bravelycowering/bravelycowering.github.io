@@ -14,8 +14,8 @@ quit
 	if unbreakable_{id} quit
 	if label #loot[{id}] call #loot[{id}]
 	else call #give|{id}|1
-	if remainder_{id}|=|"" set empty 0
-	else set empty {remainder_{id}}
+	set empty 0
+	ifnot remainder_{id}|=|"" set empty {remainder_{id}}
 	jump #setblock|{empty}|{runArg1}|{runArg2}|{runArg3}
 quit
 
