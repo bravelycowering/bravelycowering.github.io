@@ -21,7 +21,7 @@ quit
 	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{name_{PlayerHeldBlock}}!
 	ifnot inv_{PlayerHeldBlock}|>|0 quit
 	setsub inv_{PlayerHeldBlock} 1
-	if inv_{id}|=|0 cmd holdsilent 0
+	if inv_{PlayerHeldBlock}|=|0 cmd holdsilent 0
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
