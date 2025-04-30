@@ -15,11 +15,13 @@ quit
 	set z {runArg3}
 	set coords {x} {y} {z}
 	call #getblock|{runArg1}|{runArg2}|{runArg3}
+	cmd tempbot remove minemeter
 	if unbreakable_{id} quit
 	ifnot minepos|=|coords set minetimer {hardness_{id}}
 	ifnot minepos|=|coords set minepos {coords}
 	setsub minetimer 1
-	msg {minetimer}
+	if minetimer|>|0 cmd tempbot add minemeter {coords} 0 0 0 &f{minetimer}
+	if minetimer|>|0 cmd tempbot model minemeter 0
 	if minetimer|>|0 quit
 	set minepos
 	if label #loot[{id}] call #loot[{id}]
