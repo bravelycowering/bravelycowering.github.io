@@ -65,6 +65,7 @@ quit
 #onJoin
 	clickevent sync register #click
 	reach 4.5
+	cmd holdsilent 0
 	msg &fType &a/in&f to view your &ainventory&f.
 	set unbreakable_0 true
 	set unbreakable_7 true
