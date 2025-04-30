@@ -31,7 +31,9 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|{x}|{y}|{z}
 	ifnot replaceable_{id} quit
+	if replaceable_{PlayerHeldBlock} jump #skipMsg
 	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{name_{PlayerHeldBlock}}!
+	#skipMsg
 	ifnot inv_{PlayerHeldBlock}|>|0 quit
 	setsub inv_{PlayerHeldBlock} 1
 	if inv_{PlayerHeldBlock}|=|0 cmd holdsilent 0
