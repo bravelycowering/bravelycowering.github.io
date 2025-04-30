@@ -13,8 +13,15 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
+	set coords {x} {y} {z}
 	call #getblock|{runArg1}|{runArg2}|{runArg3}
 	if unbreakable_{id} quit
+	ifnot minepos|=|coords set minetimer {hardness_{id}}
+	ifnot minepos|=|coords set minepos coords
+	setsub minetimer 1
+	msg {minetimer}
+	if minetimer|>|0 quit
+	set minepos
 	if label #loot[{id}] call #loot[{id}]
 	else call #give|{id}|1
 	if remainder_{id}|=|"" set empty 0
@@ -77,35 +84,36 @@ quit
 #onJoin
 	clickevent sync register #click
 	reach 4.5
+	set minetimer 0
+	set minepos
 	cmd holdsilent 0
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
-	set unbreakable_0 true
-	set unbreakable_7 true
-	set unbreakable_8 true
-	set unbreakable_9 true
-	set unbreakable_10 true
-	set unbreakable_11 true
-	set replaceable_0 true
-	set replaceable_8 true
-	set replaceable_9 true
-	set replaceable_10 true
-	set replaceable_11 true
-	set remainder_50 10
-	set remainder_60 8
-	set maxBlockId 60
+
 	set name_0 Air
+	set unbreakable_0 true
+	set replaceable_0 true
 	set name_1 Stone
+	set hardness_1 5
 	set name_2 Grass
 	set name_3 Dirt
 	set name_4 Cobblestone
 	set name_5 Wood
 	set name_6 Sapling
 	set name_7 Bedrock
+	set unbreakable_7 true
 	set name_8 Water
+	set unbreakable_8 true
+	set replaceable_8 true
 	set name_9 Still water
+	set unbreakable_9 true
+	set replaceable_9 true
 	set name_10 Lava
+	set unbreakable_10 true
+	set replaceable_10 true
 	set name_11 Still lava
+	set unbreakable_11 true
+	set replaceable_11 true
 	set name_12 Sand
 	set name_13 Gravel
 	set name_14 Gold ore
@@ -145,6 +153,7 @@ quit
 	set name_48 Mossy rocks
 	set name_49 Obsidian
 	set name_50 Magma
+	set remainder_50 10
 	set name_51 Coal
 	set name_52 Diamond ore
 	set name_53 Diamond
@@ -155,7 +164,14 @@ quit
 	set name_58 Diamond gem
 	set name_59 Stone brick
 	set name_60 Ice
+	set remainder_60 8
+
+	set maxBlockId 60
 quit
 
 #loot[2]
 jump #give|3|1
+
+#loot[50]
+#loot[60]
+quit
