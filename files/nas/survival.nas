@@ -16,6 +16,9 @@ quit
 quit
 
 #place
+	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{name_{PlayerHeldBlock}}!
+	ifnot inv_{PlayerHeldBlock}|>|0 quit
+	setsub inv_{PlayerHeldBlock} 1
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
