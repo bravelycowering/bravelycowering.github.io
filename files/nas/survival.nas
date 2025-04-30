@@ -12,6 +12,7 @@ quit
 #mine
 	setblockid id {runArg1} {runArg2} {runArg3}
 	setadd inv_{id} 1
+	if inv_{id}|=|1 cmd holdsilent {id}
 	jump #setblock|0|{runArg1}|{runArg2}|{runArg3}
 quit
 
@@ -47,7 +48,7 @@ quit
 quit
 
 #input
-	set i 1
+	set i 0
 	msg &eYour inventory:
 	#invLoop
 		if inv_{i}|>|0 msg &f> &6{name_{i}}&f (x{inv_{i}})
@@ -58,11 +59,13 @@ quit
 #onJoin
 	clickevent sync register #click
 	msg &fType &a/in&f to view your &ainventory&f.
+	set unbreakable_0 true
 	set unbreakable_7 true
 	set unbreakable_8 true
 	set unbreakable_9 true
 	set unbreakable_10 true
 	set unbreakable_11 true
+	set replaceable_0 true
 	set replaceable_8 true
 	set replaceable_9 true
 	set replaceable_10 true
