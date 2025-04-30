@@ -18,19 +18,23 @@ quit
 quit
 
 #place
-	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{name_{PlayerHeldBlock}}!
-	ifnot inv_{PlayerHeldBlock}|>|0 quit
-	setsub inv_{PlayerHeldBlock} 1
-	if inv_{PlayerHeldBlock}|=|0 cmd holdsilent 0
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
+	setblockid id {x} {y} {z}
+	if replaceable_{id} quit
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
 	if click.face|=|"AwayZ" setadd z 1
 	if click.face|=|"TowardsX" setsub x 1
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
+	setblockid id {x} {y} {z}
+	ifnot replaceable_{id} quit
+	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{name_{PlayerHeldBlock}}!
+	ifnot inv_{PlayerHeldBlock}|>|0 quit
+	setsub inv_{PlayerHeldBlock} 1
+	if inv_{PlayerHeldBlock}|=|0 cmd holdsilent 0
 	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
 quit
 
