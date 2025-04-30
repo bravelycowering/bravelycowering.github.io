@@ -10,13 +10,16 @@
 quit
 
 #mine
+	set x {runArg1}
+	set y {runArg2}
+	set z {runArg3}
 	call #getblock|{runArg1}|{runArg2}|{runArg3}
 	if unbreakable_{id} quit
 	if label #loot[{id}] call #loot[{id}]
 	else call #give|{id}|1
-	set empty 0
-	ifnot remainder_{id}|=|"" set empty {remainder_{id}}
-	jump #setblock|{empty}|{runArg1}|{runArg2}|{runArg3}
+	if remainder_{id}|=|"" set empty 0
+	else set empty {remainder_{id}}
+	jump #setblock|{empty}|{x}|{y}|{z}
 quit
 
 #give
