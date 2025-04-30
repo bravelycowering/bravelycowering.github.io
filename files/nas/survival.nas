@@ -11,6 +11,7 @@ quit
 
 #mine
 	setblockid id {runArg1} {runArg2} {runArg3}
+	if unbreakable_{id} quit
 	setadd inv_{id} 1
 	if inv_{id}|=|1 cmd holdsilent {id}
 	jump #setblock|0|{runArg1}|{runArg2}|{runArg3}
@@ -20,6 +21,7 @@ quit
 	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{name_{PlayerHeldBlock}}!
 	ifnot inv_{PlayerHeldBlock}|>|0 quit
 	setsub inv_{PlayerHeldBlock} 1
+	if inv_{id}|=|0 cmd holdsilent 0
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
@@ -51,7 +53,7 @@ quit
 	set i 0
 	msg &eYour inventory:
 	#invLoop
-		if inv_{i}|>|0 msg &f> &6{name_{i}}&f (x{inv_{i}})
+		ifnot inv_{i}|=|0 msg &f> &6{name_{i}}&f (x{inv_{i}})
 		setadd i 1
 	if i|<|{maxBlockId} jump #invLoop
 quit
