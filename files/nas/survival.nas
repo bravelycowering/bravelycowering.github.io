@@ -17,7 +17,7 @@ quit
 	call #getblock|{runArg1}|{runArg2}|{runArg3}
 	if unbreakable_{id} quit
 	ifnot minepos|=|coords set minetimer {hardness_{id}}
-	ifnot minepos|=|coords set minepos coords
+	ifnot minepos|=|coords set minepos {coords}
 	setsub minetimer 1
 	msg {minetimer}
 	if minetimer|>|0 quit
