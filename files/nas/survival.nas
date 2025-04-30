@@ -12,9 +12,16 @@ quit
 #mine
 	call #getblock|{runArg1}|{runArg2}|{runArg3}
 	if unbreakable_{id} quit
-	setadd inv_{id} 1
-	if inv_{id}|=|1 cmd holdsilent {id}
-	jump #setblock|0|{runArg1}|{runArg2}|{runArg3}
+	if label #loot[{id}] call #loot[{id}]
+	else call #give|{id}|1
+	if remainder_{id}|=|"" set empty 0
+	else set empty {remainder_{id}}
+	jump #setblock|{empty}|{runArg1}|{runArg2}|{runArg3}
+quit
+
+#give
+	if inv_{runArg1}|=|0 cmd holdsilent {runArg1}
+	setadd inv_{runArg1} {runArg2}
 quit
 
 #place
@@ -146,3 +153,6 @@ quit
 	set name_59 Stone brick
 	set name_60 Ice
 quit
+
+#loot[2]
+jump #give|3|1
