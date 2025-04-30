@@ -10,7 +10,7 @@
 quit
 
 #mine
-	setblockid id {runArg1} {runArg2} {runArg3}
+	call #getblock|{runArg1}|{runArg2}|{runArg3}
 	if unbreakable_{id} quit
 	setadd inv_{id} 1
 	if inv_{id}|=|1 cmd holdsilent {id}
@@ -21,7 +21,7 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
-	setblockid id {x} {y} {z}
+	call #getblock|{x}|{y}|{z}
 	if replaceable_{id} quit
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
@@ -29,7 +29,7 @@ quit
 	if click.face|=|"TowardsX" setsub x 1
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
-	setblockid id {x} {y} {z}
+	call #getblock|{x}|{y}|{z}
 	ifnot replaceable_{id} quit
 	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{name_{PlayerHeldBlock}}!
 	ifnot inv_{PlayerHeldBlock}|>|0 quit
