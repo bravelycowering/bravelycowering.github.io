@@ -20,7 +20,8 @@ quit
 	ifnot minepos|=|coords set minetimer {hardness_{id}}
 	ifnot minepos|=|coords set minepos {coords}
 	setsub minetimer 1
-	if minetimer|>|0 cmd tempbot add minemeter {coords} 0 0 0 &f{minetimer}
+	call #makebar|bar|e|{minetimer}|{hardness_{id}}
+	if minetimer|>|0 cmd tempbot add minemeter {coords} 0 0 0 {bar}
 	if minetimer|>|0 cmd tempbot model minemeter bravelycowering+hitbox
 	if minetimer|>|0 quit
 	set minepos
@@ -72,6 +73,21 @@ quit
 #setblock
 	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 	set block_{runArg2}_{runArg3}_{runArg4} {runArg1}
+quit
+
+#makebar
+// package, color, amount, max
+	set i 0
+	set {runArg1} &{runArg2}
+	#makebarLoop
+		set {runArg1} {{runArg1}}|
+		setadd i 1
+	if i|<|{runArg3} jump #makebarLoop
+	set {runArg1} {{runArg1}}&0
+	#makebarLoop2
+		set {runArg1} {{runArg1}}|
+		setadd i 1
+	if i|<|{runArg4} jump #makebarLoop2
 quit
 
 #input
