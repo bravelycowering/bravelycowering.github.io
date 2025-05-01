@@ -184,6 +184,12 @@ quit
 #loot[2]
 jump #give|3|1
 
+#loot[68]
+jump #give|67|1
+
+#loot[20]
 #loot[50]
+#loot[54]
 #loot[60]
+#loot[69]
 quit
