@@ -85,7 +85,7 @@ quit
 
 #onJoin
 	clickevent sync register #click
-	reach 4.5
+	reach 5
 	set minetimer 0
 	set minepos
 	cmd holdsilent 0
@@ -167,8 +167,18 @@ quit
 	set name_59 Stone brick
 	set name_60 Ice
 	set remainder_60 8
+	set name_61 Workbench
+	set name_62 Stonecutter
+	set name_63 Brown mushroom top
+	set name_64 Red mushroom top
+	set name_65 Mushroom stem
+	set name_66 Stick
+	set name_67 Campfire
+	set name_68 Lit campfire
+	set name_69 Cobweb
+	set name_70 Torch
 
-	set maxBlockId 60
+	set maxBlockId 70
 quit
 
 #loot[2]
