@@ -21,7 +21,7 @@ quit
 	ifnot minepos|=|coords set minepos {coords}
 	setsub minetimer 1
 	if minetimer|>|0 cmd tempbot add minemeter {coords} 0 0 0 &f{minetimer}
-	if minetimer|>|0 cmd tempbot model minemeter 0
+	if minetimer|>|0 cmd tempbot model minemeter bravelycowering+hitbox
 	if minetimer|>|0 quit
 	set minepos
 	if label #loot[{id}] call #loot[{id}]
