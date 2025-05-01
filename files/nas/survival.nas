@@ -112,11 +112,15 @@ quit
 	set unbreakable_0 true
 	set replaceable_0 true
 	set name_1 Stone
-	set hardness_1 5
+	set hardness_1 8
 	set name_2 Grass
+	set hardness_2 3
 	set name_3 Dirt
+	set hardness_3 3
 	set name_4 Cobblestone
+	set hardness_4 6
 	set name_5 Wood
+	set hardness_5 6
 	set name_6 Sapling
 	set name_7 Bedrock
 	set unbreakable_7 true
@@ -133,13 +137,20 @@ quit
 	set unbreakable_11 true
 	set replaceable_11 true
 	set name_12 Sand
+	set hardness_12 3
 	set name_13 Gravel
+	set hardness_13 3
 	set name_14 Gold ore
+	set hardness_14 24
 	set name_15 Iron ore
+	set hardness_15 16
 	set name_16 Coal ore
+	set hardness_16 12
 	set name_17 Log
+	set hardness_17 8
 	set name_18 Leaves
 	set name_19 Sponge
+	set hardness_19 3
 	set name_20 Glass
 	set name_21 Red
 	set name_22 Orange
@@ -162,36 +173,58 @@ quit
 	set name_39 Brown mushroom
 	set name_40 Red mushroom
 	set name_41 Gold
+	set hardness_41 24
 	set name_42 Iron
+	set hardness_42 16
 	set name_43 Double slab
+	set hardness_43 8
 	set name_44 Slab
+	set hardness_44 4
 	set name_45 Brick
+	set hardness_45 6
 	set name_46 TNT
 	set name_47 Bookshelf
+	set hardness_47 6
 	set name_48 Mossy rocks
+	set hardness_48 9
 	set name_49 Obsidian
+	set hardness_49 100
 	set name_50 Magma
 	set remainder_50 10
+	set hardness_50 5
 	set name_51 Coal
+	set hardness_51 12
 	set name_52 Diamond ore
+	set hardness_52 32
 	set name_53 Diamond
+	set hardness_53 32
 	set name_54 Fire
 	set name_55 Gold bar
 	set name_56 Iron bar
 	set name_57 Coal lump
 	set name_58 Diamond gem
 	set name_59 Stone brick
+	set hardness_59 8
 	set name_60 Ice
 	set remainder_60 8
+	set hardness_60 3
 	set name_61 Workbench
+	set hardness_61 8
 	set name_62 Stonecutter
+	set hardness_62 8
 	set name_63 Brown mushroom top
+	set hardness_63 4
 	set name_64 Red mushroom top
+	set hardness_64 4
 	set name_65 Mushroom stem
+	set hardness_65 8
 	set name_66 Stick
 	set name_67 Campfire
+	set hardness_67 3
 	set name_68 Lit campfire
+	set remainder_68 67
 	set name_69 Cobweb
+	set remainder_69 5
 	set name_70 Torch
 
 	set maxBlockId 70
@@ -200,12 +233,10 @@ quit
 #loot[2]
 jump #give|3|1
 
-#loot[68]
-jump #give|67|1
-
 #loot[20]
 #loot[50]
 #loot[54]
 #loot[60]
+#loot[68]
 #loot[69]
 quit
