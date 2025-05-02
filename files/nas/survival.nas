@@ -19,7 +19,9 @@ quit
 	if unbreakable_{id} quit
 	ifnot minepos|=|coords set minetimer {hardness_{id}}
 	ifnot minepos|=|coords set minepos {coords}
-	setsub minetimer 1
+	set minespeed 1
+	ifnot tooltype_{id}|=|"" setadd minespeed {tooltype_{id}}
+	setsub minetimer {minespeed}
 	call #makebar|bar|e|{minetimer}|{hardness_{id}}
 	if minetimer|>|0 cmd tempbot add minemeter {coords} 0 0 0 {bar}
 	if minetimer|>|0 cmd tempbot model minemeter bravelycowering+hitbox
@@ -98,19 +100,19 @@ quit
 		setadd i 1
 	if i|<|{maxBlockId} jump #invLoop
 	msg &eTools:
-	if pickaxe|=|0 msg &f> &8No Pickaxe
+	if pickaxe|=|0 msg &f> &cNo Pickaxe
 	if pickaxe|=|1 msg &f> &sWooden Pickaxe
 	if pickaxe|=|2 msg &f> &7Stone Pickaxe
 	if pickaxe|=|3 msg &f> &fIron Pickaxe
 	if pickaxe|=|4 msg &f> &6Golden Pickaxe
 	if pickaxe|=|5 msg &f> &bDiamond Pickaxe
-	if axe|=|0 msg &f> &8No Axe
+	if axe|=|0 msg &f> &cNo Axe
 	if axe|=|1 msg &f> &sWooden Axe
 	if axe|=|2 msg &f> &7Stone Axe
 	if axe|=|3 msg &f> &fIron Axe
 	if axe|=|4 msg &f> &6Golden Axe
 	if axe|=|5 msg &f> &bDiamond Axe
-	if shovel|=|0 msg &f> &8No Spade
+	if shovel|=|0 msg &f> &cNo Spade
 	if shovel|=|1 msg &f> &sWooden Spade
 	if shovel|=|2 msg &f> &7Stone Spade
 	if shovel|=|3 msg &f> &fIron Spade
