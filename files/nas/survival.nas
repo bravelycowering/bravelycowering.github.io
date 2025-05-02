@@ -100,6 +100,7 @@ quit
 quit
 
 #input
+	msg &c{runArg1} &e{runArg2} &a{runArg3}
 	set i 0
 	msg &eResources:
 	#invLoop
