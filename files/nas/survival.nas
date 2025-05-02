@@ -22,6 +22,7 @@ quit
 	set minespeed 1
 	ifnot tooltype_{id}|=|"" setadd minespeed {tooltype_{id}}
 	if toughness_{id}|>|{tooltype_{id}} set toomuch true
+	else set toomuch false
 	if tooltype_{id}|=|"" set toomuch false
 	if toughness_{id}|=|"" set toomuch false
 	if toomuch set barcol C
