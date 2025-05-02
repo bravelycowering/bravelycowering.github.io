@@ -100,7 +100,7 @@ quit
 quit
 
 #input
-	msg &c{runArg1} &e{runArg2} &a{runArg3}
+	if runArg1|=|"craft" jump #input_craft|{runArg2}
 	set i 0
 	msg &eResources:
 	#invLoop
@@ -126,6 +126,11 @@ quit
 	if shovel|=|3 msg &f> &fIron Spade
 	if shovel|=|6 msg &f> &6Golden Spade
 	if shovel|=|8 msg &f> &bDiamond Spade
+	msg &eType &a/in craft&e to show the crafting menu.
+quit
+
+#input_craft
+	msg wip
 quit
 
 #onJoin
@@ -315,8 +320,31 @@ quit
 	set maxBlockId 70
 quit
 
+#loot[1]
+jump #give|4|1
+
 #loot[2]
 jump #give|3|1
+
+#loot[18]
+setrandrange sap 1 10
+ifnot sap|=|5 quit
+jump #give|6|1
+
+#loot[48]
+jump #give|4|1
+
+#loot[67]
+call #give|57|1
+jump #give|66|3
+
+#loot[63]
+setrandrange count 3 6
+jump #give|39|{count}
+
+#loot[64]
+setrandrange count 3 6
+jump #give|40|{count}
 
 #loot[20]
 #loot[50]
