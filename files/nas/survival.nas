@@ -21,14 +21,19 @@ quit
 	ifnot minepos|=|coords set minepos {coords}
 	set minespeed 1
 	ifnot tooltype_{id}|=|"" setadd minespeed {tooltype_{id}}
+	if toughness_{id}|>|{tooltype_{id}} set toomuch true
+	if toomuch set barcol C
+	else set barcol a
 	setsub minetimer {minespeed}
-	call #makebar|bar|e|{minetimer}|{hardness_{id}}
+	call #makebar|bar|{barcol}|{minetimer}|{hardness_{id}}
 	if minetimer|>|0 cmd tempbot add minemeter {coords} 0 0 0 {bar}
 	if minetimer|>|0 cmd tempbot model minemeter bravelycowering+hitbox
 	if minetimer|>|0 quit
 	set minepos
+	if toomuch jump #skipLoot
 	if label #loot[{id}] call #loot[{id}]
 	else call #give|{id}|1
+	#skipLoot
 	if remainder_{id}|=|"" set empty 0
 	else set empty {remainder_{id}}
 	jump #setblock|{empty}|{x}|{y}|{z}
@@ -104,20 +109,20 @@ quit
 	if pickaxe|=|1 msg &f> &sWooden Pickaxe
 	if pickaxe|=|2 msg &f> &7Stone Pickaxe
 	if pickaxe|=|3 msg &f> &fIron Pickaxe
-	if pickaxe|=|4 msg &f> &6Golden Pickaxe
-	if pickaxe|=|5 msg &f> &bDiamond Pickaxe
+	if pickaxe|=|6 msg &f> &6Golden Pickaxe
+	if pickaxe|=|8 msg &f> &bDiamond Pickaxe
 	if axe|=|0 msg &f> &cNo Axe
 	if axe|=|1 msg &f> &sWooden Axe
 	if axe|=|2 msg &f> &7Stone Axe
 	if axe|=|3 msg &f> &fIron Axe
-	if axe|=|4 msg &f> &6Golden Axe
-	if axe|=|5 msg &f> &bDiamond Axe
+	if axe|=|6 msg &f> &6Golden Axe
+	if axe|=|8 msg &f> &bDiamond Axe
 	if shovel|=|0 msg &f> &cNo Spade
 	if shovel|=|1 msg &f> &sWooden Spade
 	if shovel|=|2 msg &f> &7Stone Spade
 	if shovel|=|3 msg &f> &fIron Spade
-	if shovel|=|4 msg &f> &6Golden Spade
-	if shovel|=|5 msg &f> &bDiamond Spade
+	if shovel|=|6 msg &f> &6Golden Spade
+	if shovel|=|8 msg &f> &bDiamond Spade
 quit
 
 #onJoin
@@ -137,6 +142,7 @@ quit
 	set replaceable_0 true
 	set name_1 Stone
 	set hardness_1 8
+	set toughness_1 1
 	set tooltype_1 pickaxe
 	set name_2 Grass
 	set hardness_2 3
@@ -146,6 +152,7 @@ quit
 	set tooltype_3 shovel
 	set name_4 Cobblestone
 	set hardness_4 6
+	set toughness_4 1
 	set tooltype_4 pickaxe
 	set name_5 Wood
 	set hardness_5 6
@@ -173,12 +180,15 @@ quit
 	set tooltype_13 shovel
 	set name_14 Gold ore
 	set hardness_14 24
+	set toughness_14 3
 	set tooltype_14 pickaxe
 	set name_15 Iron ore
 	set hardness_15 16
+	set toughness_15 2
 	set tooltype_15 pickaxe
 	set name_16 Coal ore
 	set hardness_16 12
+	set toughness_16 1
 	set tooltype_16 pickaxe
 	set name_17 Log
 	set hardness_17 8
@@ -214,18 +224,23 @@ quit
 	set name_40 Red mushroom
 	set name_41 Gold
 	set hardness_41 24
+	set toughness_41 3
 	set tooltype_41 pickaxe
 	set name_42 Iron
 	set hardness_42 16
+	set toughness_42 2
 	set tooltype_42 pickaxe
 	set name_43 Double slab
 	set hardness_43 8
+	set toughness_43 1
 	set tooltype_43 pickaxe
 	set name_44 Slab
 	set hardness_44 4
+	set toughness_44 1
 	set tooltype_44 pickaxe
 	set name_45 Brick
 	set hardness_45 6
+	set toughness_45 1
 	set tooltype_45 pickaxe
 	set name_46 TNT
 	set name_47 Bookshelf
@@ -233,9 +248,11 @@ quit
 	set tooltype_47 axe
 	set name_48 Mossy rocks
 	set hardness_48 9
+	set toughness_48 1
 	set tooltype_48 pickaxe
 	set name_49 Obsidian
 	set hardness_49 60
+	set toughness_49 8
 	set tooltype_49 pickaxe
 	set name_50 Magma
 	set remainder_50 10
@@ -243,12 +260,15 @@ quit
 	set tooltype_50 pickaxe
 	set name_51 Coal
 	set hardness_51 12
+	set toughness_51 1
 	set tooltype_51 pickaxe
 	set name_52 Diamond ore
 	set hardness_52 32
+	set toughness_52 3
 	set tooltype_52 pickaxe
 	set name_53 Diamond
 	set hardness_53 32
+	set toughness_53 3
 	set tooltype_53 pickaxe
 	set name_54 Fire
 	set name_55 Gold bar
@@ -258,6 +278,7 @@ quit
 	set name_59 Stone brick
 	set hardness_59 8
 	set tooltype_59 pickaxe
+	set toughness_59 1
 	set name_60 Ice
 	set remainder_60 8
 	set hardness_60 3
