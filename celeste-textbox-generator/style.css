@@ -17,6 +17,14 @@ textarea {
 	resize: none;
 }
 
-select {
+select.fixed-width {
 	width: 150px;
+}
+
+.multi-column {
+    list-style-type: disc;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    list-style-position: inside;
 }

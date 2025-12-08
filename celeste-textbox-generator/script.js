@@ -126,7 +126,7 @@ var portraits = {
 			"concerned (phone)": "momph/concerned00",
 	},
 	ex: {
-		normal: "exph/normal00",
+			normal: "exph/normal00",
 	},
 }
 
@@ -160,6 +160,110 @@ function getTextbox(textboxid) {
 		textboxes[textboxid] = textbox
 		return textbox
 	}
+}
+
+var macros = {
+	THEO: "{# FF9523}Theo{#}",
+	THEO_UNDER_STARS: "{# FFFF4C}TheoUnderStars{#}",
+	MIXMASTER_THEO: "{# FF9523}Mix Master Theo{#}",
+	MOM: "{# 339CC7}Mom{#}",
+	MROSHIRO: "{# 7BD838}Mr\. Oshiro{#}",
+	OSHIRO: "{# 7BD838}Oshiro{#}",
+	ELCREEPO: "{# 7BD838}El Creepo{#}",
+	MADELINE: "{# F94A4A}Madeline{#}",
+	MS_MADELINE: "{# F94A4A}Ms\. Madeline{#}",
+	RESORT: "{# b864be}Celestial Resort{#}",
+	THOUGHT: "{# 696a6a}{~}(",
+	ENDTHOUGHT: "){/~}{#}",
+	MOUNTAIN: "{# 96EFFF}Mountain{#}",
+	CELESTE_MOUNTAIN: "{# 96EFFF}Celeste Mountain{#}",
+	PART_OF_ME: "{# d678db}{~}Part of Me{/~}{#}",
+	PART_OF_YOU: "{# d678db}{~}Part of You{/~}{#}",
+	ST_BAD: "{# d678db}{~}",
+	END_BAD: "{/~}{#}",
+	GRANNY: "{# 66ea3a}Granny{#}",
+	PART_OF_HER: "{# 66ea3a}{~}Part of Her{/~}{#}",
+	PART_OF_GRANNY: "{# 66ea3a}{~}Part of Granny{/~}{#}",
+	THEO_SISTER_NAME: "Alex",
+	THEO_SISTER_ALT_NAME: "Maddy",
+	ALEX: "{# F94A4A}Alex{#}",
+}
+
+var macroList = document.getElementById("macrolist")
+
+for (const [k, v] of Object.entries(macros)) {
+	var code = document.createElement("code")
+	code.innerText = k
+	macroList.appendChild(document.createElement("li")).appendChild(code)
+}
+
+function formatTextParts(ft, text) {
+	for (const [match, fcmd, farg, newline, str] of text.matchAll(/{([^}\s])\s*([^}]+)?\s*}|(\n)|([^{\n]+|{)/gm)) {
+		const ftag = fcmd + (farg || "")
+		if (str) {
+			var measurement = ctx.measureText(str)
+			ft.parts.push({
+				type: "string",
+				text: str,
+				x: ft.lineWidth,
+				y: ft.newlines * 70,
+			})
+			ft.lineWidth += measurement.width
+			ft.textWidth = Math.max(ft.textWidth, ft.lineWidth)
+		} else if (fcmd == "n" || newline) {
+			ft.lineWidth = 0
+			ft.newlines++
+		} else if (fcmd == "+") {
+			if (farg) {
+				var insertion = macros[farg.toUpperCase()]
+				if (insertion) {
+					formatTextParts(ft, insertion)
+				} else {
+					ft.warnings.push("Failed to parse text command "+match+": "+farg+" is an invalid value")
+				}
+			} else {
+				ft.warnings.push("Failed to parse text command "+match+": no value was provided")
+			}
+		} else if (fcmd == "#") {
+			if (farg) {
+				ft.parts.push({
+					type: "pushcolor",
+					color: farg
+				})
+			} else {
+				ft.parts.push({
+					type: "popcolor",
+					color: farg
+				})
+			}
+		} else if (ftag == "~" || ftag == "/~") {
+			ft.parts.push({
+				type: "setwavy",
+				wavy: ftag == "~"
+			})
+		} else if (ftag == "*" || ftag == "/*") {
+			ft.parts.push({
+				type: "setshaky",
+				shaky: ftag == "*"
+			})
+		} else if (isNaN(parseFloat(ftag))) { // silently ignore pauses
+			ft.warnings.push("Unknown text command "+JSON.stringify(ftag))
+		}
+	}
+}
+
+function formatText(text) {
+	var ft = {
+		parts: [],
+		textWidth: 0,
+		textHeight: 0,
+		newlines: 0,
+		lineWidth: 0,
+		warnings: [],
+	}
+	formatTextParts(ft, text)
+	ft.textHeight = ft.newlines * 70
+	return ft
 }
 
 var timeout = -1
@@ -199,16 +303,56 @@ function drawTextBox() {
 				}
 			}
 			ctx.fillStyle = "#ffffffdd"
-			var textWidth = 0
-			var textHeight = (lines.length - 1) * 70
-			for (const line of lines) {
-				var measurement = ctx.measureText(line)
-				textWidth = Math.max(textWidth, measurement.width)
+			var formattedText = formatText(textInput.value)
+			var colors = []
+			var wavy = false
+			var shaky = false
+			ctx.translate(900-formattedText.textWidth/2, 200-formattedText.textHeight/2)
+			for (var i = 0; i < formattedText.parts.length; i++) {
+				var part = formattedText.parts[i]
+				if (part.type == "string") {
+					var x = part.x
+					var text = part.text
+					var shakyrand = Math.round(Math.random())
+					for (j = 0; j < text.length; j++) {
+						var charWidth = ctx.measureText(text[j]).width
+						var yoff = 0
+						var xoff = 0
+						if (wavy) {
+							yoff += Math.sin(x/66)*5
+						}
+						if (shaky) {
+							xoff += Math.random()*3
+							yoff += Math.random()*5 - Math.abs(shakyrand-j%2)*5
+						}
+						ctx.fillText(text[j], x + xoff, part.y + yoff)
+						x += charWidth
+					}
+				} else if (part.type == "pushcolor") {
+					colors.push(ctx.fillStyle)
+					ctx.fillStyle = "#"+part.color.trim()
+				} else if (part.type == "popcolor") {
+					if (colors.length > 0) {
+						ctx.fillStyle = colors.pop()
+					}
+				} else if (part.type == "setwavy") {
+					wavy = part.wavy
+				} else if (part.type == "setshaky") {
+					shaky = part.shaky
+				}
 			}
-			ctx.translate(900, 200)
-			for (var i = 0; i < lines.length; i++) {
-				ctx.fillText(lines[i], -textWidth / 2, -textHeight / 2 + i * 70)
-			}
+			// var textWidth = 0
+			// var textHeight = (lines.length - 1) * 70
+			// for (const line of lines) {
+			// 	var measurement = ctx.measureText(line)
+			// 	textWidth = Math.max(textWidth, measurement.width)
+			// }
+			// var x = -textWidth / 2
+			// var y = -textHeight / 2
+			// ctx.translate(900, 200)
+			// for (var i = 0; i < lines.length; i++) {
+			// 	ctx.fillText(lines[i], x, y + i * 70)
+			// }
 			return
 		} else {
 			portrait.onload = drawTextBox
@@ -232,7 +376,7 @@ for (const [k, v] of Object.entries(textboxes)) {
 textboxInput.onchange = function() {
 	var oldPortraitValue = portraitInput.value
 	portraitInput.innerHTML = ''
-	var index = 1
+	var index = 0
 	for (const [k, v] of Object.entries(portraits[textboxInput.value])) {
 		var option = document.createElement("option")
 		if (k.startsWith("separator:")) {

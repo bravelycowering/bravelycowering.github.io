@@ -5,7 +5,7 @@ body {
 	box-sizing: border-box;
 }
 body, button, input, select {
-	font-family: Verdana;
+	font-family: Helvetica;
 }
 button, input {
     border: 1px solid;
@@ -29,4 +29,18 @@ fieldset {
 }
 .small {
 	font-size: 50%;
+}
+details {
+	border-left: 1px solid currentColor;
+	padding: 10px;
+}
+summary {
+	cursor: pointer;
+	user-select: none;
+}
+code {
+	padding: 1px 3px;
+	background: #0003;
+	border-radius: 5px;
+	font-size: 1.2em;
 }

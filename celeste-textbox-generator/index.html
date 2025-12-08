@@ -14,7 +14,20 @@
 		<hr>
 		<div class="body">
 			<h1>Celeste Text Box Generator</h1>
+			<small>Version 1.1</small>
 			<p>Quick and dirty Celeste text box generator made to create one single meme. It may be a bit slow since it is using the original game files in their original quality. Huge thanks to <a href="https://maddie480.ovh/celeste/graphics-dump-browser">maddie480.ovh</a> for hosting a graphics dump of celeste! This would not have been possible without it.</p>
+			<p>This generator now has limited support for inline text commands (in the same format as the language files), including colored text, wavy text, shaky text, and the newline command. (You can still create new lines the regular way though!)</p>
+			<details>
+				<p><summary>Supported Inline Text Commands</summary></p>
+				<ul>
+					<li><code>{~}Wavy Text!{/~}</code></li>
+					<li><code>{*}Shaky Text!{/*}</code></li>
+					<li><code>{# FFFF00}This text is bright yellow!{#}</code> (uses HEX color values)</li>
+					<li><code>{+ CELESTE_MOUNTAIN}</code> Inserts the text from the CELESTE_MOUNTAIN value (light blue text that says "Celeste Mountain")</li>
+					<details><summary>Available values:</summary><ul id="macrolist" class="multi-column"></ul></details>
+					<li><code>{n}</code> (creates a newline without a line break)</li>
+				</ul>
+			</details>
 			<table>
 				<tr>
 					<th>Text Box</th>
@@ -23,7 +36,7 @@
 				</tr>
 				<tr>
 					<td><select id="textbox-input"></select></td>
-					<td><select id="portrait-input"></select></td>
+					<td><select id="portrait-input" class="fixed-width"></select></td>
 					<td><select id="side-input">
 						<option>left</option>
 						<option>right</option>
