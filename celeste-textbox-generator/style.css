@@ -1,0 +1,22 @@
+@font-face {
+	font-family: renogare;
+	src: url(renogare.otf);
+}
+
+body {
+	background: linear-gradient(-25deg, #b180ff, #f1abff);
+}
+
+#output {
+	width: 100%;
+	height: auto;
+}
+
+textarea {
+	width: 100%;
+	resize: none;
+}
+
+select {
+	width: 150px;
+}

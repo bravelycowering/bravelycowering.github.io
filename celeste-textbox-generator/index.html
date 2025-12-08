@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>bravelycowering - Celeste Textbox Generator</title>
+		<meta name="author" content="bravelycowering">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link href="/global.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<ul class="nav">
+			<li><a href="/">< Go Home</a></li>
+		</ul>
+		<hr>
+		<div class="body">
+			<h1>Celeste Text Box Generator</h1>
+			<p>Quick and dirty Celeste text box generator made to create one single meme. It may be a bit slow since it is using the original game files in their original quality. Huge thanks to <a href="https://maddie480.ovh/celeste/graphics-dump-browser">maddie480.ovh</a> for hosting a graphics dump of celeste! This would not have been possible without it.</p>
+			<table>
+				<tr>
+					<th>Text Box</th>
+					<th>Portrait</th>
+					<th>Side</th>
+				</tr>
+				<tr>
+					<td><select id="textbox-input"></select></td>
+					<td><select id="portrait-input"></select></td>
+					<td><select id="side-input">
+						<option>left</option>
+						<option>right</option>
+					</select></td>
+				</tr>
+			</table>
+			<textarea id="text-input" rows=4 placeholder="Type your dialogue here..."></textarea>
+			<img id="output" width="1800" height="400"></img>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
