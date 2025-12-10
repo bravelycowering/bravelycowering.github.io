@@ -1,18 +1,31 @@
+function $(tag, attributes, children) {
+	var el = document.createElement(tag)
+	if (children) {
+		if (typeof children == "string") {
+			el.innerText = children
+		} else {
+			for (var i = 0; i < children.length; i++) {
+				el.appendChild(children[i])
+			}
+		}
+	}
+	if (attributes) for (const [k, v] of Object.entries(attributes)) {
+		el[k] = v
+	}
+	return el
+}
+
 var images = {}
 
 function CelesteImage(src) {
 	if (images[src])
 		return images[src]
-	let img = document.createElement("img")
+	var img = $("img", {
+		src: "files/" + src + ".png"
+	})
 	images[src] = img
-	img.setAttribute("src", "files/" + src + ".png")
 	return img
 }
-
-var textboxInput = document.getElementById("textbox-input")
-var portraitInput = document.getElementById("portrait-input")
-var sideInput = document.getElementById("side-input")
-var textInput = document.getElementById("text-input")
 
 var textboxes = {
 	default: "textbox/default",
@@ -130,10 +143,6 @@ var portraits = {
 	},
 }
 
-var canvas = document.createElement("canvas")
-canvas.width = 1800
-canvas.height = 400
-var ctx = canvas.getContext("2d")
 var output = document.getElementById("output")
 
 function getPortrait(character, portraitid) {
@@ -192,9 +201,7 @@ var macros = {
 var macroList = document.getElementById("macrolist")
 
 for (const [k, v] of Object.entries(macros)) {
-	var code = document.createElement("code")
-	code.innerText = k
-	macroList.appendChild(document.createElement("li")).appendChild(code)
+	macroList.appendChild($("li", null, [$("code", null, k)]))
 }
 
 /* unimplemented:
@@ -209,7 +216,7 @@ function formatTextParts(ft, text) {
 	for (const [match, fcmd, farg, newline, str] of text.matchAll(/{([^}\s])\s*([^}]+)?\s*}|(\n)|([^{\n]+|{)/gm)) {
 		const ftag = fcmd + (farg || "")
 		if (str) {
-			var measurement = ctx.measureText(str)
+			var measurement = ft.ctx.measureText(str)
 			ft.parts.push({
 				type: "string",
 				text: str,
@@ -260,7 +267,7 @@ function formatTextParts(ft, text) {
 	}
 }
 
-function formatText(text) {
+function formatText(text, ctx) {
 	var ft = {
 		parts: [],
 		textWidth: 0,
@@ -268,6 +275,7 @@ function formatText(text) {
 		newlines: 0,
 		lineWidth: 0,
 		warnings: [],
+		ctx: ctx,
 	}
 	formatTextParts(ft, text)
 	ft.textHeight = ft.newlines * 70
@@ -276,17 +284,129 @@ function formatText(text) {
 
 var timeout = -1
 
+var canvas = $("canvas", {
+	width: 1800,
+	height: 400,
+})
+var ctx = canvas.getContext("2d")
+
+var addGeneratorButton = document.getElementById("add-generator")
+
+var generators = []
+var generatorsEl = document.getElementById("generators")
+
 function makeTextBoxImage() {
+	ctx.reset()
+	for (var i = 0; i < generators.length; i++) {
+		ctx.drawImage(generators[i].canvas, 0, i*400)
+	}
 	output.src = canvas.toDataURL("image/png")
 }
 
-function drawTextBox() {
+function Generator() {
+	this.textboxInput = $("select")
+	this.portraitInput = $("select", {className: "fixed-width"})
+	this.sideInput = $("select", null, [
+		$("option", null, "left"),
+		$("option", null, "right"),
+		$("option", null, "left (flipped)"),
+		$("option", null, "right (flipped)"),
+	])
+	this.textInput = $("textarea", {
+		rows: 4,
+		placeholder: "Type your dialogue here...",
+	})
+	this.canvas = $("canvas", {
+		width: 1800,
+		height: 400,
+		className: "showIfMultiple",
+	})
+	this.removeButton = $("button", {
+		onclick: this.remove.bind(this),
+		className: "wide showIfMultiple",
+	}, "Remove This Text Box")
+	this.ctx = this.canvas.getContext("2d")
+	this.container = $("div", {className: "generator"}, [
+		$("table", null, [
+			$("tr", null, [
+				$("th", null, "Text Box"),
+				$("th", null, "Portrait"),
+				$("th", null, "Side"),
+			]),
+			$("tr", null, [
+				$("td", null, [this.textboxInput]),
+				$("td", null, [this.portraitInput]),
+				$("td", null, [this.sideInput]),
+			]),
+		]),
+		this.textInput,
+		this.canvas,
+		this.removeButton,
+	])
+
+	generators.push(this)
+	generatorsEl.appendChild(this.container)
+	if (generators.length > 1) {
+		generatorsEl.className = "hasMultiple"
+	}
+
+	canvas.height = 400 * generators.length
+
+	for (const [k, v] of Object.entries(textboxes)) {
+		this.textboxInput.appendChild($("option", null, k))
+	}
+
+	var _gthis = this
+
+	this.textboxInput.onchange = function() {
+		var oldPortraitValue = _gthis.portraitInput.value
+		_gthis.portraitInput.innerHTML = ''
+		var index = 0
+		for (const [k, v] of Object.entries(portraits[_gthis.textboxInput.value])) {
+			var option = $("option", null, k)
+			if (k.startsWith("separator:")) {
+				option.innerHTML = "&#9472;".repeat(15)
+				option.disabled = true
+			}
+			_gthis.portraitInput.appendChild(option)
+			if (k == oldPortraitValue) {
+				_gthis.portraitInput.selectedIndex = index
+			}
+			index ++
+		}
+		_gthis.drawTextBox()
+	}
+	this.portraitInput.onchange = this.drawTextBox.bind(this)
+	this.sideInput.onchange = this.drawTextBox.bind(this)
+	this.textInput.oninput = this.drawTextBox.bind(this)
+	this.textInput.onchange = this.drawTextBox.bind(this)
+
+	this.textboxInput.selectedIndex = 1
+	this.textboxInput.onchange()
+	makeTextBoxImage()
+	return this
+}
+
+Generator.prototype.remove = function() {
+	if (generators.length > 1) {
+		generators.splice(generators.indexOf(this), 1)
+		this.container.remove()
+		canvas.height = 400 * generators.length
+		makeTextBoxImage()
+	}
+	if (generators.length == 1) {
+		generatorsEl.className = ""
+	}
+}
+
+Generator.prototype.drawTextBox = function() {
 	clearTimeout(timeout)
 	timeout = setTimeout(makeTextBoxImage, 50)
-	var textbox = getTextbox(textboxInput.value)
-	var portrait = getPortrait(textboxInput.value, portraitInput.value)
-	var lines = textInput.value.split("\n")
-	textInput.setAttribute("rows", Math.max(4, lines.length + 1))
+	var textbox = getTextbox(this.textboxInput.value)
+	var portrait = getPortrait(this.textboxInput.value, this.portraitInput.value)
+	var lines = this.textInput.value.split("\n")
+	var ctx = this.ctx
+	this.textInput.setAttribute("rows", Math.max(4, lines.length + 1))
 	ctx.reset()
 	ctx.font = "48px renogare"
 	ctx.fontSize = 48
@@ -296,22 +416,26 @@ function drawTextBox() {
 		if (portrait == null || portrait.complete) {
 			if (portrait != null) {
 				ctx.save()
-				if (sideInput.selectedIndex) {
+				if (this.sideInput.selectedIndex%2) {
 					ctx.scale(-1, 1)
 					ctx.translate(-1800, 0)
+				}
+				if (this.sideInput.selectedIndex > 1) {
+					ctx.scale(-1, 1)
+					ctx.translate(-400, 0)
 				}
 				var portraitWidth = portrait.width*220/160
 				var portraitHeight = portrait.height*220/160
 				ctx.drawImage(portrait, 200 - portraitWidth / 2, 200 - portraitHeight / 2, portraitWidth, portraitHeight)
 				ctx.restore()
-				if (sideInput.selectedIndex) {
+				if (this.sideInput.selectedIndex%2) {
 					ctx.translate(-138, 0)
 				} else {
 					ctx.translate(138, 0)
 				}
 			}
 			ctx.fillStyle = "#ffffffdd"
-			var formattedText = formatText(textInput.value)
+			var formattedText = formatText(this.textInput.value, ctx)
 			var colors = []
 			var wavy = false
 			var shaky = false
@@ -319,22 +443,26 @@ function drawTextBox() {
 			for (var i = 0; i < formattedText.parts.length; i++) {
 				var part = formattedText.parts[i]
 				if (part.type == "string") {
-					var x = part.x
-					var text = part.text
-					var shakyrand = Math.round(Math.random())
-					for (j = 0; j < text.length; j++) {
-						var charWidth = ctx.measureText(text[j]).width
-						var yoff = 0
-						var xoff = 0
-						if (wavy) {
-							yoff += Math.sin(x/66)*5
+					if (shaky || wavy) {
+						var x = part.x
+						var text = part.text
+						var shakyrand = Math.round(Math.random())
+						for (j = 0; j < text.length; j++) {
+							var charWidth = ctx.measureText(text[j]).width
+							var yoff = 0
+							var xoff = 0
+							if (wavy) {
+								yoff += Math.sin(x/66)*5
+							}
+							if (shaky) {
+								xoff += Math.random()*3
+								yoff += Math.random()*5 - Math.abs(shakyrand-j%2)*5
+							}
+							ctx.fillText(text[j], x + xoff, part.y + yoff)
+							x += charWidth
 						}
-						if (shaky) {
-							xoff += Math.random()*3
-							yoff += Math.random()*5 - Math.abs(shakyrand-j%2)*5
-						}
-						ctx.fillText(text[j], x + xoff, part.y + yoff)
-						x += charWidth
+					} else {
+						ctx.fillText(part.text, part.x, part.y)
 					}
 				} else if (part.type == "pushcolor") {
 					colors.push(ctx.fillStyle)
@@ -349,24 +477,12 @@ function drawTextBox() {
 					shaky = part.shaky
 				}
 			}
-			// var textWidth = 0
-			// var textHeight = (lines.length - 1) * 70
-			// for (const line of lines) {
-			// 	var measurement = ctx.measureText(line)
-			// 	textWidth = Math.max(textWidth, measurement.width)
-			// }
-			// var x = -textWidth / 2
-			// var y = -textHeight / 2
-			// ctx.translate(900, 200)
-			// for (var i = 0; i < lines.length; i++) {
-			// 	ctx.fillText(lines[i], x, y + i * 70)
-			// }
 			return
 		} else {
-			portrait.onload = drawTextBox
+			portrait.onload = this.drawTextBox.bind(this)
 		}
 	} else {
-		textbox.onload = drawTextBox
+		textbox.onload = this.drawTextBox.bind(this)
 	}
 	ctx.textAlign = "center"
 	ctx.fillStyle = "white"
@@ -375,38 +491,14 @@ function drawTextBox() {
 	ctx.fillText("Loading image...", 900, 200)
 }
 
-for (const [k, v] of Object.entries(textboxes)) {
-	var option = document.createElement("option")
-	option.innerText = k
-	textboxInput.appendChild(option)
-}
-
-textboxInput.onchange = function() {
-	var oldPortraitValue = portraitInput.value
-	portraitInput.innerHTML = ''
-	var index = 0
-	for (const [k, v] of Object.entries(portraits[textboxInput.value])) {
-		var option = document.createElement("option")
-		if (k.startsWith("separator:")) {
-			option.innerHTML = "&#9472;".repeat(15)
-			option.disabled = true
-		} else {
-			option.innerText = k
-		}
-		portraitInput.appendChild(option)
-		if (k == oldPortraitValue) {
-			portraitInput.selectedIndex = index
-		}
-		index ++
+function drawTextBoxes() {
+	for (var i = 0; i < generators.length; i++) {
+		generators[i].drawTextBox()
 	}
-	portraitInput.onchange = drawTextBox
-	drawTextBox()
 }
-portraitInput.onchange = drawTextBox
-sideInput.onchange = drawTextBox
-textInput.oninput = drawTextBox
-textInput.onchange = drawTextBox
 
-textboxInput.selectedIndex = 1
-textboxInput.onchange()
-makeTextBoxImage()
+new Generator()
+
+addGeneratorButton.onclick = function() {
+	new Generator()
+}

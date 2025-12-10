@@ -12,6 +12,13 @@
 	height: auto;
 }
 
+canvas {
+	max-width: 500px;
+	width: 100%;
+	height: auto;
+	margin: 0px auto;
+}
+
 textarea {
 	width: 100%;
 	resize: none;
@@ -27,4 +34,21 @@ select.fixed-width {
     -moz-columns: 2;
     columns: 2;
     list-style-position: inside;
+}
+
+.wide {
+	max-width: 500px;
+	width: 100%;
+}
+
+.showIfMultiple {
+	display: none;
+}
+
+.hasMultiple .showIfMultiple {
+	display: unset;
+}
+
+.generator {
+	text-align: center;
 }
