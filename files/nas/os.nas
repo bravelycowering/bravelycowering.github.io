@@ -18,7 +18,7 @@ quit
 #playsong
 	ifnot cef jump #nocef
 	if song|=|"" jump #nosong
-	localmsg chat cef create -n m -sgq bravelycowering.net/mus?{song[{song}]}
+	localmsg chat cef create -n m -sgq bravelycowering.net/music/{song[{song}]}
 	localmsg chat &fNow playing &b{songname[{song}]}
 	placeblock {songblock[{song}]} 69 69 67
 	call #saveepochms
@@ -35,7 +35,7 @@ quit
 	ifnot cef jump #endJoin
 	setblockid id 69 69 67
 	ifnot id|=|709 call #resumesong
-	else msg cef create -n m -sgqa bravelycowering.net/mus?womp.mp3
+	else msg cef create -n m -sgqa bravelycowering.net/music/womp.mp3
 #endJoin
 	cmd oss #mainloop repeatable
 quit
@@ -81,7 +81,7 @@ jump #mainloop
 	setdiv time 1000
 	set s {blocksong[{id}]}
 	// msg debug: {epochMS} resuming song {id} ({s}: {songname[{s}]}) at epoch {ms} ({time}s) 
-	msg cef create -n m -sgq bravelycowering.net/mus?{song[{s}]}
+	msg cef create -n m -sgq bravelycowering.net/music/{song[{s}]}
 	msg cef time -n m {time}
 quit
 
