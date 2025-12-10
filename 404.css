@@ -1,7 +1,7 @@
 html {
 	background: black;
 }
-body {
+.body, .nav {
 	color: black;
 	color-scheme: dark;
 	color: white;

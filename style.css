@@ -5,6 +5,6 @@
 html {
 	background: white;
 }
-body {
+.body, .nav {
 	background: linear-gradient(-25deg, #FF81E1, #FFD080);
 }

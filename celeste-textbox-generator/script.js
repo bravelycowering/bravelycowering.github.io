@@ -197,6 +197,14 @@ for (const [k, v] of Object.entries(macros)) {
 	macroList.appendChild(document.createElement("li")).appendChild(code)
 }
 
+/* unimplemented:
+	- text with sideways letters ({%} and {/%})
+	- impact text ({!} and {/!})
+	- big text ({big} and {/big})
+	- delays ({0.5}, currently "half implemented" where the formatter will silently ignore them (how do i show delay in a static image))
+	- speed changer ({>> x} and {>>} (again. static image))
+*/
+
 function formatTextParts(ft, text) {
 	for (const [match, fcmd, farg, newline, str] of text.matchAll(/{([^}\s])\s*([^}]+)?\s*}|(\n)|([^{\n]+|{)/gm)) {
 		const ftag = fcmd + (farg || "")

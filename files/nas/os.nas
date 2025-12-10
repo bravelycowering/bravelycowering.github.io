@@ -1,34 +1,5 @@
 using cef
 
-#puter
-	if puter jump #click
-	set puter true
-	ifnot cef jump #noputer
-	msg You turn on the computer.
-	msg Use &a/input type [text]&f to type stuff, and click on the screen to, well, click.
-	msg You can press the red pixel in the lower left to restart the computer at any time.
-	msg cef create -n s -ts bravelycowering.net/ccputer
-	msg cef resolution 128 128
-	msg cef size 4 4
-	msg cef at 68.999 66 59.5 270 0
-quit
-
-#input
-	if runArg1|=|"type" jump #input-type|{runArg2}
-	else msg &cInvalid sub-command "{runArg1}"
-quit
-
-#input-type
-	ifnot puter msg &cYou need to turn the computer on first.
-	ifnot puter quit
-	msg cef type {runArg1}
-	msg cef click 0 1000
-quit
-
-#noputer
-	msg &cYou need the CEF plugin to use the computer.
-quit
-
 #click
 	msg cef click -n s
 quit
@@ -47,7 +18,7 @@ quit
 #playsong
 	ifnot cef jump #nocef
 	if song|=|"" jump #nosong
-	localmsg chat cef create -n m -sgq bravelycowering.net/files/{song[{song}]}
+	localmsg chat cef create -n m -sgq bravelycowering.net/music/files/{song[{song}]}
 	localmsg chat &fNow playing &b{songname[{song}]}
 	placeblock {songblock[{song}]} 69 69 67
 	call #saveepochms
@@ -60,11 +31,11 @@ quit
 
 #onJoin
 	call #setupsongs
-	call #setuprain
+	call #setupsnow
 	ifnot cef jump #endJoin
 	setblockid id 69 69 67
 	ifnot id|=|709 call #resumesong
-	else msg cef create -n m -sgqa bravelycowering.net/files/womp.mp3
+	else msg cef create -n m -sgqa bravelycowering.net/music/files/womp.mp3
 #endJoin
 	cmd oss #mainloop repeatable
 quit
@@ -110,7 +81,7 @@ jump #mainloop
 	setdiv time 1000
 	set s {blocksong[{id}]}
 	// msg debug: {epochMS} resuming song {id} ({s}: {songname[{s}]}) at epoch {ms} ({time}s) 
-	msg cef create -n m -sgq bravelycowering.net/files/{song[{s}]}
+	msg cef create -n m -sgq bravelycowering.net/music/files/{song[{s}]}
 	msg cef time -n m {time}
 quit
 

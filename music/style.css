@@ -1,4 +1,4 @@
-body {
+.body, .nav {
 	background: linear-gradient(-25deg, #808BFF, #ABE9FF);
 }
 
@@ -31,6 +31,10 @@ body {
 }
 .player input[type="range"]::-ms-fill-upper {  
 	background-color: white;
+}
+
+p:has(.hiddenOverflow) {
+	display: none;
 }
 
 .hiddenOverflow a {

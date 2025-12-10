@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Found</title>
-    <link href="/global.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/404.css" rel="stylesheet" type="text/css" media="all">
-  </head>
-  <body>
-	<h1>404 Not Found</h1>
-	<script>
-		const error = document.createElement("p")
-		const possible = `
-I'm not sure what you are looking for, but it's not here.
-Do you think the page that was here ran away?
-I've checked everywhere, even under the couch cushions, but theres nothing.
-I did find a random string of text to put here instead though.
-Maybe it's just sleeping.
-The real page was the 404s we ran into along the way.
-If there's something to take away from this, I have no idea what it is.
-Could you describe the page to me? I might be able to find something in the lost and found.
-I swear I just set it down on the table and it's gone now.
-`.match(/[^\n]+/gm)
-		document.currentScript.replaceWith(error)
-		error.innerHTML = "Couldn't find "+location.pathname+".<br><br>"+possible[Math.floor(Math.random()*possible.length)]
-	</script>
-    <p><a href="/">Go home</a></p>
-  </body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Not Found</title>
+		<link href="/global.css" rel="stylesheet" type="text/css" media="all">
+		<link href="/404.css" rel="stylesheet" type="text/css" media="all">
+		<link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+	</head>
+	<body>
+		<h1>404 Not Found</h1>
+		<script>
+			const error = document.createElement("div")
+			const messages = [
+				"I'm not sure what you are looking for, but it's not here.",
+				"Do you think the page that was here ran away?",
+				"I've checked everywhere, even under the couch cushions, but theres nothing.",
+				"I did find a random string of text to put here instead though.",
+				"Maybe it's just sleeping.",
+				"The real page was the 404s we ran into along the way.",
+				"If there's something to take away from this, I have no idea what it is.",
+				"Could you describe the page to me? I might be able to find something in the lost and found.",
+				"I swear I just set it down on the table and it's gone now.",
+			]
+			document.currentScript.replaceWith(error)
+			error.outerHTML = "<p>Couldn't find "+location.pathname+".</p>\n\t\t<p>"+messages[Math.floor(Math.random()*messages.length)]+"</p>"
+		</script>
+		<p><a href="/">Go home</a></p>
+	</body>
 </html>
