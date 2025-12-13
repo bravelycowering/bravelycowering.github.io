@@ -29,7 +29,8 @@ quit
 	else set barcol a
 	setsub minetimer {minespeed}
 	call #makebar|bar|{barcol}|{minetimer}|{hardness_{id}}
-	if minetimer|>|0 cmd tempbot add minemeter {coords} 0 0 0 {bar}
+	if minetimer|>|0 cmd tempbot add minemeter -20 -20 -20 0 0 skin {bar}
+	if minetimer|>|0 cmd tempbot tp minemeter {coords} 0 0
 	if minetimer|>|0 cmd tempbot model minemeter bravelycowering+hitbox
 	if minetimer|>|0 quit
 	set minepos
