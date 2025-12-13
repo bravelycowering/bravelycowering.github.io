@@ -29,9 +29,14 @@ quit
 	else set barcol a
 	setsub minetimer {minespeed}
 	call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
+	set model {minetimer}
+	setdiv model {blocks[{id}].hardness}
+	setmul model 10
+	setrounddown model
+	setadd model 758
 	if minetimer|>|0 cmd tempbot add minemeter -20 -20 -20 0 0 skin {bar}
 	if minetimer|>|0 cmd tempbot tp minemeter {coords} 0 0
-	if minetimer|>|0 cmd tempbot model minemeter bravelycowering+hitbox
+	if minetimer|>|0 cmd tempbot model minemeter {model}|1.1
 	if minetimer|>|0 quit
 	set minepos
 	if toomuch jump #skipLoot
