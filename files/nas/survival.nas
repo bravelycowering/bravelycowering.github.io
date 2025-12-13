@@ -28,18 +28,20 @@ quit
 	if toomuch set barcol C
 	else set barcol a
 	setsub minetimer {minespeed}
-	call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
-	set model {minetimer}
-	setdiv model {blocks[{id}].hardness}
-	setmul model 10
-	setrounddown model
-	setadd model 758
-	set boty {y}
-	setsub boty 0.01
-	if minetimer|>|0 cmd tempbot add minemeter -20 -20 -20 0 0 skin &f
-	if minetimer|>|0 cmd tempbot tp minemeter {x} {boty} {z} 0 0
-	if minetimer|>|0 cmd tempbot model minemeter {model}|1.07
-	if minetimer|>|0 quit
+	if minetimer|<=|0 jump #skipMineMeter
+		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
+		set model {minetimer}
+		setdiv model {blocks[{id}].hardness}
+		setmul model 10
+		setrounddown model
+		setadd model 758
+		set boty {y}
+		setsub boty 0.01
+		cmd tempbot add minemeter -20 -20 -20 0 0 skin &f
+		cmd tempbot tp minemeter {x} {boty} {z} 0 0
+		cmd tempbot model minemeter {model}|1.07
+		quit
+	#skipMineMeter
 	set minepos
 	if toomuch jump #skipLoot
 	if label #loot[{id}] call #loot[{id}]
