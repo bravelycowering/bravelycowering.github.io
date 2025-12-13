@@ -44,8 +44,8 @@ quit
 quit
 
 #give
-	if inv_{runArg1}|=|0 cmd holdsilent {runArg1}
-	setadd inv_{runArg1} {runArg2}
+	if inventory[{runArg1}]|=|0 cmd holdsilent {runArg1}
+	setadd inventory[{runArg1}] {runArg2}
 quit
 
 #place
@@ -63,11 +63,11 @@ quit
 	call #getblock|{x}|{y}|{z}
 	ifnot blocks[{id}].replaceable quit
 	if blocks[{PlayerHeldBlock}].replaceable jump #skipMsg
-	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
+	ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 	#skipMsg
-	ifnot inv_{PlayerHeldBlock}|>|0 quit
-	setsub inv_{PlayerHeldBlock} 1
-	if inv_{PlayerHeldBlock}|=|0 cmd holdsilent 0
+	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
+	setsub inventory[{PlayerHeldBlock}] 1
+	if inventory[{PlayerHeldBlock}]|=|0 cmd holdsilent 0
 	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
 quit
 
@@ -77,13 +77,13 @@ quit
 quit
 
 #getblock
-	set id {block_{runArg1}_{runArg2}_{runArg3}}
+	set id {world[{runArg1},{runArg2},{runArg3}]}
 	if id|=|"" setblockid id {runArg1} {runArg2} {runArg3}
 quit
 
 #setblock
 	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
-	set block_{runArg2}_{runArg3}_{runArg4} {runArg1}
+	set world[{runArg2},{runArg3},{runArg4}] {runArg1}
 quit
 
 #makebar
@@ -107,7 +107,7 @@ quit
 	msg &eResources:
 	#invLoop
 		setadd i 1
-		ifnot inv_{i}|=|0 msg &f> &6{blocks[{i}].name}&f (x{inv_{i}})
+		ifnot inventory[{i}]|=|0 msg &f> &6{blocks[{i}].name}&f (x{inventory[{i}]})
 	if i|<|{blocks.Length} jump #invLoop
 	msg &eTools:
 	if pickaxe|=|0 msg &f> &cNo Pickaxe
