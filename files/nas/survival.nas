@@ -16,19 +16,19 @@ quit
 	set coords {x} {y} {z}
 	call #getblock|{runArg1}|{runArg2}|{runArg3}
 	cmd tempbot remove minemeter
-	if unbreakable_{id} quit
-	ifnot minepos|=|coords set minetimer {hardness_{id}}
+	if blocks[{id}].unbreakable quit
+	ifnot minepos|=|coords set minetimer {blocks[{id}].hardness}
 	ifnot minepos|=|coords set minepos {coords}
 	set minespeed 1
-	ifnot tooltype_{id}|=|"" setadd minespeed {tooltype_{id}}
-	if toughness_{id}|>|{tooltype_{id}} set toomuch true
+	ifnot blocks[{id}].tooltype|=|"" setadd minespeed {blocks[{id}].tooltype}
+	if blocks[{id}].toughness|>|{blocks[{id}].tooltype} set toomuch true
 	else set toomuch false
-	if tooltype_{id}|=|"" set toomuch false
-	if toughness_{id}|=|"" set toomuch false
+	if blocks[{id}].tooltype|=|"" set toomuch false
+	if blocks[{id}].toughness|=|"" set toomuch false
 	if toomuch set barcol C
 	else set barcol a
 	setsub minetimer {minespeed}
-	call #makebar|bar|{barcol}|{minetimer}|{hardness_{id}}
+	call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 	if minetimer|>|0 cmd tempbot add minemeter -20 -20 -20 0 0 skin {bar}
 	if minetimer|>|0 cmd tempbot tp minemeter {coords} 0 0
 	if minetimer|>|0 cmd tempbot model minemeter bravelycowering+hitbox
@@ -38,8 +38,8 @@ quit
 	if label #loot[{id}] call #loot[{id}]
 	else call #give|{id}|1
 	#skipLoot
-	if remainder_{id}|=|"" set empty 0
-	else set empty {remainder_{id}}
+	if blocks[{id}].remainder|=|"" set empty 0
+	else set empty {blocks[{id}].remainder}
 	jump #setblock|{empty}|{x}|{y}|{z}
 quit
 
@@ -53,7 +53,7 @@ quit
 	set y {runArg2}
 	set z {runArg3}
 	call #getblock|{x}|{y}|{z}
-	if replaceable_{id} quit
+	if blocks[{id}].replaceable quit
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
 	if click.face|=|"AwayZ" setadd z 1
@@ -61,9 +61,9 @@ quit
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|{x}|{y}|{z}
-	ifnot replaceable_{id} quit
-	if replaceable_{PlayerHeldBlock} jump #skipMsg
-	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{name_{PlayerHeldBlock}}!
+	ifnot blocks[{id}].replaceable quit
+	if blocks[{PlayerHeldBlock}].replaceable jump #skipMsg
+	ifnot inv_{PlayerHeldBlock}|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 	#skipMsg
 	ifnot inv_{PlayerHeldBlock}|>|0 quit
 	setsub inv_{PlayerHeldBlock} 1
@@ -103,12 +103,12 @@ quit
 
 #input
 	if runArg1|=|"craft" jump #input_craft|{runArg2}
-	set i 0
+	set i -1
 	msg &eResources:
 	#invLoop
-		ifnot inv_{i}|=|0 msg &f> &6{name_{i}}&f (x{inv_{i}})
 		setadd i 1
-	if i|<|{maxBlockId} jump #invLoop
+		ifnot inv_{i}|=|0 msg &f> &6{blocks[{i}].name}&f (x{inv_{i}})
+	if i|<|{blocks.Length} jump #invLoop
 	msg &eTools:
 	if pickaxe|=|0 msg &f> &cNo Pickaxe
 	if pickaxe|=|1 msg &f> &sWooden Pickaxe
@@ -147,179 +147,179 @@ quit
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
 
-	set name_0 Air
-	set unbreakable_0 true
-	set replaceable_0 true
-	set name_1 Stone
-	set hardness_1 8
-	set toughness_1 1
-	set tooltype_1 pickaxe
-	set name_2 Grass
-	set hardness_2 3
-	set tooltype_2 shovel
-	set name_3 Dirt
-	set hardness_3 3
-	set tooltype_3 shovel
-	set name_4 Cobblestone
-	set hardness_4 6
-	set toughness_4 1
-	set tooltype_4 pickaxe
-	set name_5 Wood
-	set hardness_5 6
-	set tooltype_5 axe
-	set name_6 Sapling
-	set name_7 Bedrock
-	set unbreakable_7 true
-	set name_8 Water
-	set unbreakable_8 true
-	set replaceable_8 true
-	set name_9 Still water
-	set unbreakable_9 true
-	set replaceable_9 true
-	set name_10 Lava
-	set unbreakable_10 true
-	set replaceable_10 true
-	set name_11 Still lava
-	set unbreakable_11 true
-	set replaceable_11 true
-	set name_12 Sand
-	set hardness_12 3
-	set tooltype_12 shovel
-	set name_13 Gravel
-	set hardness_13 3
-	set tooltype_13 shovel
-	set name_14 Gold ore
-	set hardness_14 24
-	set toughness_14 3
-	set tooltype_14 pickaxe
-	set name_15 Iron ore
-	set hardness_15 16
-	set toughness_15 2
-	set tooltype_15 pickaxe
-	set name_16 Coal ore
-	set hardness_16 12
-	set toughness_16 1
-	set tooltype_16 pickaxe
-	set name_17 Log
-	set hardness_17 8
-	set tooltype_17 axe
-	set name_18 Leaves
-	set hardness_18 2
-	set tooltype_18 axe
-	set name_19 Sponge
-	set hardness_19 3
-	set tooltype_19 shovel
-	set name_20 Glass
-	set hardness_20 2
-	set tooltype_20 pickaxe
-	set name_21 Red
-	set name_22 Orange
-	set name_23 Yellow
-	set name_24 Lime
-	set name_25 Green
-	set name_26 Teal
-	set name_27 Aqua
-	set name_28 Cyan
-	set name_29 Blue
-	set name_30 Indigo
-	set name_31 Violet
-	set name_32 Magenta
-	set name_33 Pink
-	set name_34 Black
-	set name_35 Gray
-	set name_36 White
-	set name_37 Dandelion
-	set name_38 Rose
-	set name_39 Brown mushroom
-	set name_40 Red mushroom
-	set name_41 Gold
-	set hardness_41 24
-	set toughness_41 3
-	set tooltype_41 pickaxe
-	set name_42 Iron
-	set hardness_42 16
-	set toughness_42 2
-	set tooltype_42 pickaxe
-	set name_43 Double slab
-	set hardness_43 8
-	set toughness_43 1
-	set tooltype_43 pickaxe
-	set name_44 Slab
-	set hardness_44 4
-	set toughness_44 1
-	set tooltype_44 pickaxe
-	set name_45 Brick
-	set hardness_45 6
-	set toughness_45 1
-	set tooltype_45 pickaxe
-	set name_46 TNT
-	set name_47 Bookshelf
-	set hardness_47 6
-	set tooltype_47 axe
-	set name_48 Mossy rocks
-	set hardness_48 9
-	set toughness_48 1
-	set tooltype_48 pickaxe
-	set name_49 Obsidian
-	set hardness_49 60
-	set toughness_49 8
-	set tooltype_49 pickaxe
-	set name_50 Magma
-	set remainder_50 10
-	set hardness_50 5
-	set tooltype_50 pickaxe
-	set name_51 Coal
-	set hardness_51 12
-	set toughness_51 1
-	set tooltype_51 pickaxe
-	set name_52 Diamond ore
-	set hardness_52 32
-	set toughness_52 3
-	set tooltype_52 pickaxe
-	set name_53 Diamond
-	set hardness_53 32
-	set toughness_53 3
-	set tooltype_53 pickaxe
-	set name_54 Fire
-	set name_55 Gold bar
-	set name_56 Iron bar
-	set name_57 Coal lump
-	set name_58 Diamond gem
-	set name_59 Stone brick
-	set hardness_59 8
-	set tooltype_59 pickaxe
-	set toughness_59 1
-	set name_60 Ice
-	set remainder_60 8
-	set hardness_60 3
-	set tooltype_60 pickaxe
-	set name_61 Workbench
-	set hardness_61 8
-	set tooltype_61 axe
-	set name_62 Stonecutter
-	set hardness_62 8
-	set tooltype_62 pickaxe
-	set name_63 Brown mushroom top
-	set hardness_63 4
-	set tooltype_63 shovel
-	set name_64 Red mushroom top
-	set hardness_64 4
-	set tooltype_64 shovel
-	set name_65 Mushroom stem
-	set hardness_65 8
-	set tooltype_65 shovel
-	set name_66 Stick
-	set name_67 Campfire
-	set hardness_67 3
-	set tooltype_67 axe
-	set name_68 Lit campfire
-	set remainder_68 67
-	set name_69 Cobweb
-	set hardness_69 5
-	set tooltype_69 shovel
-	set name_70 Torch
+	set blocks[0].name Air
+	set blocks[0].unbreakable true
+	set blocks[0].replaceable true
+	set blocks[1].name Stone
+	set blocks[1].hardness 8
+	set blocks[1].toughness 1
+	set blocks[1].tooltype pickaxe
+	set blocks[2].name Grass
+	set blocks[2].hardness 3
+	set blocks[2].tooltype shovel
+	set blocks[3].name Dirt
+	set blocks[3].hardness 3
+	set blocks[3].tooltype shovel
+	set blocks[4].name Cobblestone
+	set blocks[4].hardness 6
+	set blocks[4].toughness 1
+	set blocks[4].tooltype pickaxe
+	set blocks[5].name Wood
+	set blocks[5].hardness 6
+	set blocks[5].tooltype axe
+	set blocks[6].name Sapling
+	set blocks[7].name Bedrock
+	set blocks[7].unbreakable true
+	set blocks[8].name Water
+	set blocks[8].unbreakable true
+	set blocks[8].replaceable true
+	set blocks[9].name Still water
+	set blocks[9].unbreakable true
+	set blocks[9].replaceable true
+	set blocks[10].name Lava
+	set blocks[10].unbreakable true
+	set blocks[10].replaceable true
+	set blocks[11].name Still lava
+	set blocks[11].unbreakable true
+	set blocks[11].replaceable true
+	set blocks[12].name Sand
+	set blocks[12].hardness 3
+	set blocks[12].tooltype shovel
+	set blocks[13].name Gravel
+	set blocks[13].hardness 3
+	set blocks[13].tooltype shovel
+	set blocks[14].name Gold ore
+	set blocks[14].hardness 24
+	set blocks[14].toughness 3
+	set blocks[14].tooltype pickaxe
+	set blocks[15].name Iron ore
+	set blocks[15].hardness 16
+	set blocks[15].toughness 2
+	set blocks[15].tooltype pickaxe
+	set blocks[16].name Coal ore
+	set blocks[16].hardness 12
+	set blocks[16].toughness 1
+	set blocks[16].tooltype pickaxe
+	set blocks[17].name Log
+	set blocks[17].hardness 8
+	set blocks[17].tooltype axe
+	set blocks[18].name Leaves
+	set blocks[18].hardness 2
+	set blocks[18].tooltype axe
+	set blocks[19].name Sponge
+	set blocks[19].hardness 3
+	set blocks[19].tooltype shovel
+	set blocks[20].name Glass
+	set blocks[20].hardness 2
+	set blocks[20].tooltype pickaxe
+	set blocks[21].name Red
+	set blocks[22].name Orange
+	set blocks[23].name Yellow
+	set blocks[24].name Lime
+	set blocks[25].name Green
+	set blocks[26].name Teal
+	set blocks[27].name Aqua
+	set blocks[28].name Cyan
+	set blocks[29].name Blue
+	set blocks[30].name Indigo
+	set blocks[31].name Violet
+	set blocks[32].name Magenta
+	set blocks[33].name Pink
+	set blocks[34].name Black
+	set blocks[35].name Gray
+	set blocks[36].name White
+	set blocks[37].name Dandelion
+	set blocks[38].name Rose
+	set blocks[39].name Brown mushroom
+	set blocks[40].name Red mushroom
+	set blocks[41].name Gold
+	set blocks[41].hardness 24
+	set blocks[41].toughness 3
+	set blocks[41].tooltype pickaxe
+	set blocks[42].name Iron
+	set blocks[42].hardness 16
+	set blocks[42].toughness 2
+	set blocks[42].tooltype pickaxe
+	set blocks[43].name Double slab
+	set blocks[43].hardness 8
+	set blocks[43].toughness 1
+	set blocks[43].tooltype pickaxe
+	set blocks[44].name Slab
+	set blocks[44].hardness 4
+	set blocks[44].toughness 1
+	set blocks[44].tooltype pickaxe
+	set blocks[45].name Brick
+	set blocks[45].hardness 6
+	set blocks[45].toughness 1
+	set blocks[45].tooltype pickaxe
+	set blocks[46].name TNT
+	set blocks[47].name Bookshelf
+	set blocks[47].hardness 6
+	set blocks[47].tooltype axe
+	set blocks[48].name Mossy rocks
+	set blocks[48].hardness 9
+	set blocks[48].toughness 1
+	set blocks[48].tooltype pickaxe
+	set blocks[49].name Obsidian
+	set blocks[49].hardness 60
+	set blocks[49].toughness 8
+	set blocks[49].tooltype pickaxe
+	set blocks[50].name Magma
+	set blocks[50].remainder 10
+	set blocks[50].hardness 5
+	set blocks[50].tooltype pickaxe
+	set blocks[51].name Coal
+	set blocks[51].hardness 12
+	set blocks[51].toughness 1
+	set blocks[51].tooltype pickaxe
+	set blocks[52].name Diamond ore
+	set blocks[52].hardness 32
+	set blocks[52].toughness 3
+	set blocks[52].tooltype pickaxe
+	set blocks[53].name Diamond
+	set blocks[53].hardness 32
+	set blocks[53].toughness 3
+	set blocks[53].tooltype pickaxe
+	set blocks[54].name Fire
+	set blocks[55].name Gold bar
+	set blocks[56].name Iron bar
+	set blocks[57].name Coal lump
+	set blocks[58].name Diamond gem
+	set blocks[59].name Stone brick
+	set blocks[59].hardness 8
+	set blocks[59].tooltype pickaxe
+	set blocks[59].toughness 1
+	set blocks[60].name Ice
+	set blocks[60].remainder 8
+	set blocks[60].hardness 3
+	set blocks[60].tooltype pickaxe
+	set blocks[61].name Workbench
+	set blocks[61].hardness 8
+	set blocks[61].tooltype axe
+	set blocks[62].name Stonecutter
+	set blocks[62].hardness 8
+	set blocks[62].tooltype pickaxe
+	set blocks[63].name Brown mushroom top
+	set blocks[63].hardness 4
+	set blocks[63].tooltype shovel
+	set blocks[64].name Red mushroom top
+	set blocks[64].hardness 4
+	set blocks[64].tooltype shovel
+	set blocks[65].name Mushroom stem
+	set blocks[65].hardness 8
+	set blocks[65].tooltype shovel
+	set blocks[66].name Stick
+	set blocks[67].name Campfire
+	set blocks[67].hardness 3
+	set blocks[67].tooltype axe
+	set blocks[68].name Lit campfire
+	set blocks[68].remainder 67
+	set blocks[69].name Cobweb
+	set blocks[69].hardness 5
+	set blocks[69].tooltype shovel
+	set blocks[70].name Torch
 
-	set maxBlockId 70
+	set blocks.Length 71
 quit
 
 #loot[1]
