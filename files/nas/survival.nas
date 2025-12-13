@@ -38,7 +38,7 @@ quit
 	setsub boty 0.01
 	if minetimer|>|0 cmd tempbot add minemeter -20 -20 -20 0 0 skin &f
 	if minetimer|>|0 cmd tempbot tp minemeter {x} {boty} {z} 0 0
-	if minetimer|>|0 cmd tempbot model minemeter {model}|1.02
+	if minetimer|>|0 cmd tempbot model minemeter {model}|1.07
 	if minetimer|>|0 quit
 	set minepos
 	if toomuch jump #skipLoot
