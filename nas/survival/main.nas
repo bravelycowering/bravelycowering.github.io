@@ -144,22 +144,7 @@ quit
 				msg &cYou cannot craft {blocks[{blockID}].name}!
 				quit
 			end
-			call #checkRecipeAfford|{recipeID}|canAfford|craftArgs[1]
-			if canAfford then
-				set j 0
-				while if j|<|{recipes[{recipeID}].ingredients.Length}
-					set id {recipes[{recipeID}].ingredients[{j}].id}
-					set count {recipes[{recipeID}].ingredients[{j}].count}
-					setmul count {craftArgs[1]}
-					setsub inventory[{id}] {count}
-				end
-				set count {recipes[{recipeID}].output.count}
-				setmul count {craftArgs[1]}
-				setadd inventory[{blockID}] {count}
-				msg &aCrafted {blocks[{blockID}].name} x{count}
-				quit
-			end
-			msg &cYou do not have the materials for that!
+			call #doCraft|recipeID|craftArgs[1]
 			quit
 		end
 		set i 0
@@ -196,6 +181,29 @@ quit
 	if shovel|=|6 msg &f> &6Golden Spade
 	if shovel|=|8 msg &f> &bDiamond Spade
 	msg &eType &a/in craft&e to show the crafting menu.
+quit
+
+#doCraft
+	set recipeID {runArg1}
+	set blockID {recipes[{recipeID}].output.id}
+	set recipeCount {runArg2}
+	call #checkRecipeAfford|{recipeID}|canAfford|recipeCount
+	if canAfford then
+		set j 0
+		while if j|<|{recipes[{recipeID}].ingredients.Length}
+			set id {recipes[{recipeID}].ingredients[{j}].id}
+			set count {recipes[{recipeID}].ingredients[{j}].count}
+			setmul count {recipeCount}
+			setsub inventory[{id}] {count}
+			setadd j 1
+		end
+		set count {recipes[{recipeID}].output.count}
+		setmul count {recipeCount}
+		setadd inventory[{blockID}] {count}
+		msg &aCrafted {blocks[{blockID}].name} x{count}
+		quit
+	end
+	msg &cYou do not have the materials for that!
 quit
 
 #checkRecipeAfford
