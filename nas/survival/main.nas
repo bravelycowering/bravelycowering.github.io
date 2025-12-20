@@ -1,3 +1,20 @@
+#onJoin
+	clickevent sync register #click
+	reach 5
+	set minetimer 0
+	set minepos
+	set pickaxe 0
+	set axe 0
+	set shovel 0
+	cmd holdsilent 0
+	msg &fYou can place and break blocks freely in this map.
+	msg &fType &a/in&f to view your &ainventory&f.
+
+	include struct blocks survival/blocks
+
+	include struct recipes survival/recipes
+quit
+
 #click
 	set coords {click.coords}
 	setsplit coords " "
@@ -74,10 +91,11 @@ quit
 	ifnot blocks[{PlayerHeldBlock}].replaceable then
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 	end
-	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
-	setsub inventory[{PlayerHeldBlock}] 1
-	if inventory[{PlayerHeldBlock}]|=|0 cmd holdsilent 0
-	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
+	if inventory[{PlayerHeldBlock}]|>|0 then
+		setsub inventory[{PlayerHeldBlock}] 1
+		if inventory[{PlayerHeldBlock}]|=|0 cmd holdsilent 0
+		jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
+	end
 quit
 
 #pick
@@ -140,25 +158,27 @@ quit
 	msg &eType &a/in craft&e to show the crafting menu.
 quit
 
-#input_craft
-	msg wip
+#checkRecipeAfford
+	set j 0
+	while if j|<|{recipes[{runArg1}].ingredients.Length}
+		set id {recipes[{runArg1}].ingredients[{j}].id}
+		set count {recipes[{runArg1}].ingredients[{j}].count}
+		if count|>|{inventory[{id}]} then
+			set {runArg2} false
+			quit
+		end
+		setadd j 1
+	end
+	set {runArg2} true
 quit
 
-#onJoin
-	clickevent sync register #click
-	reach 5
-	set minetimer 0
-	set minepos
-	set pickaxe 0
-	set axe 0
-	set shovel 0
-	cmd holdsilent 0
-	msg &fYou can place and break blocks freely in this map.
-	msg &fType &a/in&f to view your &ainventory&f.
-
-	include struct blocks survival/blocks
-
-	include struct recipes survival/recipes
+#input_craft
+	set i 0
+	while if i|<|{recipes.Length}
+		setadd i 1
+		call #checkRecipeAfford|{i}|canAfford
+		if canAfford msg {i}: {blocks[{recipes[{i}].output.id}].name} x{recipes[{i}].output.count}
+	emd
 quit
 
 #loot[1]

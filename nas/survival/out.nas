@@ -1,149 +1,3 @@
-#click
-	set coords {click.coords}
-	setsplit coords " "
-	if coords[0]|>|1000 quit
-	if coords[1]|>|1000 quit
-	if coords[2]|>|1000 quit
-	if click.button|=|"Left" jump #mine|{coords[0]}|{coords[1]}|{coords[2]}
-	if click.button|=|"Right" jump #place|{coords[0]}|{coords[1]}|{coords[2]}
-	if click.button|=|"Middle" jump #pick|{coords[0]}|{coords[1]}|{coords[2]}
-quit
-
-#mine
-	set x {runArg1}
-	set y {runArg2}
-	set z {runArg3}
-	set coords {x} {y} {z}
-	call #getblock|{runArg1}|{runArg2}|{runArg3}
-	cmd tempbot remove minemeter
-	if blocks[{id}].unbreakable quit
-	ifnot minepos|=|coords set minetimer {blocks[{id}].hardness}
-	ifnot minepos|=|coords set minepos {coords}
-	set minespeed 1
-	ifnot blocks[{id}].tooltype|=|"" setadd minespeed {blocks[{id}].tooltype}
-	if blocks[{id}].toughness|>|{blocks[{id}].tooltype} set toomuch true
-	else set toomuch false
-	if blocks[{id}].tooltype|=|"" set toomuch false
-	if blocks[{id}].toughness|=|"" set toomuch false
-	if toomuch set barcol C
-	else set barcol a
-	setsub minetimer {minespeed}
-	ifnot minetimer|>|0 jump #if_mWFQvnPmBCwAYEnx
-		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
-		set model {minetimer}
-		setdiv model {blocks[{id}].hardness}
-		setmul model 10
-		setrounddown model
-		setadd model 758
-		set boty {y}
-		setsub boty 0.01
-		cmd tempbot add minemeter -20 -20 -20 0 0 skin &f
-		cmd tempbot tp minemeter {x} {boty} {z} 0 0
-		cmd tempbot model minemeter {model}|1.07
-		quit
-	#if_mWFQvnPmBCwAYEnx
-	set minepos
-	if toomuch jump #ifnot_vWCaEiZSxOSNuttq
-		if label #loot[{id}] call #loot[{id}]
-		else call #give|{id}|1
-	#ifnot_vWCaEiZSxOSNuttq
-	if blocks[{id}].remainder|=|"" set empty 0
-	else set empty {blocks[{id}].remainder}
-	jump #setblock|{empty}|{x}|{y}|{z}
-quit
-
-#give
-	if inventory[{runArg1}]|=|0 cmd holdsilent {runArg1}
-	setadd inventory[{runArg1}] {runArg2}
-quit
-
-#place
-	set x {runArg1}
-	set y {runArg2}
-	set z {runArg3}
-	call #getblock|{x}|{y}|{z}
-	if blocks[{id}].replaceable quit
-	if click.face|=|"AwayX" setadd x 1
-	if click.face|=|"AwayY" setadd y 1
-	if click.face|=|"AwayZ" setadd z 1
-	if click.face|=|"TowardsX" setsub x 1
-	if click.face|=|"TowardsY" setsub y 1
-	if click.face|=|"TowardsZ" setsub z 1
-	call #getblock|{x}|{y}|{z}
-	ifnot blocks[{id}].replaceable quit
-	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_tMegXYwALsiyKmtb
-		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
-	#ifnot_tMegXYwALsiyKmtb
-	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
-	setsub inventory[{PlayerHeldBlock}] 1
-	if inventory[{PlayerHeldBlock}]|=|0 cmd holdsilent 0
-	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
-quit
-
-#pick
-	call #getblock|{runArg1}|{runArg2}|{runArg3}
-	cmd holdsilent {id}
-quit
-
-#getblock
-	set id {world[{runArg1},{runArg2},{runArg3}]}
-	if id|=|"" setblockid id {runArg1} {runArg2} {runArg3}
-quit
-
-#setblock
-	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
-	set world[{runArg2},{runArg3},{runArg4}] {runArg1}
-quit
-
-#makebar
-// package, color, amount, max
-	set i 0
-	set {runArg1} &{runArg2}
-	#while_sQNksCycePiLuhDu
-		set {runArg1} {{runArg1}}|
-		setadd i 1
-	if i|<|{runArg3} jump #while_sQNksCycePiLuhDu
-	set {runArg1} {{runArg1}}&0
-	#while_OnhQFqKvlKOLovxs
-		set {runArg1} {{runArg1}}|
-		setadd i 1
-	if i|<|{runArg4} jump #while_OnhQFqKvlKOLovxs
-quit
-
-#input
-	if runArg1|=|"craft" jump #input_craft|{runArg2}
-	set i 0
-	msg &eResources:
-	#while_UoVqCVbeqeuQhJSf
-		ifnot inventory[{i}]|=|0 msg &f> &6{blocks[{i}].name}&f (x{inventory[{i}]})
-		setadd i 1
-	if i|<|{blocks.Length} jump #while_UoVqCVbeqeuQhJSf
-	msg &eTools:
-	if pickaxe|=|0 msg &f> &cNo Pickaxe
-	if pickaxe|=|1 msg &f> &sWooden Pickaxe
-	if pickaxe|=|2 msg &f> &7Stone Pickaxe
-	if pickaxe|=|3 msg &f> &fIron Pickaxe
-	if pickaxe|=|6 msg &f> &6Golden Pickaxe
-	if pickaxe|=|8 msg &f> &bDiamond Pickaxe
-	if axe|=|0 msg &f> &cNo Axe
-	if axe|=|1 msg &f> &sWooden Axe
-	if axe|=|2 msg &f> &7Stone Axe
-	if axe|=|3 msg &f> &fIron Axe
-	if axe|=|6 msg &f> &6Golden Axe
-	if axe|=|8 msg &f> &bDiamond Axe
-	if shovel|=|0 msg &f> &cNo Spade
-	if shovel|=|1 msg &f> &sWooden Spade
-	if shovel|=|2 msg &f> &7Stone Spade
-	if shovel|=|3 msg &f> &fIron Spade
-	if shovel|=|6 msg &f> &6Golden Spade
-	if shovel|=|8 msg &f> &bDiamond Spade
-	msg &eType &a/in craft&e to show the crafting menu.
-quit
-
-#input_craft
-	msg wip
-quit
-
 #onJoin
 	clickevent sync register #click
 	reach 5
@@ -156,59 +10,59 @@ quit
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
 
-set blocks[0].replaceable true
 set blocks[0].unbreakable true
 set blocks[0].name Air
-set blocks[1].tooltype pickaxe
+set blocks[0].replaceable true
 set blocks[1].hardness 8
-set blocks[1].toughness 1
+set blocks[1].tooltype pickaxe
 set blocks[1].name Stone
+set blocks[1].toughness 1
 set blocks[2].hardness 3
 set blocks[2].tooltype shovel
 set blocks[2].name Grass
 set blocks[3].hardness 3
 set blocks[3].tooltype shovel
 set blocks[3].name Dirt
-set blocks[4].tooltype pickaxe
 set blocks[4].hardness 6
-set blocks[4].toughness 1
+set blocks[4].tooltype pickaxe
 set blocks[4].name Cobblestone
+set blocks[4].toughness 1
 set blocks[5].hardness 6
 set blocks[5].tooltype axe
 set blocks[5].name Wood
 set blocks[6].name Sapling
-set blocks[7].unbreakable true
 set blocks[7].name Bedrock
-set blocks[8].replaceable true
+set blocks[7].unbreakable true
 set blocks[8].unbreakable true
 set blocks[8].name Water
-set blocks[9].replaceable true
+set blocks[8].replaceable true
 set blocks[9].unbreakable true
 set blocks[9].name Still water
-set blocks[10].replaceable true
+set blocks[9].replaceable true
 set blocks[10].unbreakable true
 set blocks[10].name Lava
-set blocks[11].replaceable true
+set blocks[10].replaceable true
 set blocks[11].unbreakable true
 set blocks[11].name Still lava
+set blocks[11].replaceable true
 set blocks[12].hardness 3
 set blocks[12].tooltype shovel
 set blocks[12].name Sand
 set blocks[13].hardness 3
 set blocks[13].tooltype shovel
 set blocks[13].name Gravel
-set blocks[14].tooltype pickaxe
 set blocks[14].hardness 24
-set blocks[14].toughness 3
+set blocks[14].tooltype pickaxe
 set blocks[14].name Gold ore
-set blocks[15].tooltype pickaxe
+set blocks[14].toughness 3
 set blocks[15].hardness 16
-set blocks[15].toughness 2
+set blocks[15].tooltype pickaxe
 set blocks[15].name Iron ore
-set blocks[16].tooltype pickaxe
+set blocks[15].toughness 2
 set blocks[16].hardness 12
-set blocks[16].toughness 1
+set blocks[16].tooltype pickaxe
 set blocks[16].name Coal ore
+set blocks[16].toughness 1
 set blocks[17].hardness 8
 set blocks[17].tooltype axe
 set blocks[17].name Log
@@ -241,67 +95,67 @@ set blocks[37].name Dandelion
 set blocks[38].name Rose
 set blocks[39].name Brown mushroom
 set blocks[40].name Red mushroom
-set blocks[41].tooltype pickaxe
 set blocks[41].hardness 24
-set blocks[41].toughness 3
+set blocks[41].tooltype pickaxe
 set blocks[41].name Gold
-set blocks[42].tooltype pickaxe
+set blocks[41].toughness 3
 set blocks[42].hardness 16
-set blocks[42].toughness 2
+set blocks[42].tooltype pickaxe
 set blocks[42].name Iron
-set blocks[43].tooltype pickaxe
+set blocks[42].toughness 2
 set blocks[43].hardness 8
-set blocks[43].toughness 1
+set blocks[43].tooltype pickaxe
 set blocks[43].name Double slab
-set blocks[44].tooltype pickaxe
+set blocks[43].toughness 1
 set blocks[44].hardness 4
-set blocks[44].toughness 1
+set blocks[44].tooltype pickaxe
 set blocks[44].name Slab
-set blocks[45].tooltype pickaxe
+set blocks[44].toughness 1
 set blocks[45].hardness 6
-set blocks[45].toughness 1
+set blocks[45].tooltype pickaxe
 set blocks[45].name Brick
+set blocks[45].toughness 1
 set blocks[46].name TNT
 set blocks[47].hardness 6
 set blocks[47].tooltype axe
 set blocks[47].name Bookshelf
-set blocks[48].tooltype pickaxe
 set blocks[48].hardness 9
-set blocks[48].toughness 1
+set blocks[48].tooltype pickaxe
 set blocks[48].name Mossy rocks
-set blocks[49].tooltype pickaxe
+set blocks[48].toughness 1
 set blocks[49].hardness 60
-set blocks[49].toughness 8
+set blocks[49].tooltype pickaxe
 set blocks[49].name Obsidian
-set blocks[50].tooltype pickaxe
-set blocks[50].remainder 10
+set blocks[49].toughness 8
 set blocks[50].hardness 5
+set blocks[50].tooltype pickaxe
 set blocks[50].name Magma
-set blocks[51].tooltype pickaxe
+set blocks[50].remainder 10
 set blocks[51].hardness 12
-set blocks[51].toughness 1
+set blocks[51].tooltype pickaxe
 set blocks[51].name Coal
-set blocks[52].tooltype pickaxe
+set blocks[51].toughness 1
 set blocks[52].hardness 32
-set blocks[52].toughness 3
+set blocks[52].tooltype pickaxe
 set blocks[52].name Diamond ore
-set blocks[53].tooltype pickaxe
+set blocks[52].toughness 3
 set blocks[53].hardness 32
-set blocks[53].toughness 3
+set blocks[53].tooltype pickaxe
 set blocks[53].name Diamond
+set blocks[53].toughness 3
 set blocks[54].name Fire
 set blocks[55].name Gold bar
 set blocks[56].name Iron bar
 set blocks[57].name Coal lump
 set blocks[58].name Diamond gem
-set blocks[59].toughness 1
 set blocks[59].hardness 8
 set blocks[59].tooltype pickaxe
 set blocks[59].name Stone brick
-set blocks[60].tooltype pickaxe
-set blocks[60].remainder 8
+set blocks[59].toughness 1
 set blocks[60].hardness 3
+set blocks[60].tooltype pickaxe
 set blocks[60].name Ice
+set blocks[60].remainder 8
 set blocks[61].hardness 8
 set blocks[61].tooltype axe
 set blocks[61].name Workbench
@@ -321,20 +175,186 @@ set blocks[66].name Stick
 set blocks[67].hardness 3
 set blocks[67].tooltype axe
 set blocks[67].name Campfire
-set blocks[68].remainder 67
 set blocks[68].name Lit campfire
+set blocks[68].remainder 67
 set blocks[69].hardness 5
 set blocks[69].tooltype shovel
 set blocks[69].name Cobweb
 set blocks[70].name Torch
 set blocks.Length 71
 
-set recipes[0].ingredients[0].count 1
 set recipes[0].ingredients[0].id 17
+set recipes[0].ingredients[0].count 1
 set recipes[0].ingredients.Length 1
-set recipes[0].output.count 4
 set recipes[0].output.id 5
+set recipes[0].output.count 4
 set recipes.Length 1
+quit
+
+#click
+	set coords {click.coords}
+	setsplit coords " "
+	if coords[0]|>|1000 quit
+	if coords[1]|>|1000 quit
+	if coords[2]|>|1000 quit
+	if click.button|=|"Left" jump #mine|{coords[0]}|{coords[1]}|{coords[2]}
+	if click.button|=|"Right" jump #place|{coords[0]}|{coords[1]}|{coords[2]}
+	if click.button|=|"Middle" jump #pick|{coords[0]}|{coords[1]}|{coords[2]}
+quit
+
+#mine
+	set x {runArg1}
+	set y {runArg2}
+	set z {runArg3}
+	set coords {x} {y} {z}
+	call #getblock|{runArg1}|{runArg2}|{runArg3}
+	cmd tempbot remove minemeter
+	if blocks[{id}].unbreakable quit
+	ifnot minepos|=|coords set minetimer {blocks[{id}].hardness}
+	ifnot minepos|=|coords set minepos {coords}
+	set minespeed 1
+	ifnot blocks[{id}].tooltype|=|"" setadd minespeed {blocks[{id}].tooltype}
+	if blocks[{id}].toughness|>|{blocks[{id}].tooltype} set toomuch true
+	else set toomuch false
+	if blocks[{id}].tooltype|=|"" set toomuch false
+	if blocks[{id}].toughness|=|"" set toomuch false
+	if toomuch set barcol C
+	else set barcol a
+	setsub minetimer {minespeed}
+	ifnot minetimer|>|0 jump #if_bObVacRPDwYZAmHY
+		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
+		set model {minetimer}
+		setdiv model {blocks[{id}].hardness}
+		setmul model 10
+		setrounddown model
+		setadd model 758
+		set boty {y}
+		setsub boty 0.01
+		cmd tempbot add minemeter -20 -20 -20 0 0 skin &f
+		cmd tempbot tp minemeter {x} {boty} {z} 0 0
+		cmd tempbot model minemeter {model}|1.07
+		quit
+	#if_bObVacRPDwYZAmHY
+	set minepos
+	if toomuch jump #ifnot_kuciQMaDZTAYcKlB
+		if label #loot[{id}] call #loot[{id}]
+		else call #give|{id}|1
+	#ifnot_kuciQMaDZTAYcKlB
+	if blocks[{id}].remainder|=|"" set empty 0
+	else set empty {blocks[{id}].remainder}
+	jump #setblock|{empty}|{x}|{y}|{z}
+quit
+
+#give
+	if inventory[{runArg1}]|=|0 cmd holdsilent {runArg1}
+	setadd inventory[{runArg1}] {runArg2}
+quit
+
+#place
+	set x {runArg1}
+	set y {runArg2}
+	set z {runArg3}
+	call #getblock|{x}|{y}|{z}
+	if blocks[{id}].replaceable quit
+	if click.face|=|"AwayX" setadd x 1
+	if click.face|=|"AwayY" setadd y 1
+	if click.face|=|"AwayZ" setadd z 1
+	if click.face|=|"TowardsX" setsub x 1
+	if click.face|=|"TowardsY" setsub y 1
+	if click.face|=|"TowardsZ" setsub z 1
+	call #getblock|{x}|{y}|{z}
+	ifnot blocks[{id}].replaceable quit
+	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_fFexdGPVKvPrCdHB
+		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
+	#ifnot_fFexdGPVKvPrCdHB
+	ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_OrPcBajlajQEMfiV
+		setsub inventory[{PlayerHeldBlock}] 1
+		if inventory[{PlayerHeldBlock}]|=|0 cmd holdsilent 0
+		jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
+	#if_OrPcBajlajQEMfiV
+quit
+
+#pick
+	call #getblock|{runArg1}|{runArg2}|{runArg3}
+	cmd holdsilent {id}
+quit
+
+#getblock
+	set id {world[{runArg1},{runArg2},{runArg3}]}
+	if id|=|"" setblockid id {runArg1} {runArg2} {runArg3}
+quit
+
+#setblock
+	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
+	set world[{runArg2},{runArg3},{runArg4}] {runArg1}
+quit
+
+#makebar
+// package, color, amount, max
+	set i 0
+	set {runArg1} &{runArg2}
+	#while_FTJZBQnRUFQrIyHh
+		set {runArg1} {{runArg1}}|
+		setadd i 1
+	if i|<|{runArg3} jump #while_FTJZBQnRUFQrIyHh
+	set {runArg1} {{runArg1}}&0
+	#while_YkbFcLXInwsOlYgJ
+		set {runArg1} {{runArg1}}|
+		setadd i 1
+	if i|<|{runArg4} jump #while_YkbFcLXInwsOlYgJ
+quit
+
+#input
+	if runArg1|=|"craft" jump #input_craft|{runArg2}
+	set i 0
+	msg &eResources:
+	#while_bMFpkJXpSZQAlsFE
+		ifnot inventory[{i}]|=|0 msg &f> &6{blocks[{i}].name}&f (x{inventory[{i}]})
+		setadd i 1
+	if i|<|{blocks.Length} jump #while_bMFpkJXpSZQAlsFE
+	msg &eTools:
+	if pickaxe|=|0 msg &f> &cNo Pickaxe
+	if pickaxe|=|1 msg &f> &sWooden Pickaxe
+	if pickaxe|=|2 msg &f> &7Stone Pickaxe
+	if pickaxe|=|3 msg &f> &fIron Pickaxe
+	if pickaxe|=|6 msg &f> &6Golden Pickaxe
+	if pickaxe|=|8 msg &f> &bDiamond Pickaxe
+	if axe|=|0 msg &f> &cNo Axe
+	if axe|=|1 msg &f> &sWooden Axe
+	if axe|=|2 msg &f> &7Stone Axe
+	if axe|=|3 msg &f> &fIron Axe
+	if axe|=|6 msg &f> &6Golden Axe
+	if axe|=|8 msg &f> &bDiamond Axe
+	if shovel|=|0 msg &f> &cNo Spade
+	if shovel|=|1 msg &f> &sWooden Spade
+	if shovel|=|2 msg &f> &7Stone Spade
+	if shovel|=|3 msg &f> &fIron Spade
+	if shovel|=|6 msg &f> &6Golden Spade
+	if shovel|=|8 msg &f> &bDiamond Spade
+	msg &eType &a/in craft&e to show the crafting menu.
+quit
+
+#checkRecipeAfford
+	set j 0
+	#while_QVTHclDFTadeFdhX
+		set id {recipes[{runArg1}].ingredients[{j}].id}
+		set count {recipes[{runArg1}].ingredients[{j}].count}
+		ifnot count|>|{inventory[{id}]} jump #if_GHYgKdQpDGjFLfrF
+			set {runArg2} false
+			quit
+		#if_GHYgKdQpDGjFLfrF
+		setadd j 1
+	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_QVTHclDFTadeFdhX
+	set {runArg2} true
+quit
+
+#input_craft
+	set i 0
+	#while_EEyaSOKvECJyuQhY
+		setadd i 1
+		call #checkRecipeAfford|{i}|canAfford
+		if canAfford msg {i}: {blocks[{recipes[{i}].output.id}].name} x{recipes[{i}].output.count}
+	emd
 quit
 
 #loot[1]
