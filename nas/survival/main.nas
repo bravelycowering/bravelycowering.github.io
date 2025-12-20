@@ -192,6 +192,7 @@ quit
 quit
 
 #getBlockByName
+	set {runArg1}
 	ifnot blocks[{runArg2}].name|=|"" then
 		set {runArg1} {runArg2}
 		quit
