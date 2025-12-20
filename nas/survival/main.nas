@@ -202,6 +202,7 @@ quit
 			set {runArg1} {i}
 			quit
 		end
+		setadd i 1
 	end
 quit
 
