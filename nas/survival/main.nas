@@ -132,13 +132,18 @@ quit
 	if runArg1|=|"craft" then
 		set craftArgs {runArg2}
 		ifnot craftArgs|=|"" then
-			setsplit craftArgs " "
+			setsplit craftArgs ,
 			call #getBlockByName|blockID|{craftArgs[0]}
 			if blockID|=|"" then
 				msg &cInvalid item name or ID
 				quit
 			end
-			msg block id {blockID}
+			call #getRecipeByOutput|recipeID|{blockID}
+			if recipeID|=|"" then
+				msg &cYou cannot craft {blocks[{blockID}].name}!
+				quit
+			end
+			msg recipe id {recipeID}
 			quit
 		end
 		set i 0
@@ -200,6 +205,18 @@ quit
 	set i 0
 	while if i|<|{blocks.Length}
 		if blocks[{i}].name|=|runArg2 then
+			set {runArg1} {i}
+			quit
+		end
+		setadd i 1
+	end
+quit
+
+#getRecipeByOutput
+	set {runArg1}
+	set i 0
+	while if i|<|{recipes.Length}
+		if recipes[{i}].output.id|=|runArg2 then
 			set {runArg1} {i}
 			quit
 		end
