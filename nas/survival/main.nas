@@ -132,6 +132,7 @@ quit
 	if runArg1|=|"craft" then
 		set craftArgs {runArg2}
 		ifnot craftArgs|=|"" then
+			set craftArgs[1] 1
 			setsplit craftArgs ,
 			call #getBlockByName|blockID|{craftArgs[0]}
 			if blockID|=|"" then
@@ -143,12 +144,27 @@ quit
 				msg &cYou cannot craft {blocks[{blockID}].name}!
 				quit
 			end
-			msg recipe id {recipeID}
+			call #checkRecipeAfford|{recipeID}|canAfford|craftArgs[1]
+			if canAfford then
+				set j 0
+				while if j|<|{recipes[{recipeID}].ingredients.Length}
+					set id {recipes[{recipeID}].ingredients[{j}].id}
+					set count {recipes[{recipeID}].ingredients[{j}].count}
+					setmul count {craftArgs[1]}
+					setsub inventory[{id}] {count}
+				end
+				set count {recipes[{recipeID}].output.count}
+				setmul count {craftArgs[1]}
+				setadd inventory[{blockID}] {count}
+				msg &aCrafted {blocks[{blockID}].name} x{count}
+				quit
+			end
+			msg &cYou do not have the materials for that!
 			quit
 		end
 		set i 0
 		while if i|<|{recipes.Length}
-			call #checkRecipeAfford|{i}|canAfford
+			call #checkRecipeAfford|{i}|canAfford|1
 			if canAfford msg {i}: {blocks[{recipes[{i}].output.id}].name} x{recipes[{i}].output.count}
 			setadd i 1
 		end
@@ -187,6 +203,7 @@ quit
 	while if j|<|{recipes[{runArg1}].ingredients.Length}
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {recipes[{runArg1}].ingredients[{j}].count}
+		setmul count {runArg3}
 		if count|>|{inventory[{id}]} then
 			set {runArg2} false
 			quit
