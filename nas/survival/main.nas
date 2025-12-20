@@ -134,7 +134,7 @@ quit
 		ifnot craftArgs|=|"" then
 			setsplit craftArgs " "
 			call #getBlockByName|blockID|{craftArgs[0]}
-			ifnot blockID|=|"" then
+			if blockID|=|"" then
 				msg &cInvalid item name or ID
 				quit
 			end
