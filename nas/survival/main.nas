@@ -192,13 +192,13 @@ quit
 quit
 
 #getBlockByName
-	if blocks[{runArg2}].name then
+	ifnot blocks[{runArg2}].name|=|"" then
 		set {runArg1} {runArg2}
 		quit
 	end
 	set i 0
 	while if i|<|{blocks.Length}
-		if blocks[{i}].name|=|{runArg2} then
+		if blocks[{i}].name|=|runArg2 then
 			set {runArg1} {i}
 			quit
 		end
