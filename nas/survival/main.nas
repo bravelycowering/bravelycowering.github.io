@@ -178,7 +178,7 @@ quit
 		setadd i 1
 		call #checkRecipeAfford|{i}|canAfford
 		if canAfford msg {i}: {blocks[{recipes[{i}].output.id}].name} x{recipes[{i}].output.count}
-	emd
+	end
 quit
 
 #loot[1]
