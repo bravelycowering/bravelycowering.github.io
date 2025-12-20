@@ -10,8 +10,8 @@
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
 
-set blocks[0].replaceable true
 set blocks[0].name Air
+set blocks[0].replaceable true
 set blocks[0].unbreakable true
 set blocks[1].hardness 8
 set blocks[1].name Stone
@@ -33,17 +33,17 @@ set blocks[5].tooltype axe
 set blocks[6].name Sapling
 set blocks[7].unbreakable true
 set blocks[7].name Bedrock
-set blocks[8].replaceable true
 set blocks[8].name Water
+set blocks[8].replaceable true
 set blocks[8].unbreakable true
-set blocks[9].replaceable true
 set blocks[9].name Still water
+set blocks[9].replaceable true
 set blocks[9].unbreakable true
-set blocks[10].replaceable true
 set blocks[10].name Lava
+set blocks[10].replaceable true
 set blocks[10].unbreakable true
-set blocks[11].replaceable true
 set blocks[11].name Still lava
+set blocks[11].replaceable true
 set blocks[11].unbreakable true
 set blocks[12].hardness 3
 set blocks[12].name Sand
@@ -127,10 +127,10 @@ set blocks[49].hardness 60
 set blocks[49].name Obsidian
 set blocks[49].tooltype pickaxe
 set blocks[49].toughness 8
-set blocks[50].hardness 5
+set blocks[50].remainder 10
 set blocks[50].name Magma
 set blocks[50].tooltype pickaxe
-set blocks[50].remainder 10
+set blocks[50].hardness 5
 set blocks[51].hardness 12
 set blocks[51].name Coal
 set blocks[51].tooltype pickaxe
@@ -152,10 +152,10 @@ set blocks[59].hardness 8
 set blocks[59].name Stone brick
 set blocks[59].toughness 1
 set blocks[59].tooltype pickaxe
-set blocks[60].hardness 3
+set blocks[60].remainder 8
 set blocks[60].name Ice
 set blocks[60].tooltype pickaxe
-set blocks[60].remainder 8
+set blocks[60].hardness 3
 set blocks[61].hardness 8
 set blocks[61].name Workbench
 set blocks[61].tooltype axe
@@ -183,11 +183,11 @@ set blocks[69].tooltype shovel
 set blocks[70].name Torch
 set blocks.Length 71
 
-set recipes[0].output.id 5
-set recipes[0].output.count 4
 set recipes[0].ingredients[0].id 17
 set recipes[0].ingredients[0].count 1
 set recipes[0].ingredients.Length 1
+set recipes[0].output.id 5
+set recipes[0].output.count 4
 set recipes.Length 1
 quit
 
@@ -221,7 +221,7 @@ quit
 	if toomuch set barcol C
 	else set barcol a
 	setsub minetimer {minespeed}
-	ifnot minetimer|>|0 jump #if_VujtiQoxIQGxsRpp
+	ifnot minetimer|>|0 jump #if_MQEaDiyFsmamJOJy
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
 		setdiv model {blocks[{id}].hardness}
@@ -234,12 +234,12 @@ quit
 		cmd tempbot model minemeter {model}|1.07
 		cmd tempbot tp minemeter {x} {boty} {z} 0 0
 		quit
-	#if_VujtiQoxIQGxsRpp
+	#if_MQEaDiyFsmamJOJy
 	set minepos
-	if toomuch jump #ifnot_BaeeqjlsjbtORUcs
+	if toomuch jump #ifnot_BbaTfhSsqFLZEUoL
 		if label #loot[{id}] call #loot[{id}]
 		else call #give|{id}|1
-	#ifnot_BaeeqjlsjbtORUcs
+	#ifnot_BbaTfhSsqFLZEUoL
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
 	jump #setblock|{empty}|{x}|{y}|{z}
@@ -264,14 +264,14 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|{x}|{y}|{z}
 	ifnot blocks[{id}].replaceable quit
-	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_ShHDDAvtNeaeCWcw
+	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_prgOYxTAHtXDzNqk
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
-	#ifnot_ShHDDAvtNeaeCWcw
-	ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_JukIrcDkfMthGgmH
+	#ifnot_prgOYxTAHtXDzNqk
+	ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_SXGHjvpJERwkjLYm
 		setsub inventory[{PlayerHeldBlock}] 1
 		if inventory[{PlayerHeldBlock}]|=|0 cmd holdsilent 0
 		jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
-	#if_JukIrcDkfMthGgmH
+	#if_SXGHjvpJERwkjLYm
 quit
 
 #pick
@@ -293,25 +293,25 @@ quit
 // package, color, amount, max
 	set i 0
 	set {runArg1} &{runArg2}
-	#while_nUPiGWmvetlvEjnL
+	#while_cVdqAtDoooPsAnei
 		set {runArg1} {{runArg1}}|
 		setadd i 1
-	if i|<|{runArg3} jump #while_nUPiGWmvetlvEjnL
+	if i|<|{runArg3} jump #while_cVdqAtDoooPsAnei
 	set {runArg1} {{runArg1}}&0
-	#while_tCxtjjxCubWMzPgX
+	#while_GTvoOYfpHfquGRsI
 		set {runArg1} {{runArg1}}|
 		setadd i 1
-	if i|<|{runArg4} jump #while_tCxtjjxCubWMzPgX
+	if i|<|{runArg4} jump #while_GTvoOYfpHfquGRsI
 quit
 
 #input
 	if runArg1|=|"craft" jump #input_craft|{runArg2}
 	set i 0
 	msg &eResources:
-	#while_mIUvmGycuPSYIgtP
+	#while_RwELjSjXgFkkmVIh
 		ifnot inventory[{i}]|=|0 msg &f> &6{blocks[{i}].name}&f (x{inventory[{i}]})
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_mIUvmGycuPSYIgtP
+	if i|<|{blocks.Length} jump #while_RwELjSjXgFkkmVIh
 	msg &eTools:
 	if pickaxe|=|0 msg &f> &cNo Pickaxe
 	if pickaxe|=|1 msg &f> &sWooden Pickaxe
@@ -336,25 +336,48 @@ quit
 
 #checkRecipeAfford
 	set j 0
-	#while_PRtVLvjGTQhNpMuY
+	#while_UGjxZbbUNRfDCcRO
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {recipes[{runArg1}].ingredients[{j}].count}
-		ifnot count|>|{inventory[{id}]} jump #if_xRPgxRHYvWPTjYqS
+		ifnot count|>|{inventory[{id}]} jump #if_YBdavUuDivrqzqqc
 			set {runArg2} false
 			quit
-		#if_xRPgxRHYvWPTjYqS
+		#if_YBdavUuDivrqzqqc
 		setadd j 1
-	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_PRtVLvjGTQhNpMuY
+	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_UGjxZbbUNRfDCcRO
 	set {runArg2} true
 quit
 
-#input_craft
+#getBlockByName
+	ifnot blocks[{runArg2}].name jump #if_HwTLuwKocdWZVeJK
+		set {runArg1} {runArg2}
+		quit
+	#if_HwTLuwKocdWZVeJK
 	set i 0
-	#while_BZTuqsUmkcqbrVcN
+	#while_dDhmXNggvjWOQnqe
+		ifnot blocks[{i}].name|=|{runArg2} jump #if_EYAtTjpZFgKNMAQw
+			set {runArg1} {i}
+			quit
+		#if_EYAtTjpZFgKNMAQw
+	if i|<|{blocks.Length} jump #while_dDhmXNggvjWOQnqe
+quit
+
+#input_craft
+	ifnot runArg1 jump #if_MNkarfXjJGpgmrFw
+		call #getBlockByName|blockID|{runArg1}
+		if blockID jump #ifnot_UioYfXpKwINRoHMT
+			msg &cInvalid item name or ID
+			quit
+		#ifnot_UioYfXpKwINRoHMT
+		msg block id {blockID}
+		quit
+	#if_MNkarfXjJGpgmrFw
+	set i 0
+	#while_JPHvPIatBjzRXLTH
 		call #checkRecipeAfford|{i}|canAfford
 		if canAfford msg {i}: {blocks[{recipes[{i}].output.id}].name} x{recipes[{i}].output.count}
 		setadd i 1
-	if i|<|{recipes.Length} jump #while_BZTuqsUmkcqbrVcN
+	if i|<|{recipes.Length} jump #while_JPHvPIatBjzRXLTH
 quit
 
 #loot[1]

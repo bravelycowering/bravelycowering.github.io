@@ -172,7 +172,30 @@ quit
 	set {runArg2} true
 quit
 
+#getBlockByName
+	if blocks[{runArg2}].name then
+		set {runArg1} {runArg2}
+		quit
+	end
+	set i 0
+	while if i|<|{blocks.Length}
+		if blocks[{i}].name|=|{runArg2} then
+			set {runArg1} {i}
+			quit
+		end
+	end
+quit
+
 #input_craft
+	if runArg1 then
+		call #getBlockByName|blockID|{runArg1}
+		ifnot blockID then
+			msg &cInvalid item name or ID
+			quit
+		end
+		msg block id {blockID}
+		quit
+	end
 	set i 0
 	while if i|<|{recipes.Length}
 		call #checkRecipeAfford|{i}|canAfford
