@@ -55,8 +55,8 @@ quit
 		set boty {y}
 		setsub boty 0.01
 		cmd tempbot add minemeter -20 -20 -20 0 0 skin &f
-		cmd tempbot tp minemeter {x} {boty} {z} 0 0
 		cmd tempbot model minemeter {model}|1.07
+		cmd tempbot tp minemeter {x} {boty} {z} 0 0
 		quit
 	end
 	set minepos
