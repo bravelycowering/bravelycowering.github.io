@@ -131,7 +131,7 @@ quit
 #input
 	if runArg1|=|"craft" then
 		set craftArgs {runArg2}
-		if craftArgs then
+		ifnot craftArgs|=|"" then
 			setsplit craftArgs " "
 			call #getBlockByName|blockID|{craftArgs[0]}
 			ifnot blockID then
