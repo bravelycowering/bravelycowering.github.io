@@ -129,7 +129,26 @@ quit
 quit
 
 #input
-	if runArg1|=|"craft" jump #input_craft|{runArg2}
+	if runArg1|=|"craft" then
+		set craftArgs {runArg2}
+		if craftArgs then
+			setsplit craftArgs " "
+			call #getBlockByName|blockID|{craftArgs[0]}
+			ifnot blockID then
+				msg &cInvalid item name or ID
+				quit
+			end
+			msg block id {blockID}
+			quit
+		end
+		set i 0
+		while if i|<|{recipes.Length}
+			call #checkRecipeAfford|{i}|canAfford
+			if canAfford msg {i}: {blocks[{recipes[{i}].output.id}].name} x{recipes[{i}].output.count}
+			setadd i 1
+		end
+		quit
+	end
 	set i 0
 	msg &eResources:
 	while if i|<|{blocks.Length}
@@ -183,24 +202,6 @@ quit
 			set {runArg1} {i}
 			quit
 		end
-	end
-quit
-
-#input_craft
-	if runArg1 then
-		call #getBlockByName|blockID|{runArg1}
-		ifnot blockID then
-			msg &cInvalid item name or ID
-			quit
-		end
-		msg block id {blockID}
-		quit
-	end
-	set i 0
-	while if i|<|{recipes.Length}
-		call #checkRecipeAfford|{i}|canAfford
-		if canAfford msg {i}: {blocks[{recipes[{i}].output.id}].name} x{recipes[{i}].output.count}
-		setadd i 1
 	end
 quit
 
