@@ -11,7 +11,6 @@
 	msg &fType &a/in&f to view your &ainventory&f.
 
 	include struct blocks survival/blocks
-
 	include struct recipes survival/recipes
 quit
 
@@ -133,7 +132,7 @@ quit
 		set craftArgs {runArg2}
 		ifnot craftArgs|=|"" then
 			set craftArgs[1] 1
-			setsplit craftArgs ,
+			setsplit craftArgs *
 			call #getBlockByName|blockID|{craftArgs[0]}
 			if blockID|=|"" then
 				msg &cInvalid item name or ID
@@ -147,12 +146,17 @@ quit
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
 		end
+		msg &eRecipes:
 		set i 0
 		while if i|<|{recipes.Length}
 			call #checkRecipeAfford|{i}|canAfford|1
-			if canAfford msg {i}: {blocks[{recipes[{i}].output.id}].name} x{recipes[{i}].output.count}
+			if canAfford then
+				msg &f> &6{blocks[{recipes[{i}].output.id}].name}^f (x{recipes[{i}].output.count}):
+				msg &f    todo: display ingredients here
+			end
 			setadd i 1
 		end
+		msg &eType &a/in craft [name]&e to craft something
 		quit
 	end
 	set i 0
