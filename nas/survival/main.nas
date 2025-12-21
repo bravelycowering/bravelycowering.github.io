@@ -10,9 +10,17 @@
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
 
+	call #updateToolDisplay
+
 	include struct blocks survival/blocks
 	include struct recipes survival/recipes
 	include struct toollevel survival/toollevel
+quit
+
+#updateToolDisplay
+	cpemsg bot1 {toollevel.{pickaxe}} Pickaxe
+	cpemsg bot2 {toollevel.{axe}} Axe
+	cpemsg bot3 {toollevel.{shovel}} Spade
 quit
 
 #click
