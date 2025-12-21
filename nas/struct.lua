@@ -1,10 +1,14 @@
 local function comptbl(tbl, prefix, lines)
+	local indexoffset = -1
+	if tbl[0] ~= nil then
+		indexoffset = 0
+	end
 	for key, value in pairs(tbl) do
 		local keystr
 		if type(key) == "string" then
 			keystr = prefix.."."..key
 		elseif type(key) == "number" then
-			keystr = prefix.."["..(key - 1).."]"
+			keystr = prefix.."["..(key + indexoffset).."]"
 		end
 		if type(value) == "table" then
 			comptbl(value, keystr, lines)
