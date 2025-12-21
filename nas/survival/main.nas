@@ -150,9 +150,17 @@ quit
 		set i 0
 		while if i|<|{recipes.Length}
 			call #checkRecipeAfford|{i}|canAfford|1
+			set ingrediantList
 			if canAfford then
-				msg &f> &6{blocks[{recipes[{i}].output.id}].name}^f (x{recipes[{i}].output.count}):
-				msg &f    todo: display ingredients here
+				msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}):
+				set j 0
+				while if j|<|{recipes[{i}].ingredients.Length}
+					set text {recipes[{i}].ingredients[{j}].count} {block[{recipes[{i}].ingredients[{j}].id}].name}
+					if ingrediantList|=|"" set ingrediantList &f    {text}
+					else set ingrediantList {ingrediantList}, {text}
+					setadd j 1
+				end
+				msg {ingrediantList}
 			end
 			setadd i 1
 		end
