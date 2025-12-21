@@ -144,7 +144,7 @@ quit
 				msg &cYou cannot craft {blocks[{blockID}].name}!
 				quit
 			end
-			call #doCraft|recipeID|craftArgs[1]
+			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
 		end
 		set i 0
