@@ -12,6 +12,7 @@
 
 	include struct blocks survival/blocks
 	include struct recipes survival/recipes
+	include struct toollevel survival/toollevel
 quit
 
 #click
@@ -174,24 +175,9 @@ quit
 		setadd i 1
 	end
 	msg &eTools:
-	if pickaxe|=|0 msg &f> &cNo Pickaxe
-	if pickaxe|=|1 msg &f> &sWooden Pickaxe
-	if pickaxe|=|2 msg &f> &7Stone Pickaxe
-	if pickaxe|=|3 msg &f> &fIron Pickaxe
-	if pickaxe|=|6 msg &f> &6Golden Pickaxe
-	if pickaxe|=|8 msg &f> &bDiamond Pickaxe
-	if axe|=|0 msg &f> &cNo Axe
-	if axe|=|1 msg &f> &sWooden Axe
-	if axe|=|2 msg &f> &7Stone Axe
-	if axe|=|3 msg &f> &fIron Axe
-	if axe|=|6 msg &f> &6Golden Axe
-	if axe|=|8 msg &f> &bDiamond Axe
-	if shovel|=|0 msg &f> &cNo Spade
-	if shovel|=|1 msg &f> &sWooden Spade
-	if shovel|=|2 msg &f> &7Stone Spade
-	if shovel|=|3 msg &f> &fIron Spade
-	if shovel|=|6 msg &f> &6Golden Spade
-	if shovel|=|8 msg &f> &bDiamond Spade
+	msg &f> {toollevel.{pickaxe}} Pickaxe
+	msg &f> {toollevel.{axe}} Axe
+	msg &f> {toollevel.{shovel}} Spade
 	msg &eType &a/in craft&e to show the crafting menu.
 quit
 
