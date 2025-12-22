@@ -19,7 +19,19 @@
 	set isTool(shovel) true
 
 	call #updateToolDisplay
+	cmd oss #tick repeatable
 quit
+
+#tick
+	call #getblock|{PlayerX}|{PlayerY}|{PlayerZ}
+	if blocks[{id}].kills then
+		msg your died
+		kill
+	end
+	delay 100
+	if actionCount|>=|50000 cmd oss #tick repeatable
+	if actionCount|>|50000 terminate
+jump #tick
 
 #updateToolDisplay
 	cpemsg bot1 {toollevel[{pickaxe}]} Pickaxe
@@ -232,6 +244,12 @@ quit
 		if count|>|{inventory[{id}]} then
 			set {runArg2} false
 			quit
+		end
+		if isTool({id}) then
+			if {id}|>=|count then
+				set {runArg2} false
+				quit
+			end
 		end
 		setadd j 1
 	end
