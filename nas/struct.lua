@@ -9,6 +9,8 @@ local function comptbl(tbl, prefix, lines)
 			keystr = prefix.."."..key
 		elseif type(key) == "number" then
 			keystr = prefix.."["..(key + indexoffset).."]"
+		elseif type(key) == "table" then
+			keystr = prefix.."["..key[1].."]"
 		end
 		if type(value) == "table" then
 			comptbl(value, keystr, lines)

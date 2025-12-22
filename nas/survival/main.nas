@@ -15,6 +15,11 @@
 	include struct toollevel survival/toollevel
 	include struct deathmessages survival/deathmessages
 
+	// compat with id finder thingy
+	set blocks[pickaxe].name Pickaxe
+	set blocks[axe].name Axe
+	set blocks[shovel].name Spade
+
 	set isTool(pickaxe) true
 	set isTool(axe) true
 	set isTool(shovel) true
@@ -189,7 +194,7 @@ quit
 			set ingrediantList
 			if canAfford then
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}):
-				else msg &f> toollevel[{recipes[{i}].output.count}] {blocks[{recipes[{i}].output.id}].name}&f:
+				else msg &f> {toollevel[{recipes[{i}].output.count}]} {blocks[{recipes[{i}].output.id}].name}&f:
 				set j 0
 				while if j|<|{recipes[{i}].ingredients.Length}
 					set text {recipes[{i}].ingredients[{j}].count} {blocks[{recipes[{i}].ingredients[{j}].id}].name}
