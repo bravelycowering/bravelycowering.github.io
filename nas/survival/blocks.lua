@@ -1,4 +1,13 @@
 return {
+	pickaxe = {
+		name = "Pickaxe",
+	},
+	axe = {
+		name = "Axe",
+	},
+	shovel = {
+		name = "Spade",
+	},
 	{
 		name = "Air",
 		unbreakable = true,

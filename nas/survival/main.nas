@@ -13,6 +13,7 @@
 	include struct blocks survival/blocks
 	include struct recipes survival/recipes
 	include struct toollevel survival/toollevel
+	include struct deathmessages survival/deathmessages
 
 	set isTool(pickaxe) true
 	set isTool(axe) true
@@ -166,9 +167,8 @@ quit
 		ifnot craftArgs|=|"" then
 			set craftArgs[1] 1
 			setsplit craftArgs *
-			if isTool({craftArgs[0]}) set blockID {craftArgs[0]}
-			else call #getBlockByName|blockID|{craftArgs[0]}
-			else set craftArgs[1] 1
+			if isTool({craftArgs[0]}) set craftArgs[1] 1
+			call #getBlockByName|blockID|{craftArgs[0]}
 			if blockID|=|"" then
 				msg &cInvalid item name or ID
 				quit
