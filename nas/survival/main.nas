@@ -9,7 +9,6 @@
 	cmd holdsilent 0
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
-	set PrevPlayerCoords {PlayerCoords}
 
 	include struct blocks survival/blocks
 	include struct recipes survival/recipes
@@ -28,14 +27,12 @@ quit
 		msg your died
 		kill
 	end
-	ifnot PlayerCoords|=|PrevPlayerCoords then
-		// moved
-		set usingWorkbench false
-	end
-	set PrevPlayerCoords {PlayerCoords}
+	ifnot PlayerCoordsPrecise|=|PrevPlayerCoordsPrecise set usingWorkbench false
+	set PrevPlayerCoordsPrecise {PlayerCoordsPrecise}
 	delay 100
 	cpemsg top1 &c{actionCount}/50000
-	cpemsg bot1 Holding: &6{blocks[{PlayerHeldBlock}].name} (&fx{inventory[{PlayerHeldBlock}]})
+	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot1 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
+	else cpemsg bot1 Holding: &cNothing
 	if actionCount|>=|50000 cmd oss #tick repeatable
 	if actionCount|>|50000 terminate
 jump #tick
@@ -184,7 +181,8 @@ quit
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
 		end
-		msg &eRecipes:
+		if usingWorkbench msg &eWorkbench Recipes:
+		else msg &eRecipes:
 		set i 0
 		while if i|<|{recipes.Length}
 			call #checkRecipeAfford|{i}|canAfford|1
@@ -238,19 +236,17 @@ quit
 
 #checkRecipeAfford
 	set j 0
+	set {runArg2} false
+	ifnot recipes[{runArg1}].condition|=|"" then
+		ifnot {recipes[{runArg1}].condition} quit
+	end
 	while if j|<|{recipes[{runArg1}].ingredients.Length}
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {recipes[{runArg1}].ingredients[{j}].count}
 		setmul count {runArg3}
-		if count|>|{inventory[{id}]} then
-			set {runArg2} false
-			quit
-		end
+		if count|>|{inventory[{id}]} quit
 		if isTool({id}) then
-			if {id}|>=|count then
-				set {runArg2} false
-				quit
-			end
+			if {id}|>=|count quit
 		end
 		setadd j 1
 	end
