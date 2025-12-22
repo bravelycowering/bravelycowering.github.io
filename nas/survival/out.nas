@@ -10,71 +10,71 @@
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
 
-set blocks[0].name Air
 set blocks[0].replaceable true
 set blocks[0].unbreakable true
-set blocks[1].name Stone
+set blocks[0].name Air
 set blocks[1].hardness 8
 set blocks[1].toughness 1
 set blocks[1].tooltype pickaxe
-set blocks[2].name Grass
+set blocks[1].name Stone
 set blocks[2].hardness 3
 set blocks[2].tooltype shovel
-set blocks[3].name Dirt
+set blocks[2].name Grass
 set blocks[3].hardness 3
 set blocks[3].tooltype shovel
-set blocks[4].name Cobblestone
+set blocks[3].name Dirt
 set blocks[4].hardness 6
 set blocks[4].toughness 1
 set blocks[4].tooltype pickaxe
-set blocks[5].name Wood
+set blocks[4].name Cobblestone
 set blocks[5].hardness 6
 set blocks[5].tooltype axe
+set blocks[5].name Wood
 set blocks[6].name Sapling
-set blocks[7].name Bedrock
 set blocks[7].unbreakable true
-set blocks[8].name Water
+set blocks[7].name Bedrock
 set blocks[8].replaceable true
 set blocks[8].unbreakable true
-set blocks[9].name Still water
+set blocks[8].name Water
 set blocks[9].replaceable true
 set blocks[9].unbreakable true
-set blocks[10].name Lava
+set blocks[9].name Still water
 set blocks[10].replaceable true
 set blocks[10].unbreakable true
-set blocks[11].name Still lava
+set blocks[10].name Lava
 set blocks[11].replaceable true
 set blocks[11].unbreakable true
-set blocks[12].name Sand
+set blocks[11].name Still lava
 set blocks[12].hardness 3
 set blocks[12].tooltype shovel
-set blocks[13].name Gravel
+set blocks[12].name Sand
 set blocks[13].hardness 3
 set blocks[13].tooltype shovel
-set blocks[14].name Gold ore
+set blocks[13].name Gravel
 set blocks[14].hardness 24
 set blocks[14].toughness 3
 set blocks[14].tooltype pickaxe
-set blocks[15].name Iron ore
+set blocks[14].name Gold ore
 set blocks[15].hardness 16
 set blocks[15].toughness 2
 set blocks[15].tooltype pickaxe
-set blocks[16].name Coal ore
+set blocks[15].name Iron ore
 set blocks[16].hardness 12
 set blocks[16].toughness 1
 set blocks[16].tooltype pickaxe
-set blocks[17].name Log
+set blocks[16].name Coal ore
 set blocks[17].hardness 8
 set blocks[17].tooltype axe
-set blocks[18].name Leaves
+set blocks[17].name Log
 set blocks[18].hardness 2
 set blocks[18].tooltype axe
-set blocks[19].name Sponge
+set blocks[18].name Leaves
 set blocks[19].hardness 3
 set blocks[19].tooltype shovel
-set blocks[20].name Glass
+set blocks[19].name Sponge
 set blocks[20].hardness 2
 set blocks[20].tooltype pickaxe
+set blocks[20].name Glass
 set blocks[21].name Red
 set blocks[22].name Orange
 set blocks[23].name Yellow
@@ -95,103 +95,103 @@ set blocks[37].name Dandelion
 set blocks[38].name Rose
 set blocks[39].name Brown mushroom
 set blocks[40].name Red mushroom
-set blocks[41].name Gold
 set blocks[41].hardness 24
 set blocks[41].toughness 3
 set blocks[41].tooltype pickaxe
-set blocks[42].name Iron
+set blocks[41].name Gold
 set blocks[42].hardness 16
 set blocks[42].toughness 2
 set blocks[42].tooltype pickaxe
-set blocks[43].name Double slab
+set blocks[42].name Iron
 set blocks[43].hardness 8
 set blocks[43].toughness 1
 set blocks[43].tooltype pickaxe
-set blocks[44].name Slab
+set blocks[43].name Double slab
 set blocks[44].hardness 4
 set blocks[44].toughness 1
 set blocks[44].tooltype pickaxe
-set blocks[45].name Brick
+set blocks[44].name Slab
 set blocks[45].hardness 6
 set blocks[45].toughness 1
 set blocks[45].tooltype pickaxe
+set blocks[45].name Brick
 set blocks[46].name TNT
-set blocks[47].name Bookshelf
 set blocks[47].hardness 6
 set blocks[47].tooltype axe
-set blocks[48].name Mossy rocks
+set blocks[47].name Bookshelf
 set blocks[48].hardness 9
 set blocks[48].toughness 1
 set blocks[48].tooltype pickaxe
-set blocks[49].name Obsidian
+set blocks[48].name Mossy rocks
 set blocks[49].hardness 60
 set blocks[49].toughness 8
 set blocks[49].tooltype pickaxe
-set blocks[50].name Magma
+set blocks[49].name Obsidian
 set blocks[50].hardness 5
-set blocks[50].tooltype pickaxe
 set blocks[50].remainder 10
-set blocks[51].name Coal
+set blocks[50].tooltype pickaxe
+set blocks[50].name Magma
 set blocks[51].hardness 12
 set blocks[51].toughness 1
 set blocks[51].tooltype pickaxe
-set blocks[52].name Diamond ore
+set blocks[51].name Coal
 set blocks[52].hardness 32
 set blocks[52].toughness 3
 set blocks[52].tooltype pickaxe
-set blocks[53].name Diamond
+set blocks[52].name Diamond ore
 set blocks[53].hardness 32
 set blocks[53].toughness 3
 set blocks[53].tooltype pickaxe
+set blocks[53].name Diamond
 set blocks[54].name Fire
 set blocks[55].name Gold bar
 set blocks[56].name Iron bar
 set blocks[57].name Coal lump
 set blocks[58].name Diamond gem
-set blocks[59].name Stone brick
 set blocks[59].hardness 8
 set blocks[59].toughness 1
 set blocks[59].tooltype pickaxe
-set blocks[60].name Ice
+set blocks[59].name Stone brick
 set blocks[60].hardness 3
-set blocks[60].tooltype pickaxe
 set blocks[60].remainder 8
-set blocks[61].name Workbench
+set blocks[60].tooltype pickaxe
+set blocks[60].name Ice
 set blocks[61].hardness 8
 set blocks[61].tooltype axe
-set blocks[62].name Stonecutter
+set blocks[61].name Workbench
 set blocks[62].hardness 8
 set blocks[62].tooltype pickaxe
-set blocks[63].name Brown mushroom top
+set blocks[62].name Stonecutter
 set blocks[63].hardness 4
 set blocks[63].tooltype shovel
-set blocks[64].name Red mushroom top
+set blocks[63].name Brown mushroom top
 set blocks[64].hardness 4
 set blocks[64].tooltype shovel
-set blocks[65].name Mushroom stem
+set blocks[64].name Red mushroom top
 set blocks[65].hardness 8
 set blocks[65].tooltype shovel
+set blocks[65].name Mushroom stem
 set blocks[66].name Stick
-set blocks[67].name Campfire
 set blocks[67].hardness 3
 set blocks[67].tooltype axe
-set blocks[68].name Lit campfire
+set blocks[67].name Campfire
 set blocks[68].remainder 67
-set blocks[69].name Cobweb
+set blocks[68].name Lit campfire
 set blocks[69].hardness 5
 set blocks[69].tooltype shovel
+set blocks[69].name Cobweb
 set blocks[70].name Torch
 set blocks.Length 71
-set recipes[0].output.id 66
-set recipes[0].output.count 4
 set recipes[0].ingredients[0].id 5
 set recipes[0].ingredients[0].count 2
 set recipes[0].ingredients.Length 1
-set recipes[1].output.id 5
-set recipes[1].output.count 4
+set recipes[0].output.id 66
+set recipes[0].output.count 4
 set recipes[1].ingredients[0].id 17
 set recipes[1].ingredients[0].count 1
 set recipes[1].ingredients.Length 1
+set recipes[1].output.id 5
+set recipes[1].output.count 4
 set recipes.Length 2
 set toollevel[0] &cNo
 set toollevel[1] &sWooden
@@ -200,6 +200,10 @@ set toollevel[3] &fIron
 set toollevel[6] &6Golden
 set toollevel[8] &bDiamond
 set toollevel.Length 3
+
+	set isTool(pickaxe) true
+	set isTool(axe) true
+	set isTool(shovel) true
 
 	call #updateToolDisplay
 quit
@@ -240,7 +244,7 @@ quit
 	if toomuch set barcol C
 	else set barcol a
 	setsub minetimer {minespeed}
-	ifnot minetimer|>|0 jump #if_XDfqIAGBwFFqOrhN
+	ifnot minetimer|>|0 jump #if_NBerCBOGTtVQlWRF
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
 		setdiv model {blocks[{id}].hardness}
@@ -253,20 +257,30 @@ quit
 		cmd tempbot model minemeter {model}|1.07
 		cmd tempbot tp minemeter {x} {boty} {z} 0 0
 		quit
-	#if_XDfqIAGBwFFqOrhN
+	#if_NBerCBOGTtVQlWRF
 	set minepos
-	if toomuch jump #ifnot_qhfnDtUErGgQsEuZ
+	if toomuch jump #ifnot_DFyWFEGfDasRGlgl
 		if label #loot[{id}] call #loot[{id}]
 		else call #give|{id}|1
-	#ifnot_qhfnDtUErGgQsEuZ
+	#ifnot_DFyWFEGfDasRGlgl
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
 	jump #setblock|{empty}|{x}|{y}|{z}
 quit
 
 #give
+	ifnot isTool({runArg1}) jump #if_wEkzgttdRLHcgwhu
+		set {runArg1} {runArg2}
+		quit
+	#if_wEkzgttdRLHcgwhu
 	if inventory[{runArg1}]|=|0 cmd holdsilent {runArg1}
 	setadd inventory[{runArg1}] {runArg2}
+quit
+
+#take
+	setsub inventory[{runArg1}] {runArg2}
+	if inventory[{runArg1}]|<|0 set inventory[{runArg1}] 0
+	if inventory[{runArg1}]|=|0 cmd holdsilent 0
 quit
 
 #place
@@ -284,14 +298,13 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|{x}|{y}|{z}
 	ifnot blocks[{id}].replaceable quit
-	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_RtFcMUXHYPnoSaFu
+	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_qvIJwWcatCfHUjgp
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
-	#ifnot_RtFcMUXHYPnoSaFu
-	ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_YvIryYGyvUBnwHtP
-		setsub inventory[{PlayerHeldBlock}] 1
-		if inventory[{PlayerHeldBlock}]|=|0 cmd holdsilent 0
+	#ifnot_qvIJwWcatCfHUjgp
+	ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_EkrrfCfyiRfXMtDf
+		call #take|{playerHeldBlock}|1
 		jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
-	#if_YvIryYGyvUBnwHtP
+	#if_EkrrfCfyiRfXMtDf
 quit
 
 #pick
@@ -313,63 +326,65 @@ quit
 // package, color, amount, max
 	set i 0
 	set {runArg1} &{runArg2}
-	#while_uxplKyeFjUkbhNRa
+	#while_lrUVZsIxvZoenaKI
 		set {runArg1} {{runArg1}}|
 		setadd i 1
-	if i|<|{runArg3} jump #while_uxplKyeFjUkbhNRa
+	if i|<|{runArg3} jump #while_lrUVZsIxvZoenaKI
 	set {runArg1} {{runArg1}}&0
-	#while_CGihciEEXMCUjOTc
+	#while_fnQjSupLWNrcrJvJ
 		set {runArg1} {{runArg1}}|
 		setadd i 1
-	if i|<|{runArg4} jump #while_CGihciEEXMCUjOTc
+	if i|<|{runArg4} jump #while_fnQjSupLWNrcrJvJ
 quit
 
 #input
-	ifnot runArg1|=|"craft" jump #if_qsXfBZCoEKBSPalj
+	ifnot runArg1|=|"craft" jump #if_owBINdJCjeQQhwot
 		set craftArgs {runArg2}
-		if craftArgs|=|"" jump #ifnot_cEczmmNNnFLyXtxV
+		if craftArgs|=|"" jump #ifnot_jmELryWVnsHfrYsw
 			set craftArgs[1] 1
 			setsplit craftArgs *
-			call #getBlockByName|blockID|{craftArgs[0]}
-			ifnot blockID|=|"" jump #if_HwYoZcdHouTqZUgc
+			if isTool({craftArgs[0]}) set blockID {craftArgs[0]}
+			else call #getBlockByName|blockID|{craftArgs[0]}
+			else set craftArgs[1] 1
+			ifnot blockID|=|"" jump #if_aPfoFQHyDPqSLZaL
 				msg &cInvalid item name or ID
 				quit
-			#if_HwYoZcdHouTqZUgc
-			call #getRecipeByOutput|recipeID|{blockID}
-			ifnot recipeID|=|"" jump #if_CHWZSTrpkQOHWsPq
-				msg &cYou cannot craft {blocks[{blockID}].name}!
+			#if_aPfoFQHyDPqSLZaL
+			call #getRecipeByOutput|recipeID|{blockID}|{craftArgs[1]}
+			ifnot recipeID|=|"" jump #if_JmRLgSyJRyzWQolo
+				msg &cYou do not have the materials to craft {blocks[{blockID}].name}!
 				quit
-			#if_CHWZSTrpkQOHWsPq
+			#if_JmRLgSyJRyzWQolo
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
-		#ifnot_cEczmmNNnFLyXtxV
+		#ifnot_jmELryWVnsHfrYsw
 		msg &eRecipes:
 		set i 0
-		#while_iqdkuLJuuSRuwdmq
+		#while_TWRXrWpdiATOvyEE
 			call #checkRecipeAfford|{i}|canAfford|1
 			set ingrediantList
-			ifnot canAfford jump #if_QJFAXFVimKqScNkH
+			ifnot canAfford jump #if_ecjYrlykhPHicQZV
 				msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}):
 				set j 0
-				#while_FfqLDrpIMAsiPBia
+				#while_EuzdDQNpudquiyeo
 					set text {recipes[{i}].ingredients[{j}].count} {blocks[{recipes[{i}].ingredients[{j}].id}].name}
 					if ingrediantList|=|"" set ingrediantList &f    {text}
 					else set ingrediantList {ingrediantList}, {text}
 					setadd j 1
-				if j|<|{recipes[{i}].ingredients.Length} jump #while_FfqLDrpIMAsiPBia
+				if j|<|{recipes[{i}].ingredients.Length} jump #while_EuzdDQNpudquiyeo
 				msg {ingrediantList}
-			#if_QJFAXFVimKqScNkH
+			#if_ecjYrlykhPHicQZV
 			setadd i 1
-		if i|<|{recipes.Length} jump #while_iqdkuLJuuSRuwdmq
+		if i|<|{recipes.Length} jump #while_TWRXrWpdiATOvyEE
 		msg &eType &a/in craft [name]&e to craft something
 		quit
-	#if_qsXfBZCoEKBSPalj
+	#if_owBINdJCjeQQhwot
 	set i 0
 	msg &eResources:
-	#while_HBkkaSrmNLljiyGY
+	#while_BlkggFhlyOlmVYwb
 		ifnot inventory[{i}]|=|0 msg &f> &6{blocks[{i}].name}&f (x{inventory[{i}]})
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_HBkkaSrmNLljiyGY
+	if i|<|{blocks.Length} jump #while_BlkggFhlyOlmVYwb
 	msg &eTools:
 	msg &f> {toollevel[{pickaxe}]} Pickaxe
 	msg &f> {toollevel[{axe}]} Axe
@@ -381,66 +396,67 @@ quit
 	set recipeID {runArg1}
 	set blockID {recipes[{recipeID}].output.id}
 	set recipeCount {runArg2}
-	call #checkRecipeAfford|{recipeID}|canAfford|recipeCount
-	ifnot canAfford jump #if_bIkcdzwiIibymZtE
-		set j 0
-		#while_uSqkxMgJwVvUzIlx
-			set id {recipes[{recipeID}].ingredients[{j}].id}
-			set count {recipes[{recipeID}].ingredients[{j}].count}
-			setmul count {recipeCount}
-			setsub inventory[{id}] {count}
-			setadd j 1
-		if j|<|{recipes[{recipeID}].ingredients.Length} jump #while_uSqkxMgJwVvUzIlx
-		set count {recipes[{recipeID}].output.count}
+	set j 0
+	#while_zEsdCsceafeDcuRz
+		set id {recipes[{recipeID}].ingredients[{j}].id}
+		set count {recipes[{recipeID}].ingredients[{j}].count}
 		setmul count {recipeCount}
-		setadd inventory[{blockID}] {count}
-		msg &aCrafted {blocks[{blockID}].name} x{count}
-		quit
-	#if_bIkcdzwiIibymZtE
-	msg &cYou do not have the materials for that!
+		call #take|{id}|{count}
+		setadd j 1
+	if j|<|{recipes[{recipeID}].ingredients.Length} jump #while_zEsdCsceafeDcuRz
+	set count {recipes[{recipeID}].output.count}
+	setmul count {recipeCount}
+	call #give|{blockID}|{count}
+	msg &aCrafted {blocks[{blockID}].name} x{count}
 quit
 
 #checkRecipeAfford
 	set j 0
-	#while_gKHoYUUtCZpHrGnT
+	#while_waiGaIYGrRpwvpjG
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {recipes[{runArg1}].ingredients[{j}].count}
 		setmul count {runArg3}
-		ifnot count|>|{inventory[{id}]} jump #if_THzpaADBWmESRWyY
+		ifnot count|>|{inventory[{id}]} jump #if_SXdsFzMCVPdrdrlw
 			set {runArg2} false
 			quit
-		#if_THzpaADBWmESRWyY
+		#if_SXdsFzMCVPdrdrlw
 		setadd j 1
-	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_gKHoYUUtCZpHrGnT
+	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_waiGaIYGrRpwvpjG
 	set {runArg2} true
 quit
 
 #getBlockByName
 	set {runArg1}
-	if blocks[{runArg2}].name|=|"" jump #ifnot_ZzEbrgHvUzZpatLG
+	if blocks[{runArg2}].name|=|"" jump #ifnot_oKdnCulaMdmWOpYn
 		set {runArg1} {runArg2}
 		quit
-	#ifnot_ZzEbrgHvUzZpatLG
+	#ifnot_oKdnCulaMdmWOpYn
 	set i 0
-	#while_KsDqNMGSLLGhxvIt
-		ifnot blocks[{i}].name|=|runArg2 jump #if_TDfKGXItcahEirLt
+	#while_mZjkHlpecZdfknqy
+		ifnot blocks[{i}].name|=|runArg2 jump #if_BOFGPqhygfAzEBgw
 			set {runArg1} {i}
 			quit
-		#if_TDfKGXItcahEirLt
+		#if_BOFGPqhygfAzEBgw
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_KsDqNMGSLLGhxvIt
+	if i|<|{blocks.Length} jump #while_mZjkHlpecZdfknqy
 quit
 
 #getRecipeByOutput
-	set {runArg1}
+	set pname {runArg1}
+	set bid {runArg2}
+	set c {runArg3}
+	set {pname}
 	set i 0
-	#while_RJiqOkAvJUnSfiJn
-		ifnot recipes[{i}].output.id|=|runArg2 jump #if_BTUvCRETrhIYyXem
-			set {runArg1} {i}
-			quit
-		#if_BTUvCRETrhIYyXem
+	#while_OlGeMxVDrPUWImxG
+		ifnot recipes[{i}].output.id|=|bid jump #if_isAKqYyiYkYhZPBV
+			call #checkRecipeAfford|{i}|canAfford|{c}
+			ifnot canAfford jump #if_MJTKsLiIZGrSpwtt
+				set {pname} {i}
+				quit
+			#if_MJTKsLiIZGrSpwtt
+		#if_isAKqYyiYkYhZPBV
 		setadd i 1
-	if i|<|{recipes.Length} jump #while_RJiqOkAvJUnSfiJn
+	if i|<|{recipes.Length} jump #while_OlGeMxVDrPUWImxG
 quit
 
 #use[61]

@@ -14,6 +14,10 @@
 	include struct recipes survival/recipes
 	include struct toollevel survival/toollevel
 
+	set isTool(pickaxe) true
+	set isTool(axe) true
+	set isTool(shovel) true
+
 	call #updateToolDisplay
 quit
 
@@ -78,8 +82,18 @@ quit
 quit
 
 #give
+	if isTool({runArg1}) then
+		set {runArg1} {runArg2}
+		quit
+	end
 	if inventory[{runArg1}]|=|0 cmd holdsilent {runArg1}
 	setadd inventory[{runArg1}] {runArg2}
+quit
+
+#take
+	setsub inventory[{runArg1}] {runArg2}
+	if inventory[{runArg1}]|<|0 set inventory[{runArg1}] 0
+	if inventory[{runArg1}]|=|0 cmd holdsilent 0
 quit
 
 #place
@@ -101,8 +115,7 @@ quit
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 	end
 	if inventory[{PlayerHeldBlock}]|>|0 then
-		setsub inventory[{PlayerHeldBlock}] 1
-		if inventory[{PlayerHeldBlock}]|=|0 cmd holdsilent 0
+		call #take|{playerHeldBlock}|1
 		jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
 	end
 quit
@@ -143,14 +156,16 @@ quit
 		ifnot craftArgs|=|"" then
 			set craftArgs[1] 1
 			setsplit craftArgs *
-			call #getBlockByName|blockID|{craftArgs[0]}
+			if isTool({craftArgs[0]}) set blockID {craftArgs[0]}
+			else call #getBlockByName|blockID|{craftArgs[0]}
+			else set craftArgs[1] 1
 			if blockID|=|"" then
 				msg &cInvalid item name or ID
 				quit
 			end
-			call #getRecipeByOutput|recipeID|{blockID}
+			call #getRecipeByOutput|recipeID|{blockID}|{craftArgs[1]}
 			if recipeID|=|"" then
-				msg &cYou cannot craft {blocks[{blockID}].name}!
+				msg &cYou do not have the materials to craft {blocks[{blockID}].name}!
 				quit
 			end
 			call #doCraft|{recipeID}|{craftArgs[1]}
@@ -194,23 +209,18 @@ quit
 	set recipeID {runArg1}
 	set blockID {recipes[{recipeID}].output.id}
 	set recipeCount {runArg2}
-	call #checkRecipeAfford|{recipeID}|canAfford|recipeCount
-	if canAfford then
-		set j 0
-		while if j|<|{recipes[{recipeID}].ingredients.Length}
-			set id {recipes[{recipeID}].ingredients[{j}].id}
-			set count {recipes[{recipeID}].ingredients[{j}].count}
-			setmul count {recipeCount}
-			setsub inventory[{id}] {count}
-			setadd j 1
-		end
-		set count {recipes[{recipeID}].output.count}
+	set j 0
+	while if j|<|{recipes[{recipeID}].ingredients.Length}
+		set id {recipes[{recipeID}].ingredients[{j}].id}
+		set count {recipes[{recipeID}].ingredients[{j}].count}
 		setmul count {recipeCount}
-		setadd inventory[{blockID}] {count}
-		msg &aCrafted {blocks[{blockID}].name} x{count}
-		quit
+		call #take|{id}|{count}
+		setadd j 1
 	end
-	msg &cYou do not have the materials for that!
+	set count {recipes[{recipeID}].output.count}
+	setmul count {recipeCount}
+	call #give|{blockID}|{count}
+	msg &aCrafted {blocks[{blockID}].name} x{count}
 quit
 
 #checkRecipeAfford
@@ -245,12 +255,18 @@ quit
 quit
 
 #getRecipeByOutput
-	set {runArg1}
+	set pname {runArg1}
+	set bid {runArg2}
+	set c {runArg3}
+	set {pname}
 	set i 0
 	while if i|<|{recipes.Length}
-		if recipes[{i}].output.id|=|runArg2 then
-			set {runArg1} {i}
-			quit
+		if recipes[{i}].output.id|=|bid then
+			call #checkRecipeAfford|{i}|canAfford|{c}
+			if canAfford then
+				set {pname} {i}
+				quit
+			end
 		end
 		setadd i 1
 	end
