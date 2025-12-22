@@ -13,12 +13,12 @@ return {
 	{
 		name = "Grass",
 		hardness = 3,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Dirt",
 		hardness = 3,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Cobblestone",
@@ -73,12 +73,12 @@ return {
 	{
 		name = "Sand",
 		hardness = 3,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Gravel",
 		hardness = 3,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Gold ore",
@@ -111,7 +111,7 @@ return {
 	{
 		name = "Sponge",
 		hardness = 3,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Glass",
@@ -292,17 +292,17 @@ return {
 	{
 		name = "Brown mushroom top",
 		hardness = 4,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Red mushroom top",
 		hardness = 4,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Mushroom stem",
 		hardness = 8,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Stick",
@@ -319,7 +319,7 @@ return {
 	{
 		name = "Cobweb",
 		hardness = 5,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Torch",
@@ -327,7 +327,7 @@ return {
 	{
 		name = "Snow",
 		hardness = 2,
-		tooltype = "shovel",
+		tooltype = "spade",
 	},
 	{
 		name = "Snow ball",

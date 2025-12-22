@@ -11,7 +11,7 @@ return {
 		}
 	},
 	output = {
-		id = "shovel",
+		id = "spade",
 		count = 3,
 	},
 	condition = "usingWorkbench"

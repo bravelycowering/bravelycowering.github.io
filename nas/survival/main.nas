@@ -5,7 +5,7 @@
 	set minepos
 	set pickaxe 0
 	set axe 0
-	set shovel 0
+	set spade 0
 	cmd holdsilent 0
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
@@ -18,11 +18,11 @@
 	// compat with id finder thingy
 	set blocks[pickaxe].name Pickaxe
 	set blocks[axe].name Axe
-	set blocks[shovel].name Spade
+	set blocks[spade].name Spade
 
 	set isTool(pickaxe) true
 	set isTool(axe) true
-	set isTool(shovel) true
+	set isTool(spade) true
 
 	cmd oss #tick repeatable
 quit
@@ -218,7 +218,7 @@ quit
 	msg &eTools:
 	msg &f> {toollevel[{pickaxe}]} Pickaxe
 	msg &f> {toollevel[{axe}]} Axe
-	msg &f> {toollevel[{shovel}]} Spade
+	msg &f> {toollevel[{spade}]} Spade
 	msg &eType &a/in craft&e to show the crafting menu.
 quit
 

@@ -2,7 +2,7 @@ local ids = require "survival.ids"
 return {
 	ingredients = {
 		{
-			id = ids.diamond_gem,
+			id = ids.cobblestone,
 			count = 1,
 		},
 		{
@@ -11,8 +11,8 @@ return {
 		}
 	},
 	output = {
-		id = "shovel",
-		count = 8,
+		id = "spade",
+		count = 2,
 	},
 	condition = "usingWorkbench"
 }
