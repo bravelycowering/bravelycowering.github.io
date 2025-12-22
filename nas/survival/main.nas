@@ -36,11 +36,11 @@ quit
 	ifnot PlayerCoordsPrecise|=|PrevPlayerCoordsPrecise set usingWorkbench false
 	set PrevPlayerCoordsPrecise {PlayerCoordsPrecise}
 	delay 100
-	cpemsg top1 &c{actionCount}/50000
+	cpemsg top1 &c{actionCount}/60000
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot1 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot1 Holding: &cNothing
-	if actionCount|>=|50000 cmd oss #tick repeatable
-	if actionCount|>|50000 terminate
+	if actionCount|>=|60000 cmd oss #tick repeatable
+	if actionCount|>|60000 terminate
 jump #tick
 
 #click
