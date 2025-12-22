@@ -87,6 +87,7 @@ quit
 	set y {runArg2}
 	set z {runArg3}
 	call #getblock|{x}|{y}|{z}
+	if label #use[{id}] jump #use[{id}]
 	if blocks[{id}].replaceable quit
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
@@ -253,6 +254,22 @@ quit
 		end
 		setadd i 1
 	end
+quit
+
+#use[61]
+	msg workbench used
+quit
+
+#use[62]
+	msg stonecutter used
+quit
+
+#use[67]
+	msg campfire used
+quit
+
+#use[68]
+	msg lit campfire used
 quit
 
 #loot[1]
