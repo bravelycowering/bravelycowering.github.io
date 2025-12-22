@@ -9,6 +9,7 @@
 	cmd holdsilent 0
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
+	set PrevPlayerCoords {PlayerCoords}
 
 	include struct blocks survival/blocks
 	include struct recipes survival/recipes
@@ -18,7 +19,6 @@
 	set isTool(axe) true
 	set isTool(shovel) true
 
-	call #updateToolDisplay
 	cmd oss #tick repeatable
 quit
 
@@ -28,16 +28,17 @@ quit
 		msg your died
 		kill
 	end
+	ifnot PlayerCoords|=|PrevPlayerCoords then
+		// moved
+		set usingWorkbench false
+	end
+	set PrevPlayerCoords {PlayerCoords}
 	delay 100
+	cpemsg top1 &c{actionCount}/50000
+	cpemsg bot1 Holding: &6{blocks[{PlayerHeldBlock}].name} (&fx{inventory[{PlayerHeldBlock}]})
 	if actionCount|>=|50000 cmd oss #tick repeatable
 	if actionCount|>|50000 terminate
 jump #tick
-
-#updateToolDisplay
-	cpemsg bot1 {toollevel[{pickaxe}]} Pickaxe
-	cpemsg bot2 {toollevel[{axe}]} Axe
-	cpemsg bot3 {toollevel[{shovel}]} Spade
-quit
 
 #click
 	set coords {click.coords}
@@ -291,7 +292,8 @@ quit
 quit
 
 #use[61]
-	msg workbench used
+	set usingWorkbench true
+	call #input|craft
 quit
 
 #use[62]
