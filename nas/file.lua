@@ -38,7 +38,6 @@ return function(inpath)
 	local lines = {}
 	local ends = {}
 	local locals = {}
-	local localsEnabled = false
 	for line in incontent:gmatch("[^\n]*") do
 		line = resolvePackageUnwraps(locals, line)
 		local condition, condargs, condargcount, action, args = nil, {}, 0, nil, {}

@@ -1,5 +1,3 @@
-using local_packages
-
 #onJoin
 	clickevent sync register #click
 	reach 5
