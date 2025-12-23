@@ -1,14 +1,20 @@
 #onJoin
 	clickevent sync register #click
 	reach 5
+
 	set minetimer 0
 	set minepos
 	set pickaxe 0
 	set axe 0
 	set spade 0
+
 	set hp 30
 	set maxhp 30
+	set iframes 0
+
 	cmd holdsilent 0
+	gui barColor #ff0000 0.25
+
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
 
@@ -32,15 +38,24 @@ quit
 #tick
 	call #getblock|{PlayerX}|{PlayerY}|{PlayerZ}
 	if blocks[{id}].kills then
+		set iframes 4
 		msg your died
 		kill
+	end
+	if iframes|>|0 then
+		setsub iframes 1
+		if iframes|<|2 gui barSize 0
+		else gui barSize 1
 	end
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
 	set PrevPlayerCoords {PlayerCoords}
 	delay 100
 	cpemsg top1 &c{actionCount}/60000
-	call #makebar|hpbar|c|{hp}|{maxhp}
-	cpemsg bot1 &c♥ {hpbar}
+	ifnot hp|=|prevhp then
+		set prevhp hp
+		call #makebar|hpbar|c|{hp}|{maxhp}
+		cpemsg bot1 &c♥ {hpbar}
+	end
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot2 Holding: &cNothing
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
