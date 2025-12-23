@@ -37,8 +37,8 @@ quit
 
 #tick
 	call #getblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	ifnot blocks[{id}].damage|=|"" call #damage|{blocks[{id}].damage}|{blocks[{id}].damageType}
 	if blocks[{id}].catchFire set fireticks 100
+	ifnot blocks[{id}].damage|=|"" call #damage|{blocks[{id}].damage}|{blocks[{id}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
 	set PrevPlayerCoords {PlayerCoords}
