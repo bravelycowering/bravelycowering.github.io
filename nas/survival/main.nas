@@ -76,7 +76,7 @@ jump #tick
 	if iframes|>|0 quit
 	setsub hp {runArg1}
 	set iframes 4
-	cs me ow
+	cs me ow:select(7)
 	if hp|<=|0 then
 		kill {deathmessages.{runArg2}}
 		set fireticks 0
