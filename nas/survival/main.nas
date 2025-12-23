@@ -246,14 +246,14 @@ quit
 	ifnot recipes[{runArg1}].condition|=|"" then
 		ifnot {recipes[{runArg1}].condition} quit
 	end
+	if isTool({recipes[{runArg1}].output.id}) then
+		if {recipes[{runArg1}].output.id}|>=|count quit
+	end
 	while if j|<|{recipes[{runArg1}].ingredients.Length}
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {recipes[{runArg1}].ingredients[{j}].count}
 		setmul count {runArg3}
 		if count|>|{inventory[{id}]} quit
-		if isTool({id}) then
-			if {id}|>=|count quit
-		end
 		setadd j 1
 	end
 	set {runArg2} true
