@@ -18,10 +18,7 @@
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
 
-	include struct blocks survival/blocks
-	include struct recipes survival/recipes
-	include struct toollevel survival/toollevel
-	include struct deathmessages survival/deathmessages
+	call #initStructs
 
 	// compat with id finder thingy
 	set blocks[pickaxe].name Pickaxe
@@ -64,7 +61,7 @@ jump #tick
 	setsub hp {runArg1}
 	set iframes 4
 	cs me ow
-	if hp|<|0 then
+	if hp|<=|0 then
 		kill {deathmessages.{runArg2}}
 		set hp {maxhp}
 	end
@@ -374,4 +371,11 @@ jump #give|40|{count}
 #loot[60]
 #loot[68]
 #loot[69]
+quit
+
+#initStructs
+	include struct blocks survival/blocks
+	include struct recipes survival/recipes
+	include struct toollevel survival/toollevel
+	include struct deathmessages survival/deathmessages
 quit
