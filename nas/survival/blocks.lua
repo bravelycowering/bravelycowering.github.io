@@ -44,7 +44,7 @@ return {
 		replaceable = true,
 		fluid = true,
 		level = 8,
-		setFireTicks = 0,
+		extinguishFire = true,
 	},
 	{
 		name = "Still water",
@@ -53,7 +53,7 @@ return {
 		fluid = true,
 		source = true,
 		level = 8,
-		setFireTicks = 0,
+		extinguishFire = true,
 	},
 	{
 		name = "Lava",
@@ -63,7 +63,7 @@ return {
 		level = 4,
 		damage = 6,
 		damageType = "lava",
-		setFireTicks = 100,
+		catchFire = true,
 	},
 	{
 		name = "Still lava",
@@ -74,7 +74,7 @@ return {
 		level = 4,
 		damage = 6,
 		damageType = "lava",
-		setFireTicks = 100,
+		catchFire = true,
 	},
 	{
 		name = "Sand",
@@ -262,7 +262,7 @@ return {
 		name = "Fire",
 		damage = 3,
 		damageType = "fire",
-		setFireTicks = 100,
+		catchFire = true,
 	},
 	{
 		name = "Gold bar",
@@ -326,7 +326,7 @@ return {
 		remainder = 67,
 		damage = 3,
 		damageType = "fire",
-		setFireTicks = 100,
+		catchFire = true,
 	},
 	{
 		name = "Cobweb",
