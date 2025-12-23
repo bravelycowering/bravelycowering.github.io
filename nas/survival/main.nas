@@ -36,15 +36,15 @@
 quit
 
 #tick
-	call #getblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{id}].catchFire set fireticks 100
-	if blocks[{id}].extinguishFire then
+	call #getblock|myblock|{PlayerX}|{PlayerY}|{PlayerZ}
+	if blocks[{myblock}].catchFire set fireticks 100
+	if blocks[{myblock}].extinguishFire then
 		if fireticks|>|0 then
 			gui barSize 0
 			set fireticks 0
 		end
 	end
-	ifnot blocks[{id}].damage|=|"" call #damage|{blocks[{id}].damage}|{blocks[{id}].damageType}
+	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
 	set PrevPlayerCoords {PlayerCoords}
@@ -106,7 +106,7 @@ quit
 	set y {runArg2}
 	set z {runArg3}
 	set coords {x} {y} {z}
-	call #getblock|{runArg1}|{runArg2}|{runArg3}
+	call #getblock|id|{runArg1}|{runArg2}|{runArg3}
 	cmd tempbot remove minemeter
 	if blocks[{id}].unbreakable quit
 	ifnot minepos|=|coords set minetimer {blocks[{id}].hardness}
@@ -178,7 +178,7 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
-	call #getblock|{x}|{y}|{z}
+	call #getblock|id|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
 	if blocks[{id}].replaceable quit
 	if click.face|=|"AwayX" setadd x 1
@@ -187,7 +187,7 @@ quit
 	if click.face|=|"TowardsX" setsub x 1
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
-	call #getblock|{x}|{y}|{z}
+	call #getblock|id|{x}|{y}|{z}
 	ifnot blocks[{id}].replaceable quit
 	ifnot blocks[{PlayerHeldBlock}].replaceable then
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
@@ -199,13 +199,13 @@ quit
 quit
 
 #pick
-	call #getblock|{runArg1}|{runArg2}|{runArg3}
+	call #getblock|id|{runArg1}|{runArg2}|{runArg3}
 	cmd holdsilent {id}
 quit
 
 #getblock
-	set id {world[{runArg1},{runArg2},{runArg3}]}
-	if id|=|"" setblockid id {runArg1} {runArg2} {runArg3}
+	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
+	if {runArg1}|=|"" setblockid id {runArg2} {runArg3} {runArg4}
 quit
 
 #setblock
