@@ -61,8 +61,8 @@ quit
 	if fireticks|>|0 then
 		setsub fireticks 1
 		if iframes|<|2 then
-			gui barColor #ffcc00 0.5
-			gui barSize 0.25
+			gui barColor #ffcc00 0.15
+			gui barSize 1
 		end
 		set firetickmod {fireticks}
 		setmod firetickmod 10
@@ -79,6 +79,7 @@ jump #tick
 	cs me ow
 	if hp|<=|0 then
 		kill {deathmessages.{runArg2}}
+		set fireticks 0
 		set hp {maxhp}
 	end
 quit
