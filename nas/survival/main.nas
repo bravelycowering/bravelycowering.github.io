@@ -237,7 +237,7 @@ quit
 		end
 		if usingWorkbench msg &eWorkbench Recipes:
 		ifnot usingWorkbench then
-			if usingStonecutter then msg &eStonecutter Recipes:
+			if usingStonecutter msg &eStonecutter Recipes:
 			else msg &eRecipes:
 		end
 		set i 0
