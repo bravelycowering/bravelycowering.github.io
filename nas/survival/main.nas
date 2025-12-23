@@ -237,7 +237,8 @@ quit
 	set count {recipes[{recipeID}].output.count}
 	setmul count {recipeCount}
 	call #give|{blockID}|{count}
-	msg &aCrafted {blocks[{blockID}].name} x{count}
+	ifnot isTool({blockID}) msg &aCrafted {blocks[{blockID}].name} x{count}
+	else msg &aCrafted {toollevel[{count}]} {blocks[{blockID}].name}
 quit
 
 #checkRecipeAfford
