@@ -59,7 +59,8 @@ return {
 		replaceable = true,
 		fluid = true,
 		level = 4,
-		kills = true,
+		damage = 6,
+		damageType = "lava",
 	},
 	{
 		name = "Still lava",
@@ -68,7 +69,8 @@ return {
 		fluid = true,
 		source = true,
 		level = 4,
-		kills = true,
+		damage = 6,
+		damageType = "lava",
 	},
 	{
 		name = "Sand",

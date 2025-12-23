@@ -8,8 +8,8 @@
 	set axe 0
 	set spade 0
 
-	set hp 30
 	set maxhp 30
+	set hp {maxhp}
 	set iframes 0
 
 	cmd holdsilent 0
@@ -37,16 +37,7 @@ quit
 
 #tick
 	call #getblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{id}].kills then
-		set iframes 4
-		msg your died
-		kill
-	end
-	if iframes|>|0 then
-		setsub iframes 1
-		if iframes|<|2 gui barSize 0
-		else gui barSize 1
-	end
+	ifnot blocks[{id}].damage|=|"" call #damage|{blocks[{id}].damage}|{blocks[{id}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
 	set PrevPlayerCoords {PlayerCoords}
 	delay 100
@@ -59,9 +50,25 @@ quit
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot2 Holding: &cNothing
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
+	if iframes|>|0 then
+		setsub iframes 1
+		if iframes|<|2 gui barSize 0
+		else gui barSize 1
+	end
 	if actionCount|>=|60000 cmd oss #tick repeatable
 	if actionCount|>|60000 terminate
 jump #tick
+
+#damage
+	if iframes|>|0 quit
+	setsub hp {runArg1}
+	set iframes 4
+	cs me ow
+	if hp|<|0 then
+		kill {deathmessages.{runArg2}}
+		set hp {maxhp}
+	end
+quit
 
 #click
 	set coords {click.coords}
