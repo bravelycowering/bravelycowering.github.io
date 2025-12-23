@@ -11,7 +11,7 @@ return {
 		}
 	},
 	output = {
-		id = ids.unlit_torch,
+		id = ids.torch,
 		count = 4,
 	}
 }
