@@ -257,7 +257,7 @@ quit
 		ifnot {recipes[{runArg1}].condition} quit
 	end
 	if isTool({recipes[{runArg1}].output.id}) then
-		if {recipes[{runArg1}].output.count}|>=|count quit
+		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count quit
 	end
 	while if j|<|{recipes[{runArg1}].ingredients.Length}
 		set id {recipes[{runArg1}].ingredients[{j}].id}
