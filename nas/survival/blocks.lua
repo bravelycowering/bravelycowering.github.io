@@ -332,7 +332,7 @@ return {
 		tooltype = "spade",
 	},
 	{
-		name = "Torch",
+		name = "Lit torch",
 		campfireLighter = 70,
 	},
 	{
@@ -393,7 +393,7 @@ return {
 		level = 1,
 	},
 	{
-		name = "Unlit torch",
+		name = "Torch",
 		campfireLighter = 70,
 	},
 }
