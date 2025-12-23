@@ -43,7 +43,7 @@ quit
 	delay 100
 	cpemsg top1 &c{actionCount}/60000
 	ifnot hp|=|prevhp then
-		set prevhp hp
+		set prevhp {hp}
 		call #makebar|hpbar|c|{hp}|{maxhp}
 		cpemsg bot1 &c♥ {hpbar}
 	end
