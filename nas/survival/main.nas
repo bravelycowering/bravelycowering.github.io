@@ -160,14 +160,18 @@ quit
 // package, color, amount, max
 	set i 0
 	set {runArg1} &{runArg2}
-	while if i|<|{runArg3}
-		set {runArg1} {{runArg1}}|
-		setadd i 1
+	if i|<|{runArg3} then
+		while if i|<|{runArg3}
+			set {runArg1} {{runArg1}}|
+			setadd i 1
+		end
 	end
 	set {runArg1} {{runArg1}}&0
-	while if i|<|{runArg4}
-		set {runArg1} {{runArg1}}|
-		setadd i 1
+	if i|<|{runArg4} then
+		while if i|<|{runArg4}
+			set {runArg1} {{runArg1}}|
+			setadd i 1
+		end
 	end
 quit
 
