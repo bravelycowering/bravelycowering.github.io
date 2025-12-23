@@ -229,7 +229,7 @@ quit
 			end
 			call #getRecipeByOutput|recipeID|{blockID}|{craftArgs[1]}
 			if recipeID|=|"" then
-				msg &cYou do not have the materials to craft {blocks[{blockID}].name}!
+				msg &cYou cannot craft {blocks[{blockID}].name}!
 				quit
 			end
 			call #doCraft|{recipeID}|{craftArgs[1]}
