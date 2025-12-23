@@ -1,0 +1,60 @@
+// TOOLS
+
+	// diamond pickaxe
+		3 diamond_gem + 2 stick = 8 pickaxe ? usingWorkbench
+	// diamond axe
+		3 diamond_gem + 2 stick = 8 axe ? usingWorkbench
+	// diamond spade
+		1 diamond_gem + 2 stick = 8 spade ? usingWorkbench
+
+	// golden pickaxe
+		3 gold_bar + 2 stick = 6 pickaxe ? usingWorkbench
+	// golden axe
+		3 gold_bar + 2 stick = 6 axe ? usingWorkbench
+	// golden spade
+		1 gold_bar + 2 stick = 6 spade ? usingWorkbench
+
+	// iron pickaxe
+		3 iron_bar + 2 stick = 3 pickaxe ? usingWorkbench
+	// iron axe
+		3 iron_bar + 2 stick = 3 axe ? usingWorkbench
+	// iron spade
+		1 iron_bar + 2 stick = 3 spade ? usingWorkbench
+
+	// stone pickaxe
+		3 cobblestone + 2 stick = 2 pickaxe ? usingWorkbench
+	// stone axe
+		3 cobblestone + 2 stick = 2 axe ? usingWorkbench
+	// stone spade
+		1 cobblestone + 2 stick = 2 spade ? usingWorkbench
+
+	// wooden pickaxe
+		3 wood + 2 stick = 1 pickaxe ? usingWorkbench
+	// wooden axe
+		3 wood + 2 stick = 1 axe ? usingWorkbench
+	// wooden spade
+		1 wood + 2 stick = 1 spade ? usingWorkbench
+
+// wood
+	1 log = 4 wood
+// stick
+	2 wood = 4 stick
+// workbench
+	4 wood = 1 workbench
+// torch
+	1 stick + 1 coal_lump = 4 torch
+// campfire
+	3 stick + 1 coal_lump = 1 campfire
+// stonecutter
+	4 cobblestone = 1 stonecutter
+
+// ORES
+
+	// coal lump
+	1 coal_ore = 1 coal_lump ? usingStonecutter
+	// iron bar
+	1 iron_ore = 1 iron_bar ? usingStonecutter
+	// gold bar
+	1 gold_ore = 1 gold_bar ? usingStonecutter
+	// diamond gem
+	1 diamond_ore = 1 diamond_gem ? usingStonecutter
