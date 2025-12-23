@@ -35,8 +35,8 @@ quit
 		msg your died
 		kill
 	end
-	ifnot PlayerCoordsPrecise|=|PrevPlayerCoordsPrecise set usingWorkbench false
-	set PrevPlayerCoordsPrecise {PlayerCoordsPrecise}
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
+	set PrevPlayerCoords {PlayerCoords}
 	delay 100
 	cpemsg top1 &c{actionCount}/60000
 	call #makebar|hpbar|c|{hp}|{maxhp}
@@ -253,7 +253,7 @@ quit
 		ifnot {recipes[{runArg1}].condition} quit
 	end
 	if isTool({recipes[{runArg1}].output.id}) then
-		if {recipes[{runArg1}].output.id}|>=|count quit
+		if {recipes[{runArg1}].output.count}|>=|count quit
 	end
 	while if j|<|{recipes[{runArg1}].ingredients.Length}
 		set id {recipes[{runArg1}].ingredients[{j}].id}
