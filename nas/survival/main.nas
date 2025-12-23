@@ -342,7 +342,7 @@ quit
 quit
 
 #use[68]
-	setdeathspawn {PlayerCoords}
+	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	set spawnblock {runArg1} {runArg2} {runArg3}
 	msg &fRespawn point set
 quit
