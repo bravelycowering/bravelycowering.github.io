@@ -411,8 +411,7 @@ quit
 quit
 
 #use[80:70]
-	msg {runArg1}|{runArg2}|{runArg3}
-	if inventory[70]|>|0 call #setblock|80|{runArg1}|{runArg2}|{runArg3}
+	if inventory[70]|>|0 call #setblock|70|{runArg1}|{runArg2}|{runArg3}
 quit
 
 #loot[1]
