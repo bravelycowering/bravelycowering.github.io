@@ -3,11 +3,11 @@ return {
 	ingredients = {
 		{
 			id = ids.stick,
-			count = 5,
+			count = 3,
 		},
 		{
 			id = ids.coal_lump,
-			count = 2,
+			count = 1,
 		}
 	},
 	output = {
