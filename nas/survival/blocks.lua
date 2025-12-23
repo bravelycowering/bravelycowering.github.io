@@ -61,6 +61,7 @@ return {
 		level = 4,
 		damage = 6,
 		damageType = "lava",
+		catchFire = true,
 	},
 	{
 		name = "Still lava",
@@ -71,6 +72,7 @@ return {
 		level = 4,
 		damage = 6,
 		damageType = "lava",
+		catchFire = true,
 	},
 	{
 		name = "Sand",
@@ -256,6 +258,9 @@ return {
 	},
 	{
 		name = "Fire",
+		damage = 3,
+		damageType = "fire",
+		catchFire = true,
 	},
 	{
 		name = "Gold bar",
@@ -317,6 +322,9 @@ return {
 	{
 		name = "Lit campfire",
 		remainder = 67,
+		damage = 3,
+		damageType = "fire",
+		catchFire = true,
 	},
 	{
 		name = "Cobweb",

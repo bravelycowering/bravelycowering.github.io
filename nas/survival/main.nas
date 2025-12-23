@@ -11,6 +11,7 @@
 	set maxhp 30
 	set hp {maxhp}
 	set iframes 0
+	set fireticks 0
 
 	set worldSpawn {PlayerCoords}
 
@@ -37,11 +38,12 @@ quit
 #tick
 	call #getblock|{PlayerX}|{PlayerY}|{PlayerZ}
 	ifnot blocks[{id}].damage|=|"" call #damage|{blocks[{id}].damage}|{blocks[{id}].damageType}
+	if blocks[{id}].catchFire set fireticks 100
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
 	set PrevPlayerCoords {PlayerCoords}
 	delay 100
-	cpemsg top1 &c{actionCount}/60000
+	// cpemsg top1 &c{actionCount}/60000
 	ifnot hp|=|prevhp then
 		set prevhp {hp}
 		call #makebar|hpbar|c|{hp}|{maxhp}
@@ -52,8 +54,19 @@ quit
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
 	if iframes|>|0 then
 		setsub iframes 1
+		ifnot iframes|<|2 gui barColor #ff0000 0.25
 		if iframes|<|2 gui barSize 0
 		else gui barSize 1
+	end
+	if fireticks|>|0 then
+		setsub fireticks 1
+		if iframes|<|2 then
+			gui barColor #ffcc00 0.5
+			gui barSize 0.25
+		end
+		set firetickmod {fireticks}
+		setmod firetickmod 10
+		if firetickmod|=|0 call #damage|3|burn
 	end
 	if actionCount|>=|60000 cmd oss #tick repeatable
 	if actionCount|>|60000 terminate
