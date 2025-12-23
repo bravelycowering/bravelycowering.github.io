@@ -188,6 +188,7 @@ quit
 	set y {runArg2}
 	set z {runArg3}
 	call #getblock|id|{x}|{y}|{z}
+	if label #use[{id}:{PlayerHeldBlock}] jump #use[{id}:{PlayerHeldBlock}]|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
 	if blocks[{id}].replaceable quit
 	if click.face|=|"AwayX" setadd x 1
@@ -388,25 +389,31 @@ quit
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
 			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
+			setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
+			set spawnblock {runArg1} {runArg2} {runArg3}
+			msg &fRespawn point set
 		end
 	end
+quit
+
+#use[68]
 	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	set spawnblock {runArg1} {runArg2} {runArg3}
 	msg &fRespawn point set
 quit
 
-#use[68]
-	ifnot blocks[{PlayerHeldBlock}].campfireLighter|=|"" then
-		if inventory[{PlayerHeldBlock}]|>|0 then
-			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
-			call #take|{PlayerHeldBlock}|1
-			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
-			quit
-		end
+#use[70:80]
+#use[68:80]
+	if inventory[80]|>|0 then
+		call #take|80|1
+		call #give|70|1
 	end
-	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
-	set spawnblock {runArg1} {runArg2} {runArg3}
-	msg &fRespawn point set
+quit
+
+#use[80:70]
+	if inventory[70]|>|0 then
+		call #setblock|80|{runArg1}|{runArg2}|{runArg3}
+	end
 quit
 
 #loot[1]

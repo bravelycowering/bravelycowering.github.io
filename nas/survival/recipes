@@ -35,18 +35,20 @@
 	// wooden spade
 		1 wood + 2 stick = 1 spade ? usingWorkbench
 
-// wood
-	1 log = 4 wood
-// stick
-	2 wood = 4 stick
-// workbench
-	4 wood = 1 workbench
-// torch
-	1 stick + 1 coal_lump = 4 torch
-// campfire
-	3 stick + 1 coal_lump = 1 campfire
-// stonecutter
-	4 cobblestone = 1 stonecutter
+// GENERAL RESOURCES
+
+	// wood
+		1 log = 4 wood
+	// stick
+		2 wood = 4 stick
+	// workbench
+		4 wood = 1 workbench
+	// torch
+		1 stick + 1 coal_lump = 4 torch
+	// campfire
+		3 stick + 1 coal_lump = 1 campfire
+	// stonecutter
+		4 cobblestone = 1 stonecutter
 
 // ORES
 
@@ -58,3 +60,30 @@
 	1 gold_ore = 1 gold_bar ? usingStonecutter
 	// diamond gem
 	1 diamond_ore = 1 diamond_gem ? usingStonecutter
+
+// ORE BLOCKS
+
+	// coal block
+	9 coal_lump = 1 coal ? usingWorkbench
+	1 coal = 9 coal_lump ? usingStonecutter
+	// iron block
+	9 iron_bar = 1 iron ? usingWorkbench
+	1 iron = 9 iron_bar ? usingStonecutter
+	// gold block
+	9 gold_bar = 1 gold ? usingWorkbench
+	1 gold = 9 gold_bar ? usingStonecutter
+	// diamond block
+	9 diamond_gem = 1 diamond ? usingWorkbench
+	1 diamond = 9 diamond_gem ? usingStonecutter
+
+// OTHER BLOCKS
+
+	// snow block
+	4 snow_ball = 1 snow
+	1 snow = 4 snow_ball
+	// brown mushroom block
+	4 brown_mushroom = 1 brown_mushroom_top
+	1 brown_mushroom_top = 4 brown_mushroom
+	// red mushroom block
+	4 red_mushroom = 1 red_mushroom_top
+	1 red_mushroom_top = 4 red_mushroom
