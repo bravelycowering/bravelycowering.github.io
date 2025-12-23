@@ -37,8 +37,9 @@ quit
 	set PrevPlayerCoordsPrecise {PlayerCoordsPrecise}
 	delay 100
 	cpemsg top1 &c{actionCount}/60000
-	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot1 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
-	else cpemsg bot1 Holding: &cNothing
+	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
+	else cpemsg bot2 Holding: &cNothing
+	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
 	if actionCount|>=|60000 cmd oss #tick repeatable
 	if actionCount|>|60000 terminate
 jump #tick
