@@ -6,6 +6,8 @@
 	set pickaxe 0
 	set axe 0
 	set spade 0
+	set hp 30
+	set maxhp 30
 	cmd holdsilent 0
 	msg &fYou can place and break blocks freely in this map.
 	msg &fType &a/in&f to view your &ainventory&f.
@@ -37,6 +39,8 @@ quit
 	set PrevPlayerCoordsPrecise {PlayerCoordsPrecise}
 	delay 100
 	cpemsg top1 &c{actionCount}/60000
+	call #makebar|hpbar|c|{hp}|{maxhp}
+	cpemsg bot1 &c♥ {hpbar}
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot2 Holding: &cNothing
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
@@ -71,7 +75,7 @@ quit
 	else set toomuch false
 	if blocks[{id}].tooltype|=|"" set toomuch false
 	if blocks[{id}].toughness|=|"" set toomuch false
-	if toomuch set barcol C
+	if toomuch set barcol c
 	else set barcol a
 	setsub minetimer {minespeed}
 	if minetimer|>|0 then
