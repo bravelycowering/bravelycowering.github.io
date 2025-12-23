@@ -1,3 +1,5 @@
+using local_packages
+
 #onJoin
 	clickevent sync register #click
 	reach 5
@@ -35,48 +37,54 @@
 	cmd oss #tick repeatable
 quit
 
-#tick
-	call #getblock|myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{myblock}].catchFire set fireticks 100
-	if blocks[{myblock}].extinguishFire then
+start
+	local PrevPlayerCoords
+	local prevhp
+	local hpbar
+	local myblock
+	#tick
+		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
+		if blocks[{myblock}].catchFire set fireticks 100
+		if blocks[{myblock}].extinguishFire then
+			if fireticks|>|0 then
+				gui barSize 0
+				set fireticks 0
+			end
+		end
+		ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
+		ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
+		ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
+		set *PrevPlayerCoords {PlayerCoords}
+		delay 100
+		// cpemsg top1 &c{actionCount}/60000
+		ifnot hp|=|*prevhp then
+			set *prevhp {hp}
+			call #makebar|*hpbar|c|{hp}|{maxhp}
+			cpemsg bot1 &c♥ {hpbar}
+		end
+		if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
+		else cpemsg bot2 Holding: &cNothing
+		cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
+		if iframes|>|0 then
+			setsub iframes 1
+			ifnot iframes|<|2 gui barColor #ff0000 0.25
+			if iframes|<|2 gui barSize 0
+			else gui barSize 1
+		end
 		if fireticks|>|0 then
-			gui barSize 0
-			set fireticks 0
+			setsub fireticks 1
+			if iframes|<|2 then
+				gui barColor #ffcc00 0.15
+				gui barSize 1
+			end
+			set firetickmod {fireticks}
+			setmod firetickmod 10
+			if firetickmod|=|0 call #damage|2|burn
 		end
-	end
-	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
-	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
-	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
-	set PrevPlayerCoords {PlayerCoords}
-	delay 100
-	// cpemsg top1 &c{actionCount}/60000
-	ifnot hp|=|prevhp then
-		set prevhp {hp}
-		call #makebar|hpbar|c|{hp}|{maxhp}
-		cpemsg bot1 &c♥ {hpbar}
-	end
-	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
-	else cpemsg bot2 Holding: &cNothing
-	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
-	if iframes|>|0 then
-		setsub iframes 1
-		ifnot iframes|<|2 gui barColor #ff0000 0.25
-		if iframes|<|2 gui barSize 0
-		else gui barSize 1
-	end
-	if fireticks|>|0 then
-		setsub fireticks 1
-		if iframes|<|2 then
-			gui barColor #ffcc00 0.15
-			gui barSize 1
-		end
-		set firetickmod {fireticks}
-		setmod firetickmod 10
-		if firetickmod|=|0 call #damage|2|burn
-	end
-	if actionCount|>=|60000 cmd oss #tick repeatable
-	if actionCount|>|60000 terminate
-jump #tick
+		if actionCount|>=|60000 cmd oss #tick repeatable
+		if actionCount|>|60000 terminate
+	jump #tick
+end
 
 #damage
 	if iframes|>|0 quit

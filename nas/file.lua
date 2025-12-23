@@ -1,12 +1,35 @@
-local function randstr(n)
-	local chars = {}
-	for i = 1, n do
-		chars[#chars+1] = string.char(math.random(65, 90) + math.random(0, 1)*32)
-	end
-	return table.concat(chars)
+local conflicts = {}
+
+local function uuid(n)
+	local str
+	repeat
+		local chars = {}
+		for i = 1, n do
+			chars[#chars+1] = string.char(math.random(65, 90) + math.random(0, 1)*32)
+		end
+		str = table.concat(chars)
+	until not conflicts[str]
+	conflicts[str] = true
+	return str
 end
 
-local conflicts = {}
+local function resolveVarName(locals, name)
+	for i = #locals, 1, -1 do
+		local scope = locals[i]
+		if scope[name] then
+			return scope[name]
+		end
+	end
+	return name
+end
+
+local function resolvePackageUnwraps(locals, word)
+	return word:gsub("%b{}", function(m)
+		return "{"..resolveVarName(locals, resolvePackageUnwraps(locals, m:sub(2, -2))).."}"
+	end):gsub("%*(%w+)", function(m)
+		return resolveVarName(locals, m)
+	end)
+end
 
 return function(inpath)
 	local infile = assert(io.open(inpath, "rb"))
@@ -14,7 +37,10 @@ return function(inpath)
 	infile:close()
 	local lines = {}
 	local ends = {}
+	local locals = {}
+	local localsEnabled = false
 	for line in incontent:gmatch("[^\n]*") do
+		line = resolvePackageUnwraps(locals, line)
 		local condition, condargs, condargcount, action, args = nil, {}, 0, nil, {}
 		for word in line:gmatch("%S+") do
 			if condargcount > 0 then
@@ -38,12 +64,15 @@ return function(inpath)
 			end
 		end
 		if condition == "while" then
-			local label
-			repeat
-				label = "#"..condition.."_"..randstr(16)
-			until not conflicts[label]
+			local label = "#"..condition.."_"..uuid(16)
 			ends[#ends+1] = line:gsub("%s*while%s*", "", 1).." jump "..label
+			locals[#locals+1] = {}
 			line = line:gsub("while[^\n]+", label)
+		end
+		if action == "function" then
+			ends[#ends+1] = "quit"
+			locals[#locals+1] = {}
+			line = line:gsub("function.+", args[1])
 		end
 		if action == "include" then
 			line = tostring(require(args[1])(table.unpack(args, 2)))
@@ -58,17 +87,27 @@ return function(inpath)
 				validthen = true
 			end
 			if validthen then
-				local label
-				repeat
-					label = "#"..condition.."_"..randstr(16)
-				until not conflicts[label]
-				conflicts[label] = true
+				local label = "#"..condition.."_"..uuid(16)
 				ends[#ends+1] = label
+				locals[#locals+1] = {}
 				line = line:gsub("then[^\n%S]*", "jump "..label)
 			end
 		end
+		if action == "start" then
+			line = line:gsub("start[^\n]*", "// start scope")
+			ends[#ends+1] = "// end scope"
+			locals[#locals+1] = {}
+		end
+		if action == "local" then
+			local scope = locals[#locals]
+			local varname = args[1]
+			local localname = "l_"..uuid(16).."_"..varname
+			scope[varname] = localname
+			line = line:gsub("local[^\n%S]*%S+[^\n%S]*", "set "..localname.." ")
+		end
 		if action == "end" then
 			if #ends > 0 then
+				locals[#locals] = nil
 				line = line:gsub("end", ends[#ends], 1)
 				ends[#ends] = nil
 			end
