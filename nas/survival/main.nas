@@ -163,6 +163,9 @@ quit
 quit
 
 #giveall
+	set pickaxe 8
+	set axe 8
+	set spade 8
 	set i 0
 	while if i|<|{blocks.Length}
 		set inventory[{i}] 9999
@@ -421,6 +424,9 @@ jump #give|39|{count}
 #loot[64]
 setrandrange count 3 6
 jump #give|40|{count}
+
+#loot[71]
+jump #give|72|4
 
 #loot[20]
 #loot[50]
