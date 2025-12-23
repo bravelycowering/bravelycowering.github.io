@@ -37,7 +37,12 @@ quit
 
 #tick
 	call #getblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	ifnot blocks[{id}].setFireTicks|=|"" set fireticks {blocks[{id}].setFireTicks}
+	ifnot blocks[{id}].setFireTicks|=|"" then
+		if fireticks|>|0 then
+			if {blocks[{id}].setFireTicks}|=|0 gui barSize 0
+		end
+		set fireticks {blocks[{id}].setFireTicks}
+	end
 	ifnot blocks[{id}].damage|=|"" call #damage|{blocks[{id}].damage}|{blocks[{id}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
@@ -155,6 +160,12 @@ quit
 	setsub inventory[{runArg1}] {runArg2}
 	if inventory[{runArg1}]|<|0 set inventory[{runArg1}] 0
 	if inventory[{runArg1}]|=|0 cmd holdsilent 0
+quit
+
+#giveall
+	while if i|<|{blocks.Length}
+		set inventory[{i}] 9999
+	end
 quit
 
 #place
