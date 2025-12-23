@@ -47,6 +47,7 @@ start
 		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
 		if blocks[{myblock}].catchFire set fireticks 100
 		if blocks[{myblock}].extinguishFire then
+			msg EXTINGUISH FIRE GODDAMMIT
 			if fireticks|>|0 then
 				gui barSize 0
 				set fireticks 0
