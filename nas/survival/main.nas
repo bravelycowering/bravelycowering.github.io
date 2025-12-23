@@ -45,6 +45,7 @@ start
 	local myblock
 	#tick
 		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
+		msg {myblock}
 		if blocks[{myblock}].catchFire set fireticks 100
 		if blocks[{myblock}].extinguishFire then
 			msg EXTINGUISH FIRE GODDAMMIT
