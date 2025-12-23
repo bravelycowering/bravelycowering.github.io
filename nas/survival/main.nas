@@ -141,7 +141,7 @@ quit
 	set y {runArg2}
 	set z {runArg3}
 	call #getblock|{x}|{y}|{z}
-	if label #use[{id}] jump #use[{id}]
+	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
 	if blocks[{id}].replaceable quit
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
@@ -332,11 +332,19 @@ quit
 quit
 
 #use[67]
-	msg campfire used
+	ifnot blocks[{PlayerHeldBlock}].campfireLighter|=|"" then
+		if inventory[{PlayerHeldBlock}]|>|0 then
+			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
+			call #take|{PlayerHeldBlock}|1
+			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
+		end
+	end
 quit
 
 #use[68]
-	msg lit campfire used
+	setdeathspawn {PlayerCoords}
+	set spawnblock {runArg1} {runArg2} {runArg3}
+	msg &fRespawn point set
 quit
 
 #loot[1]

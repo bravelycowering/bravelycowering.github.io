@@ -325,6 +325,7 @@ return {
 	},
 	{
 		name = "Torch",
+		campfireLighter = 70,
 	},
 	{
 		name = "Snow",
@@ -382,5 +383,9 @@ return {
 		replaceable = true,
 		fluid = true,
 		level = 1,
+	},
+	{
+		name = "Unlit torch",
+		campfireLighter = 70,
 	},
 }
