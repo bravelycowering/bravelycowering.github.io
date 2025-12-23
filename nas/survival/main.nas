@@ -163,8 +163,10 @@ quit
 quit
 
 #giveall
+	set i 0
 	while if i|<|{blocks.Length}
 		set inventory[{i}] 9999
+		setadd i 1
 	end
 quit
 
