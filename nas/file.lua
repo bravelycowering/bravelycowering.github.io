@@ -1,10 +1,10 @@
 local conflicts = {}
 
-local function uuid(n)
+local function uuid()
 	local str
 	repeat
 		local chars = {}
-		for i = 1, n do
+		for i = 1, 6 do
 			chars[#chars+1] = string.char(math.random(65, 90) + math.random(0, 1)*32)
 		end
 		str = table.concat(chars)
@@ -63,7 +63,7 @@ return function(inpath)
 			end
 		end
 		if condition == "while" then
-			local label = "#"..condition.."_"..uuid(16)
+			local label = "#"..condition.."_"..uuid()
 			ends[#ends+1] = line:gsub("%s*while%s*", "", 1).." jump "..label
 			locals[#locals+1] = {}
 			line = line:gsub("while[^\n]+", label)
@@ -86,7 +86,7 @@ return function(inpath)
 				validthen = true
 			end
 			if validthen then
-				local label = "#"..condition.."_"..uuid(16)
+				local label = "#"..condition.."_"..uuid()
 				ends[#ends+1] = label
 				locals[#locals+1] = {}
 				line = line:gsub("then[^\n%S]*", "jump "..label)
@@ -100,7 +100,7 @@ return function(inpath)
 		if action == "local" then
 			local scope = locals[#locals]
 			local varname = args[1]
-			local localname = "l_"..uuid(16).."_"..varname
+			local localname = "l_"..uuid().."_"..varname
 			scope[varname] = localname
 			line = line:gsub("local[^\n%S]*%S+[^\n%S]*", "set "..localname.." ")
 		end
