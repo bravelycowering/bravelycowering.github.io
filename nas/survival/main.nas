@@ -12,6 +12,8 @@
 	set hp {maxhp}
 	set iframes 0
 
+	set worldSpawn {PlayerCoords}
+
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
@@ -118,6 +120,10 @@ quit
 	end
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
+	if spawnblock|=|coords then
+		set spawnblock
+		setdeathspawn {worldSpawn} 0 0
+	end
 	jump #setblock|{empty}|{x}|{y}|{z}
 quit
 
