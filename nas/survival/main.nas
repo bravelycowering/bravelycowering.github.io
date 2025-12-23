@@ -66,7 +66,7 @@ quit
 		end
 		set firetickmod {fireticks}
 		setmod firetickmod 10
-		if firetickmod|=|0 call #damage|3|burn
+		if firetickmod|=|0 call #damage|2|burn
 	end
 	if actionCount|>=|60000 cmd oss #tick repeatable
 	if actionCount|>|60000 terminate
