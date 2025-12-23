@@ -45,10 +45,8 @@ start
 	local myblock
 	#tick
 		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-		msg {myblock}
 		if blocks[{myblock}].catchFire set fireticks 100
 		if blocks[{myblock}].extinguishFire then
-			msg EXTINGUISH FIRE GODDAMMIT
 			if fireticks|>|0 then
 				gui barSize 0
 				set fireticks 0
@@ -216,7 +214,7 @@ quit
 
 #getblock
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
-	if {runArg1}|=|"" setblockid id {runArg2} {runArg3} {runArg4}
+	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
 #setblock
