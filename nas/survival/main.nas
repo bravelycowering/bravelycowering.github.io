@@ -38,6 +38,7 @@ quit
 	call #getblock|{PlayerX}|{PlayerY}|{PlayerZ}
 	ifnot blocks[{id}].damage|=|"" call #damage|{blocks[{id}].damage}|{blocks[{id}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
 	set PrevPlayerCoords {PlayerCoords}
 	delay 100
 	cpemsg top1 &c{actionCount}/60000
@@ -221,7 +222,10 @@ quit
 			quit
 		end
 		if usingWorkbench msg &eWorkbench Recipes:
-		else msg &eRecipes:
+		ifnot usingWorkbench then
+			if usingStonecutter then msg &eStonecutter Recipes:
+			else msg &eRecipes:
+		end
 		set i 0
 		while if i|<|{recipes.Length}
 			call #checkRecipeAfford|{i}|canAfford|1
@@ -334,7 +338,8 @@ quit
 quit
 
 #use[62]
-	msg stonecutter used
+	set usingStonecutter true
+	call #input|craft
 quit
 
 #use[67]
