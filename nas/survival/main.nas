@@ -362,11 +362,20 @@ quit
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
 			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
+			quit
 		end
 	end
 quit
 
 #use[68]
+	ifnot blocks[{PlayerHeldBlock}].campfireLighter|=|"" then
+		if inventory[{PlayerHeldBlock}]|>|0 then
+			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
+			call #take|{PlayerHeldBlock}|1
+			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
+			quit
+		end
+	end
 	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	set spawnblock {runArg1} {runArg2} {runArg3}
 	msg &fRespawn point set
