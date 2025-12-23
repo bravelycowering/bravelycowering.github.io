@@ -362,9 +362,11 @@ quit
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
 			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
-			quit
 		end
 	end
+	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
+	set spawnblock {runArg1} {runArg2} {runArg3}
+	msg &fRespawn point set
 quit
 
 #use[68]
