@@ -110,6 +110,7 @@ quit
 
 #generate.setupCommands
 	msg &cPLEASE USE THE FOLLOWING COMMANDS FIRST
+	msg &f/os texture bravelycowering.net/files/default2.zip
 	msg &f/os lb copyall bravelycowering+survivaldev
 	msg &f/os blockprops 764 grass 767
 	msg &f/os blockprops 765 grass 766
