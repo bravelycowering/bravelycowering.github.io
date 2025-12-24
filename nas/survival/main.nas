@@ -146,17 +146,25 @@ quit
 
 #generate.flood
 	localmsg smallannounce Flooding lakes...
-	cmd replace 0 9
+	// fill water
+	cmd replace 0 8
 	cmd m 0 0 0
 	cmd m {LevelX} 63 {LevelY}
+	// replace grass w sand
 	cmd replace 2 12
 	cmd m 0 0 0
 	cmd m {LevelX} 63 {LevelY}
-
 	setrandrange seed -999999999 9999999999
 	cmd replacebrush 12 cloudy 13 s={seed}
 	cmd m 0 0 0
 	cmd m {LevelX} 62 {LevelY}
+	// plug holes w dirt
+	cmd brush replace
+	cmd outline 9 layer 0 3
+	cmd ma
+	cmd outline 9 down 0 3
+	cmd ma
+	cmd brush normal
 quit
 
 #generate.caves
