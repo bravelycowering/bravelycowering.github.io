@@ -101,7 +101,8 @@ function #generate
 	cmd replaceall 1-767 2
 	delay 10000
 	// fix grass
-	cmd fixgrass
+	cmd fixgrassarea
+	cmd ma
 	// make under grass into stone
 	cmd replaceall 3 1
 	delay 10000
