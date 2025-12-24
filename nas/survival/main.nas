@@ -115,14 +115,26 @@ function #generate
 	cmd ma
 	// place dirt under the grass
 	cmd foreach 2 replace 1 3,m ~ ~-1 ~,m ~ ~-3 ~
-	// plant trees
+	// plant notch trees
 	cmd replacebrush 2 random 2/499 767
+	cmd ma
+	cmd foreach 767 tree notch,m ~ ~1 ~
+	cmd replaceall 767 3
+	// plant big oak trees
+	cmd replacebrush 2 random 2/999 767
 	cmd ma
 	cmd foreach 767 tree notch,m ~ ~1 ~
 	cmd replaceall 767 3
 	// insert ores
 	cmd replacebrush 1 random 1/1993 14/2 15/2 16/2 52
 	cmd ma
+	// create lava floor
+	cmd z 7
+	cmd m 0 0 0
+	cmd m {LevelX} 0 {LevelZ}
+	cmd replace 0 11
+	cmd m 0 1 0
+	cmd m {LevelX} 3 {LevelZ}
 	// finishing touches
 	msg &bDONT FORGET THE FOLLOWING COMMANDS!:
 	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura
