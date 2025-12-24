@@ -181,8 +181,14 @@ quit
 	cmd m {LevelX} {LevelY} {LevelZ}
 quit
 
-#generate.trees
-	localmsg smallannounce Planting trees...
+#generate.ores
+	localmsg smallannounce Placing ores...
+	cmd replacebrush 1 random 1/1993 14/2 15/2 16/2 52
+	cmd ma
+quit
+
+#generate.plants
+	localmsg smallannounce Planting vegitation...
 	// plant notch trees
 	cmd replacebrush 2 random 2/499 767
 	cmd ma
@@ -193,22 +199,47 @@ quit
 	cmd ma
 	cmd foreach 767 tree oak,m ~ ~1 ~
 	cmd replaceall 767 3
-quit
-
-#generate.ores
-	localmsg smallannounce Placing ores...
-	cmd replacebrush 1 random 1/1993 14/2 15/2 16/2 52
+	// flowers
+	cmd grow 2 767
+	cmd replacebrush 767 cloudy 0/4 767 f=2
+	cmd ma
+	cmd replacebrush 767 cloudy 0 37/2 f=.2
+	cmd ma
+	cmd replacebrush 37 random 37 38 0/3
+	cmd ma
+	// mushrooms
+	cmd grow 1 767
+	cmd replacebrush 767 cloudy 0/4 767
+	cmd ma
+	cmd replacebrush 767 cloudy 0 39/2 f=.2
+	cmd ma
+	cmd replacebrush 39 random 39 40 0/3
 	cmd ma
 quit
 
 #generate.lavaFloor
 	localmsg smallannounce Melting core...
+	// lava and bedrock
 	cmd z 7
 	cmd m 0 0 0
 	cmd m {LevelX} 0 {LevelZ}
 	cmd replace 0 11
 	cmd m 0 1 0
 	cmd m {LevelX} 3 {LevelZ}
+	// magma
+	cmd replacebrush 1 random 50 1
+	cmd m 0 1 0
+	cmd m {LevelX} 3 {LevelZ}
+	cmd replacebrush 1 random 50 1/2
+	cmd m 0 4 0
+	cmd m {LevelX} 4 {LevelZ}
+	cmd replacebrush 1 random 50 1/4
+	cmd m 0 5 0
+	cmd m {LevelX} 5 {LevelZ}
+	// fire
+	cmd grow 50 54
+	cmd replacebrush 54 random 0/4 54
+	cmd ma
 quit
 
 #generate.cleanupCommands
