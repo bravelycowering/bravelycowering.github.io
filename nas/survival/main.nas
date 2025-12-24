@@ -100,6 +100,7 @@ end
 	quit
 	#generate.start
 	call #generate.plantGrass
+	call #generate.flood
 	call #generate.caves
 	call #generate.trees
 	call #generate.ores
@@ -131,6 +132,19 @@ quit
 	cmd replaceall 767 2
 	cmd replaceall 766 3
 	cmd replaceall 765 1
+quit
+
+#generate.flood
+	cmd replace 0 9
+	cmd m 0 0 0
+	cmd m {LevelX} 63 {LevelY}
+	cmd replace 2 12
+	cmd m 0 0 0
+	cmd m {LevelX} 63 {LevelY}
+
+	setrandrange seed -999999999 9999999999
+	cmd replacebrush 12 cloudy 13 s={seed}
+	cmd ma
 quit
 
 #generate.caves
