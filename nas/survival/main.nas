@@ -94,7 +94,6 @@ end
 
 #generate
 	// get seed
-	setrandrange seed -999999999 9999999999
 	msg Generating
 	call #generate.setupCommands
 	replysilent 1|Start generating!|#generate.start
@@ -111,9 +110,9 @@ quit
 #generate.setupCommands
 	msg &cPLEASE USE THE FOLLOWING COMMANDS FIRST
 	msg &f/os texture bravelycowering.net/files/default2.zip
+	msg &f/os lb copyall bravelycowering+survivaldev
 	msg &f/os blockprops 764 grass 767
 	msg &f/os blockprops 765 grass 766
-	msg &f/os lb copyall bravelycowering+survivaldev
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -135,9 +134,27 @@ quit
 quit
 
 #generate.caves
-	cmd replacebrush 1 cloudy 767/2 a=2 f=.5 p=20 s={seed}
+	setrandrange seed1 -999999999 9999999999
+	setrandrange seed2 -999999999 9999999999
+	setrandrange seed3 -999999999 9999999999
+
+	cmd replacebrush 1 cloudy 767/2 a=2 f=.5 p=20 s={seed1}
 	cmd ma
-	cmd replacebrush 767 cloudy 1/2 0 a=2 f=.2 p=20 s={seed}
+	cmd replacebrush 767 cloudy 1/2 0 a=2 f=.2 p=20 s={seed2}
+	cmd ma
+
+	cmd replacebrush 2 cloudy 767/2 a=2 f=.5 p=20 s={seed1}
+	cmd ma
+	cmd replacebrush 767 cloudy 2/2 767 a=2 f=.2 p=20 s={seed2}
+	cmd ma
+	cmd replacebrush 767 cloudy 2/3 0 a=2 f=.2 p=20 s={seed3}
+	cmd ma
+
+	cmd replacebrush 3 cloudy 767/3 a=2 f=.5 p=20 s={seed1}
+	cmd ma
+	cmd replacebrush 767 cloudy 3/2 767 a=2 f=.2 p=20 s={seed2}
+	cmd ma
+	cmd replacebrush 767 cloudy 3/3 0 a=2 f=.2 p=20 s={seed3}
 	cmd ma
 quit
 
