@@ -82,10 +82,6 @@ start
 		end
 		if fireticks|>|0 then
 			setsub fireticks 1
-			if iframes|<|2 then
-				gui barColor #ffcc00 0.15
-				gui barSize 1
-			end
 			set *firetickmod {fireticks}
 			setmod *firetickmod 10
 			if *firetickmod|=|0 then
