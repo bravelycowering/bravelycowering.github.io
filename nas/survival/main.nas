@@ -111,9 +111,9 @@ quit
 #generate.setupCommands
 	msg &cPLEASE USE THE FOLLOWING COMMANDS FIRST
 	msg &f/os texture bravelycowering.net/files/default2.zip
-	msg &f/os lb copyall bravelycowering+survivaldev
 	msg &f/os blockprops 764 grass 767
 	msg &f/os blockprops 765 grass 766
+	msg &f/os lb copyall bravelycowering+survivaldev
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -135,14 +135,6 @@ quit
 quit
 
 #generate.caves
-	cmd replacebrush 3 cloudy 767/2 a=2 f=.5 p=20 s={seed}
-	cmd ma
-	cmd replacebrush 767 cloudy 3/2 0 a=2 f=.2 p=20 s={seed}
-	cmd ma
-	cmd replacebrush 2 cloudy 767/2 a=2 f=.5 p=20 s={seed}
-	cmd ma
-	cmd replacebrush 767 cloudy 2/2 0 a=2 f=.2 p=20 s={seed}
-	cmd ma
 	cmd replacebrush 1 cloudy 767/2 a=2 f=.5 p=20 s={seed}
 	cmd ma
 	cmd replacebrush 767 cloudy 1/2 0 a=2 f=.2 p=20 s={seed}
