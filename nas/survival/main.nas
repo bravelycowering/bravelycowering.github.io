@@ -19,7 +19,6 @@ using no_runarg_underscore_conversion
 	set allowMapChanges false
 	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
 
-	cmd descend
 	set worldSpawn {PlayerCoords}
 
 	cmd holdsilent 0
@@ -110,9 +109,9 @@ quit
 	call #generate.plantGrass
 	call #generate.flood
 	call #generate.caves
-	call #generate.plants
 	call #generate.ores
 	call #generate.lavaFloor
+	call #generate.plants
 	call #generate.cleanupCommands
 quit
 
@@ -252,9 +251,10 @@ quit
 
 #generate.cleanupCommands
 	localmsg smallannounce Done!
-	msg &cDONT FORGET TO SET THE MOTD!:
+	msg &cDONT FORGET TO SET THE MOTD AND AD!:
 	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura
 	else msg &f/os map motd -hax +thirdperson -push model=humanoid -aura
+	msg &f/ad
 quit
 
 #damage
