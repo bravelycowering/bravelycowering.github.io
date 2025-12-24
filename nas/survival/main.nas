@@ -16,12 +16,17 @@ using no_runarg_underscore_conversion
 	set iframes 0
 	set fireticks 0
 
+	set allowMapChanges false
+	if LevelName|=|bravelycowering+survival set allowMapChanges true
+
 	set worldSpawn {PlayerCoords}
 
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
 	msg &fYou can place and break blocks freely in this map.
+	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
+	else msg &cEverything you do is temporary. Leaving the map will reset your progress.
 	msg &fType &a/in&f to view your &ainventory&f.
 
 	call #initStructs
@@ -214,13 +219,16 @@ quit
 quit
 
 #getblock
-	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
+	ifnot allowMapChanges set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
 	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
 #setblock
-	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
-	set world[{runArg2},{runArg3},{runArg4}] {runArg1}
+	ifnot allowMapChanges then
+		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
+		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
+	quit
+	placeblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
 #makebar
@@ -433,11 +441,11 @@ call #give|57|1
 jump #give|66|3
 
 #loot[63]
-setrandrange count 3 6
+setrandrange count 1 4
 jump #give|39|{count}
 
 #loot[64]
-setrandrange count 3 6
+setrandrange count 1 4
 jump #give|40|{count}
 
 #loot[71]
