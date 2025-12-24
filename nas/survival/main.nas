@@ -90,10 +90,13 @@ start
 			setmod *firetickmod 10
 			if *firetickmod|=|0 then
 				call #damage|2|burn
-				set *temp {fireticks}
-				setdiv *temp 10
-				call #makecharbar|*firebar|▐|6|{temp}|10
-				cpemsg smallannounce {firebar}
+				if fireticks|>|0 then
+					set *temp {fireticks}
+					setdiv *temp 10
+					call #makecharbar|*firebar|▐|6|{temp}|10
+					cpemsg smallannounce {firebar}
+				end
+				ifnot fireticks|>|0 cpemsg smallannounce
 			end
 		end
 		if actionCount|>=|60000 cmd oss #tick repeatable
@@ -448,14 +451,14 @@ quit
 	set {runArg1} &{runArg3}
 	if i|<|{runArg4} then
 		while if i|<|{runArg4}
-			set {runArg1} {{runArg1}}|
+			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
 		end
 	end
 	set {runArg1} {{runArg1}}&0
 	if i|<|{runArg5} then
 		while if i|<|{runArg5}
-			set {runArg1} {{runArg1}}|
+			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
 		end
 	end
