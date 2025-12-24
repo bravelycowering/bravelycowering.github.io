@@ -94,6 +94,7 @@ start
 end
 
 #grow
+	msg outline {runArg1} up {runArg2}
 	cmd brush replacebrush 0
 	cmd outline {runArg1} up {runArg2}
 	cmd ma
