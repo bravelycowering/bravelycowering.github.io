@@ -92,19 +92,52 @@ start
 	jump #tick
 end
 
-function #generate
+#generate
 	// get seed
 	setrandrange seed -999999999 9999999999
 	msg Generating
-	// isolate terrain only (no fluids, trees, or foliage allowed!)
+	call #generate.setupCommands
+	replysilent 1|Start generating!|#generate.start
+	quit
+	#generate.start
+	call #generate.plantGrass
+	call #generate.caves
+	call #generate.trees
+	call #generate.ores
+	call #generate.lavaFloor
+	call #generate.cleanupCommands
+quit
+
+#generate.setupCommands
+	msg &cPLEASE USE THE FOLLOWING COMMANDS FIRST
+	msg &f/os lb copyall bravelycowering+survivaldev
+	msg &f/os blockprops 764 grass 767
+	msg &f/os blockprops 765 grass 766
+	msg &aWHEN YOU ARE DONE, TYPE &f1
+quit
+
+#generate.plantGrass
 	cmd replaceall 8-11 17-18 37-40 0
-	cmd replaceall 1-767 2
-	// fix grass
+	cmd replaceall 1-767 764
 	cmd fixgrassarea
 	cmd ma
-	// make under grass into stone
-	cmd replaceall 3 1
-	// carve caves
+	cmd replaceall 764 765
+	cmd fixgrassarea
+	cmd ma
+	cmd fixgrassarea
+	cmd ma
+	cmd fixgrassarea
+	cmd ma
+	cmd replaceall 767 2
+	cmd replaceall 766 3
+	cmd replaceall 765 1
+quit
+
+#generate.caves
+	cmd replacebrush 3 cloudy 767/2 a=2 f=.5 p=20 s={seed}
+	cmd ma
+	cmd replacebrush 767 cloudy 3/2 0 a=2 f=.2 p=20 s={seed}
+	cmd ma
 	cmd replacebrush 2 cloudy 767/2 a=2 f=.5 p=20 s={seed}
 	cmd ma
 	cmd replacebrush 767 cloudy 2/2 0 a=2 f=.2 p=20 s={seed}
@@ -113,8 +146,9 @@ function #generate
 	cmd ma
 	cmd replacebrush 767 cloudy 1/2 0 a=2 f=.2 p=20 s={seed}
 	cmd ma
-	// place dirt under the grass
-	cmd foreach 2 replace 1 3,m ~ ~-1 ~,m ~ ~-3 ~
+quit
+
+#generate.trees
 	// plant notch trees
 	cmd replacebrush 2 random 2/499 767
 	cmd ma
@@ -123,24 +157,29 @@ function #generate
 	// plant big oak trees
 	cmd replacebrush 2 random 2/999 767
 	cmd ma
-	cmd foreach 767 tree notch,m ~ ~1 ~
+	cmd foreach 767 tree oak,m ~ ~1 ~
 	cmd replaceall 767 3
-	// insert ores
+quit
+
+#generate.ores
 	cmd replacebrush 1 random 1/1993 14/2 15/2 16/2 52
 	cmd ma
-	// create lava floor
+quit
+
+#generate.lavaFloor
 	cmd z 7
 	cmd m 0 0 0
 	cmd m {LevelX} 0 {LevelZ}
 	cmd replace 0 11
 	cmd m 0 1 0
 	cmd m {LevelX} 3 {LevelZ}
-	// finishing touches
-	msg &bDONT FORGET THE FOLLOWING COMMANDS!:
+quit
+
+#generate.cleanupCommands
+	msg &cDONT FORGET TO SET THE MOTD!:
 	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura
 	else msg &f/os map motd -hax +thirdperson -push model=humanoid -aura
-	msg &f/os lb copyall bravelycowering+survivaldev
-end
+quit
 
 #damage
 	if iframes|>|0 quit
