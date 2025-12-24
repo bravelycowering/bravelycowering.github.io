@@ -117,6 +117,7 @@ quit
 quit
 
 #generate.setupCommands
+	localmsg smallannounce Preparing generation...
 	msg &cPLEASE USE THE FOLLOWING COMMANDS FIRST
 	msg &f/os texture bravelycowering.net/files/default2.zip
 	msg &f/os lb copyall bravelycowering+survivaldev
