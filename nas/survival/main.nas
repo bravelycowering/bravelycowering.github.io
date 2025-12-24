@@ -92,6 +92,35 @@ start
 	jump #tick
 end
 
+function #generate
+	// get seed
+	setrandrange seed -999999999 9999999999
+	msg Generating
+	// isolate terrain only (no fluids, trees, or foliage allowed!)
+	cmd replaceall 8-11 17-18 37-40 0
+	cmd replaceall 1-767 2
+	delay 10000
+	// fix grass
+	cmd fixgrass
+	// make under grass into stone
+	cmd replaceall 3 1
+	delay 10000
+	// carve caves
+	cmd replacebrush 2 cloudy 767/2 a=2 f=.5 p=20 s={seed}
+	cmd ma
+	cmd replacebrush 1 cloudy 767/2 a=2 f=.5 p=20 s={seed}
+	cmd ma
+	cmd replacebrush 767 cloudy 1/2 0 a=2 f=.2 p=20 s={seed}
+	cmd ma
+	// place dirt under the grass
+	// cmd foreach 2 replace 1 3,m ~ ~-1 ~,m ~ ~-3 ~
+	// finishing touches
+	msg &bDONT FORGET THE FOLLOWING COMMANDS!:
+	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura
+	else msg &f/os map motd -hax +thirdperson -push model=humanoid -aura
+	msg &f/os lb copyall bravelycowering+survivaldev
+end
+
 #damage
 	if iframes|>|0 quit
 	setsub hp {runArg1}
