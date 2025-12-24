@@ -47,10 +47,13 @@ start
 	local PrevPlayerCoords
 	local prevhp
 	local hpbar
+	local firebar
 	local myblock
+	local temp
+	local firetickmod
 	#tick
 		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-		if blocks[{myblock}].catchFire set fireticks 100
+		if blocks[{myblock}].catchFire set fireticks 101
 		if blocks[{myblock}].extinguishFire then
 			if fireticks|>|0 then
 				gui barSize 0
@@ -83,9 +86,15 @@ start
 				gui barColor #ffcc00 0.15
 				gui barSize 1
 			end
-			set firetickmod {fireticks}
-			setmod firetickmod 10
-			if firetickmod|=|0 call #damage|2|burn
+			set *firetickmod {fireticks}
+			setmod *firetickmod 10
+			if *firetickmod|=|0 then
+				call #damage|2|burn
+				set *temp {fireticks}
+				setdiv *temp 10
+				call #makecharbar|*firebar|▐|6|{temp}|10
+				cpemsg smallannounce {firebar}
+			end
 		end
 		if actionCount|>=|60000 cmd oss #tick repeatable
 		if actionCount|>|60000 terminate
@@ -110,6 +119,7 @@ quit
 	call #generate.plantGrass
 	call #generate.flood
 	call #generate.caves
+	call #generate.plugholes
 	call #generate.ores
 	call #generate.lavaFloor
 	call #generate.plants
@@ -162,13 +172,6 @@ quit
 	cmd replacebrush 12 cloudy 13 s={seed}
 	cmd m 0 0 0
 	cmd m {LevelX} 62 {LevelY}
-	// plug holes w dirt
-	cmd brush replace
-	cmd outline 9 layer 0 3
-	cmd ma
-	cmd outline 9 down 0 3
-	cmd ma
-	cmd brush normal
 quit
 
 #generate.caves
@@ -198,6 +201,17 @@ quit
 	cmd replacebrush 767 cloudy 3/3 0 a=2 f=.2 p=20 s={seed3}
 	cmd m 0 63 0
 	cmd m {LevelX} {LevelY} {LevelZ}
+quit
+
+#generate.plugholes
+	localmsg smallannounce Plugging holes...
+	// plug holes w dirt
+	cmd brush replace
+	cmd outline 9 layer 0 3
+	cmd ma
+	cmd outline 9 down 0 3
+	cmd ma
+	cmd brush normal
 quit
 
 #generate.ores
@@ -422,6 +436,25 @@ quit
 	set {runArg1} {{runArg1}}&0
 	if i|<|{runArg4} then
 		while if i|<|{runArg4}
+			set {runArg1} {{runArg1}}|
+			setadd i 1
+		end
+	end
+quit
+
+#makecharbar
+// package, char, color, amount, max
+	set i 0
+	set {runArg1} &{runArg3}
+	if i|<|{runArg4} then
+		while if i|<|{runArg4}
+			set {runArg1} {{runArg1}}|
+			setadd i 1
+		end
+	end
+	set {runArg1} {{runArg1}}&0
+	if i|<|{runArg5} then
+		while if i|<|{runArg5}
 			set {runArg1} {{runArg1}}|
 			setadd i 1
 		end
