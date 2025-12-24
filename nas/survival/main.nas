@@ -106,6 +106,7 @@ quit
 	replysilent 1|Start generating!|#generate.start
 	quit
 	#generate.start
+	call #generate.isolate
 	call #generate.plantGrass
 	call #generate.flood
 	call #generate.caves
@@ -125,10 +126,13 @@ quit
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
-#generate.plantGrass
+#generate.isolate
 	localmsg smallannounce Isolating terrain...
 	cmd replaceall 8-11 17-18 37-40 0
 	cmd replaceall 1-767 764
+quit
+
+#generate.plantGrass
 	localmsg smallannounce Soiling ground...
 	cmd fixgrassarea
 	cmd ma
