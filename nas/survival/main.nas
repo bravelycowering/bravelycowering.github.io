@@ -384,7 +384,7 @@ quit
 quit
 
 #getblock
-	ifnot allowMapChanges set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
+	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
 	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
