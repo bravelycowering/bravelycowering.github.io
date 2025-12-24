@@ -24,6 +24,8 @@ using no_runarg_underscore_conversion
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
+	msg &fVersion &a0.1
+
 	msg &fYou can place and break blocks freely in this map.
 	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
 	else msg &cEverything you do is temporary. Leaving the map will reset your progress.
@@ -49,11 +51,13 @@ start
 	local hpbar
 	local firebar
 	local myblock
-	local temp
 	local firetickmod
 	#tick
 		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-		if blocks[{myblock}].catchFire set fireticks 101
+		if blocks[{myblock}].catchFire then
+			set fireticks 100
+			cpemsg smallannounce &6▐▐▐▐▐▐▐▐▐▐
+		end
 		if blocks[{myblock}].extinguishFire then
 			if fireticks|>|0 then
 				gui barSize 0
@@ -65,7 +69,7 @@ start
 		ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
 		set *PrevPlayerCoords {PlayerCoords}
 		delay 100
-		// cpemsg top1 &c{actionCount}/60000
+		if debug cpemsg top1 &c{actionCount}/60000
 		ifnot hp|=|*prevhp then
 			set *prevhp {hp}
 			call #makebar|*hpbar|c|{hp}|{maxhp}
@@ -85,7 +89,6 @@ start
 			set *firetickmod {fireticks}
 			setmod *firetickmod 10
 			if *firetickmod|=|0 then
-				call #damage|2|burn
 				if fireticks|>|0 then
 					set *temp {fireticks}
 					setdiv *temp 10
@@ -93,6 +96,7 @@ start
 					cpemsg smallannounce {firebar}
 				end
 				ifnot fireticks|>|0 cpemsg smallannounce
+				call #damage|2|burn
 			end
 		end
 		if actionCount|>=|60000 cmd oss #tick repeatable
@@ -298,9 +302,13 @@ quit
 	set iframes 4
 	cs me ow:select(7)
 	if hp|<=|0 then
-		kill {deathmessages.{runArg2}}
+		if allowMapChanges kill {deathmessages.{runArg2}}
+		else kill
 		set fireticks 0
 		set hp {maxhp}
+		cpemsg bigannounce &cYou Died!
+		cpemsg smallannounce {deathmessages.{runArg2}}
+		resetdata packages inventory[*]
 	end
 quit
 
