@@ -103,7 +103,7 @@ end
 	call #generate.plantGrass
 	call #generate.flood
 	call #generate.caves
-	call #generate.trees
+	call #generate.plants
 	call #generate.ores
 	call #generate.lavaFloor
 	call #generate.cleanupCommands
@@ -188,7 +188,7 @@ quit
 quit
 
 #generate.plants
-	localmsg smallannounce Planting vegitation...
+	localmsg smallannounce Planting vegetation...
 	// plant notch trees
 	cmd replacebrush 2 random 2/499 767
 	cmd ma
@@ -200,7 +200,8 @@ quit
 	cmd foreach 767 tree oak,m ~ ~1 ~
 	cmd replaceall 767 3
 	// flowers
-	cmd grow 2 767
+	cmd outline 2 up 767
+	cmd ma
 	cmd replacebrush 767 cloudy 0/4 767 f=2
 	cmd ma
 	cmd replacebrush 767 cloudy 0 37/2 f=.2
@@ -208,7 +209,8 @@ quit
 	cmd replacebrush 37 random 37 38 0/3
 	cmd ma
 	// mushrooms
-	cmd grow 1 767
+	cmd outline 1 up 767
+	cmd ma
 	cmd replacebrush 767 cloudy 0/4 767
 	cmd ma
 	cmd replacebrush 767 cloudy 0 39/2 f=.2
@@ -237,7 +239,8 @@ quit
 	cmd m 0 5 0
 	cmd m {LevelX} 5 {LevelZ}
 	// fire
-	cmd grow 50 54
+	cmd outline 50 up 54
+	cmd ma
 	cmd replacebrush 54 random 0/4 54
 	cmd ma
 quit
