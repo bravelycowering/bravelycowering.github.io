@@ -93,9 +93,15 @@ start
 	jump #tick
 end
 
+#grow
+	cmd brush replacebrush 0
+	cmd outline {runArg1} up {runArg2}
+	cmd ma
+	cmd brush normal
+quit
+
 #generate
 	// get seed
-	localmsg smallannounce Preparing generation...
 	msg Generating
 	call #generate.setupCommands
 	replysilent 1|Start generating!|#generate.start
@@ -201,8 +207,7 @@ quit
 	cmd foreach 767 tree oak,m ~ ~1 ~
 	cmd replaceall 767 3
 	// flowers
-	cmd outline 2 up 767
-	cmd ma
+	call #grow|2|767
 	cmd replacebrush 767 cloudy 0/4 767 f=2
 	cmd ma
 	cmd replacebrush 767 cloudy 0 37/2 f=.2
@@ -210,8 +215,7 @@ quit
 	cmd replacebrush 37 random 37 38 0/3
 	cmd ma
 	// mushrooms
-	cmd outline 1 up 767
-	cmd ma
+	call #grow|1|767
 	cmd replacebrush 767 cloudy 0/4 767
 	cmd ma
 	cmd replacebrush 767 cloudy 0 39/2 f=.2
@@ -240,8 +244,7 @@ quit
 	cmd m 0 5 0
 	cmd m {LevelX} 5 {LevelZ}
 	// fire
-	cmd outline 50 up 54
-	cmd ma
+	call #grow|50|54
 	cmd replacebrush 54 random 0/4 54
 	cmd ma
 quit
