@@ -99,22 +99,30 @@ function #generate
 	// isolate terrain only (no fluids, trees, or foliage allowed!)
 	cmd replaceall 8-11 17-18 37-40 0
 	cmd replaceall 1-767 2
-	delay 10000
 	// fix grass
 	cmd fixgrassarea
 	cmd ma
 	// make under grass into stone
 	cmd replaceall 3 1
-	delay 10000
 	// carve caves
 	cmd replacebrush 2 cloudy 767/2 a=2 f=.5 p=20 s={seed}
+	cmd ma
+	cmd replacebrush 767 cloudy 2/2 0 a=2 f=.2 p=20 s={seed}
 	cmd ma
 	cmd replacebrush 1 cloudy 767/2 a=2 f=.5 p=20 s={seed}
 	cmd ma
 	cmd replacebrush 767 cloudy 1/2 0 a=2 f=.2 p=20 s={seed}
 	cmd ma
 	// place dirt under the grass
-	// cmd foreach 2 replace 1 3,m ~ ~-1 ~,m ~ ~-3 ~
+	cmd foreach 2 replace 1 3,m ~ ~-1 ~,m ~ ~-3 ~
+	// plant trees
+	cmd replacebrush 2 random 2/499 767
+	cmd ma
+	cmd foreach 767 tree notch,m ~ ~1 ~
+	cmd replaceall 767 3
+	// insert ores
+	cmd replacebrush 1 random 1/1993 14/2 15/2 16/2 52
+	cmd ma
 	// finishing touches
 	msg &bDONT FORGET THE FOLLOWING COMMANDS!:
 	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura
