@@ -212,9 +212,9 @@ quit
 	localmsg chat Plugging holes...
 	// plug holes w dirt
 	cmd brush replace
-	cmd outline 9 layer 0 3
+	cmd outline 8 layer 0 3
 	cmd ma
-	cmd outline 9 down 0 3
+	cmd outline 8 down 0 3
 	cmd ma
 	cmd brush normal
 quit
