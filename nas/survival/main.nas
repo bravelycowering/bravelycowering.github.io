@@ -127,6 +127,7 @@ quit
 
 #generate.setupCommands
 	localmsg smallannounce Preparing generation...
+	localmsg chat Preparing generation...
 	msg &cPLEASE USE THE FOLLOWING COMMANDS FIRST
 	msg &f/os texture bravelycowering.net/files/default2.zip
 	msg &f/os lb copyall bravelycowering+survivaldev
@@ -137,12 +138,14 @@ quit
 
 #generate.isolate
 	localmsg smallannounce Isolating terrain...
+	localmsg chat Isolating terrain...
 	cmd replaceall 8-11 17-18 37-40 0
 	cmd replaceall 1-767 764
 quit
 
 #generate.plantGrass
 	localmsg smallannounce Soiling ground...
+	localmsg chat Soiling ground...
 	cmd fixgrassarea
 	cmd ma
 	cmd replaceall 764 765
@@ -159,6 +162,7 @@ quit
 
 #generate.flood
 	localmsg smallannounce Flooding lakes...
+	localmsg chat Flooding lakes...
 	// fill water
 	cmd replace 0 8
 	cmd m 0 0 0
@@ -175,6 +179,7 @@ quit
 
 #generate.caves
 	localmsg smallannounce Carving caves...
+	localmsg chat Carving caves...
 	setrandrange seed1 -999999999 9999999999
 	setrandrange seed2 -999999999 9999999999
 	setrandrange seed3 -999999999 9999999999
@@ -204,6 +209,7 @@ quit
 
 #generate.plugholes
 	localmsg smallannounce Plugging holes...
+	localmsg chat Plugging holes...
 	// plug holes w dirt
 	cmd brush replace
 	cmd outline 9 layer 0 3
@@ -215,12 +221,14 @@ quit
 
 #generate.ores
 	localmsg smallannounce Placing ores...
+	localmsg chat Placing ores...
 	cmd replacebrush 1 random 1/1993 14/2 15/2 16/2 52
 	cmd ma
 quit
 
 #generate.plants
 	localmsg smallannounce Planting vegetation...
+	localmsg chat Planting vegetation...
 	// plant notch trees
 	cmd replacebrush 2 random 2/499 767
 	cmd ma
@@ -251,6 +259,7 @@ quit
 
 #generate.lavaFloor
 	localmsg smallannounce Melting core...
+	localmsg chat Melting core...
 	// lava and bedrock
 	cmd z 7
 	cmd m 0 0 0
@@ -276,6 +285,7 @@ quit
 
 #generate.cleanupCommands
 	localmsg smallannounce Done!
+	localmsg chat Done!
 	msg &cDONT FORGET TO SET THE MOTD AND AD!:
 	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura
 	else msg &f/os map motd -hax +thirdperson -push model=humanoid -aura
