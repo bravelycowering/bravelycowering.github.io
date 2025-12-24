@@ -238,7 +238,7 @@ quit
 	cmd z 7
 	cmd m 0 0 0
 	cmd m {LevelX} 0 {LevelZ}
-	cmd replace 0 11
+	cmd replace 0 10
 	cmd m 0 1 0
 	cmd m {LevelX} 3 {LevelZ}
 	// magma
