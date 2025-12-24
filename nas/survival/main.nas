@@ -17,7 +17,7 @@ using no_runarg_underscore_conversion
 	set fireticks 0
 
 	set allowMapChanges false
-	if LevelName|=|bravelycowering+survival set allowMapChanges true
+	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
 
 	set worldSpawn {PlayerCoords}
 
