@@ -19,6 +19,7 @@ using no_runarg_underscore_conversion
 	set allowMapChanges false
 	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
 
+	cmd descend
 	set worldSpawn {PlayerCoords}
 
 	cmd holdsilent 0
@@ -147,7 +148,8 @@ quit
 
 	setrandrange seed -999999999 9999999999
 	cmd replacebrush 12 cloudy 13 s={seed}
-	cmd ma
+	cmd m 0 0 0
+	cmd m {LevelX} 62 {LevelY}
 quit
 
 #generate.caves
@@ -169,11 +171,14 @@ quit
 	cmd ma
 
 	cmd replacebrush 3 cloudy 767/3 a=2 f=.5 p=20 s={seed1}
-	cmd ma
+	cmd m 0 63 0
+	cmd m {LevelX} {LevelY} {LevelZ}
 	cmd replacebrush 767 cloudy 3/2 767 a=2 f=.2 p=20 s={seed2}
-	cmd ma
+	cmd m 0 63 0
+	cmd m {LevelX} {LevelY} {LevelZ}
 	cmd replacebrush 767 cloudy 3/3 0 a=2 f=.2 p=20 s={seed3}
-	cmd ma
+	cmd m 0 63 0
+	cmd m {LevelX} {LevelY} {LevelZ}
 quit
 
 #generate.trees
