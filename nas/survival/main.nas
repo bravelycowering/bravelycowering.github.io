@@ -95,6 +95,7 @@ end
 
 #generate
 	// get seed
+	localmsg smallannounce Preparing generation...
 	msg Generating
 	call #generate.setupCommands
 	replysilent 1|Start generating!|#generate.start
