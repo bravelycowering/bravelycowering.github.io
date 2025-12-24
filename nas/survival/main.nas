@@ -118,8 +118,10 @@ quit
 quit
 
 #generate.plantGrass
+	localmsg smallannounce Isolating terrain...
 	cmd replaceall 8-11 17-18 37-40 0
 	cmd replaceall 1-767 764
+	localmsg smallannounce Soiling ground...
 	cmd fixgrassarea
 	cmd ma
 	cmd replaceall 764 765
@@ -135,6 +137,7 @@ quit
 quit
 
 #generate.flood
+	localmsg smallannounce Flooding lakes...
 	cmd replace 0 9
 	cmd m 0 0 0
 	cmd m {LevelX} 63 {LevelY}
@@ -148,6 +151,7 @@ quit
 quit
 
 #generate.caves
+	localmsg smallannounce Carving caves...
 	setrandrange seed1 -999999999 9999999999
 	setrandrange seed2 -999999999 9999999999
 	setrandrange seed3 -999999999 9999999999
@@ -173,6 +177,7 @@ quit
 quit
 
 #generate.trees
+	localmsg smallannounce Planting trees...
 	// plant notch trees
 	cmd replacebrush 2 random 2/499 767
 	cmd ma
@@ -186,11 +191,13 @@ quit
 quit
 
 #generate.ores
+	localmsg smallannounce Placing ores...
 	cmd replacebrush 1 random 1/1993 14/2 15/2 16/2 52
 	cmd ma
 quit
 
 #generate.lavaFloor
+	localmsg smallannounce Melting core...
 	cmd z 7
 	cmd m 0 0 0
 	cmd m {LevelX} 0 {LevelZ}
@@ -200,6 +207,7 @@ quit
 quit
 
 #generate.cleanupCommands
+	localmsg smallannounce Done!
 	msg &cDONT FORGET TO SET THE MOTD!:
 	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura
 	else msg &f/os map motd -hax +thirdperson -push model=humanoid -aura
