@@ -277,7 +277,8 @@ quit
 	ifnot allowMapChanges then
 		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
-	quit
+		quit
+	end
 	placeblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
