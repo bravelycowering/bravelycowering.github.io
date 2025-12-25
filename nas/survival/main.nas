@@ -19,12 +19,14 @@ using no_runarg_underscore_conversion
 	set allowMapChanges false
 	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
 
+	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
+
 	set worldSpawn {PlayerCoords}
 
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
-	msg &fVersion &a0.1.3
+	msg &fVersion &a0.1.4
 
 	msg &fYou can place and break blocks freely in this map.
 	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
@@ -434,8 +436,12 @@ quit
 
 #itemuse
 	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
-	if blocks[{PlayerHeldBlock}].consume call #take|{playerHeldBlock}|1
-	ifnot blocks[{PlayerHeldBlock}].food|=|"" call #heal|{blocks[{PlayerHeldBlock}].food}
+	ifnot blocks[{PlayerHeldBlock}].food|=|"" then
+		if hp|<|maxhp then
+			#take|{playerHeldBlock}|1
+			call #heal|{blocks[{PlayerHeldBlock}].food}
+		end
+	end
 quit
 
 #pick
