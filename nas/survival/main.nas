@@ -24,7 +24,7 @@ using no_runarg_underscore_conversion
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
-	msg &fVersion &a0.1
+	msg &fVersion &a0.1.1
 
 	msg &fYou can place and break blocks freely in this map.
 	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
@@ -52,6 +52,7 @@ start
 	local firebar
 	local myblock
 	local firetickmod
+	local temp
 	#tick
 		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
 		if blocks[{myblock}].catchFire then
@@ -312,15 +313,25 @@ quit
 	end
 quit
 
+#heal
+	setadd hp {runArg1}
+	if hp|>|maxhp set hp {maxhp}
+	cpemsg smallannounce &c+{runArg1} ♥
+quit
+
 #click
 	set coords {click.coords}
 	setsplit coords " "
-	if coords[0]|>|1000 quit
-	if coords[1]|>|1000 quit
-	if coords[2]|>|1000 quit
+	if coords[0]|>|1000 jump #airclick
+	if coords[1]|>|1000 jump #airclick
+	if coords[2]|>|1000 jump #airclick
 	if click.button|=|"Left" jump #mine|{coords[0]}|{coords[1]}|{coords[2]}
 	if click.button|=|"Right" jump #place|{coords[0]}|{coords[1]}|{coords[2]}
 	if click.button|=|"Middle" jump #pick|{coords[0]}|{coords[1]}|{coords[2]}
+quit
+
+#airclick
+	if click.button|=|"Right" jump #itemuse
 quit
 
 #mine
@@ -419,6 +430,12 @@ quit
 		call #take|{playerHeldBlock}|1
 		jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
 	end
+quit
+
+#itemuse
+	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
+	if blocks[{PlayerHeldBlock}].consume call #take|{playerHeldBlock}|1
+	if blocks[{PlayerHeldBlock}].food|!=|"" call #heal|{blocks[{PlayerHeldBlock}].food}
 quit
 
 #pick

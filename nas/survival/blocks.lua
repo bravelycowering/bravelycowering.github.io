@@ -180,9 +180,13 @@ return {
 	},
 	{
 		name = "Brown mushroom",
+		consume = true,
+		food = 1,
 	},
 	{
 		name = "Red mushroom",
+		consume = true,
+		food = 3,
 	},
 	{
 		name = "Gold",
