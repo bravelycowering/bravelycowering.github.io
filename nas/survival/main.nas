@@ -26,9 +26,7 @@ using no_runarg_underscore_conversion
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
-	call #getversion
-
-	msg &fVersion &a{version}
+	call #version
 
 	msg &fYou can place and break blocks freely in this map.
 	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
@@ -49,8 +47,17 @@ using no_runarg_underscore_conversion
 	cmd oss #tick repeatable
 quit
 
-#getversion
-	set version 0.1.7
+#version
+	msg &fVersion &a0.1.8
+quit
+
+#changelog
+	msg &fChanges in &a0.2&f:
+	msg - Mushrooms can now be consumed to regain health by right clicking the air while holding them
+	msg - Reach has been reduced from 5 blocks to 4
+	msg - New blocks: wood slab and cobblestone (and recipes to match!)
+	msg - Various blocks like plants, ore gems, and campfires can no longer be placed mid-air
+	msg - Inaccessible 'mushroom stem' has been removed from the menu
 quit
 
 start
@@ -389,6 +396,28 @@ quit
 	jump #setblock|{empty}|{x}|{y}|{z}
 quit
 
+#destroyblock
+	set x {runArg1}
+	set y {runArg2}
+	set z {runArg3}
+	call #getblock|id|{x}|{y}|{z}
+	set toomuch {runArg4}
+	ifnot toomuch then
+		if label #loot[{id}] call #loot[{id}]
+		else call #give|{id}|1
+	end
+	if blocks[{id}].remainder|=|"" set empty 0
+	else set empty {blocks[{id}].remainder}
+	if spawnblock|=|coords then
+		set spawnblock
+		setdeathspawn {worldSpawn} 0 0
+	end
+	jump #setblock|{empty}|{x}|{y}|{z}
+	setadd y 1
+	call #getblock|id|{x}|{y}|{z}
+	if blocks[{id}].grounded jump #destroyblock|{x}|{y}|{z}|false
+quit
+
 #give
 	if isTool({runArg1}) then
 		set {runArg1} {runArg2}
@@ -423,6 +452,13 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
+	if blocks[{PlayerHeldBlock}].grounded then
+		setsub y 1
+		call #getblock|id|{x}|{y}|{z}
+		if blocks[{id}].grounded quit
+		if blocks[{id}].nonsolid quit
+		setadd y 1
+	end
 	call #getblock|id|{x}|{y}|{z}
 	if label #use[{id}:{PlayerHeldBlock}] jump #use[{id}:{PlayerHeldBlock}]|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
@@ -718,10 +754,14 @@ setrandrange count 1 4
 jump #give|40|{count}
 
 #loot[71]
-jump #give|72|4
+setrandrange count 2 4
+jump #give|72|{count}
 
 #loot[74]
 jump #give|73|2
+
+#loot[76]
+jump #give|75|2
 
 #loot[20]
 #loot[50]

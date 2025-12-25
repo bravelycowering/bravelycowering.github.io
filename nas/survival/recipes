@@ -39,6 +39,7 @@
 
 	// wood
 		1 log = 4 wood
+		1 mushroom_stem = 2 wood
 	// stick
 		2 wood = 4 stick
 	// workbench
@@ -61,7 +62,7 @@
 	// diamond gem
 	1 diamond_ore = 1 diamond_gem ? usingStonecutter
 
-// ORE BLOCKS
+// CONDENSED BLOCKS
 
 	// coal block
 	9 coal_lump = 1 coal ? usingWorkbench
@@ -75,9 +76,6 @@
 	// diamond block
 	9 diamond_gem = 1 diamond ? usingWorkbench
 	1 diamond = 9 diamond_gem ? usingStonecutter
-
-// OTHER BLOCKS
-
 	// snow block
 	4 snow_ball = 1 snow
 	1 snow = 4 snow_ball
@@ -87,3 +85,8 @@
 	// red mushroom block
 	4 red_mushroom = 1 red_mushroom_top
 	1 red_mushroom_top = 4 red_mushroom
+
+// DECORATIVE BLOCKS
+
+	3 wood = 6 wood_slab ? usingWorkbench
+	3 cobblestone = 6 cobblestone_slab ? usingStonecutter

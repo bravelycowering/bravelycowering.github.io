@@ -33,6 +33,7 @@ return {
 	},
 	{
 		name = "Sapling",
+		grounded = true,
 	},
 	{
 		name = "Bedrock",
@@ -45,6 +46,7 @@ return {
 		fluid = true,
 		level = 8,
 		extinguishFire = true,
+		nonsolid = true,
 	},
 	{
 		name = "Still water",
@@ -54,6 +56,7 @@ return {
 		source = true,
 		level = 8,
 		extinguishFire = true,
+		nonsolid = true,
 	},
 	{
 		name = "Lava",
@@ -64,6 +67,7 @@ return {
 		damage = 6,
 		damageType = "lava",
 		catchFire = true,
+		nonsolid = true,
 	},
 	{
 		name = "Still lava",
@@ -75,6 +79,7 @@ return {
 		damage = 6,
 		damageType = "lava",
 		catchFire = true,
+		nonsolid = true,
 	},
 	{
 		name = "Sand",
@@ -174,19 +179,23 @@ return {
 	},
 	{
 		name = "Dandelion",
+		grounded = true,
 	},
 	{
 		name = "Rose",
+		grounded = true,
 	},
 	{
 		name = "Brown mushroom",
 		consume = true,
 		food = 1,
+		grounded = true,
 	},
 	{
 		name = "Red mushroom",
 		consume = true,
 		food = 3,
+		grounded = true,
 	},
 	{
 		name = "Gold",
@@ -214,6 +223,7 @@ return {
 		mergeInto = 43,
 		merger = 44,
 		mergeFace = "AwayY",
+		nonsolid = true,
 	},
 	{
 		name = "Brick",
@@ -270,18 +280,23 @@ return {
 		damage = 3,
 		damageType = "fire",
 		catchFire = true,
+		grounded = true,
 	},
 	{
 		name = "Gold bar",
+		grounded = true,
 	},
 	{
 		name = "Iron bar",
+		grounded = true,
 	},
 	{
 		name = "Coal lump",
+		grounded = true,
 	},
 	{
 		name = "Diamond gem",
+		grounded = true,
 	},
 	{
 		name = "Stone brick",
@@ -327,6 +342,7 @@ return {
 		name = "Campfire",
 		hardness = 3,
 		tooltype = "axe",
+		grounded = true,
 	},
 	{
 		name = "Lit campfire",
@@ -334,15 +350,18 @@ return {
 		damage = 3,
 		damageType = "fire",
 		catchFire = true,
+		grounded = true,
 	},
 	{
 		name = "Cobweb",
 		hardness = 5,
 		tooltype = "spade",
+		nonsolid = true,
 	},
 	{
 		name = "Lit torch",
 		campfireLighter = 70,
+		grounded = true,
 	},
 	{
 		name = "Snow",
@@ -351,6 +370,7 @@ return {
 	},
 	{
 		name = "Snow ball",
+		grounded = true,
 	},
 	{
 		name = "Wood slab",
@@ -359,6 +379,7 @@ return {
 		mergeInto = 74,
 		merger = 73,
 		mergeFace = "AwayY",
+		nonsolid = true,
 	},
 	{
 		name = "Double wood slab",
@@ -366,18 +387,20 @@ return {
 		tooltype = "axe",
 	},
 	{
-		name = "Water",
-		unbreakable = true,
-		replaceable = true,
-		fluid = true,
-		level = 5,
+		name = "Cobblestone slab",
+		hardness = 3,
+		touchness = 1,
+		tooltype = "pickaxe",
+		mergeInto = 76,
+		merger = 75,
+		mergeFace = "AwayY",
+		nonsolid = true,
 	},
 	{
-		name = "Water",
-		unbreakable = true,
-		replaceable = true,
-		fluid = true,
-		level = 4,
+		name = "Double cobblestone slab",
+		hardness = 6,
+		touchness = 1,
+		tooltype = "pickaxe",
 	},
 	{
 		name = "Water",
@@ -403,5 +426,6 @@ return {
 	{
 		name = "Torch",
 		campfireLighter = 70,
+		grounded = true,
 	},
 }
