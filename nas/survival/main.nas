@@ -26,7 +26,9 @@ using no_runarg_underscore_conversion
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
-	msg &fVersion &a0.1.6
+	call #getversion
+
+	msg &fVersion &a{version}
 
 	msg &fYou can place and break blocks freely in this map.
 	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
@@ -45,6 +47,10 @@ using no_runarg_underscore_conversion
 	set isTool(spade) true
 
 	cmd oss #tick repeatable
+quit
+
+#getversion
+	set version 0.1.7
 quit
 
 start
@@ -693,6 +699,9 @@ setrandrange sap 1 10
 ifnot sap|=|5 quit
 jump #give|6|1
 
+#loot[43]
+jump #give|44|2
+
 #loot[48]
 jump #give|4|1
 
@@ -710,6 +719,9 @@ jump #give|40|{count}
 
 #loot[71]
 jump #give|72|4
+
+#loot[74]
+jump #give|73|2
 
 #loot[20]
 #loot[50]

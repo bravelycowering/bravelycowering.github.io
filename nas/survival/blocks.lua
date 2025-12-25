@@ -211,6 +211,9 @@ return {
 		hardness = 4,
 		toughness = 1,
 		tooltype = "pickaxe",
+		mergeInto = 43,
+		merger = 44,
+		mergeFace = "AwayY",
 	},
 	{
 		name = "Brick",
