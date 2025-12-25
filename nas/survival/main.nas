@@ -26,7 +26,7 @@ using no_runarg_underscore_conversion
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
-	msg &fVersion &a0.1.4
+	msg &fVersion &a0.1.5
 
 	msg &fYou can place and break blocks freely in this map.
 	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
@@ -438,7 +438,7 @@ quit
 	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	ifnot blocks[{PlayerHeldBlock}].food|=|"" then
 		if hp|<|maxhp then
-			#take|{playerHeldBlock}|1
+			call #take|{playerHeldBlock}|1
 			call #heal|{blocks[{PlayerHeldBlock}].food}
 		end
 	end
