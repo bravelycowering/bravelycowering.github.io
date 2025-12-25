@@ -3,7 +3,7 @@ using no_runarg_underscore_conversion
 
 #onJoin
 	clickevent sync register #click
-	reach 5
+	reach 4
 
 	set minetimer 0
 	set minepos
@@ -26,7 +26,7 @@ using no_runarg_underscore_conversion
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
 
-	msg &fVersion &a0.1.5
+	msg &fVersion &a0.1.6
 
 	msg &fYou can place and break blocks freely in this map.
 	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
@@ -410,6 +410,10 @@ quit
 quit
 
 #place
+	ifnot blocks[{PlayerHeldBlock}].replaceable then
+		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
+	end
+	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
@@ -417,6 +421,15 @@ quit
 	if label #use[{id}:{PlayerHeldBlock}] jump #use[{id}:{PlayerHeldBlock}]|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
 	if blocks[{id}].replaceable quit
+	ifnot blocks[{id}].mergeInto|=|"" then
+		if PlayerHeldBlock|=|blocks[{id}].merger then
+			if blocks[{id}].mergeFace|=|click.face then
+				call #take|{playerHeldBlock}|1
+				jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
+				quit
+			end
+		end
+	end
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
 	if click.face|=|"AwayZ" setadd z 1
@@ -425,18 +438,14 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
 	ifnot blocks[{id}].replaceable quit
-	ifnot blocks[{PlayerHeldBlock}].replaceable then
-		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
-	end
-	if inventory[{PlayerHeldBlock}]|>|0 then
-		call #take|{playerHeldBlock}|1
-		jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
-	end
+	call #take|{playerHeldBlock}|1
+	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
 quit
 
 #itemuse
-	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	ifnot blocks[{PlayerHeldBlock}].food|=|"" then
+		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
+		ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 		if hp|<|maxhp then
 			call #take|{playerHeldBlock}|1
 			call #heal|{blocks[{PlayerHeldBlock}].food}
