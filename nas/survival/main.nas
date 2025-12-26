@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.16
+	msg &fVersion &a0.1.17
 quit
 
 #changelog
@@ -576,8 +576,8 @@ quit
 			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
 			if canAfford|>|0 then
-				ifnot isTool({recipes[{i}].output.id}) msg &f> {recipes[{i}].output.count} &6{blocks[{recipes[{i}].output.id}].name}&f (x{canAfford}):
-				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f):
+				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) * {canAfford}
+				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f) * 1
 				set j 0
 				while if j|<|{recipes[{i}].ingredients.Length}
 					set text {recipes[{i}].ingredients[{j}].count} {blocks[{recipes[{i}].ingredients[{j}].id}].name}
