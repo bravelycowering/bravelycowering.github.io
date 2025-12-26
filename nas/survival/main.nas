@@ -58,7 +58,7 @@ quit
 	msg - Fixed the breaking animation being too large for the campfire
 	msg - Adjusted the crafting menu to display the amount of things you can craft
 #version
-	msg &fVersion &a0.1.18
+	msg &fVersion &a0.1.19
 quit
 
 start
@@ -464,7 +464,6 @@ quit
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
-	ifnot blocks[{id}].replaceable quit
 	ifnot blocks[{id}].mergeInto|=|"" then
 		if PlayerHeldBlock|=|blocks[{id}].merger then
 			call #take|{playerHeldBlock}|1
@@ -472,6 +471,7 @@ quit
 			quit
 		end
 	end
+	ifnot blocks[{id}].replaceable quit
 	if blocks[{PlayerHeldBlock}].grounded then
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
