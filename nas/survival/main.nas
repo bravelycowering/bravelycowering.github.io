@@ -54,7 +54,7 @@ quit
 	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Campfires now display a new message upon being interacted with while holding an incorrect item
 #version
-	msg &fVersion &a0.2.2
+	msg &fVersion &a0.2.3
 quit
 
 start
@@ -248,6 +248,7 @@ quit
 	localmsg chat Planting vegetation...
 	// plant notch trees in forests
 	cmd replacebrush 2 cloudy 767 f=0.1
+	cmd ma
 	cmd replacebrush 767 random 2/199 767
 	cmd ma
 	cmd foreach 767 tree notch,m ~ ~1 ~
@@ -263,7 +264,7 @@ quit
 	cmd ma
 	cmd replacebrush 767 cloudy 0 37/2 f=.2
 	cmd ma
-	cmd replacebrush 37 random 37/4 38/4 78/1 0/12
+	cmd replacebrush 37 random 37/4 38/4 78/1 0/24
 	cmd ma
 	// mushrooms
 	call #grow|1|767
@@ -271,7 +272,7 @@ quit
 	cmd ma
 	cmd replacebrush 767 cloudy 0 39/2 f=.2
 	cmd ma
-	cmd replacebrush 39 random 39 40 0/6
+	cmd replacebrush 39 random 39 40 0/12
 	cmd ma
 quit
 
