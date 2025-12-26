@@ -225,6 +225,7 @@ return {
 		merger = 44,
 		mergeFace = "AwayY",
 		nonsolid = true,
+		breakScale = "1.07 0.57 1.07",
 	},
 	{
 		name = "Brick",
@@ -344,6 +345,7 @@ return {
 		hardness = 3,
 		tooltype = "axe",
 		grounded = true,
+		breakScale = "0.65 0.5 0.65",
 	},
 	{
 		name = "Lit campfire",
@@ -381,6 +383,7 @@ return {
 		merger = 73,
 		mergeFace = "AwayY",
 		nonsolid = true,
+		breakScale = "1.07 0.57 1.07",
 	},
 	{
 		name = "Double wood slab",
@@ -396,6 +399,7 @@ return {
 		merger = 75,
 		mergeFace = "AwayY",
 		nonsolid = true,
+		breakScale = "1.07 0.57 1.07",
 	},
 	{
 		name = "Double cobblestone slab",

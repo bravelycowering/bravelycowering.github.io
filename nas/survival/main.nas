@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.12
+	msg &fVersion &a0.1.13
 quit
 
 #changelog
@@ -380,6 +380,7 @@ quit
 		setsub boty 0.01
 		cmd tempbot add minemeter -20 -20 -20 0 0 skin &f
 		cmd tempbot model minemeter {model}|1.07
+		ifnot blocks[{id}].breakScale|=|"" cmd tempbot scale minemeter {blocks[{id}].breakScale}
 		cmd tempbot tp minemeter {x} {boty} {z} 0 0
 		quit
 	end
