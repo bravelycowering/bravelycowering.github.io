@@ -3,6 +3,7 @@ return {
 		name = "Air",
 		unbreakable = true,
 		replaceable = true,
+		nonsolid = true,
 	},
 	{
 		name = "Stone",

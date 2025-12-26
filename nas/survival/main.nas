@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.9
+	msg &fVersion &a0.1.10
 quit
 
 #changelog
