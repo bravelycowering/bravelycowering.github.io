@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.10
+	msg &fVersion &a0.1.11
 quit
 
 #changelog
@@ -402,7 +402,7 @@ quit
 		set spawnblock
 		setdeathspawn {worldSpawn} 0 0
 	end
-	jump #setblock|{empty}|{x}|{y}|{z}
+	call #setblock|{empty}|{x}|{y}|{z}
 	setadd y 1
 	call #getblock|id|{x}|{y}|{z}
 	if blocks[{id}].grounded jump #destroyblock|{x}|{y}|{z}|false
@@ -442,13 +442,6 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
-	if blocks[{PlayerHeldBlock}].grounded then
-		setsub y 1
-		call #getblock|id|{x}|{y}|{z}
-		if blocks[{id}].grounded quit
-		if blocks[{id}].nonsolid quit
-		setadd y 1
-	end
 	call #getblock|id|{x}|{y}|{z}
 	if label #use[{id}:{PlayerHeldBlock}] jump #use[{id}:{PlayerHeldBlock}]|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
@@ -470,6 +463,13 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
 	ifnot blocks[{id}].replaceable quit
+	if blocks[{PlayerHeldBlock}].grounded then
+		setsub y 1
+		call #getblock|id|{x}|{y}|{z}
+		if blocks[{id}].grounded quit
+		if blocks[{id}].nonsolid quit
+		setadd y 1
+	end
 	call #take|{playerHeldBlock}|1
 	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
 quit
