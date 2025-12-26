@@ -59,7 +59,7 @@ quit
 	msg - Fixed the breaking animation being too large for the campfire
 	msg - Adjusted the crafting menu to display the amount of things you can craft
 #version
-	msg &fVersion &a0.1.20
+	msg &fVersion &a0.2
 quit
 
 start
@@ -597,7 +597,7 @@ quit
 			setadd i 1
 		end
 		msg &eType &a/in craft [name]&e to craft something
-		msg &eTo craft multiple at once, type &a/in craft [name]*<count>
+		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
 	end
 	set i 0
