@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.15
+	msg &fVersion &a0.1.16
 quit
 
 #changelog
@@ -59,6 +59,8 @@ quit
 	msg - Various blocks like plants, ore gems, and campfires can no longer be placed mid-air
 	msg - Inaccessible 'mushroom stem' has been removed from the menu
 	msg - Pick block now only works with blocks you have in your inventory
+	msg - Fixed the breaking animation being too large for the campfire
+	msg - Adjusted the crafting menu to display the amount of things you can craft
 quit
 
 start
@@ -571,10 +573,10 @@ quit
 		end
 		set i 0
 		while if i|<|{recipes.Length}
-			call #checkRecipeAfford|{i}|canAfford|1
+			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
-			if canAfford then
-				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}):
+			if canAfford|>|0 then
+				ifnot isTool({recipes[{i}].output.id}) msg &f> {recipes[{i}].output.count} &6{blocks[{recipes[{i}].output.id}].name}&f (x{canAfford}):
 				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f):
 				set j 0
 				while if j|<|{recipes[{i}].ingredients.Length}
@@ -588,6 +590,7 @@ quit
 			setadd i 1
 		end
 		msg &eType &a/in craft [name]&e to craft something
+		msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
 	end
 	set i 0
@@ -624,21 +627,21 @@ quit
 
 #checkRecipeAfford
 	set j 0
-	set {runArg2} false
+	set {runArg2} 999
 	ifnot recipes[{runArg1}].condition|=|"" then
-		ifnot {recipes[{runArg1}].condition} quit
+		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
 	end
 	if isTool({recipes[{runArg1}].output.id}) then
-		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count quit
+		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
 	end
 	while if j|<|{recipes[{runArg1}].ingredients.Length}
 		set id {recipes[{runArg1}].ingredients[{j}].id}
-		set count {recipes[{runArg1}].ingredients[{j}].count}
-		setmul count {runArg3}
-		if count|>|{inventory[{id}]} quit
+		set count {inventory[{id}]}
+		setdiv count {recipes[{runArg1}].ingredients[{j}].count}
+		setrounddown count
+		if {runArg2}|>|count set {runArg2} {count}
 		setadd j 1
 	end
-	set {runArg2} true
 quit
 
 #getBlockByName
@@ -665,8 +668,8 @@ quit
 	set i 0
 	while if i|<|{recipes.Length}
 		if recipes[{i}].output.id|=|bid then
-			call #checkRecipeAfford|{i}|canAfford|{c}
-			if canAfford then
+			call #checkRecipeAfford|{i}|canAfford
+			if canAfford|>=|c then
 				set {pname} {i}
 				quit
 			end
