@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.13
+	msg &fVersion &a0.1.14
 quit
 
 #changelog
@@ -392,8 +392,8 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
-	call #getblock|id|{x}|{y}|{z}
 	set toomuch {runArg4}
+	call #getblock|id|{x}|{y}|{z}
 	ifnot toomuch then
 		if label #loot[{id}] call #loot[{id}]
 		else call #give|{id}|1
