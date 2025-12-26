@@ -27,6 +27,7 @@ using no_runarg_underscore_conversion
 	gui barColor #ff0000 0.25
 
 	call #version
+	msg &fType &a/in changes&f to view the changelog.
 
 	msg &fYou can place and break blocks freely in this map.
 	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
@@ -58,7 +59,7 @@ quit
 	msg - Fixed the breaking animation being too large for the campfire
 	msg - Adjusted the crafting menu to display the amount of things you can craft
 #version
-	msg &fVersion &a0.1.19
+	msg &fVersion &a0.1.20
 quit
 
 start
@@ -552,6 +553,7 @@ quit
 quit
 
 #input
+	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"craft" then
 		set craftArgs {runArg2}
 		ifnot craftArgs|=|"" then
