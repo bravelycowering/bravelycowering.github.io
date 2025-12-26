@@ -47,12 +47,8 @@ using no_runarg_underscore_conversion
 	cmd oss #tick repeatable
 quit
 
-#version
-	msg &fVersion &a0.1.17
-quit
-
 #changelog
-	msg &fChanges in &a0.2&f:
+	msg &fChanges in the latest version:
 	msg - Mushrooms can now be consumed to regain health by right clicking the air while holding them
 	msg - Reach has been reduced from 5 blocks to 4
 	msg - New blocks: wood slab and cobblestone (and recipes to match!)
@@ -61,6 +57,8 @@ quit
 	msg - Pick block now only works with blocks you have in your inventory
 	msg - Fixed the breaking animation being too large for the campfire
 	msg - Adjusted the crafting menu to display the amount of things you can craft
+#version
+	msg &fVersion &a0.1.18
 quit
 
 start
@@ -467,6 +465,13 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
 	ifnot blocks[{id}].replaceable quit
+	ifnot blocks[{id}].mergeInto|=|"" then
+		if PlayerHeldBlock|=|blocks[{id}].merger then
+			call #take|{playerHeldBlock}|1
+			jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
+			quit
+		end
+	end
 	if blocks[{PlayerHeldBlock}].grounded then
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
@@ -577,7 +582,7 @@ quit
 			set ingrediantList
 			if canAfford|>|0 then
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) &7* {canAfford}
-				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f) &7* 1
+				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f)
 				set j 0
 				while if j|<|{recipes[{i}].ingredients.Length}
 					set text {recipes[{i}].ingredients[{j}].count} {blocks[{recipes[{i}].ingredients[{j}].id}].name}
