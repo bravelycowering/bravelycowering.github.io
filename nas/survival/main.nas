@@ -50,16 +50,11 @@ quit
 
 #changelog
 	msg &fChanges in the latest version:
-	msg - Mushrooms can now be consumed to regain health by right clicking the air while holding them
-	msg - Reach has been reduced from 5 blocks to 4
-	msg - New blocks: wood slab and cobblestone (and recipes to match!)
-	msg - Various blocks like plants, ore gems, and campfires can no longer be placed mid-air
-	msg - Inaccessible 'mushroom stem' has been removed from the menu
-	msg - Pick block now only works with blocks you have in your inventory
-	msg - Fixed the breaking animation being too large for the campfire
-	msg - Adjusted the crafting menu to display the amount of things you can craft
+	msg - New block: Flax
+	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
+	msg - Campfires now display a new message upon being interacted with while holding an incorrect item
 #version
-	msg &fVersion &a0.2
+	msg &fVersion &a0.2.1
 quit
 
 start
@@ -267,7 +262,7 @@ quit
 	cmd ma
 	cmd replacebrush 767 cloudy 0 37/2 f=.2
 	cmd ma
-	cmd replacebrush 37 random 37 38 0/3
+	cmd replacebrush 37 random 37/4 38/4 78/1 0/3
 	cmd ma
 	// mushrooms
 	call #grow|1|767
@@ -704,8 +699,10 @@ quit
 			setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 			set spawnblock {runArg1} {runArg2} {runArg3}
 			msg &fRespawn point set
+			quit
 		end
 	end
+	msg &cYou can't light a campfire with that
 quit
 
 #use[68]
