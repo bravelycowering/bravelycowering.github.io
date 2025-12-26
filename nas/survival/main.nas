@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.11
+	msg &fVersion &a0.1.12
 quit
 
 #changelog
@@ -58,6 +58,7 @@ quit
 	msg - New blocks: wood slab and cobblestone (and recipes to match!)
 	msg - Various blocks like plants, ore gems, and campfires can no longer be placed mid-air
 	msg - Inaccessible 'mushroom stem' has been removed from the menu
+	msg - Pick block now only works with blocks you have in your inventory
 quit
 
 start
@@ -487,7 +488,7 @@ quit
 
 #pick
 	call #getblock|id|{runArg1}|{runArg2}|{runArg3}
-	cmd holdsilent {id}
+	if inventory[{id}]|>|0 cmd holdsilent {id}
 quit
 
 #getblock
