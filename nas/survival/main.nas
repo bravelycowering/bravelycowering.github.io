@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.8
+	msg &fVersion &a0.1.9
 quit
 
 #changelog
@@ -383,17 +383,7 @@ quit
 		quit
 	end
 	set minepos
-	ifnot toomuch then
-		if label #loot[{id}] call #loot[{id}]
-		else call #give|{id}|1
-	end
-	if blocks[{id}].remainder|=|"" set empty 0
-	else set empty {blocks[{id}].remainder}
-	if spawnblock|=|coords then
-		set spawnblock
-		setdeathspawn {worldSpawn} 0 0
-	end
-	jump #setblock|{empty}|{x}|{y}|{z}
+	jump #destroyblock|{x}|{y}|{z}|{toomuch}
 quit
 
 #destroyblock
