@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 quit
 
 #version
-	msg &fVersion &a0.1.14
+	msg &fVersion &a0.1.15
 quit
 
 #changelog
@@ -437,16 +437,16 @@ quit
 quit
 
 #place
-	ifnot blocks[{PlayerHeldBlock}].replaceable then
-		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
-	end
-	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
 	call #getblock|id|{x}|{y}|{z}
 	if label #use[{id}:{PlayerHeldBlock}] jump #use[{id}:{PlayerHeldBlock}]|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
+	ifnot blocks[{PlayerHeldBlock}].replaceable then
+		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
+	end
+	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	if blocks[{id}].replaceable quit
 	ifnot blocks[{id}].mergeInto|=|"" then
 		if PlayerHeldBlock|=|blocks[{id}].merger then
