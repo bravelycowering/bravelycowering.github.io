@@ -2,6 +2,7 @@ using local_packages
 using no_runarg_underscore_conversion
 
 #onJoin
+	if LevelName|=|"iloveminecraft1+" cmd g hell
 	clickevent sync register #click
 	reach 4
 
@@ -50,11 +51,11 @@ quit
 
 #changelog
 	msg &fChanges in the latest version:
-	msg - New block: Flax
-	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
+	// msg - New block: Flax
+	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Campfires now display a new message upon being interacted with while holding an incorrect item
 #version
-	msg &fVersion &a0.2.3
+	msg &fVersion &a0.2.4
 quit
 
 start
