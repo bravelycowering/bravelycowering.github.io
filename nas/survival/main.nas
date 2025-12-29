@@ -69,9 +69,9 @@ end
 	msg &fChanges in the latest version:
 	// msg - New block: Flax
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	msg - Reach anticheat
+	msg - Silent reach anticheat
 #version
-	msg &fVersion &a0.2.5
+	msg &fVersion &a0.2.6
 quit
 
 start
@@ -366,8 +366,9 @@ quit
 quit
 
 #toofar
+	// silent
 	reach 4
-	msg &cYou can't reach that block!
+	// msg &cYou can't reach that block!
 quit
 
 #airclick
