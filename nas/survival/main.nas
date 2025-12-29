@@ -49,13 +49,29 @@ using no_runarg_underscore_conversion
 	cmd oss #tick repeatable
 quit
 
+function #setdist
+	// package, x1, y1, z1, x2, y2, z2
+	local a {runArg5}
+	setsub *a {runArg2}
+	setmul *a {a}
+	local b {runArg6}
+	setsub *b {runArg3}
+	setmul *b {b}
+	local c {runArg7}
+	setsub *c {runArg4}
+	setmul *c {c}
+	setadd *a {b}
+	setadd *a {c}
+	setsqrt {runArg1} {a}
+end
+
 #changelog
 	msg &fChanges in the latest version:
 	// msg - New block: Flax
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	msg - Campfires now display a new message upon being interacted with while holding an incorrect item
+	msg - Reach anticheat
 #version
-	msg &fVersion &a0.2.4
+	msg &fVersion &a0.2.5
 quit
 
 start
@@ -340,9 +356,18 @@ quit
 	if coords[0]|>|1000 jump #airclick
 	if coords[1]|>|1000 jump #airclick
 	if coords[2]|>|1000 jump #airclick
+	set PlayerEyeY {PlayerY}
+	setadd PlayerEyeY 1
+	call #setdist|dist|{PlayerX}|{PlayerEyeY}|{PlayerZ}|{coords[0]}|{coords[1]}|{coords[2]}
+	if dist|>|5.5 jump #toofar
 	if click.button|=|"Left" jump #mine|{coords[0]}|{coords[1]}|{coords[2]}
 	if click.button|=|"Right" jump #place|{coords[0]}|{coords[1]}|{coords[2]}
 	if click.button|=|"Middle" jump #pick|{coords[0]}|{coords[1]}|{coords[2]}
+quit
+
+#toofar
+	reach 4
+	msg &cYou can't reach that block!
 quit
 
 #airclick
