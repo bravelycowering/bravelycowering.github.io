@@ -6,6 +6,8 @@ using no_runarg_underscore_conversion
 	clickevent sync register #click
 	reach 4
 
+	set true true
+
 	set minetimer 0
 	set minepos
 	set pickaxe 0
@@ -49,6 +51,51 @@ using no_runarg_underscore_conversion
 	cmd oss #tick repeatable
 quit
 
+function #setstandingon
+	localname exittrue
+	// package, blockfield, comp, blockvalue
+	local coords {PlayerCoordsDecimal}
+	setsplit *coords " "
+	setsub *coords[1] 0.03125
+	local y {*coords[1]}
+	setrounddown *y
+
+	setsub *coords[0] 0.25
+	local x {*coords[0]}
+	setrounddown *x
+	setsub *coords[2] 0.25
+	local z {*coords[2]}
+	setrounddown *z
+	localname id
+	setblockid *id {x} {y} {z}
+	if blocks[{id}].{runArg2}|{runArg3}|{runArg4} jump #*exittrue
+
+	setadd *coords[0] 0.46875
+	set *x {*coords[0]}
+	setrounddown *x
+	setblockid *id {x} {y} {z}
+	if blocks[{id}].{runArg2}|{runArg3}|{runArg4} jump #*exittrue
+
+	setsub *coords[0] 0.46875
+	set *x {*coords[0]}
+	setrounddown *x
+	setadd *coords[2] 0.46875
+	set *z {*coords[2]}
+	setrounddown *z
+	setblockid *id {x} {y} {z}
+	if blocks[{id}].{runArg2}|{runArg3}|{runArg4} jump #*exittrue
+
+	setadd *coords[0] 0.46875
+	set *x {*coords[0]}
+	setrounddown *x
+	setblockid *id {x} {y} {z}
+	if blocks[{id}].{runArg2}|{runArg3}|{runArg4} jump #*exittrue
+	
+	quit
+	#*exittrue
+	set {runArg1} true
+end
+
 function #setdist
 	// package, x1, y1, z1, x2, y2, z2
 	local a {runArg5}
@@ -69,68 +116,66 @@ end
 	msg &fChanges in the latest version:
 	// msg - New block: Flax
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	msg - Silent reach anticheat
+	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.6
+	msg &fVersion &a0.2.7
 quit
 
-start
-	local PrevPlayerCoords
-	local prevhp
-	local hpbar
-	local firebar
-	local myblock
-	local firetickmod
-	local temp
-	#tick
-		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-		if blocks[{myblock}].catchFire then
-			set fireticks 100
-			cpemsg smallannounce &6▐▐▐▐▐▐▐▐▐▐
-		end
-		if blocks[{myblock}].extinguishFire then
-			if fireticks|>|0 then
-				gui barSize 0
-				set fireticks 0
-			end
-		end
-		ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
-		ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
-		ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
-		set *PrevPlayerCoords {PlayerCoords}
-		delay 100
-		if debug cpemsg top1 &c{actionCount}/60000
-		ifnot hp|=|*prevhp then
-			set *prevhp {hp}
-			call #makebar|*hpbar|c|{hp}|{maxhp}
-			cpemsg bot1 &c♥ {hpbar}
-		end
-		if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
-		else cpemsg bot2 Holding: &cNothing
-		cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
-		if iframes|>|0 then
-			setsub iframes 1
-			ifnot iframes|<|2 gui barColor #ff0000 0.25
-			if iframes|<|2 gui barSize 0
-			else gui barSize 1
-		end
+function #tick
+	localname PrevPlayerCoords
+	localname prevhp
+	localname myblock
+	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
+	if blocks[{myblock}].catchFire then
+		set fireticks 100
+		cpemsg smallannounce &6▐▐▐▐▐▐▐▐▐▐
+	end
+	if blocks[{myblock}].extinguishFire then
 		if fireticks|>|0 then
-			setsub fireticks 1
-			set *firetickmod {fireticks}
-			setmod *firetickmod 10
-			if *firetickmod|=|0 then
-				if fireticks|>|0 then
-					set *temp {fireticks}
-					setdiv *temp 10
-					call #makecharbar|*firebar|▐|6|{temp}|10
-					cpemsg smallannounce {firebar}
-				end
-				ifnot fireticks|>|0 cpemsg smallannounce
-				call #damage|2|burn
-			end
+			gui barSize 0
+			set fireticks 0
 		end
-		if actionCount|>=|60000 cmd oss #tick repeatable
-		if actionCount|>|60000 terminate
+	end
+	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
+	ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
+	ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
+	set *PrevPlayerCoords {PlayerCoords}
+	delay 100
+	if debug cpemsg top1 &c{actionCount}/60000
+	ifnot hp|=|*prevhp then
+		set *prevhp {hp}
+		localname hpbar
+		call #makebar|*hpbar|c|{hp}|{maxhp}
+		cpemsg bot1 &c♥ {hpbar}
+	end
+	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
+	else cpemsg bot2 Holding: &cNothing
+	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
+	if iframes|>|0 then
+		setsub iframes 1
+		ifnot iframes|<|2 gui barColor #ff0000 0.25
+		if iframes|<|2 gui barSize 0
+		else gui barSize 1
+	end
+	if fireticks|>|0 then
+		setsub fireticks 1
+		local *firetickmod {fireticks}
+		setmod *firetickmod 10
+		if *firetickmod|=|0 then
+			if fireticks|>|0 then
+				localname temp
+				set *temp {fireticks}
+				setdiv *temp 10
+				localname firebar
+				call #makecharbar|*firebar|▐|6|{temp}|10
+				cpemsg smallannounce {firebar}
+			end
+			ifnot fireticks|>|0 cpemsg smallannounce
+			call #damage|2|burn
+		end
+	end
+	if actionCount|>=|60000 cmd oss #tick repeatable
+	if actionCount|>|60000 terminate
 	jump #tick
 end
 

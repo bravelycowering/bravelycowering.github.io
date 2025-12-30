@@ -1,13 +1,21 @@
 local conflicts = {}
 
-local function uuid()
+local retainNames = true
+
+local function uuid(from)
 	local str
+	local n = 1
 	repeat
-		local chars = {}
-		for i = 1, 6 do
-			chars[#chars+1] = string.char(math.random(65, 90) + math.random(0, 1)*32)
+		if retainNames then
+			str = from.."_"..n
+			n = n + 1
+		else
+			local chars = {}
+			for i = 1, 16 do
+				chars[#chars+1] = string.char(math.random(65, 90) + math.random(0, 1)*32)
+			end
+			str = table.concat(chars)
 		end
-		str = table.concat(chars)
 	until not conflicts[str]
 	conflicts[str] = true
 	return str
@@ -24,10 +32,10 @@ local function resolveVarName(locals, name)
 end
 
 local function resolvePackageUnwraps(locals, word)
-	return word:gsub("%b{}", function(m)
-		return "{"..resolveVarName(locals, resolvePackageUnwraps(locals, m:sub(2, -2))).."}"
-	end):gsub("%*(%w+)", function(m)
+	return word:gsub("%*(%w+)", function(m)
 		return resolveVarName(locals, m)
+	end):gsub("%b{}", function(m)
+		return "{"..resolveVarName(locals, resolvePackageUnwraps(locals, m:sub(2, -2))).."}"
 	end)
 end
 
@@ -63,7 +71,7 @@ return function(inpath)
 			end
 		end
 		if condition == "while" then
-			local label = "#"..condition.."_"..uuid()
+			local label = "#"..uuid(condition)
 			ends[#ends+1] = line:gsub("%s*while%s*", "", 1).." jump "..label
 			locals[#locals+1] = {}
 			line = line:gsub("while[^\n]+", label)
@@ -86,7 +94,7 @@ return function(inpath)
 				validthen = true
 			end
 			if validthen then
-				local label = "#"..condition.."_"..uuid()
+				local label = "#"..uuid(condition)
 				ends[#ends+1] = label
 				locals[#locals+1] = {}
 				line = line:gsub("then[^\n%S]*", "jump "..label)
@@ -100,9 +108,16 @@ return function(inpath)
 		if action == "local" then
 			local scope = locals[#locals]
 			local varname = args[1]
-			local localname = "l_"..uuid().."_"..varname
+			local localname = "l_"..uuid(varname)
 			scope[varname] = localname
 			line = line:gsub("local[^\n%S]*%S+[^\n%S]*", "set "..localname.." ")
+		end
+		if action == "localname" then
+			local scope = locals[#locals]
+			local varname = args[1]
+			local localname = "l_"..uuid(varname)
+			scope[varname] = localname
+			line = line:gsub("localname[^\n%S]*%S+[^\n%S]*", "// localname "..localname.." ")
 		end
 		if action == "end" then
 			if #ends > 0 then
