@@ -21,6 +21,7 @@ local function comptbl(tbl, prefix, lines)
 	if #tbl > 0 then
 		lines[#lines+1] = "set "..prefix..".Length "..#tbl
 	end
+	table.sort(lines)
 	return lines
 end
 

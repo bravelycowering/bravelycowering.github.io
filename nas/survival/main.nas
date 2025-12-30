@@ -57,7 +57,7 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.9
+	msg &fVersion &a0.2.10
 quit
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
@@ -74,11 +74,11 @@ function #setstandingon
 	local y {*coords[1]}
 	setrounddown *y
 
-	// do 0.75 here because its 0.5 off
-	setsub *coords[0] 0.75
+	// add 0.25 here instead of subtracting 0.25 because its 0.5 off
+	setadd *coords[0] 0.25
 	local x {*coords[0]}
 	setrounddown *x
-	setsub *coords[2] 0.75
+	setadd *coords[2] 0.25
 	local z {*coords[2]}
 	setrounddown *z
 	localname id
