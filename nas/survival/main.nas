@@ -57,19 +57,21 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.10
+	msg &fVersion &a0.2.11
 quit
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
 function #setstandingon
-	localname exittrue
+	localname exitfalse
 	local package {runArg1}
 	local blockfield {runArg2}
 	local comp {runArg3}
 	local blockvalue {runArg4}
+	set {package} true
 	// package, blockfield, comp, blockvalue
 	local coords {PlayerCoordsDecimal}
 	setsplit *coords " "
+	if *coords[1]|!=|PlayerY jump #*exitfalse
 	setsub *coords[1] 0.03125
 	local y {*coords[1]}
 	setrounddown *y
@@ -83,13 +85,13 @@ function #setstandingon
 	setrounddown *z
 	localname id
 	call #getblock|*id|{x}|{y}|{z}
-	if blocks[{id}].{blockfield}|{comp}|{blockvalue} jump #*exittrue
+	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
 	setadd *coords[0] 0.46875
 	set *x {*coords[0]}
 	setrounddown *x
 	call #getblock|*id|{x}|{y}|{z}
-	if blocks[{id}].{blockfield}|{comp}|{blockvalue} jump #*exittrue
+	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
 	setsub *coords[0] 0.46875
 	set *x {*coords[0]}
@@ -98,18 +100,16 @@ function #setstandingon
 	set *z {*coords[2]}
 	setrounddown *z
 	call #getblock|*id|{x}|{y}|{z}
-	if blocks[{id}].{blockfield}|{comp}|{blockvalue} jump #*exittrue
+	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
 	setadd *coords[0] 0.46875
 	set *x {*coords[0]}
 	setrounddown *x
 	call #getblock|*id|{x}|{y}|{z}
-	if blocks[{id}].{blockfield}|{comp}|{blockvalue} jump #*exittrue
+	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 	
+	#*exitfalse
 	set {package} false
-	quit
-	#*exittrue
-	set {package} true
 end
 
 function #setdist

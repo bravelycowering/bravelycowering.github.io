@@ -57,19 +57,21 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.10
+	msg &fVersion &a0.2.11
 quit
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
 #setstandingon
-	// localname l_exittrue_1 
+	// localname l_exitfalse_1 
 	set l_package_1 {runArg1}
 	set l_blockfield_1 {runArg2}
 	set l_comp_1 {runArg3}
 	set l_blockvalue_1 {runArg4}
+	set {l_package_1} true
 	// package, blockfield, comp, blockvalue
 	set l_coords_1 {PlayerCoordsDecimal}
 	setsplit l_coords_1 " "
+	if l_coords_1[1]|!=|PlayerY jump #l_exitfalse_1
 	setsub l_coords_1[1] 0.03125
 	set l_y_1 {l_coords_1[1]}
 	setrounddown l_y_1
@@ -83,13 +85,13 @@ quit
 	setrounddown l_z_1
 	// localname l_id_1 
 	call #getblock|l_id_1|{l_x_1}|{l_y_1}|{l_z_1}
-	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} jump #l_exittrue_1
+	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} quit
 
 	setadd l_coords_1[0] 0.46875
 	set l_x_1 {l_coords_1[0]}
 	setrounddown l_x_1
 	call #getblock|l_id_1|{l_x_1}|{l_y_1}|{l_z_1}
-	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} jump #l_exittrue_1
+	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} quit
 
 	setsub l_coords_1[0] 0.46875
 	set l_x_1 {l_coords_1[0]}
@@ -98,18 +100,16 @@ quit
 	set l_z_1 {l_coords_1[2]}
 	setrounddown l_z_1
 	call #getblock|l_id_1|{l_x_1}|{l_y_1}|{l_z_1}
-	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} jump #l_exittrue_1
+	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} quit
 
 	setadd l_coords_1[0] 0.46875
 	set l_x_1 {l_coords_1[0]}
 	setrounddown l_x_1
 	call #getblock|l_id_1|{l_x_1}|{l_y_1}|{l_z_1}
-	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} jump #l_exittrue_1
+	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} quit
 	
+	#l_exitfalse_1
 	set {l_package_1} false
-	quit
-	#l_exittrue_1
-	set {l_package_1} true
 quit
 
 #setdist
