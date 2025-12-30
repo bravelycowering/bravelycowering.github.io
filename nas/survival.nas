@@ -57,7 +57,7 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.11
+	msg &fVersion &a0.2.12
 quit
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
@@ -76,33 +76,33 @@ quit
 	set l_y_1 {l_coords_1[1]}
 	setrounddown l_y_1
 
-	// add 0.25 here instead of subtracting 0.25 because its 0.5 off
-	setadd l_coords_1[0] 0.25
+	// add 0.21875 here instead of subtracting 0.25 because its 0.46875 off
+	setadd l_coords_1[0] 0.21875
 	set l_x_1 {l_coords_1[0]}
 	setrounddown l_x_1
-	setadd l_coords_1[2] 0.25
+	setadd l_coords_1[2] 0.21875
 	set l_z_1 {l_coords_1[2]}
 	setrounddown l_z_1
 	// localname l_id_1 
 	call #getblock|l_id_1|{l_x_1}|{l_y_1}|{l_z_1}
 	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} quit
 
-	setadd l_coords_1[0] 0.46875
+	setadd l_coords_1[0] 0.5
 	set l_x_1 {l_coords_1[0]}
 	setrounddown l_x_1
 	call #getblock|l_id_1|{l_x_1}|{l_y_1}|{l_z_1}
 	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} quit
 
-	setsub l_coords_1[0] 0.46875
+	setsub l_coords_1[0] 0.5
 	set l_x_1 {l_coords_1[0]}
 	setrounddown l_x_1
-	setadd l_coords_1[2] 0.46875
+	setadd l_coords_1[2] 0.5
 	set l_z_1 {l_coords_1[2]}
 	setrounddown l_z_1
 	call #getblock|l_id_1|{l_x_1}|{l_y_1}|{l_z_1}
 	if blocks[{l_id_1}].{l_blockfield_1}|{l_comp_1}|{l_blockvalue_1} quit
 
-	setadd l_coords_1[0] 0.46875
+	setadd l_coords_1[0] 0.5
 	set l_x_1 {l_coords_1[0]}
 	setrounddown l_x_1
 	call #getblock|l_id_1|{l_x_1}|{l_y_1}|{l_z_1}

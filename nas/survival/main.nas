@@ -57,7 +57,7 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.11
+	msg &fVersion &a0.2.12
 quit
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
@@ -76,33 +76,33 @@ function #setstandingon
 	local y {*coords[1]}
 	setrounddown *y
 
-	// add 0.25 here instead of subtracting 0.25 because its 0.5 off
-	setadd *coords[0] 0.25
+	// add 0.21875 here instead of subtracting 0.25 because its 0.46875 off
+	setadd *coords[0] 0.21875
 	local x {*coords[0]}
 	setrounddown *x
-	setadd *coords[2] 0.25
+	setadd *coords[2] 0.21875
 	local z {*coords[2]}
 	setrounddown *z
 	localname id
 	call #getblock|*id|{x}|{y}|{z}
 	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
-	setadd *coords[0] 0.46875
+	setadd *coords[0] 0.5
 	set *x {*coords[0]}
 	setrounddown *x
 	call #getblock|*id|{x}|{y}|{z}
 	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
-	setsub *coords[0] 0.46875
+	setsub *coords[0] 0.5
 	set *x {*coords[0]}
 	setrounddown *x
-	setadd *coords[2] 0.46875
+	setadd *coords[2] 0.5
 	set *z {*coords[2]}
 	setrounddown *z
 	call #getblock|*id|{x}|{y}|{z}
 	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
-	setadd *coords[0] 0.46875
+	setadd *coords[0] 0.5
 	set *x {*coords[0]}
 	setrounddown *x
 	call #getblock|*id|{x}|{y}|{z}
