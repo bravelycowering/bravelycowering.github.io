@@ -51,8 +51,21 @@ using no_runarg_underscore_conversion
 	cmd oss #tick repeatable
 quit
 
+#changelog
+	msg &fChanges in the latest version:
+	// msg - New block: Flax
+	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
+	msg - Technical Changes
+#version
+	msg &fVersion &a0.2.8
+quit
+
 function #setstandingon
 	localname exittrue
+	local package {runArg1}
+	local blockfield {runArg2}
+	local comp {runArg3}
+	local blockvalue {runArg4}
 	// package, blockfield, comp, blockvalue
 	local coords {PlayerCoordsDecimal}
 	setsplit *coords " "
@@ -67,14 +80,14 @@ function #setstandingon
 	local z {*coords[2]}
 	setrounddown *z
 	localname id
-	setblockid *id {x} {y} {z}
-	if blocks[{id}].{runArg2}|{runArg3}|{runArg4} jump #*exittrue
+	call #getblock|*id|{x}|{y}|{z}
+	if blocks[{id}].{blockfield}|{comp}|{blockvalue} jump #*exittrue
 
 	setadd *coords[0] 0.46875
 	set *x {*coords[0]}
 	setrounddown *x
-	setblockid *id {x} {y} {z}
-	if blocks[{id}].{runArg2}|{runArg3}|{runArg4} jump #*exittrue
+	call #getblock|*id|{x}|{y}|{z}
+	if blocks[{id}].{blockfield}|{comp}|{blockvalue} jump #*exittrue
 
 	setsub *coords[0] 0.46875
 	set *x {*coords[0]}
@@ -82,18 +95,19 @@ function #setstandingon
 	setadd *coords[2] 0.46875
 	set *z {*coords[2]}
 	setrounddown *z
-	setblockid *id {x} {y} {z}
-	if blocks[{id}].{runArg2}|{runArg3}|{runArg4} jump #*exittrue
+	call #getblock|*id|{x}|{y}|{z}
+	if blocks[{id}].{blockfield}|{comp}|{blockvalue} jump #*exittrue
 
 	setadd *coords[0] 0.46875
 	set *x {*coords[0]}
 	setrounddown *x
-	setblockid *id {x} {y} {z}
-	if blocks[{id}].{runArg2}|{runArg3}|{runArg4} jump #*exittrue
+	call #getblock|*id|{x}|{y}|{z}
+	if blocks[{id}].{blockfield}|{comp}|{blockvalue} jump #*exittrue
 	
+	set {package} false
 	quit
 	#*exittrue
-	set {runArg1} true
+	set {package} true
 end
 
 function #setdist
@@ -111,15 +125,6 @@ function #setdist
 	setadd *a {c}
 	setsqrt {runArg1} {a}
 end
-
-#changelog
-	msg &fChanges in the latest version:
-	// msg - New block: Flax
-	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	msg - Technical Changes
-#version
-	msg &fVersion &a0.2.7
-quit
 
 function #tick
 	localname PrevPlayerCoords
