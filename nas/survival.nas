@@ -28,7 +28,8 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
 
-	set worldSpawn {PlayerCoords}
+	set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
+	set WorldSpawn {DeathSpawn}
 
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
@@ -61,9 +62,10 @@ quit
 	msg &fChanges in the latest version:
 	// msg - New block: Flax
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	msg - Technical Changes
+	msg - Lots of technical changes
+	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.22
+	msg &fVersion &a0.2.23
 quit
 
 #initSave
@@ -95,7 +97,7 @@ quit
 #save
 	if saveSlot|=|"" quit
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
-placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]}
+placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]}|{DeathSpawn}|{SpawnBlock}
 quit
 
 #load
@@ -110,7 +112,7 @@ quit
 		setadd l_i_1 1
 	if l_i_1|<|l_loaddata_1.Length jump #while_3
 	setsplit inventory ,
-	cmd tpp {PlayerPos}
+	ifnot PlayerPos|=|"" cmd tpp {PlayerPos}
 quit
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
@@ -443,6 +445,14 @@ quit
 quit
 
 #die
+	if SpawnBlock|=|"" jump #ifnot_2
+		setblockid spawnblockid {SpawnBlock}
+		ifnot spawnblockid|!=|68 jump #if_10
+			set SpawnBlock
+			set DeathSpawn {WorldSpawn}
+			setdeathspawn {DeathSpawn}
+		#if_10
+	#ifnot_2
 	if allowMapChanges kill {deathmessages.{runArg1}}
 	else kill
 	set fireticks 0
@@ -502,7 +512,7 @@ quit
 	if toomuch set barcol c
 	else set barcol a
 	setsub minetimer {minespeed}
-	ifnot minetimer|>|0 jump #if_10
+	ifnot minetimer|>|0 jump #if_11
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
 		setdiv model {blocks[{id}].hardness}
@@ -516,7 +526,7 @@ quit
 		ifnot blocks[{id}].breakScale|=|"" cmd tempbot scale minemeter {blocks[{id}].breakScale}
 		cmd tempbot tp minemeter {x} {boty} {z} 0 0
 		quit
-	#if_10
+	#if_11
 	set minepos
 	jump #destroyblock|{x}|{y}|{z}|{toomuch}
 quit
@@ -527,16 +537,12 @@ quit
 	set z {runArg3}
 	set toomuch {runArg4}
 	call #getblock|id|{x}|{y}|{z}
-	if toomuch jump #ifnot_2
+	if toomuch jump #ifnot_3
 		if label #loot[{id}] call #loot[{id}]
 		else call #give|{id}|1
-	#ifnot_2
+	#ifnot_3
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
-	ifnot spawnblock|=|coords jump #if_11
-		set spawnblock
-		setdeathspawn {worldSpawn} 0 0
-	#if_11
 	call #setblock|{empty}|{x}|{y}|{z}
 	setadd y 1
 	call #getblock|id|{x}|{y}|{z}
@@ -576,12 +582,12 @@ quit
 	call #getblock|id|{x}|{y}|{z}
 	if label #use[{id}:{PlayerHeldBlock}] jump #use[{id}:{PlayerHeldBlock}]|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
-	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_3
+	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_4
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
-	#ifnot_3
+	#ifnot_4
 	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	if blocks[{id}].replaceable quit
-	if blocks[{id}].mergeInto|=|"" jump #ifnot_4
+	if blocks[{id}].mergeInto|=|"" jump #ifnot_5
 		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_13
 			ifnot blocks[{id}].mergeFace|=|click.face jump #if_14
 				call #take|{playerHeldBlock}|1
@@ -589,7 +595,7 @@ quit
 				quit
 			#if_14
 		#if_13
-	#ifnot_4
+	#ifnot_5
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
 	if click.face|=|"AwayZ" setadd z 1
@@ -597,13 +603,13 @@ quit
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
-	if blocks[{id}].mergeInto|=|"" jump #ifnot_5
+	if blocks[{id}].mergeInto|=|"" jump #ifnot_6
 		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_15
 			call #take|{playerHeldBlock}|1
 			jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
 			quit
 		#if_15
-	#ifnot_5
+	#ifnot_6
 	ifnot blocks[{id}].replaceable quit
 	ifnot blocks[{PlayerHeldBlock}].grounded jump #if_16
 		setsub y 1
@@ -617,14 +623,14 @@ quit
 quit
 
 #itemuse
-	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_6
+	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_7
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 		ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 		ifnot hp|<|maxhp jump #if_17
 			call #take|{playerHeldBlock}|1
 			call #heal|{blocks[{PlayerHeldBlock}].food}
 		#if_17
-	#ifnot_6
+	#ifnot_7
 quit
 
 #pick
@@ -638,11 +644,11 @@ quit
 quit
 
 #setblock
-	if allowMapChanges jump #ifnot_7
+	if allowMapChanges jump #ifnot_8
 		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
 		quit
-	#ifnot_7
+	#ifnot_8
 	placeblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
@@ -688,7 +694,7 @@ quit
 	if runArg1|=|"changes" jump #changelog
 	ifnot runArg1|=|"craft" jump #if_22
 		set craftArgs {runArg2}
-		if craftArgs|=|"" jump #ifnot_8
+		if craftArgs|=|"" jump #ifnot_9
 			set craftArgs[1] 1
 			setsplit craftArgs *
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
@@ -704,12 +710,12 @@ quit
 			#if_24
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
-		#ifnot_8
+		#ifnot_9
 		if usingWorkbench msg &eWorkbench Recipes:
-		if usingWorkbench jump #ifnot_9
+		if usingWorkbench jump #ifnot_10
 			if usingStonecutter msg &eStonecutter Recipes:
 			else msg &eRecipes:
-		#ifnot_9
+		#ifnot_10
 		set i 0
 		#while_9
 			call #checkRecipeAfford|{i}|canAfford
@@ -767,9 +773,9 @@ quit
 #checkRecipeAfford
 	set j 0
 	set {runArg2} 999
-	if recipes[{runArg1}].condition|=|"" jump #ifnot_10
+	if recipes[{runArg1}].condition|=|"" jump #ifnot_11
 		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
-	#ifnot_10
+	#ifnot_11
 	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_26
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
 	#if_26
@@ -785,10 +791,10 @@ quit
 
 #getBlockByName
 	set {runArg1}
-	if blocks[{runArg2}].name|=|"" jump #ifnot_11
+	if blocks[{runArg2}].name|=|"" jump #ifnot_12
 		set {runArg1} {runArg2}
 		quit
-	#ifnot_11
+	#ifnot_12
 	set i 0
 	#while_14
 		ifnot blocks[{i}].name|=|runArg2 jump #if_27
@@ -828,23 +834,25 @@ quit
 quit
 
 #use[67]
-	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_12
+	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_13
 		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_30
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
 			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
-			setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
-			set spawnblock {runArg1} {runArg2} {runArg3}
+			set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
+			setdeathspawn {DeathSpawn}
+			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			msg &fRespawn point set
 			quit
 		#if_30
-	#ifnot_12
+	#ifnot_13
 	msg &cYou can't light a campfire with that
 quit
 
 #use[68]
-	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
-	set spawnblock {runArg1} {runArg2} {runArg3}
+	set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
+	setdeathspawn {DeathSpawn}
+	set SpawnBlock {runArg1} {runArg2} {runArg3}
 	msg &fRespawn point set
 quit
 
@@ -1543,8 +1551,9 @@ set deathmessages.freeze @color@nick&f froze to death
 set deathmessages.lava @color@nick&f tried to swim in lava
 set deathmessages.magma @color@nick&f discovered the floor was lava
 set deathmessages.suffocation @color@nick&f suffocated in a wall
-set saveformat.Length 9
+set saveformat.Length 11
 set saveformat[0] .
+set saveformat[10] SpawnBlock
 set saveformat[1] PlayerPos
 set saveformat[2] pickaxe
 set saveformat[3] axe
@@ -1553,4 +1562,5 @@ set saveformat[5] hp
 set saveformat[6] maxhp
 set saveformat[7] fireticks
 set saveformat[8] inventory
+set saveformat[9] DeathSpawn
 quit

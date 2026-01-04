@@ -28,7 +28,8 @@ using no_runarg_underscore_conversion
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
 
-	set worldSpawn {PlayerCoords}
+	set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
+	set WorldSpawn {DeathSpawn}
 
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
@@ -61,9 +62,10 @@ quit
 	msg &fChanges in the latest version:
 	// msg - New block: Flax
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	msg - Technical Changes
+	msg - Lots of technical changes
+	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.22
+	msg &fVersion &a0.2.23
 quit
 
 function #initSave
@@ -110,7 +112,7 @@ function #load
 		setadd *i 1
 	end
 	setsplit inventory ,
-	cmd tpp {PlayerPos}
+	ifnot PlayerPos|=|"" cmd tpp {PlayerPos}
 end
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
@@ -443,6 +445,14 @@ quit
 quit
 
 #die
+	ifnot SpawnBlock|=|"" then
+		setblockid spawnblockid {SpawnBlock}
+		if spawnblockid|!=|68 then
+			set SpawnBlock
+			set DeathSpawn {WorldSpawn}
+			setdeathspawn {DeathSpawn}
+		end
+	end
 	if allowMapChanges kill {deathmessages.{runArg1}}
 	else kill
 	set fireticks 0
@@ -533,10 +543,6 @@ quit
 	end
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
-	if spawnblock|=|coords then
-		set spawnblock
-		setdeathspawn {worldSpawn} 0 0
-	end
 	call #setblock|{empty}|{x}|{y}|{z}
 	setadd y 1
 	call #getblock|id|{x}|{y}|{z}
@@ -833,8 +839,9 @@ quit
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
 			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
-			setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
-			set spawnblock {runArg1} {runArg2} {runArg3}
+			set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
+			setdeathspawn {DeathSpawn}
+			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			msg &fRespawn point set
 			quit
 		end
@@ -843,8 +850,9 @@ quit
 quit
 
 #use[68]
-	setdeathspawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
-	set spawnblock {runArg1} {runArg2} {runArg3}
+	set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
+	setdeathspawn {DeathSpawn}
+	set SpawnBlock {runArg1} {runArg2} {runArg3}
 	msg &fRespawn point set
 quit
 
