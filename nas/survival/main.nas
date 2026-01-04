@@ -57,17 +57,27 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.14
+	msg &fVersion &a0.2.15
 quit
 
 function #save
 	local savedata /nothing {}
-	local i 0
+	local i 1
 	while if *i|<|saveformat.Length
 		set *savedata {savedata}|{{saveformat[{i}]}}
 		setadd *i 1
 	end
-	msg {savedata}
+	set playerdata {savedata}
+end
+
+function #load
+	local loaddata {playerdata}
+	setsplit *localdata |
+	local i 1
+	while if *i|<|*localdata.Length
+		set {saveformat[{i}]} {*localdata[*i]}
+		setadd *i 1
+	end
 end
 
 // checks against humanoid hitbox (-0.25 to 0.21875)

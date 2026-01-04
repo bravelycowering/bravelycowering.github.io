@@ -1,4 +1,5 @@
 return {
+	".",
 	"PlayerPos",
 	"pickaxe",
 	"axe",
