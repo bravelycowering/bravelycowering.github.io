@@ -24,6 +24,7 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 
 	set allowMapChanges false
 	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
+	if LevelName|=|"bravelycowering+2" set allowMapChanges true
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
 

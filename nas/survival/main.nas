@@ -24,6 +24,7 @@ using no_runarg_underscore_conversion
 
 	set allowMapChanges false
 	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
+	if LevelName|=|"bravelycowering+2" set allowMapChanges true
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
 
