@@ -19,6 +19,9 @@ using no_runarg_underscore_conversion
 	set iframes 0
 	set fireticks 0
 
+	include setinvstring survival/blocks init
+	setsplit inventory ,
+
 	set allowMapChanges false
 	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
 
@@ -59,7 +62,7 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.21
+	msg &fVersion &a0.2.22
 quit
 
 function #initSave
@@ -105,7 +108,7 @@ end
 function #load
 	if saveSlot|=|"" quit
 	localname loaddata
-	setblockmessage *localdata {saveSlot}
+	setblockmessage *loaddata {saveSlot}
 	setsplit *loaddata |
 	local i 1
 	ifnot *i|<|saveformat.Length quit
@@ -113,7 +116,7 @@ function #load
 		set {saveformat[{i}]} {*loaddata[{i}]}
 		setadd *i 1
 	end
-	setsplit inventory
+	setsplit inventory ,
 	cmd tpp {PlayerPos}
 end
 

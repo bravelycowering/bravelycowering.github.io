@@ -19,6 +19,9 @@ using no_runarg_underscore_conversion
 	set iframes 0
 	set fireticks 0
 
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+	setsplit inventory ,
+
 	set allowMapChanges false
 	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
 
@@ -105,7 +108,7 @@ quit
 #load
 	if saveSlot|=|"" quit
 	// localname l_loaddata_1 
-	setblockmessage localdata {saveSlot}
+	setblockmessage l_loaddata_1 {saveSlot}
 	setsplit l_loaddata_1 |
 	set l_i_2 1
 	ifnot l_i_2|<|saveformat.Length quit
@@ -113,7 +116,7 @@ quit
 		set {saveformat[{l_i_2}]} {l_loaddata_1[{l_i_2}]}
 		setadd l_i_2 1
 	if l_i_2|<|l_loaddata_1.Length jump #while_4
-	setsplit inventory
+	setsplit inventory ,
 	cmd tpp {PlayerPos}
 quit
 
