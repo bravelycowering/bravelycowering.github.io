@@ -62,7 +62,7 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.21
+	msg &fVersion &a0.2.22
 quit
 
 #initSave
@@ -93,16 +93,8 @@ quit
 
 #save
 	if saveSlot|=|"" quit
-set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]}
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
-	set l_savedata_1 /nothing2 @p
-	set l_i_1 1
-	ifnot l_i_1|<|saveformat.Length quit
-	#while_3
-		set l_savedata_1 {l_savedata_1}|{{saveformat[{l_i_1}]}}
-		setadd l_i_1 1
-	if l_i_1|<|saveformat.Length jump #while_3
-	placemessageblock 7 {saveSlot} {l_savedata_1}
+placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]}
 quit
 
 #load
@@ -110,12 +102,12 @@ quit
 	// localname l_loaddata_1 
 	setblockmessage l_loaddata_1 {saveSlot}
 	setsplit l_loaddata_1 |
-	set l_i_2 1
-	ifnot l_i_2|<|saveformat.Length quit
-	#while_4
-		set {saveformat[{l_i_2}]} {l_loaddata_1[{l_i_2}]}
-		setadd l_i_2 1
-	if l_i_2|<|l_loaddata_1.Length jump #while_4
+	set l_i_1 1
+	ifnot l_i_1|<|saveformat.Length quit
+	#while_3
+		set {saveformat[{l_i_1}]} {l_loaddata_1[{l_i_1}]}
+		setadd l_i_1 1
+	if l_i_1|<|l_loaddata_1.Length jump #while_3
 	setsplit inventory ,
 	cmd tpp {PlayerPos}
 quit
@@ -570,10 +562,10 @@ quit
 	set axe 8
 	set spade 8
 	set i 0
-	#while_5
+	#while_4
 		set inventory[{i}] 9999
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_5
+	if i|<|{blocks.Length} jump #while_4
 quit
 
 #place
@@ -658,17 +650,17 @@ quit
 	set i 0
 	set {runArg1} &{runArg2}
 	ifnot i|<|{runArg3} jump #if_18
-		#while_6
+		#while_5
 			set {runArg1} {{runArg1}}|
 			setadd i 1
-		if i|<|{runArg3} jump #while_6
+		if i|<|{runArg3} jump #while_5
 	#if_18
 	set {runArg1} {{runArg1}}&0
 	ifnot i|<|{runArg4} jump #if_19
-		#while_7
+		#while_6
 			set {runArg1} {{runArg1}}|
 			setadd i 1
-		if i|<|{runArg4} jump #while_7
+		if i|<|{runArg4} jump #while_6
 	#if_19
 quit
 
@@ -677,17 +669,17 @@ quit
 	set i 0
 	set {runArg1} &{runArg3}
 	ifnot i|<|{runArg4} jump #if_20
-		#while_8
+		#while_7
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
-		if i|<|{runArg4} jump #while_8
+		if i|<|{runArg4} jump #while_7
 	#if_20
 	set {runArg1} {{runArg1}}&0
 	ifnot i|<|{runArg5} jump #if_21
-		#while_9
+		#while_8
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
-		if i|<|{runArg5} jump #while_9
+		if i|<|{runArg5} jump #while_8
 	#if_21
 quit
 
@@ -718,33 +710,33 @@ quit
 			else msg &eRecipes:
 		#ifnot_9
 		set i 0
-		#while_10
+		#while_9
 			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
 			ifnot canAfford|>|0 jump #if_25
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) &7* {canAfford}
 				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f)
 				set j 0
-				#while_11
+				#while_10
 					set text {recipes[{i}].ingredients[{j}].count} {blocks[{recipes[{i}].ingredients[{j}].id}].name}
 					if ingrediantList|=|"" set ingrediantList &f    {text}
 					else set ingrediantList {ingrediantList}, {text}
 					setadd j 1
-				if j|<|{recipes[{i}].ingredients.Length} jump #while_11
+				if j|<|{recipes[{i}].ingredients.Length} jump #while_10
 				msg {ingrediantList}
 			#if_25
 			setadd i 1
-		if i|<|{recipes.Length} jump #while_10
+		if i|<|{recipes.Length} jump #while_9
 		msg &eType &a/in craft [name]&e to craft something
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
 	#if_22
 	set i 0
 	msg &eResources:
-	#while_12
+	#while_11
 		ifnot inventory[{i}]|=|0 msg &f> &6{blocks[{i}].name}&f (x{inventory[{i}]})
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_12
+	if i|<|{blocks.Length} jump #while_11
 	msg &eTools:
 	msg &f> {toollevel[{pickaxe}]} Pickaxe
 	msg &f> {toollevel[{axe}]} Axe
@@ -757,13 +749,13 @@ quit
 	set blockID {recipes[{recipeID}].output.id}
 	set recipeCount {runArg2}
 	set j 0
-	#while_13
+	#while_12
 		set id {recipes[{recipeID}].ingredients[{j}].id}
 		set count {recipes[{recipeID}].ingredients[{j}].count}
 		setmul count {recipeCount}
 		call #take|{id}|{count}
 		setadd j 1
-	if j|<|{recipes[{recipeID}].ingredients.Length} jump #while_13
+	if j|<|{recipes[{recipeID}].ingredients.Length} jump #while_12
 	set count {recipes[{recipeID}].output.count}
 	setmul count {recipeCount}
 	call #give|{blockID}|{count}
@@ -780,14 +772,14 @@ quit
 	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_26
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
 	#if_26
-	#while_14
+	#while_13
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {inventory[{id}]}
 		setdiv count {recipes[{runArg1}].ingredients[{j}].count}
 		setrounddown count
 		if {runArg2}|>|count set {runArg2} {count}
 		setadd j 1
-	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_14
+	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_13
 quit
 
 #getBlockByName
@@ -797,13 +789,13 @@ quit
 		quit
 	#ifnot_11
 	set i 0
-	#while_15
+	#while_14
 		ifnot blocks[{i}].name|=|runArg2 jump #if_27
 			set {runArg1} {i}
 			quit
 		#if_27
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_15
+	if i|<|{blocks.Length} jump #while_14
 quit
 
 #getRecipeByOutput
@@ -812,7 +804,7 @@ quit
 	set c {runArg3}
 	set {pname}
 	set i 0
-	#while_16
+	#while_15
 		ifnot recipes[{i}].output.id|=|bid jump #if_28
 			call #checkRecipeAfford|{i}|canAfford
 			ifnot canAfford|>=|c jump #if_29
@@ -821,7 +813,7 @@ quit
 			#if_29
 		#if_28
 		setadd i 1
-	if i|<|{recipes.Length} jump #while_16
+	if i|<|{recipes.Length} jump #while_15
 quit
 
 #use[61]

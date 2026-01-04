@@ -19,7 +19,7 @@ using no_runarg_underscore_conversion
 	set iframes 0
 	set fireticks 0
 
-	include setinvstring survival/blocks init
+	include initinventory
 	setsplit inventory ,
 
 	set allowMapChanges false
@@ -93,16 +93,8 @@ end
 
 function #save
 	if saveSlot|=|"" quit
-	include setinvstring survival/blocks
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
-	local savedata /nothing2 @p
-	local i 1
-	ifnot *i|<|saveformat.Length quit
-	while if *i|<|saveformat.Length
-		set *savedata {savedata}|{{saveformat[{i}]}}
-		setadd *i 1
-	end
-	placemessageblock 7 {saveSlot} {savedata}
+	include savestring
 end
 
 function #load
