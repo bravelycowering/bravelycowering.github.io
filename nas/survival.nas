@@ -65,7 +65,7 @@ quit
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.25
+	msg &fVersion &a0.2.26
 quit
 
 #initSave
@@ -445,6 +445,7 @@ quit
 quit
 
 #die
+	set deathmsg {deathmessages.{runArg1}}
 	if SpawnBlock|=|"" jump #ifnot_2
 		setsplit SpawnBlock " "
 		call #getblock|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
@@ -454,12 +455,12 @@ quit
 			setdeathspawn {DeathSpawn}
 		#if_10
 	#ifnot_2
-	if allowMapChanges kill {deathmessages.{runArg1}}
+	if allowMapChanges kill {deathmsg}
 	else kill
 	set fireticks 0
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
-	cpemsg smallannounce {deathmessages.{runArg1}}
+	cpemsg smallannounce {deathmsg}
 	resetdata packages inventory[*]
 quit
 
