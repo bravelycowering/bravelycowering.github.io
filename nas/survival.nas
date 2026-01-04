@@ -65,7 +65,7 @@ quit
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.23
+	msg &fVersion &a0.2.24
 quit
 
 #initSave
@@ -836,12 +836,12 @@ quit
 #use[67]
 	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_13
 		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_30
+			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
 			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
 			set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 			setdeathspawn {DeathSpawn}
-			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			msg &fRespawn point set
 			quit
 		#if_30
