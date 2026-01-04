@@ -1,4 +1,4 @@
-// using local_packages
+using local_packages
 using no_runarg_underscore_conversion
 
 #onJoin
@@ -57,7 +57,7 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.16
+	msg &fVersion &a0.2.17
 quit
 
 function #save
@@ -72,10 +72,10 @@ end
 
 function #load
 	local loaddata {playerdata}
-	setsplit *localdata |
+	setsplit *loaddata |
 	local i 1
-	while if *i|<|*localdata.Length
-		set {saveformat[{i}]} {*localdata[*i]}
+	while if *i|<|*loaddata.Length
+		set {saveformat[{i}]} {*loaddata[*i]}
 		setadd *i 1
 	end
 	cmd tpp {PlayerPos}
