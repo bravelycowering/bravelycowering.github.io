@@ -66,7 +66,7 @@ quit
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.27
+	msg &fVersion &a0.2.28
 quit
 
 function #initSave
@@ -650,9 +650,10 @@ quit
 	ifnot allowMapChanges then
 		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
+		set world[{runArg2},{runArg3},{runArg4}].msg
 		quit
 	end
-	placeblock {runArg1} {runArg2} {runArg3} {runArg4}
+	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
 #getblockdata
@@ -662,7 +663,7 @@ quit
 quit
 
 #setblockdata
-	set msg {runArg4}
+	set msg /nothing2 |{runArg4}
 	ifnot runArg5|=|"" then
 		local i 5
 		while ifnot runArg{i}|=|""
