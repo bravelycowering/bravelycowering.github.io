@@ -93,18 +93,21 @@ function #save
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	local savedata /nothing2 @p
 	local i 1
+	ifnot *i|<|saveformat.Length quit
 	while if *i|<|saveformat.Length
 		set *savedata {savedata}|{{saveformat[{i}]}}
 		setadd *i 1
 	end
-	set playerdata {savedata}
+	placemessageblock 7 {saveSlot} {savedata}
 end
 
 function #load
 	if saveSlot|=|"" quit
-	local loaddata {playerdata}
+	localname loaddata
+	setblockmessage *localdata {saveSlot}
 	setsplit *loaddata |
 	local i 1
+	ifnot *i|<|saveformat.Length quit
 	while if *i|<|*loaddata.Length
 		set {saveformat[{i}]} {*loaddata[{i}]}
 		setadd *i 1

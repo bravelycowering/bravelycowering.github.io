@@ -93,18 +93,21 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	set l_savedata_1 /nothing2 @p
 	set l_i_1 1
+	ifnot l_i_1|<|saveformat.Length quit
 	#while_3
 		set l_savedata_1 {l_savedata_1}|{{saveformat[{l_i_1}]}}
 		setadd l_i_1 1
 	if l_i_1|<|saveformat.Length jump #while_3
-	set playerdata {l_savedata_1}
+	placemessageblock 7 {saveSlot} {l_savedata_1}
 quit
 
 #load
 	if saveSlot|=|"" quit
-	set l_loaddata_1 {playerdata}
+	// localname l_loaddata_1 
+	setblockmessage localdata {saveSlot}
 	setsplit l_loaddata_1 |
 	set l_i_2 1
+	ifnot l_i_2|<|saveformat.Length quit
 	#while_4
 		set {saveformat[{l_i_2}]} {l_loaddata_1[{l_i_2}]}
 		setadd l_i_2 1
