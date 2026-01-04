@@ -57,10 +57,11 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.17
+	msg &fVersion &a0.2.18
 quit
 
 function #save
+	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	local savedata /nothing {}
 	local i 1
 	while if *i|<|saveformat.Length
@@ -75,7 +76,7 @@ function #load
 	setsplit *loaddata |
 	local i 1
 	while if *i|<|*loaddata.Length
-		set {saveformat[{i}]} {*loaddata[*i]}
+		set {saveformat[{i}]} {*loaddata[{i}]}
 		setadd *i 1
 	end
 	cmd tpp {PlayerPos}
@@ -150,7 +151,6 @@ function #setdist
 end
 
 function #tick
-	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	localname PrevPlayerCoords
 	localname prevhp
 	localname myblock
