@@ -59,7 +59,7 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.20
+	msg &fVersion &a0.2.21
 quit
 
 function #initSave
@@ -67,6 +67,7 @@ function #initSave
 	localname break
 	local x 0
 	local z 0
+	local prefix /nothing2 @p
 	while if *x|<|LevelX
 		while if *z|<|LevelZ
 			setblockmessage *msg {x} 0 {z}
@@ -76,7 +77,7 @@ function #initSave
 				placemessageblock 7 {saveSlot} /nothing2 @p
 				quit
 			end
-			if *msg|has|"/nothing2 @p" then
+			if *msg|has|*prefix then
 				// set save slot and load from it
 				set saveSlot {x} 0 {z}
 				jump #load
