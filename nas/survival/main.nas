@@ -48,6 +48,8 @@ using no_runarg_underscore_conversion
 	set isTool(axe) true
 	set isTool(spade) true
 
+	if allowMapChanges call #initSave
+
 	cmd oss #tick repeatable
 quit
 
@@ -57,12 +59,39 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.18
+	msg &fVersion &a0.2.20
 quit
 
+function #initSave
+	localname msg
+	localname break
+	local x 0
+	local z 0
+	while if *x|<|LevelX
+		while if *z|<|LevelZ
+			setblockmessage *msg {x} 0 {z}
+			if *msg|=|"" then
+				// set save slot and claim block
+				set saveSlot {x} 0 {z}
+				placemessageblock 7 {saveSlot} /nothing2 @p
+				quit
+			end
+			if *msg|has|"/nothing2 @p" then
+				// set save slot and load from it
+				set saveSlot {x} 0 {z}
+				jump #load
+			end
+			setadd *z 1
+		end
+		setadd *x 1
+	end
+end
+
 function #save
+	if saveSlot|=|"" quit
+	include setinvstring survival/blocks
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
-	local savedata /nothing {}
+	local savedata /nothing2 @p
 	local i 1
 	while if *i|<|saveformat.Length
 		set *savedata {savedata}|{{saveformat[{i}]}}
@@ -72,6 +101,7 @@ function #save
 end
 
 function #load
+	if saveSlot|=|"" quit
 	local loaddata {playerdata}
 	setsplit *loaddata |
 	local i 1
@@ -79,6 +109,7 @@ function #load
 		set {saveformat[{i}]} {*loaddata[{i}]}
 		setadd *i 1
 	end
+	setsplit inventory
 	cmd tpp {PlayerPos}
 end
 

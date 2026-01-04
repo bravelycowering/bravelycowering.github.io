@@ -4,4 +4,8 @@ return {
 	"pickaxe",
 	"axe",
 	"spade",
+	"hp",
+	"maxhp",
+	"fireticks",
+	"inventory",
 }
