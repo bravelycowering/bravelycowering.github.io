@@ -65,7 +65,7 @@ quit
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.24
+	msg &fVersion &a0.2.25
 quit
 
 #initSave
@@ -446,7 +446,8 @@ quit
 
 #die
 	if SpawnBlock|=|"" jump #ifnot_2
-		setblockid spawnblockid {SpawnBlock}
+		setsplit SpawnBlock " "
+		call #getblock|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
 		ifnot spawnblockid|!=|68 jump #if_10
 			set SpawnBlock
 			set DeathSpawn {WorldSpawn}
