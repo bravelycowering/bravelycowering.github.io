@@ -673,7 +673,7 @@ quit
 	setblockid id {runArg1} {runArg2} {runArg3}
 	ifnot allowMapChanges set world[{runArg1},{runArg2},{runArg3}].msg {msg}
 	else placemessageblock {id} {runArg1} {runArg2} {runArg3} {msg}
-end
+quit
 
 #makebar
 // package, color, amount, max
