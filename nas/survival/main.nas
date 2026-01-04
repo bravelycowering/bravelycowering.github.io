@@ -62,10 +62,11 @@ quit
 	msg &fChanges in the latest version:
 	// msg - New block: Flax
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
+	// msg - Slight changes to the quantity of mushrooms in a world
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.26
+	msg &fVersion &a0.2.27
 quit
 
 function #initSave
@@ -653,6 +654,26 @@ quit
 	end
 	placeblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
+
+#getblockdata
+	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
+	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
+	setsplit {runArg1} |
+quit
+
+#setblockdata
+	set msg {runArg4}
+	ifnot runArg5|=|"" then
+		local i 5
+		while ifnot runArg{i}|=|""
+			set msg {msg}|{runArg{i}}
+			setadd *i 1
+		end
+	end
+	setblockid id {runArg1} {runArg2} {runArg3}
+	ifnot allowMapChanges set world[{runArg1},{runArg2},{runArg3}].msg {msg}
+	else placemessageblock {id} {runArg1} {runArg2} {runArg3} {msg}
+end
 
 #makebar
 // package, color, amount, max

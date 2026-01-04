@@ -62,10 +62,11 @@ quit
 	msg &fChanges in the latest version:
 	// msg - New block: Flax
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
+	// msg - Slight changes to the quantity of mushrooms in a world
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.26
+	msg &fVersion &a0.2.27
 quit
 
 #initSave
@@ -654,22 +655,42 @@ quit
 	placeblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
+#getblockdata
+	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
+	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
+	setsplit {runArg1} |
+quit
+
+#setblockdata
+	set msg {runArg4}
+	if runArg5|=|"" jump #ifnot_9
+		set l_i_2 5
+		#while_5
+			set msg {msg}|{runArg{l_i_2}}
+			setadd l_i_2 1
+		ifnot runArg{l_i_2}|=|"" jump #while_5
+	#ifnot_9
+	setblockid id {runArg1} {runArg2} {runArg3}
+	ifnot allowMapChanges set world[{runArg1},{runArg2},{runArg3}].msg {msg}
+	else placemessageblock {id} {runArg1} {runArg2} {runArg3} {msg}
+end
+
 #makebar
 // package, color, amount, max
 	set i 0
 	set {runArg1} &{runArg2}
 	ifnot i|<|{runArg3} jump #if_18
-		#while_5
-			set {runArg1} {{runArg1}}|
-			setadd i 1
-		if i|<|{runArg3} jump #while_5
-	#if_18
-	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg4} jump #if_19
 		#while_6
 			set {runArg1} {{runArg1}}|
 			setadd i 1
-		if i|<|{runArg4} jump #while_6
+		if i|<|{runArg3} jump #while_6
+	#if_18
+	set {runArg1} {{runArg1}}&0
+	ifnot i|<|{runArg4} jump #if_19
+		#while_7
+			set {runArg1} {{runArg1}}|
+			setadd i 1
+		if i|<|{runArg4} jump #while_7
 	#if_19
 quit
 
@@ -678,17 +699,17 @@ quit
 	set i 0
 	set {runArg1} &{runArg3}
 	ifnot i|<|{runArg4} jump #if_20
-		#while_7
-			set {runArg1} {{runArg1}}{runArg2}
-			setadd i 1
-		if i|<|{runArg4} jump #while_7
-	#if_20
-	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg5} jump #if_21
 		#while_8
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
-		if i|<|{runArg5} jump #while_8
+		if i|<|{runArg4} jump #while_8
+	#if_20
+	set {runArg1} {{runArg1}}&0
+	ifnot i|<|{runArg5} jump #if_21
+		#while_9
+			set {runArg1} {{runArg1}}{runArg2}
+			setadd i 1
+		if i|<|{runArg5} jump #while_9
 	#if_21
 quit
 
@@ -696,7 +717,7 @@ quit
 	if runArg1|=|"changes" jump #changelog
 	ifnot runArg1|=|"craft" jump #if_22
 		set craftArgs {runArg2}
-		if craftArgs|=|"" jump #ifnot_9
+		if craftArgs|=|"" jump #ifnot_10
 			set craftArgs[1] 1
 			setsplit craftArgs *
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
@@ -712,40 +733,40 @@ quit
 			#if_24
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
-		#ifnot_9
+		#ifnot_10
 		if usingWorkbench msg &eWorkbench Recipes:
-		if usingWorkbench jump #ifnot_10
+		if usingWorkbench jump #ifnot_11
 			if usingStonecutter msg &eStonecutter Recipes:
 			else msg &eRecipes:
-		#ifnot_10
+		#ifnot_11
 		set i 0
-		#while_9
+		#while_10
 			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
 			ifnot canAfford|>|0 jump #if_25
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) &7* {canAfford}
 				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f)
 				set j 0
-				#while_10
+				#while_11
 					set text {recipes[{i}].ingredients[{j}].count} {blocks[{recipes[{i}].ingredients[{j}].id}].name}
 					if ingrediantList|=|"" set ingrediantList &f    {text}
 					else set ingrediantList {ingrediantList}, {text}
 					setadd j 1
-				if j|<|{recipes[{i}].ingredients.Length} jump #while_10
+				if j|<|{recipes[{i}].ingredients.Length} jump #while_11
 				msg {ingrediantList}
 			#if_25
 			setadd i 1
-		if i|<|{recipes.Length} jump #while_9
+		if i|<|{recipes.Length} jump #while_10
 		msg &eType &a/in craft [name]&e to craft something
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
 	#if_22
 	set i 0
 	msg &eResources:
-	#while_11
+	#while_12
 		ifnot inventory[{i}]|=|0 msg &f> &6{blocks[{i}].name}&f (x{inventory[{i}]})
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_11
+	if i|<|{blocks.Length} jump #while_12
 	msg &eTools:
 	msg &f> {toollevel[{pickaxe}]} Pickaxe
 	msg &f> {toollevel[{axe}]} Axe
@@ -758,13 +779,13 @@ quit
 	set blockID {recipes[{recipeID}].output.id}
 	set recipeCount {runArg2}
 	set j 0
-	#while_12
+	#while_13
 		set id {recipes[{recipeID}].ingredients[{j}].id}
 		set count {recipes[{recipeID}].ingredients[{j}].count}
 		setmul count {recipeCount}
 		call #take|{id}|{count}
 		setadd j 1
-	if j|<|{recipes[{recipeID}].ingredients.Length} jump #while_12
+	if j|<|{recipes[{recipeID}].ingredients.Length} jump #while_13
 	set count {recipes[{recipeID}].output.count}
 	setmul count {recipeCount}
 	call #give|{blockID}|{count}
@@ -775,36 +796,36 @@ quit
 #checkRecipeAfford
 	set j 0
 	set {runArg2} 999
-	if recipes[{runArg1}].condition|=|"" jump #ifnot_11
+	if recipes[{runArg1}].condition|=|"" jump #ifnot_12
 		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
-	#ifnot_11
+	#ifnot_12
 	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_26
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
 	#if_26
-	#while_13
+	#while_14
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {inventory[{id}]}
 		setdiv count {recipes[{runArg1}].ingredients[{j}].count}
 		setrounddown count
 		if {runArg2}|>|count set {runArg2} {count}
 		setadd j 1
-	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_13
+	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_14
 quit
 
 #getBlockByName
 	set {runArg1}
-	if blocks[{runArg2}].name|=|"" jump #ifnot_12
+	if blocks[{runArg2}].name|=|"" jump #ifnot_13
 		set {runArg1} {runArg2}
 		quit
-	#ifnot_12
+	#ifnot_13
 	set i 0
-	#while_14
+	#while_15
 		ifnot blocks[{i}].name|=|runArg2 jump #if_27
 			set {runArg1} {i}
 			quit
 		#if_27
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_14
+	if i|<|{blocks.Length} jump #while_15
 quit
 
 #getRecipeByOutput
@@ -813,7 +834,7 @@ quit
 	set c {runArg3}
 	set {pname}
 	set i 0
-	#while_15
+	#while_16
 		ifnot recipes[{i}].output.id|=|bid jump #if_28
 			call #checkRecipeAfford|{i}|canAfford
 			ifnot canAfford|>=|c jump #if_29
@@ -822,7 +843,7 @@ quit
 			#if_29
 		#if_28
 		setadd i 1
-	if i|<|{recipes.Length} jump #while_15
+	if i|<|{recipes.Length} jump #while_16
 quit
 
 #use[61]
@@ -836,7 +857,7 @@ quit
 quit
 
 #use[67]
-	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_13
+	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_14
 		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_30
 			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
@@ -847,7 +868,7 @@ quit
 			msg &fRespawn point set
 			quit
 		#if_30
-	#ifnot_13
+	#ifnot_14
 	msg &cYou can't light a campfire with that
 quit
 
