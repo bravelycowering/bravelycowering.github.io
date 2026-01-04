@@ -39,9 +39,6 @@ using no_runarg_underscore_conversion
 
 	call #initStructs
 
-	// space package
-	set {} {} {}
-
 	// compat with id finder thingy
 	set blocks[pickaxe].name Pickaxe
 	set blocks[axe].name Axe
@@ -60,11 +57,11 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.13
+	msg &fVersion &a0.2.14
 quit
 
 #save
-	set l_savedata_1 /nothing{}
+	set l_savedata_1 /nothing {}
 	set l_i_1 0
 	#while_1
 		set l_savedata_1 {l_savedata_1}|{{saveformat[{l_i_1}]}}
