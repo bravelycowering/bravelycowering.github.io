@@ -66,7 +66,7 @@ quit
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
 #version
-	msg &fVersion &a0.2.30
+	msg &fVersion &a0.2.31
 quit
 
 #initSave
@@ -659,7 +659,7 @@ quit
 #getblockdata
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
 	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
-	set {runArg1} |{runArg1}
+	set {runArg1} |{{runArg1}}
 	setsplit {runArg1} |/nothing2 {}
 quit
 
