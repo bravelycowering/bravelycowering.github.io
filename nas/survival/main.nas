@@ -39,6 +39,9 @@ using no_runarg_underscore_conversion
 
 	call #initStructs
 
+	// space package
+	set {} {} {}
+
 	// compat with id finder thingy
 	set blocks[pickaxe].name Pickaxe
 	set blocks[axe].name Axe
@@ -57,8 +60,18 @@ quit
 	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - Technical Changes
 #version
-	msg &fVersion &a0.2.12
+	msg &fVersion &a0.2.13
 quit
+
+function #save
+	local savedata /nothing{}
+	local i 0
+	while if *i|<|saveformat.Length
+		set *savedata {savedata}|{{saveformat[{i}]}}
+		setadd *i 1
+	end
+	msg {savedata}
+end
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
 function #setstandingon
@@ -129,6 +142,7 @@ function #setdist
 end
 
 function #tick
+	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	localname PrevPlayerCoords
 	localname prevhp
 	localname myblock
@@ -219,6 +233,7 @@ quit
 	msg &f/os lb copyall bravelycowering+survivaldev
 	msg &f/os blockprops 764 grass 767
 	msg &f/os blockprops 765 grass 766
+	msg &f/os blockprops 7 mb
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -385,15 +400,17 @@ quit
 	setsub hp {runArg1}
 	set iframes 4
 	cs me ow:select(7)
-	if hp|<=|0 then
-		if allowMapChanges kill {deathmessages.{runArg2}}
-		else kill
-		set fireticks 0
-		set hp {maxhp}
-		cpemsg bigannounce &cYou Died!
-		cpemsg smallannounce {deathmessages.{runArg2}}
-		resetdata packages inventory[*]
-	end
+	if hp|<=|0 jump #die|{runArg2}
+quit
+
+#die
+	if allowMapChanges kill {deathmessages.{runArg1}}
+	else kill
+	set fireticks 0
+	set hp {maxhp}
+	cpemsg bigannounce &cYou Died!
+	cpemsg smallannounce {deathmessages.{runArg1}}
+	resetdata packages inventory[*]
 quit
 
 #heal
@@ -856,4 +873,5 @@ quit
 	include struct recipes survival/recipes
 	include struct toollevel survival/toollevel
 	include struct deathmessages survival/deathmessages
+	include struct saveformat survival/saveformat
 quit
