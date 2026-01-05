@@ -28,6 +28,7 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 	if LevelName|=|"bravelycowering+2" set allowMapChanges true
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
+	if LevelName|=|"bravelycowering+survivaldev" cpemsg bigannounce &cNothing saves here
 
 	set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	set WorldSpawn {DeathSpawn}
@@ -60,7 +61,7 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 quit
 
 #changelog
-	msg &fChanges in the latest version:
+	msg &fChanges in the latest major version:
 	msg - Fixed a bug where mining the walls would sometimes crash the script
 	msg - Your respawn is properly updated if your campfire goes out now
 	msg - Slight changes to the quantity of mushrooms in a world
@@ -70,7 +71,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.2.37
+	msg &fVersion &a0.2.38
 quit
 
 #initSave
