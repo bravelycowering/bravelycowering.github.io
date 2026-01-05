@@ -32,6 +32,7 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 
 	set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	set WorldSpawn {DeathSpawn}
+	set SpawnBlock none
 
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
@@ -71,7 +72,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.3
+	msg &fVersion &a0.3.1
 quit
 
 #initSave
@@ -459,11 +460,11 @@ quit
 
 #die
 	set deathmsg {deathmessages.{runArg1}}
-	if SpawnBlock|=|"" jump #ifnot_2
+	if SpawnBlock|=|"none" jump #ifnot_2
 		setsplit SpawnBlock " "
 		call #getblock|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
 		ifnot spawnblockid|!=|68 jump #if_10
-			set SpawnBlock
+			set SpawnBlock none
 			set DeathSpawn {WorldSpawn}
 			setdeathspawn {DeathSpawn}
 		#if_10

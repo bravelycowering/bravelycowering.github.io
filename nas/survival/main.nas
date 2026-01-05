@@ -32,6 +32,7 @@ using no_runarg_underscore_conversion
 
 	set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
 	set WorldSpawn {DeathSpawn}
+	set SpawnBlock none
 
 	cmd holdsilent 0
 	gui barColor #ff0000 0.25
@@ -71,7 +72,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.3
+	msg &fVersion &a0.3.1
 quit
 
 function #initSave
@@ -459,11 +460,11 @@ quit
 
 #die
 	set deathmsg {deathmessages.{runArg1}}
-	ifnot SpawnBlock|=|"" then
+	ifnot SpawnBlock|=|"none" then
 		setsplit SpawnBlock " "
 		call #getblock|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
 		if spawnblockid|!=|68 then
-			set SpawnBlock
+			set SpawnBlock none
 			set DeathSpawn {WorldSpawn}
 			setdeathspawn {DeathSpawn}
 		end
