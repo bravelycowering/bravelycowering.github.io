@@ -56,7 +56,8 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 	set isTool(axe) true
 	set isTool(spade) true
 
-	if allowMapChanges call #initSave
+	set allowSaving false
+	if allowSaving call #initSave
 
 	cmd oss #tick repeatable
 quit
@@ -70,9 +71,9 @@ quit
 	msg - New blocks: Flax, Tombstone
 	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - A grave will now spawn containing your items where you die
-	msg - Progress now saves
+	// msg - Progress now saves
 #version
-	msg &fVersion &a0.3.5
+	msg &fVersion &a0.3.6
 quit
 
 #initSave
@@ -196,7 +197,7 @@ quit
 	// localname l_PrevPlayerCoords_1 
 	// localname l_prevhp_1 
 	// localname l_myblock_1 
-	if allowMapChanges setsub autosave 1
+	ifnot saveSlot|=|"" setsub autosave 1
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 20
 	call #getblock|l_myblock_1|{PlayerX}|{PlayerY}|{PlayerZ}
