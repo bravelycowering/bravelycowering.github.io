@@ -71,7 +71,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.2.38
+	msg &fVersion &a0.3
 quit
 
 function #initSave
@@ -444,8 +444,8 @@ quit
 	localmsg smallannounce Done!
 	localmsg chat Done!
 	msg &cDONT FORGET TO SET THE MOTD AND AD!:
-	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura
-	else msg &f/os map motd -hax +thirdperson -push model=humanoid -aura
+	if allowMapChanges msg &f/os map motd -hax +thirdperson model=humanoid -aura -tp
+	else msg &f/os map motd -hax +thirdperson -push model=humanoid -aura -tp
 	msg &f/ad
 quit
 
