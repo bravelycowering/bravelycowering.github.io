@@ -19,7 +19,7 @@ using no_runarg_underscore_conversion
 	set iframes 0
 	set fireticks 0
 
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 
 	set allowMapChanges false
@@ -65,8 +65,9 @@ quit
 	// msg - Slight changes to the quantity of mushrooms in a world
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
+	msg - A grave will now spawn containing your items where you die
 #version
-	msg &fVersion &a0.2.31
+	msg &fVersion &a0.2.32
 quit
 
 #initSave
@@ -98,7 +99,7 @@ quit
 #save
 	if saveSlot|=|"" quit
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
-placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]}|{DeathSpawn}|{SpawnBlock}
+placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]}|{DeathSpawn}|{SpawnBlock}
 quit
 
 #load
@@ -456,6 +457,14 @@ quit
 			setdeathspawn {DeathSpawn}
 		#if_10
 	#ifnot_2
+	set deathY {PlayerY}
+	call #setblock|82|{PlayerX}|{deathY}|{PlayerZ}
+set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]}
+	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|{deathmsg}|{inventory}
+	setsub deathY 1
+	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
+	if blocks[{id}].nonsolid call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
+	if blocks[{id}].grounded call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
 	if allowMapChanges kill {deathmsg}
 	else kill
 	set fireticks 0
@@ -659,8 +668,8 @@ quit
 #getblockdata
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
 	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
-	set {runArg1} |{{runArg1}}
-	setsplit {runArg1} |/nothing2 {}
+	ifnot {runArg1}|=|"" set {runArg1} |{{runArg1}}
+	ifnot {runArg1}|=|"" setsplit {runArg1} |/nothing2 {}
 quit
 
 #setblockdata
@@ -932,6 +941,34 @@ jump #give|73|2
 #loot[76]
 jump #give|75|2
 
+#loot[82]
+	// block data contains: grave owner | death time | death message | inventory
+	call #getblockdata|data|{x}|{y}|{z}
+	if data|=|"" jump #give|82|1
+	set canDestroyTombstone false
+	if data[0]|=|@p canDestroyTombstone true
+	set timeUntilRob {data[1]}
+	setsub timeUntilRob {epochMS}
+	if timeUntilRob|<=|0 canDestroyTombstone true
+	ifnot canDestroyTombstone msg * &fThis grave belongs to {data[0]}, you cannot break it!
+	ifnot canDestroyTombstone msg * &fCome back 5 minutes after their death however, and it's all yours...
+	ifnot canDestroyTombstone quit
+	setsplit data[3] ,
+	set i 0
+	#while_17
+		if data[3][{i}]|>|0 call #give|{i}|{data[3][{i}]}
+		if data[3][{i}]|>|0 msg &a+{data[3][{i}]} {blocks[{data[3][{i}]}].name}
+	if i|<|data[3].Length jump #while_17
+jump #give|82|1
+
+#use[82]
+	call #getblockdata|data|{x}|{y}|{z}
+	if data|=|"" msg * &fThe tombstone is unreadable...
+	if data|=|"" quit
+	msg * &fThe following is engraved on the tombstone:
+	msg * &f{data[2]}
+quit
+
 #loot[20]
 #loot[50]
 #loot[54]
@@ -941,7 +978,7 @@ jump #give|75|2
 quit
 
 #initStructs
-set blocks.Length 81
+set blocks.Length 83
 set blocks[0].id 0
 set blocks[0].name Air
 set blocks[0].nonsolid true
@@ -1269,6 +1306,17 @@ set blocks[80].campfireLighter 70
 set blocks[80].grounded true
 set blocks[80].id 80
 set blocks[80].name Torch
+set blocks[81].breakScale 1.07 0.57 1.07
+set blocks[81].hardness 6
+set blocks[81].id 81
+set blocks[81].name Compost pit
+set blocks[81].nonsolid true
+set blocks[81].tooltype pickaxe
+set blocks[82].breakScale 0.8 0.93 0.3
+set blocks[82].grounded true
+set blocks[82].hardness 4
+set blocks[82].id 82
+set blocks[82].name Grave
 set blocks[8].extinguishFire true
 set blocks[8].fluid true
 set blocks[8].id 8

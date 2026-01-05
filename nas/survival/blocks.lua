@@ -505,4 +505,19 @@ return {
 		campfireLighter = 70,
 		grounded = true,
 	},
+	{
+		id = 81,
+		name = "Compost pit",
+		hardness = 6,
+		tooltype = "pickaxe",
+		nonsolid = true,
+		breakScale = "1.07 0.57 1.07",
+	},
+	{
+		id = 82,
+		name = "Grave",
+		hardness = 4,
+		grounded = true,
+		breakScale = "0.8 0.93 0.3",
+	},
 }

@@ -65,8 +65,9 @@ quit
 	// msg - Slight changes to the quantity of mushrooms in a world
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
+	msg - A grave will now spawn containing your items where you die
 #version
-	msg &fVersion &a0.2.31
+	msg &fVersion &a0.2.32
 quit
 
 function #initSave
@@ -456,6 +457,14 @@ quit
 			setdeathspawn {DeathSpawn}
 		end
 	end
+	set deathY {PlayerY}
+	call #setblock|82|{PlayerX}|{deathY}|{PlayerZ}
+	include setinvstring
+	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|{deathmsg}|{inventory}
+	setsub deathY 1
+	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
+	if blocks[{id}].nonsolid call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
+	if blocks[{id}].grounded call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
 	if allowMapChanges kill {deathmsg}
 	else kill
 	set fireticks 0
@@ -659,8 +668,8 @@ quit
 #getblockdata
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
 	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
-	set {runArg1} |{{runArg1}}
-	setsplit {runArg1} |/nothing2 {}
+	ifnot {runArg1}|=|"" set {runArg1} |{{runArg1}}
+	ifnot {runArg1}|=|"" setsplit {runArg1} |/nothing2 {}
 quit
 
 #setblockdata
@@ -931,6 +940,34 @@ jump #give|73|2
 
 #loot[76]
 jump #give|75|2
+
+#loot[82]
+	// block data contains: grave owner | death time | death message | inventory
+	call #getblockdata|data|{x}|{y}|{z}
+	if data|=|"" jump #give|82|1
+	set canDestroyTombstone false
+	if data[0]|=|@p canDestroyTombstone true
+	set timeUntilRob {data[1]}
+	setsub timeUntilRob {epochMS}
+	if timeUntilRob|<=|0 canDestroyTombstone true
+	ifnot canDestroyTombstone msg * &fThis grave belongs to {data[0]}, you cannot break it!
+	ifnot canDestroyTombstone msg * &fCome back 5 minutes after their death however, and it's all yours...
+	ifnot canDestroyTombstone quit
+	setsplit data[3] ,
+	set i 0
+	while if i|<|data[3].Length
+		if data[3][{i}]|>|0 call #give|{i}|{data[3][{i}]}
+		if data[3][{i}]|>|0 msg &a+{data[3][{i}]} {blocks[{data[3][{i}]}].name}
+	end
+jump #give|82|1
+
+#use[82]
+	call #getblockdata|data|{x}|{y}|{z}
+	if data|=|"" msg * &fThe tombstone is unreadable...
+	if data|=|"" quit
+	msg * &fThe following is engraved on the tombstone:
+	msg * &f{data[2]}
+quit
 
 #loot[20]
 #loot[50]
