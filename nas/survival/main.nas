@@ -67,7 +67,7 @@ quit
 	msg - Your respawn is properly updated if your campfire goes out now
 	msg - A grave will now spawn containing your items where you die
 #version
-	msg &fVersion &a0.2.33
+	msg &fVersion &a0.2.34
 quit
 
 function #initSave
@@ -960,7 +960,7 @@ jump #give|75|2
 	set i 0
 	while if i|<|data[3].Length
 		if data[3][{i}]|>|0 call #give|{i}|{data[3][{i}]}
-		if data[3][{i}]|>|0 msg &a+{data[3][{i}]} {blocks[{data[3][{i}]}].name}
+		if data[3][{i}]|>|0 msg &a+{data[3][{i}]} {blocks[{i}].name}
 		setadd i 1
 	end
 jump #give|82|1
