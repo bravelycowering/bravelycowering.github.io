@@ -67,7 +67,7 @@ quit
 	msg - Your respawn is properly updated if your campfire goes out now
 	msg - A grave will now spawn containing your items where you die
 #version
-	msg &fVersion &a0.2.32
+	msg &fVersion &a0.2.33
 quit
 
 #initSave
@@ -550,8 +550,10 @@ quit
 	set toomuch {runArg4}
 	call #getblock|id|{x}|{y}|{z}
 	if toomuch jump #ifnot_3
+		set dontDestroyBlock false
 		if label #loot[{id}] call #loot[{id}]
 		else call #give|{id}|1
+		if dontDestroyBlock quit
 	#ifnot_3
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
@@ -952,12 +954,14 @@ jump #give|75|2
 	if timeUntilRob|<=|0 set canDestroyTombstone true
 	ifnot canDestroyTombstone msg * &fThis grave belongs to {data[0]}, you cannot break it!
 	ifnot canDestroyTombstone msg * &fCome back 5 minutes after their death however, and it's all yours...
+	ifnot canDestroyTombstone set dontDestroyBlock true
 	ifnot canDestroyTombstone quit
 	setsplit data[3] ,
 	set i 0
 	#while_17
 		if data[3][{i}]|>|0 call #give|{i}|{data[3][{i}]}
 		if data[3][{i}]|>|0 msg &a+{data[3][{i}]} {blocks[{data[3][{i}]}].name}
+		setadd i 1
 	if i|<|data[3].Length jump #while_17
 jump #give|82|1
 
