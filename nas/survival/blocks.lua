@@ -18,12 +18,14 @@ return {
 		name = "Grass",
 		hardness = 3,
 		tooltype = "spade",
+		soil = true,
 	},
 	{
 		id = 3,
 		name = "Dirt",
 		hardness = 3,
 		tooltype = "spade",
+		soil = true,
 	},
 	{
 		id = 4,

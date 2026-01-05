@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.10
+	msg &fVersion &a0.3.11
 quit
 
 function #initSave
@@ -1034,11 +1034,19 @@ quit
 #loot[69]
 quit
 
+#blocktick[6]
+jump #tree
+
 function #tree
 	local x {runArg1}
 	local y {runArg2}
 	local z {runArg3}
 	localname i
+	setsub *y 1
+	call #getblock|*i|{x}|{y}|{z}
+	ifnot blocks[{i}].soil quit
+	call #setblock|3|{x}|{y}|{z}
+	setadd *y 1
 	setrandrange *i 1 3
 	while if *i|>|0
 		call #setblock|17|{x}|{y}|{z}

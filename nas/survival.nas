@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.10
+	msg &fVersion &a0.3.11
 quit
 
 #initSave
@@ -1034,11 +1034,19 @@ quit
 #loot[69]
 quit
 
+#blocktick[6]
+jump #tree
+
 #tree
 	set l_x_4 {runArg1}
 	set l_y_3 {runArg2}
 	set l_z_4 {runArg3}
 	// localname l_i_3 
+	setsub l_y_3 1
+	call #getblock|l_i_3|{l_x_4}|{l_y_3}|{l_z_4}
+	ifnot blocks[{l_i_3}].soil quit
+	call #setblock|3|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_y_3 1
 	setrandrange l_i_3 1 3
 	#while_19
 		call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
@@ -1297,6 +1305,7 @@ set blocks[29].name Blue
 set blocks[2].hardness 3
 set blocks[2].id 2
 set blocks[2].name Grass
+set blocks[2].soil true
 set blocks[2].tooltype spade
 set blocks[30].id 30
 set blocks[30].name Indigo
@@ -1326,6 +1335,7 @@ set blocks[39].name Brown mushroom
 set blocks[3].hardness 3
 set blocks[3].id 3
 set blocks[3].name Dirt
+set blocks[3].soil true
 set blocks[3].tooltype spade
 set blocks[40].consume true
 set blocks[40].food 3
