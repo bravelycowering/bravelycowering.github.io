@@ -18,7 +18,7 @@ using no_runarg_underscore_conversion
 	set hp {maxhp}
 	set iframes 0
 	set fireticks 0
-	set autosave 20
+	set autosave 50
 
 	include initinventory
 	setsplit inventory ,
@@ -56,7 +56,7 @@ using no_runarg_underscore_conversion
 	set isTool(axe) true
 	set isTool(spade) true
 
-	set allowSaving false
+	set allowSaving true
 	if allowSaving call #initSave
 
 	cmd oss #tick repeatable
@@ -71,9 +71,9 @@ quit
 	msg - New blocks: Flax, Tombstone
 	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - A grave will now spawn containing your items where you die
-	// msg - Progress now saves
+	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.6
+	msg &fVersion &a0.3.7
 quit
 
 function #initSave
@@ -199,7 +199,7 @@ function #tick
 	localname myblock
 	ifnot saveSlot|=|"" setsub autosave 1
 	if autosave|<|0 call #save
-	if autosave|<|0 set autosave 20
+	if autosave|<|0 set autosave 50
 	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
 	if blocks[{myblock}].catchFire then
 		set fireticks 100
