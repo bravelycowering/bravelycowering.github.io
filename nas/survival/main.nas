@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.11
+	msg &fVersion &a0.3.12
 quit
 
 function #initSave
@@ -1035,7 +1035,7 @@ quit
 quit
 
 #blocktick[6]
-jump #tree
+jump #tree|{runArg1}|{runArg2}|{runArg3}
 
 function #tree
 	local x {runArg1}
