@@ -67,7 +67,7 @@ quit
 	msg - Your respawn is properly updated if your campfire goes out now
 	msg - A grave will now spawn containing your items where you die
 #version
-	msg &fVersion &a0.2.34
+	msg &fVersion &a0.2.35
 quit
 
 #initSave
@@ -471,7 +471,7 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
-	resetdata packages inventory[*]
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 quit
 
 #heal
