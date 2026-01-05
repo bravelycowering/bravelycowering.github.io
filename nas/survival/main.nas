@@ -72,7 +72,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.3.4
+	msg &fVersion &a0.3.5
 quit
 
 function #initSave
@@ -602,6 +602,17 @@ quit
 	set i 0
 	while if i|<|{blocks.Length}
 		set inventory[{i}] 9999
+		setadd i 1
+	end
+quit
+
+#clearall
+	set pickaxe 0
+	set axe 0
+	set spade 0
+	set i 0
+	while if i|<|{blocks.Length}
+		set inventory[{i}] 0
 		setadd i 1
 	end
 quit

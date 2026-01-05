@@ -6,7 +6,7 @@ return {
 	fall = "@color@nick&f hit the ground too hard",
 	explosion = "@color@nick&f blew up",
 	suffocation = "@color@nick&f suffocated in a wall",
-	drown = "@color@nick&f drowned",
+	drown = "@color@nick&f ran out of air",
 	freeze = "@color@nick&f froze to death",
 	unknown = "@color@nick&f lost their life to unknown forces",
 }
