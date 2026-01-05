@@ -946,10 +946,10 @@ jump #give|75|2
 	call #getblockdata|data|{x}|{y}|{z}
 	if data|=|"" jump #give|82|1
 	set canDestroyTombstone false
-	if data[0]|=|@p canDestroyTombstone true
+	if data[0]|=|@p set canDestroyTombstone true
 	set timeUntilRob {data[1]}
 	setsub timeUntilRob {epochMS}
-	if timeUntilRob|<=|0 canDestroyTombstone true
+	if timeUntilRob|<=|0 set canDestroyTombstone true
 	ifnot canDestroyTombstone msg * &fThis grave belongs to {data[0]}, you cannot break it!
 	ifnot canDestroyTombstone msg * &fCome back 5 minutes after their death however, and it's all yours...
 	ifnot canDestroyTombstone quit
