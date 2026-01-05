@@ -72,7 +72,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.3.2
+	msg &fVersion &a0.3.3
 quit
 
 function #initSave
@@ -472,7 +472,7 @@ quit
 	set deathY {PlayerY}
 	call #setblock|82|{PlayerX}|{deathY}|{PlayerZ}
 	include setinvstring
-	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|{deathmsg}|{inventory}
+	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|* &f{deathmsg}|{inventory}
 	setsub deathY 1
 	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
 	if blocks[{id}].nonsolid call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
@@ -993,7 +993,7 @@ jump #give|82|1
 	if data|=|"" msg * &fThe tombstone is unreadable...
 	if data|=|"" quit
 	msg * &fThe following is engraved on the tombstone:
-	msg * &f{data[2]}
+	msg {data[2]}
 quit
 
 #loot[20]
