@@ -18,6 +18,7 @@ using no_runarg_underscore_conversion
 	set hp {maxhp}
 	set iframes 0
 	set fireticks 0
+	set autosave 20
 
 	include initinventory
 	setsplit inventory ,
@@ -38,7 +39,7 @@ using no_runarg_underscore_conversion
 	msg &fType &a/in changes&f to view the changelog.
 
 	msg &fYou can place and break blocks freely in this map.
-	if allowMapChanges msg &fMap changes will save, &cbut your items will not.
+	if allowMapChanges msg &aYour progress will be saved in this world.
 	else msg &cEverything you do is temporary. Leaving the map will reset your progress.
 	msg &fType &a/in&f to view your &ainventory&f.
 
@@ -66,8 +67,9 @@ quit
 	msg - Lots of technical changes
 	msg - Your respawn is properly updated if your campfire goes out now
 	msg - A grave will now spawn containing your items where you die
+	msg - Items now save between sessions
 #version
-	msg &fVersion &a0.2.35
+	msg &fVersion &a0.2.36
 quit
 
 function #initSave
@@ -189,6 +191,9 @@ function #tick
 	localname PrevPlayerCoords
 	localname prevhp
 	localname myblock
+	if allowMapChanges setsub autosave 1
+	if autosave|<|0 call #save
+	if autosave|<|0 set autosave 20
 	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
 	if blocks[{myblock}].catchFire then
 		set fireticks 100
@@ -472,6 +477,7 @@ quit
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
 	include initinventory
+	setsplit inventory
 quit
 
 #heal
