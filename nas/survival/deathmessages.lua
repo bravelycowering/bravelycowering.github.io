@@ -8,4 +8,5 @@ return {
 	suffocation = "@color@nick&f suffocated in a wall",
 	drown = "@color@nick&f drowned",
 	freeze = "@color@nick&f froze to death",
+	unknown = "@color@nick&f lost their life to unknown forces",
 }

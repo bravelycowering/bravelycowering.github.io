@@ -72,7 +72,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.3.3
+	msg &fVersion &a0.3.4
 quit
 
 #initSave
@@ -455,11 +455,12 @@ quit
 	setsub hp {runArg1}
 	set iframes 4
 	cs me ow:select(7)
-	if hp|<=|0 jump #die|{runArg2}
+	if hp|<=|0 jump #die|{deathmessages.{runArg2}}
 quit
 
 #die
-	set deathmsg {deathmessages.{runArg1}}
+	set deathmsg {runArg1}
+	if deathmsg|=|"" set deathmsg {deathmessages.unknown}
 	if SpawnBlock|=|"none" jump #ifnot_2
 		setsplit SpawnBlock " "
 		call #getblock|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
@@ -1673,6 +1674,7 @@ set deathmessages.freeze @color@nick&f froze to death
 set deathmessages.lava @color@nick&f tried to swim in lava
 set deathmessages.magma @color@nick&f discovered the floor was lava
 set deathmessages.suffocation @color@nick&f suffocated in a wall
+set deathmessages.unknown @color@nick&f lost their life to unknown forces
 set saveformat.Length 12
 set saveformat[0] .
 set saveformat[10] SpawnBlock
