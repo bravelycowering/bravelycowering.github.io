@@ -20,6 +20,13 @@ using no_runarg_underscore_conversion
 	set fireticks 0
 	set autosave 50
 
+	set LevelXMax {LevelX}
+	setsub LevelXMax 1
+	set LevelYMax {LevelY}
+	setsub LevelYMax 1
+	set LevelZMax {LevelZ}
+	setsub LevelZMax 1
+
 	include initinventory
 	setsplit inventory ,
 
@@ -73,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.7
+	msg &fVersion &a0.3.8
 quit
 
 function #initSave
@@ -249,6 +256,16 @@ function #tick
 			call #damage|2|burn
 		end
 	end
+	// random tick
+	localname x
+	setrandrange *x 0 {LevelXMax}
+	localname y
+	setrandrange *y 0 {LevelYMax}
+	localname z
+	setrandrange *z 0 {LevelZMax}
+	localname id
+	setblockid *id {x} {y} {z}
+	if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
 	if actionCount|>=|60000 cmd oss #tick repeatable
 	if actionCount|>|60000 terminate
 	jump #tick
@@ -1015,6 +1032,10 @@ quit
 #loot[60]
 #loot[68]
 #loot[69]
+quit
+
+#blocktick[1]
+	if debug msg I am a block of stone at X: {runArg1}, Y: {runArg2}, Z: {runArg3}!
 quit
 
 #initStructs

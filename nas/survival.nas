@@ -20,6 +20,13 @@ using no_runarg_underscore_conversion
 	set fireticks 0
 	set autosave 50
 
+	set LevelXMax {LevelX}
+	setsub LevelXMax 1
+	set LevelYMax {LevelY}
+	setsub LevelYMax 1
+	set LevelZMax {LevelZ}
+	setsub LevelZMax 1
+
 set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 
@@ -73,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.7
+	msg &fVersion &a0.3.8
 quit
 
 #initSave
@@ -249,6 +256,16 @@ quit
 			call #damage|2|burn
 		#if_8
 	#if_7
+	// random tick
+	// localname l_x_3 
+	setrandrange l_x_3 0 {LevelXMax}
+	// localname l_y_2 
+	setrandrange l_y_2 0 {LevelYMax}
+	// localname l_z_3 
+	setrandrange l_z_3 0 {LevelZMax}
+	// localname l_id_2 
+	setblockid l_id_2 {l_x_3} {l_y_2} {l_z_3}
+	if label #blocktick[{l_id_2}] call #blocktick[{l_id_2}]|{l_x_3}|{l_y_2}|{l_z_3}
 	if actionCount|>=|60000 cmd oss #tick repeatable
 	if actionCount|>|60000 terminate
 	jump #tick
@@ -1015,6 +1032,10 @@ quit
 #loot[60]
 #loot[68]
 #loot[69]
+quit
+
+#blocktick[1]
+	if debug msg I am a block of stone at X: {runArg1}, Y: {runArg2}, Z: {runArg3}!
 quit
 
 #initStructs
