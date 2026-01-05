@@ -10,4 +10,5 @@ return {
 	"inventory",
 	"DeathSpawn",
 	"SpawnBlock",
+	"HeldBlock",
 }

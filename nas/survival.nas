@@ -20,7 +20,7 @@ using no_runarg_underscore_conversion
 	set fireticks 0
 	set autosave 20
 
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 
 	set allowMapChanges false
@@ -61,15 +61,16 @@ quit
 
 #changelog
 	msg &fChanges in the latest version:
-	// msg - New block: Flax
-	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	// msg - Slight changes to the quantity of mushrooms in a world
-	msg - Lots of technical changes
+	msg - Fixed a bug where mining the walls would sometimes crash the script
 	msg - Your respawn is properly updated if your campfire goes out now
+	msg - Slight changes to the quantity of mushrooms in a world
+	msg - New recipes for Slab and Stone brick, along with a way of obtaining Glass with the Campfire
+	msg - New blocks: Flax, Tombstone
+	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - A grave will now spawn containing your items where you die
-	msg - Items now save between sessions
+	msg - Progress now saves
 #version
-	msg &fVersion &a0.2.36
+	msg &fVersion &a0.2.37
 quit
 
 #initSave
@@ -101,7 +102,8 @@ quit
 #save
 	if saveSlot|=|"" quit
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
-placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]}|{DeathSpawn}|{SpawnBlock}
+	set HeldBlock {PlayerHeldBlock}
+placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
 quit
 
 #load
@@ -117,6 +119,7 @@ quit
 	if l_i_1|<|l_loaddata_1.Length jump #while_3
 	setsplit inventory ,
 	ifnot PlayerPos|=|"" cmd tpp {PlayerPos}
+	ifnot HeldBlock|=|"" cmd holdsilent {HeldBlock}
 quit
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
@@ -282,6 +285,8 @@ quit
 	msg &f/os blockprops 764 grass 767
 	msg &f/os blockprops 765 grass 766
 	msg &f/os blockprops 7 mb
+	msg &f/os blockprops 82 mb
+	msg &f/os blockprops 83 mb
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -464,7 +469,7 @@ quit
 	#ifnot_2
 	set deathY {PlayerY}
 	call #setblock|82|{PlayerX}|{deathY}|{PlayerZ}
-set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]}
+set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]}
 	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|{deathmsg}|{inventory}
 	setsub deathY 1
 	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
@@ -476,8 +481,9 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory
+	cmd holdsilent 0
 quit
 
 #heal
@@ -492,6 +498,8 @@ quit
 	if coords[0]|>|1000 jump #airclick
 	if coords[1]|>|1000 jump #airclick
 	if coords[2]|>|1000 jump #airclick
+	setblockid id {coords}
+	if id|=|65535 jump #airclick
 	set PlayerEyeY {PlayerY}
 	setadd PlayerEyeY 1
 	call #setdist|dist|{PlayerX}|{PlayerEyeY}|{PlayerZ}|{coords[0]}|{coords[1]}|{coords[2]}
@@ -906,6 +914,13 @@ quit
 	#if_31
 quit
 
+#use[68:12]
+	ifnot inventory[12]|>|0 jump #if_32
+		call #take|12|1
+		call #give|20|1
+	#if_32
+quit
+
 #use[80:70]
 	if inventory[70]|>|0 call #setblock|70|{runArg1}|{runArg2}|{runArg3}
 quit
@@ -988,7 +1003,7 @@ quit
 quit
 
 #initStructs
-set blocks.Length 83
+set blocks.Length 84
 set blocks[0].id 0
 set blocks[0].name Air
 set blocks[0].nonsolid true
@@ -1326,7 +1341,11 @@ set blocks[82].breakScale 0.8 0.93 0.3
 set blocks[82].grounded true
 set blocks[82].hardness 4
 set blocks[82].id 82
-set blocks[82].name Grave
+set blocks[82].name Tombstone
+set blocks[83].hardness 8
+set blocks[83].id 83
+set blocks[83].name Sign
+set blocks[83].tooltype axe
 set blocks[8].extinguishFire true
 set blocks[8].fluid true
 set blocks[8].id 8
@@ -1344,7 +1363,7 @@ set blocks[9].nonsolid true
 set blocks[9].replaceable true
 set blocks[9].source true
 set blocks[9].unbreakable true
-set recipes.Length 42
+set recipes.Length 45
 set recipes[0].condition usingWorkbench
 set recipes[0].ingredients.Length 2
 set recipes[0].ingredients[0].count 3
@@ -1570,6 +1589,24 @@ set recipes[41].ingredients[0].count 3
 set recipes[41].ingredients[0].id 4
 set recipes[41].output.count 6
 set recipes[41].output.id 75
+set recipes[42].condition usingStonecutter
+set recipes[42].ingredients.Length 1
+set recipes[42].ingredients[0].count 3
+set recipes[42].ingredients[0].id 1
+set recipes[42].output.count 6
+set recipes[42].output.id 44
+set recipes[43].condition usingStonecutter
+set recipes[43].ingredients.Length 1
+set recipes[43].ingredients[0].count 4
+set recipes[43].ingredients[0].id 4
+set recipes[43].output.count 3
+set recipes[43].output.id 1
+set recipes[44].condition usingStonecutter
+set recipes[44].ingredients.Length 1
+set recipes[44].ingredients[0].count 4
+set recipes[44].ingredients[0].id 1
+set recipes[44].output.count 4
+set recipes[44].output.id 59
 set recipes[4].condition usingWorkbench
 set recipes[4].ingredients.Length 2
 set recipes[4].ingredients[0].count 3
@@ -1634,9 +1671,10 @@ set deathmessages.freeze @color@nick&f froze to death
 set deathmessages.lava @color@nick&f tried to swim in lava
 set deathmessages.magma @color@nick&f discovered the floor was lava
 set deathmessages.suffocation @color@nick&f suffocated in a wall
-set saveformat.Length 11
+set saveformat.Length 12
 set saveformat[0] .
 set saveformat[10] SpawnBlock
+set saveformat[11] HeldBlock
 set saveformat[1] PlayerPos
 set saveformat[2] pickaxe
 set saveformat[3] axe

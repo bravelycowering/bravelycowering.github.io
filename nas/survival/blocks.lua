@@ -515,9 +515,15 @@ return {
 	},
 	{
 		id = 82,
-		name = "Grave",
+		name = "Tombstone",
 		hardness = 4,
 		grounded = true,
 		breakScale = "0.8 0.93 0.3",
+	},
+	{
+		id = 83,
+		name = "Sign",
+		hardness = 8,
+		tooltype = "axe",
 	},
 }

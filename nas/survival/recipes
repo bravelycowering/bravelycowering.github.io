@@ -90,3 +90,6 @@
 
 	3 wood = 6 wood_slab ? usingWorkbench
 	3 cobblestone = 6 cobblestone_slab ? usingStonecutter
+	3 stone = 6 slab ? usingStonecutter
+	4 cobblestone = 3 stone ? usingStonecutter
+	4 stone = 4 stone_brick ? usingStonecutter

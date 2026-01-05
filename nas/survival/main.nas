@@ -61,15 +61,16 @@ quit
 
 #changelog
 	msg &fChanges in the latest version:
-	// msg - New block: Flax
-	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	// msg - Slight changes to the quantity of mushrooms in a world
-	msg - Lots of technical changes
+	msg - Fixed a bug where mining the walls would sometimes crash the script
 	msg - Your respawn is properly updated if your campfire goes out now
+	msg - Slight changes to the quantity of mushrooms in a world
+	msg - New recipes for Slab and Stone brick, along with a way of obtaining Glass with the Campfire
+	msg - New blocks: Flax, Tombstone
+	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - A grave will now spawn containing your items where you die
-	msg - Items now save between sessions
+	msg - Progress now saves
 #version
-	msg &fVersion &a0.2.36
+	msg &fVersion &a0.2.37
 quit
 
 function #initSave
@@ -101,6 +102,7 @@ end
 function #save
 	if saveSlot|=|"" quit
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
+	set HeldBlock {PlayerHeldBlock}
 	include savestring
 end
 
@@ -117,6 +119,7 @@ function #load
 	end
 	setsplit inventory ,
 	ifnot PlayerPos|=|"" cmd tpp {PlayerPos}
+	ifnot HeldBlock|=|"" cmd holdsilent {HeldBlock}
 end
 
 // checks against humanoid hitbox (-0.25 to 0.21875)
@@ -282,6 +285,8 @@ quit
 	msg &f/os blockprops 764 grass 767
 	msg &f/os blockprops 765 grass 766
 	msg &f/os blockprops 7 mb
+	msg &f/os blockprops 82 mb
+	msg &f/os blockprops 83 mb
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -478,6 +483,7 @@ quit
 	cpemsg smallannounce {deathmsg}
 	include initinventory
 	setsplit inventory
+	cmd holdsilent 0
 quit
 
 #heal
@@ -492,6 +498,8 @@ quit
 	if coords[0]|>|1000 jump #airclick
 	if coords[1]|>|1000 jump #airclick
 	if coords[2]|>|1000 jump #airclick
+	setblockid id {coords}
+	if id|=|65535 jump #airclick
 	set PlayerEyeY {PlayerY}
 	setadd PlayerEyeY 1
 	call #setdist|dist|{PlayerX}|{PlayerEyeY}|{PlayerZ}|{coords[0]}|{coords[1]}|{coords[2]}
@@ -903,6 +911,13 @@ quit
 	if inventory[80]|>|0 then
 		call #take|80|1
 		call #give|70|1
+	end
+quit
+
+#use[68:12]
+	if inventory[12]|>|0 then
+		call #take|12|1
+		call #give|20|1
 	end
 quit
 
