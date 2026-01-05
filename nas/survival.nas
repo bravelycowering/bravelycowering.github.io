@@ -72,7 +72,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.3.1
+	msg &fVersion &a0.3.2
 quit
 
 #initSave
@@ -484,7 +484,7 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
 set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-	setsplit inventory
+	setsplit inventory ,
 	cmd holdsilent 0
 quit
 

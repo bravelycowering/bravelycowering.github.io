@@ -72,7 +72,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	msg - Progress now saves
 #version
-	msg &fVersion &a0.3.1
+	msg &fVersion &a0.3.2
 quit
 
 function #initSave
@@ -484,7 +484,7 @@ quit
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
 	include initinventory
-	setsplit inventory
+	setsplit inventory ,
 	cmd holdsilent 0
 quit
 
