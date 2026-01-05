@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.9
+	msg &fVersion &a0.3.10
 quit
 
 #initSave
@@ -1039,12 +1039,13 @@ quit
 	set l_y_3 {runArg2}
 	set l_z_4 {runArg3}
 	// localname l_i_3 
-	setrandrange l_i_3 2 4
+	setrandrange l_i_3 1 3
 	#while_19
 		call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
 		setsub l_i_3 1
 		setadd l_y_3 1
 	if l_i_3|>|0 jump #while_19
+	// TREE BIG PART 1
 	// at center
 	call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
 	setadd l_x_4 1
@@ -1104,7 +1105,103 @@ quit
 	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
 	setadd l_z_4 1
 	setadd l_y_3 1
-	call #setblock|55|{l_x_4}|{l_y_3}|{l_z_4}
+	// TREE BIG PART 2
+	// at center
+	call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -3
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	// at far left
+	setadd l_z_4 2
+	setrandlist l_i_3 0|18
+	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 4
+	setrandlist l_i_3 0|18
+	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 -4
+	setrandlist l_i_3 0|18
+	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -4
+	setrandlist l_i_3 0|18
+	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	// at bottom left
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 4
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	// at x: 1, z: 4
+	setadd l_z_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 2
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 -2
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -2
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 2
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 1
+	setadd l_y_3 1
+	// TREE SMALL PART 1
+	// at center
+	call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 -1
+	setrandlist l_i_3 0|18
+	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 2
+	setrandlist l_i_3 0|18
+	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -1
+	setrandlist l_i_3 0|18
+	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 -1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 -1
+	setrandlist l_i_3 0|18
+	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 1
+	setadd l_y_3 1
+	// TREE SMALL PART 2
+	// at center
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 -2
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_x_4 1
+	setadd l_z_4 1
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	setadd l_z_4 -2
+	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
 quit
 
 #initStructs

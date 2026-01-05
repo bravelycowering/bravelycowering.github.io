@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.9
+	msg &fVersion &a0.3.10
 quit
 
 function #initSave
@@ -1039,12 +1039,13 @@ function #tree
 	local y {runArg2}
 	local z {runArg3}
 	localname i
-	setrandrange *i 2 4
+	setrandrange *i 1 3
 	while if *i|>|0
 		call #setblock|17|{x}|{y}|{z}
 		setsub *i 1
 		setadd *y 1
 	end
+	// TREE BIG PART 1
 	// at center
 	call #setblock|17|{x}|{y}|{z}
 	setadd *x 1
@@ -1104,7 +1105,103 @@ function #tree
 	call #setblock|18|{x}|{y}|{z}
 	setadd *z 1
 	setadd *y 1
-	call #setblock|55|{x}|{y}|{z}
+	// TREE BIG PART 2
+	// at center
+	call #setblock|17|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -3
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	// at far left
+	setadd *z 2
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *x 4
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *z -4
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *x -4
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	// at bottom left
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z 4
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	// at x: 1, z: 4
+	setadd *z -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z -2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z 1
+	setadd *y 1
+	// TREE SMALL PART 1
+	// at center
+	call #setblock|17|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z -1
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *z 2
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *z -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z -1
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z 1
+	setadd *y 1
+	// TREE SMALL PART 2
+	// at center
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	setadd *z 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z -2
+	call #setblock|18|{x}|{y}|{z}
 end
 
 #initStructs
