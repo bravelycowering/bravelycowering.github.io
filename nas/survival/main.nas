@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.8
+	msg &fVersion &a0.3.9
 quit
 
 function #initSave
@@ -1034,9 +1034,78 @@ quit
 #loot[69]
 quit
 
-#blocktick[1]
-	if debug msg I am a block of stone at X: {runArg1}, Y: {runArg2}, Z: {runArg3}!
-quit
+function #tree
+	local x {runArg1}
+	local y {runArg2}
+	local z {runArg3}
+	localname i
+	setrandrange *i 2 4
+	while if *i|>|0
+		call #setblock|17|{x}|{y}|{z}
+		setsub *i 1
+		setadd *y 1
+	end
+	// at center
+	call #setblock|17|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -3
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	// at far left
+	setadd *z 2
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *x 4
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *z -4
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	setadd *x -4
+	setrandlist *i 0|18
+	call #setblock|{i}|{x}|{y}|{z}
+	// at bottom left
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z 4
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	// at x: 1, z: 4
+	setadd *z -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z -2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x -1
+	call #setblock|18|{x}|{y}|{z}
+	setadd *x 2
+	call #setblock|18|{x}|{y}|{z}
+	setadd *z 1
+	setadd *y 1
+	call #setblock|55|{x}|{y}|{z}
+end
 
 #initStructs
 	include struct blocks survival/blocks
