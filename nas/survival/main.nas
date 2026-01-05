@@ -56,7 +56,7 @@ using no_runarg_underscore_conversion
 	set isTool(axe) true
 	set isTool(spade) true
 
-	set allowSaving true
+	set allowSaving false
 	if allowSaving call #initSave
 
 	cmd oss #tick repeatable
@@ -71,7 +71,7 @@ quit
 	msg - New blocks: Flax, Tombstone
 	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
 	msg - A grave will now spawn containing your items where you die
-	msg - Progress now saves every 5 seconds
+	// msg - Progress now saves every 5 seconds
 #version
 	msg &fVersion &a0.3.7
 quit
