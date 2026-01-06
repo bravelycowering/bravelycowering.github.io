@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.15
+	msg &fVersion &a0.3.16
 quit
 
 function #initSave
@@ -1047,6 +1047,44 @@ quit
 #loot[68]
 #loot[69]
 quit
+
+function #blocktick[2]
+	local x {runArg1}
+	local y {runArg2}
+	local z {runArg3}
+	localname i
+	setadd *y 1
+	call #getblock|*i|{x}|{y}|{z}
+	setsub *y 1
+	ifnot blocks[{i}].nonsolid jump #setblock|3|{x}|{y}|{z}
+end
+
+function #blocktick[3]
+	local x {runArg1}
+	local y {runArg2}
+	local z {runArg3}
+	localname i
+	setadd *y 1
+	call #getblock|*i|{x}|{y}|{z}
+	setsub *y 1
+	ifnot blocks[{i}].nonsolid quit
+	setadd *x 1
+	call #getblock|*i|{x}|{y}|{z}
+	setadd *x -1
+	if *i|=|2 jump #setblock|2|{x}|{y}|{z}
+	setsub *x 1
+	call #getblock|*i|{x}|{y}|{z}
+	setsub *x -1
+	if *i|=|2 jump #setblock|2|{x}|{y}|{z}
+	setadd *z 1
+	call #getblock|*i|{x}|{y}|{z}
+	setadd *z -1
+	if *i|=|2 jump #setblock|2|{x}|{y}|{z}
+	setsub *z 1
+	call #getblock|*i|{x}|{y}|{z}
+	setsub *z -1
+	if *i|=|2 jump #setblock|2|{x}|{y}|{z}
+end
 
 #blocktick[6]
 jump #growtree|{runArg1}|{runArg2}|{runArg3}
