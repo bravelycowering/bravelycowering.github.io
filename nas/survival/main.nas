@@ -22,7 +22,6 @@ using no_runarg_underscore_conversion
 
 	env cloudheight 144
 	env shadow 505050
-	env maxfog 256
 
 	set LevelXMax {LevelX}
 	setsub LevelXMax 1
@@ -83,9 +82,10 @@ quit
 	msg - Saplings now grow over time
 	msg - Dirt will slowly grow back into grass if placed next to other grass
 	msg - Grass will slowly turn into dirt under other blocks
+	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.24
+	msg &fVersion &a0.3.25
 quit
 
 function #initSave
