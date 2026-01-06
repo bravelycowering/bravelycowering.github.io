@@ -5,6 +5,7 @@ return {
 		unbreakable = true,
 		replaceable = true,
 		nonsolid = true,
+		growreplaceable = true,
 	},
 	{
 		id = 1,
@@ -140,6 +141,7 @@ return {
 		name = "Leaves",
 		hardness = 2,
 		tooltype = "axe",
+		growreplaceable = true,
 	},
 	{
 		id = 19,

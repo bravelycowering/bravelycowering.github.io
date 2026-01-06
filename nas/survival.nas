@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.13
+	msg &fVersion &a0.3.14
 quit
 
 #initSave
@@ -715,6 +715,18 @@ quit
 	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
+#setblockif
+	setblockid id {runArg2} {runArg3} {runArg4}
+	ifnot blocks[{id}].{runArg5} quit
+	if allowMapChanges jump #ifnot_9
+		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
+		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
+		set world[{runArg2},{runArg3},{runArg4}].msg
+		quit
+	#ifnot_9
+	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
+quit
+
 #getblockdata
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
 	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
@@ -724,13 +736,13 @@ quit
 
 #setblockdata
 	set msg /nothing2 {runArg4}
-	if runArg5|=|"" jump #ifnot_9
+	if runArg5|=|"" jump #ifnot_10
 		set l_i_2 5
 		#while_6
 			set msg {msg}|/nothing2 {runArg{l_i_2}}
 			setadd l_i_2 1
 		ifnot runArg{l_i_2}|=|"" jump #while_6
-	#ifnot_9
+	#ifnot_10
 	setblockid id {runArg1} {runArg2} {runArg3}
 	ifnot allowMapChanges set world[{runArg1},{runArg2},{runArg3}].msg {msg}
 	else placemessageblock {id} {runArg1} {runArg2} {runArg3} {msg}
@@ -778,7 +790,7 @@ quit
 	if runArg1|=|"changes" jump #changelog
 	ifnot runArg1|=|"craft" jump #if_22
 		set craftArgs {runArg2}
-		if craftArgs|=|"" jump #ifnot_10
+		if craftArgs|=|"" jump #ifnot_11
 			set craftArgs[1] 1
 			setsplit craftArgs *
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
@@ -794,12 +806,12 @@ quit
 			#if_24
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
-		#ifnot_10
+		#ifnot_11
 		if usingWorkbench msg &eWorkbench Recipes:
-		if usingWorkbench jump #ifnot_11
+		if usingWorkbench jump #ifnot_12
 			if usingStonecutter msg &eStonecutter Recipes:
 			else msg &eRecipes:
-		#ifnot_11
+		#ifnot_12
 		set i 0
 		#while_11
 			call #checkRecipeAfford|{i}|canAfford
@@ -857,9 +869,9 @@ quit
 #checkRecipeAfford
 	set j 0
 	set {runArg2} 999
-	if recipes[{runArg1}].condition|=|"" jump #ifnot_12
+	if recipes[{runArg1}].condition|=|"" jump #ifnot_13
 		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
-	#ifnot_12
+	#ifnot_13
 	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_26
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
 	#if_26
@@ -875,10 +887,10 @@ quit
 
 #getBlockByName
 	set {runArg1}
-	if blocks[{runArg2}].name|=|"" jump #ifnot_13
+	if blocks[{runArg2}].name|=|"" jump #ifnot_14
 		set {runArg1} {runArg2}
 		quit
-	#ifnot_13
+	#ifnot_14
 	set i 0
 	#while_16
 		ifnot blocks[{i}].name|=|runArg2 jump #if_27
@@ -918,7 +930,7 @@ quit
 quit
 
 #use[67]
-	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_14
+	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_15
 		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_30
 			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
@@ -929,7 +941,7 @@ quit
 			msg &fRespawn point set
 			quit
 		#if_30
-	#ifnot_14
+	#ifnot_15
 	msg &cYou can't light a campfire with that
 quit
 
@@ -1051,171 +1063,172 @@ jump #growtree|{runArg1}|{runArg2}|{runArg3}
 	setadd l_y_3 1
 	setrandrange l_i_3 1 3
 	#while_19
-		call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
+		call #setblockif|17|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 		setsub l_i_3 1
 		setadd l_y_3 1
 	if l_i_3|>|0 jump #while_19
 	// TREE BIG PART 1
 	// at center
-	call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|17|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -3
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	// at far left
 	setadd l_z_4 2
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 4
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -4
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -4
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	// at bottom left
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 4
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	// at x: 1, z: 4
 	setadd l_z_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 1
 	setadd l_y_3 1
 	// TREE BIG PART 2
 	// at center
-	call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|17|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -3
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	// at far left
 	setadd l_z_4 2
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 4
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -4
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -4
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	// at bottom left
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 4
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	// at x: 1, z: 4
 	setadd l_z_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 1
 	setadd l_y_3 1
 	// TREE SMALL PART 1
 	// at center
-	call #setblock|17|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|17|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -1
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 2
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -1
 	setrandlist l_i_3 0|18
-	call #setblock|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 1
 	setadd l_y_3 1
 	// TREE SMALL PART 2
 	// at center
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
 	setadd l_z_4 1
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -2
-	call #setblock|18|{l_x_4}|{l_y_3}|{l_z_4}
+	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 quit
 
 #initStructs
 set blocks.Length 84
+set blocks[0].growreplaceable true
 set blocks[0].id 0
 set blocks[0].name Air
 set blocks[0].nonsolid true
@@ -1269,6 +1282,7 @@ set blocks[17].hardness 8
 set blocks[17].id 17
 set blocks[17].name Log
 set blocks[17].tooltype axe
+set blocks[18].growreplaceable true
 set blocks[18].hardness 2
 set blocks[18].id 18
 set blocks[18].name Leaves

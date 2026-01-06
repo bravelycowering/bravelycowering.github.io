@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.13
+	msg &fVersion &a0.3.14
 quit
 
 function #initSave
@@ -715,6 +715,18 @@ quit
 	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
+#setblockif
+	setblockid id {runArg2} {runArg3} {runArg4}
+	ifnot blocks[{id}].{runArg5} quit
+	ifnot allowMapChanges then
+		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
+		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
+		set world[{runArg2},{runArg3},{runArg4}].msg
+		quit
+	end
+	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
+quit
+
 #getblockdata
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
 	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
@@ -1051,167 +1063,167 @@ function #growtree
 	setadd *y 1
 	setrandrange *i 1 3
 	while if *i|>|0
-		call #setblock|17|{x}|{y}|{z}
+		call #setblockif|17|{x}|{y}|{z}|growreplaceable
 		setsub *i 1
 		setadd *y 1
 	end
 	// TREE BIG PART 1
 	// at center
-	call #setblock|17|{x}|{y}|{z}
+	call #setblockif|17|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -3
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	// at far left
 	setadd *z 2
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *x 4
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *z -4
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *x -4
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	// at bottom left
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 4
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	// at x: 1, z: 4
 	setadd *z -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 1
 	setadd *y 1
 	// TREE BIG PART 2
 	// at center
-	call #setblock|17|{x}|{y}|{z}
+	call #setblockif|17|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -3
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	// at far left
 	setadd *z 2
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *x 4
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *z -4
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *x -4
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	// at bottom left
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 4
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	// at x: 1, z: 4
 	setadd *z -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 1
 	setadd *y 1
 	// TREE SMALL PART 1
 	// at center
-	call #setblock|17|{x}|{y}|{z}
+	call #setblockif|17|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *z 2
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
 	setrandlist *i 0|18
-	call #setblock|{i}|{x}|{y}|{z}
+	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 1
 	setadd *y 1
 	// TREE SMALL PART 2
 	// at center
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
 	setadd *z 1
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -2
-	call #setblock|18|{x}|{y}|{z}
+	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 end
 
 #initStructs
