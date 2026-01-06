@@ -89,7 +89,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.20
+	msg &fVersion &a0.3.21
 quit
 
 #initSave
@@ -513,7 +513,6 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	setsub deathY 1
 	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
 	if blocks[{id}].nonsolid call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
-	if blocks[{id}].grounded call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
 	if allowMapChanges kill {deathmsg}
 	else kill
 	set fireticks 0
@@ -692,7 +691,6 @@ quit
 	ifnot blocks[{PlayerHeldBlock}].grounded jump #if_17
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
-		if blocks[{id}].grounded quit
 		if blocks[{id}].nonsolid quit
 		setadd y 1
 	#if_17
@@ -1398,16 +1396,19 @@ set blocks[37].grounded true
 set blocks[37].growreplaceable true
 set blocks[37].id 37
 set blocks[37].name Dandelion
+set blocks[37].nonsolid true
 set blocks[38].grounded true
 set blocks[38].growreplaceable true
 set blocks[38].id 38
 set blocks[38].name Rose
+set blocks[38].nonsolid true
 set blocks[39].consume true
 set blocks[39].food 1
 set blocks[39].grounded true
 set blocks[39].growreplaceable true
 set blocks[39].id 39
 set blocks[39].name Brown mushroom
+set blocks[39].nonsolid true
 set blocks[3].hardness 3
 set blocks[3].id 3
 set blocks[3].name Dirt
@@ -1419,6 +1420,7 @@ set blocks[40].grounded true
 set blocks[40].growreplaceable true
 set blocks[40].id 40
 set blocks[40].name Red mushroom
+set blocks[40].nonsolid true
 set blocks[41].hardness 24
 set blocks[41].id 41
 set blocks[41].name Gold
@@ -1496,18 +1498,23 @@ set blocks[54].damageType fire
 set blocks[54].grounded true
 set blocks[54].id 54
 set blocks[54].name Fire
+set blocks[54].nonsolid true
 set blocks[55].grounded true
 set blocks[55].id 55
 set blocks[55].name Gold bar
+set blocks[55].nonsolid true
 set blocks[56].grounded true
 set blocks[56].id 56
 set blocks[56].name Iron bar
+set blocks[56].nonsolid true
 set blocks[57].grounded true
 set blocks[57].id 57
 set blocks[57].name Coal lump
+set blocks[57].nonsolid true
 set blocks[58].grounded true
 set blocks[58].id 58
 set blocks[58].name Diamond gem
+set blocks[58].nonsolid true
 set blocks[59].hardness 8
 set blocks[59].id 59
 set blocks[59].name Stone brick
@@ -1549,6 +1556,7 @@ set blocks[67].grounded true
 set blocks[67].hardness 3
 set blocks[67].id 67
 set blocks[67].name Campfire
+set blocks[67].nonsolid true
 set blocks[67].tooltype axe
 set blocks[68].catchFire true
 set blocks[68].damage 3
@@ -1556,6 +1564,7 @@ set blocks[68].damageType fire
 set blocks[68].grounded true
 set blocks[68].id 68
 set blocks[68].name Lit campfire
+set blocks[68].nonsolid true
 set blocks[68].remainder 67
 set blocks[69].hardness 5
 set blocks[69].id 69
@@ -1566,10 +1575,12 @@ set blocks[6].grounded true
 set blocks[6].growreplaceable true
 set blocks[6].id 6
 set blocks[6].name Sapling
+set blocks[6].nonsolid true
 set blocks[70].campfireLighter 70
 set blocks[70].grounded true
 set blocks[70].id 70
 set blocks[70].name Lit torch
+set blocks[70].nonsolid true
 set blocks[71].hardness 2
 set blocks[71].id 71
 set blocks[71].name Snow
@@ -1577,6 +1588,7 @@ set blocks[71].tooltype spade
 set blocks[72].grounded true
 set blocks[72].id 72
 set blocks[72].name Snow ball
+set blocks[72].nonsolid true
 set blocks[73].breakScale 1.07 0.57 1.07
 set blocks[73].hardness 3
 set blocks[73].id 73
@@ -1608,13 +1620,16 @@ set blocks[76].touchness 1
 set blocks[77].grounded true
 set blocks[77].id 77
 set blocks[77].name Bread
+set blocks[77].nonsolid true
 set blocks[78].grounded true
 set blocks[78].growreplaceable true
 set blocks[78].id 78
 set blocks[78].name Flax
+set blocks[78].nonsolid true
 set blocks[79].grounded true
 set blocks[79].id 79
 set blocks[79].name Wheat
+set blocks[79].nonsolid true
 set blocks[7].id 7
 set blocks[7].name Bedrock
 set blocks[7].unbreakable true
@@ -1622,6 +1637,7 @@ set blocks[80].campfireLighter 70
 set blocks[80].grounded true
 set blocks[80].id 80
 set blocks[80].name Torch
+set blocks[80].nonsolid true
 set blocks[81].breakScale 1.07 0.57 1.07
 set blocks[81].hardness 6
 set blocks[81].id 81
@@ -1633,6 +1649,7 @@ set blocks[82].grounded true
 set blocks[82].hardness 4
 set blocks[82].id 82
 set blocks[82].name Tombstone
+set blocks[82].nonsolid true
 set blocks[83].hardness 8
 set blocks[83].id 83
 set blocks[83].name Sign

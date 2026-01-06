@@ -45,6 +45,7 @@ return {
 		id = 6,
 		name = "Sapling",
 		grounded = true,
+		nonsolid = true,
 		growreplaceable = true,
 	},
 	{
@@ -224,12 +225,14 @@ return {
 		id = 37,
 		name = "Dandelion",
 		grounded = true,
+		nonsolid = true,
 		growreplaceable = true,
 	},
 	{
 		id = 38,
 		name = "Rose",
 		grounded = true,
+		nonsolid = true,
 		growreplaceable = true,
 	},
 	{
@@ -238,6 +241,7 @@ return {
 		consume = true,
 		food = 1,
 		grounded = true,
+		nonsolid = true,
 		growreplaceable = true,
 	},
 	{
@@ -246,6 +250,7 @@ return {
 		consume = true,
 		food = 3,
 		grounded = true,
+		nonsolid = true,
 		growreplaceable = true,
 	},
 	{
@@ -347,26 +352,31 @@ return {
 		damageType = "fire",
 		catchFire = true,
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 55,
 		name = "Gold bar",
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 56,
 		name = "Iron bar",
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 57,
 		name = "Coal lump",
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 58,
 		name = "Diamond gem",
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 59,
@@ -422,6 +432,7 @@ return {
 		hardness = 3,
 		tooltype = "axe",
 		grounded = true,
+		nonsolid = true,
 		breakScale = "0.65 0.5 0.65",
 	},
 	{
@@ -432,6 +443,7 @@ return {
 		damageType = "fire",
 		catchFire = true,
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 69,
@@ -445,6 +457,7 @@ return {
 		name = "Lit torch",
 		campfireLighter = 70,
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 71,
@@ -456,6 +469,7 @@ return {
 		id = 72,
 		name = "Snow ball",
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 73,
@@ -497,23 +511,27 @@ return {
 		id = 77,
 		name = "Bread",
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 78,
 		name = "Flax",
 		grounded = true,
+		nonsolid = true,
 		growreplaceable = true,
 	},
 	{
 		id = 79,
 		name = "Wheat",
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 80,
 		name = "Torch",
 		campfireLighter = 70,
 		grounded = true,
+		nonsolid = true,
 	},
 	{
 		id = 81,
@@ -528,6 +546,7 @@ return {
 		name = "Tombstone",
 		hardness = 4,
 		grounded = true,
+		nonsolid = true,
 		breakScale = "0.8 0.93 0.3",
 	},
 	{

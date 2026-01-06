@@ -89,7 +89,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.20
+	msg &fVersion &a0.3.21
 quit
 
 function #initSave
@@ -513,7 +513,6 @@ quit
 	setsub deathY 1
 	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
 	if blocks[{id}].nonsolid call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
-	if blocks[{id}].grounded call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
 	if allowMapChanges kill {deathmsg}
 	else kill
 	set fireticks 0
@@ -692,7 +691,6 @@ quit
 	if blocks[{PlayerHeldBlock}].grounded then
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
-		if blocks[{id}].grounded quit
 		if blocks[{id}].nonsolid quit
 		setadd y 1
 	end
