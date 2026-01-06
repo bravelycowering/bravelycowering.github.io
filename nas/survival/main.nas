@@ -12,7 +12,7 @@ using no_runarg_underscore_conversion
 	clickevent sync register #click
 	reach 4
 
-	cpemsg bigannounce Check &a/in rules
+	if allowMapChanges cpemsg bigannounce Check &a/in rules
 
 	set true true
 
@@ -38,7 +38,7 @@ using no_runarg_underscore_conversion
 	set LevelZMax {LevelZ}
 	setsub LevelZMax 1
 
-	set RandomTickSpeed 0
+	set RandomTickSpeed 3
 
 	include initinventory
 	setsplit inventory ,
@@ -100,23 +100,23 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
-	msg - Fixed a bug where mining the walls would sometimes crash the script
-	msg - Your respawn is properly updated if your campfire goes out now
-	msg - Slight changes to the quantity of mushrooms in a world
-	msg - New recipes for Slab and Stone brick, along with a way of obtaining Glass with the Campfire
-	msg - New blocks: Flax, Tombstone
-	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	msg - A grave will now spawn containing your items where you die
-	msg &fChanges in the latest minor version:
-	msg - Various bugfixes
-	msg - There is now a build blacklist
-	// msg - Saplings now grow over time
-	// msg - Dirt will slowly grow back into grass if placed next to other grass
-	// msg - Grass will slowly turn into dirt under other blocks
-	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
-	// msg - Progress now saves every 5 seconds
+	// msg - Fixed a bug where mining the walls would sometimes crash the script
+	// msg - Your respawn is properly updated if your campfire goes out now
+	// msg - Slight changes to the quantity of mushrooms in a world
+	// msg - New recipes for Slab and Stone brick, along with a way of obtaining Glass with the Campfire
+	// msg - New blocks: Flax, Tombstone
+	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
+	// msg - A grave will now spawn containing your items where you die
+	// msg &fChanges in the latest minor version:
+	// msg - Various bugfixes
+	// msg - There is now a build blacklist
+	msg - Saplings now grow over time
+	msg - Dirt will slowly grow back into grass if placed next to other grass
+	msg - Grass will slowly turn into dirt under other blocks
+	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
+	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.29
+	msg &fVersion &a0.3.30
 quit
 
 function #initSave
