@@ -3,8 +3,16 @@ using no_runarg_underscore_conversion
 
 #onJoin
 	ifnot LevelName|has|"bravelycowering+" jump #unregistered-hypercam-2
+
+	set allowMapChanges false
+	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
+
+	if allowMapChanges call #initBlacklist
+	ifnot blacklist.@p|=|"" jump #blacklisted
 	clickevent sync register #click
 	reach 4
+
+	cpemsg bigannounce Check &a/in rules
 
 	set true true
 
@@ -30,13 +38,10 @@ using no_runarg_underscore_conversion
 	set LevelZMax {LevelZ}
 	setsub LevelZMax 1
 
-	set RandomTickSpeed 3
+	set RandomTickSpeed 0
 
 	include initinventory
 	setsplit inventory ,
-
-	set allowMapChanges false
-	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg bigannounce &cNothing saves here
@@ -77,15 +82,38 @@ quit
 	menumsg bigannounce &4Unregistered Hypercam 2
 quit
 
+#blacklisted
+	setrandlist msg You can look, but you can't touch!|Mistakes were made!|And you made it everyone else's problem.|Not my problem anymore!|Holy smokes, read the rules!
+	cpemsg announce &c{msg}
+	menumsg smallannounce Blacklist Reason: &c{blacklist.@p}
+quit
+
+#rules
+	msg &eMap Rules:
+	msg 1. &mNo&u major griefing &7(minor grief is fine, don't make it everyone's problem)&u.
+	msg 2. &mNo&u abusing exploits or intentionally crashing the script &7(if you find a bug, tell me!)&u.
+	msg 3. &uFollow the server &a/rules&u where applicable.
+quit
+
 #changelog
 	msg &fChanges in the latest major version:
-	msg - Saplings now grow over time
-	msg - Dirt will slowly grow back into grass if placed next to other grass
-	msg - Grass will slowly turn into dirt under other blocks
-	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
+	msg - Fixed a bug where mining the walls would sometimes crash the script
+	msg - Your respawn is properly updated if your campfire goes out now
+	msg - Slight changes to the quantity of mushrooms in a world
+	msg - New recipes for Slab and Stone brick, along with a way of obtaining Glass with the Campfire
+	msg - New blocks: Flax, Tombstone
+	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
+	msg - A grave will now spawn containing your items where you die
+	msg &fChanges in the latest minor version:
+	msg - Various bugfixes
+	msg - There is now a build blacklist
+	// msg - Saplings now grow over time
+	// msg - Dirt will slowly grow back into grass if placed next to other grass
+	// msg - Grass will slowly turn into dirt under other blocks
+	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.25
+	msg &fVersion &a0.3.26
 quit
 
 function #initSave
@@ -358,7 +386,7 @@ quit
 	// replace grass w sand
 	cmd replace 2 12
 	cmd m 0 0 0
-	cmd m {LevelX} 63 {LevelY}
+	cmd m {LevelX} 64 {LevelY}
 	setrandrange seed -999999999 9999999999
 	cmd replacebrush 12 cloudy 13 s={seed}
 	cmd m 0 0 0
@@ -816,6 +844,7 @@ quit
 
 #input
 	if runArg1|=|"changes" jump #changelog
+	if runArg1|=|"rules" jump #rules
 	if runArg1|=|"craft" then
 		set craftArgs {runArg2}
 		ifnot craftArgs|=|"" then
@@ -1293,6 +1322,10 @@ function #growtree
 	setadd *z -2
 	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 end
+
+#initBlacklist
+	include struct blacklist survival/blacklist
+quit
 
 #initStructs
 	include struct blocks survival/blocks
