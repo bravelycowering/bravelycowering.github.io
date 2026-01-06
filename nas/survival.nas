@@ -80,16 +80,12 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
-	msg - Fixed a bug where mining the walls would sometimes crash the script
-	msg - Your respawn is properly updated if your campfire goes out now
-	msg - Slight changes to the quantity of mushrooms in a world
-	msg - New recipes for Slab and Stone brick, along with a way of obtaining Glass with the Campfire
-	msg - New blocks: Flax, Tombstone
-	msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	msg - A grave will now spawn containing your items where you die
+	msg - Saplings now grow over time
+	msg - Dirt will slowly grow back into grass if placed next to other grass
+	msg - Grass will slowly turn into dirt under other blocks
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.21
+	msg &fVersion &a0.3.22
 quit
 
 #initSave
@@ -1079,12 +1075,12 @@ quit
 	set l_x_5 {runArg1}
 	set l_y_4 {runArg2}
 	set l_z_5 {runArg3}
-	if debug msg trying to convert to grass at {l_x_5} {l_y_4} {l_z_5}
 	// localname l_i_4 
 	setadd l_y_4 1
 	call #getblock|l_i_4|{l_x_5}|{l_y_4}|{l_z_5}
 	setsub l_y_4 1
 	ifnot blocks[{l_i_4}].nonsolid quit
+	if debug msg trying to convert to grass at {l_x_5} {l_y_4} {l_z_5}
 	setadd l_x_5 1
 	call #getblock|l_i_4|{l_x_5}|{l_y_4}|{l_z_5}
 	setadd l_x_5 -1
@@ -1101,6 +1097,7 @@ quit
 	call #getblock|l_i_4|{l_x_5}|{l_y_4}|{l_z_5}
 	setsub l_z_5 -1
 	if l_i_4|=|2 jump #setblock|2|{l_x_5}|{l_y_4}|{l_z_5}
+	if debug msg FAILURE
 quit
 
 #blocktick[6]
