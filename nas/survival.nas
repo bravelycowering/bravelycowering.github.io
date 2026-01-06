@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.14
+	msg &fVersion &a0.3.15
 quit
 
 #initSave
@@ -1081,16 +1081,16 @@ jump #growtree|{runArg1}|{runArg2}|{runArg3}
 	// at far left
 	setadd l_z_4 2
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 4
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -4
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -4
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	// at bottom left
 	setadd l_x_4 1
 	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
@@ -1141,16 +1141,16 @@ jump #growtree|{runArg1}|{runArg2}|{runArg3}
 	// at far left
 	setadd l_z_4 2
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 4
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -4
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -4
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	// at bottom left
 	setadd l_x_4 1
 	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
@@ -1194,20 +1194,20 @@ jump #growtree|{runArg1}|{runArg2}|{runArg3}
 	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -1
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 2
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
 	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 -1
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -1
 	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 -1
 	setrandlist l_i_3 0|18
-	call #setblockif|{l_i_3}|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
+	if l_i_3|=|18 call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_x_4 1
 	call #setblockif|18|{l_x_4}|{l_y_3}|{l_z_4}|growreplaceable
 	setadd l_z_4 1
@@ -1338,14 +1338,17 @@ set blocks[35].name Gray
 set blocks[36].id 36
 set blocks[36].name White
 set blocks[37].grounded true
+set blocks[37].growreplaceable true
 set blocks[37].id 37
 set blocks[37].name Dandelion
 set blocks[38].grounded true
+set blocks[38].growreplaceable true
 set blocks[38].id 38
 set blocks[38].name Rose
 set blocks[39].consume true
 set blocks[39].food 1
 set blocks[39].grounded true
+set blocks[39].growreplaceable true
 set blocks[39].id 39
 set blocks[39].name Brown mushroom
 set blocks[3].hardness 3
@@ -1356,6 +1359,7 @@ set blocks[3].tooltype spade
 set blocks[40].consume true
 set blocks[40].food 3
 set blocks[40].grounded true
+set blocks[40].growreplaceable true
 set blocks[40].id 40
 set blocks[40].name Red mushroom
 set blocks[41].hardness 24
@@ -1502,6 +1506,7 @@ set blocks[69].name Cobweb
 set blocks[69].nonsolid true
 set blocks[69].tooltype spade
 set blocks[6].grounded true
+set blocks[6].growreplaceable true
 set blocks[6].id 6
 set blocks[6].name Sapling
 set blocks[70].campfireLighter 70
@@ -1547,6 +1552,7 @@ set blocks[77].grounded true
 set blocks[77].id 77
 set blocks[77].name Bread
 set blocks[78].grounded true
+set blocks[78].growreplaceable true
 set blocks[78].id 78
 set blocks[78].name Flax
 set blocks[79].grounded true

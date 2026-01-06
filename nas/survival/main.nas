@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.14
+	msg &fVersion &a0.3.15
 quit
 
 function #initSave
@@ -1081,16 +1081,16 @@ function #growtree
 	// at far left
 	setadd *z 2
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 4
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -4
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -4
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	// at bottom left
 	setadd *x 1
 	call #setblockif|18|{x}|{y}|{z}|growreplaceable
@@ -1141,16 +1141,16 @@ function #growtree
 	// at far left
 	setadd *z 2
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 4
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -4
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -4
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	// at bottom left
 	setadd *x 1
 	call #setblockif|18|{x}|{y}|{z}|growreplaceable
@@ -1194,20 +1194,20 @@ function #growtree
 	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 2
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
 	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
 	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
 	setrandlist *i 0|18
-	call #setblockif|{i}|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
 	call #setblockif|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 1

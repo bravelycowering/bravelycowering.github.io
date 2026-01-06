@@ -45,6 +45,7 @@ return {
 		id = 6,
 		name = "Sapling",
 		grounded = true,
+		growreplaceable = true,
 	},
 	{
 		id = 7,
@@ -223,11 +224,13 @@ return {
 		id = 37,
 		name = "Dandelion",
 		grounded = true,
+		growreplaceable = true,
 	},
 	{
 		id = 38,
 		name = "Rose",
 		grounded = true,
+		growreplaceable = true,
 	},
 	{
 		id = 39,
@@ -235,6 +238,7 @@ return {
 		consume = true,
 		food = 1,
 		grounded = true,
+		growreplaceable = true,
 	},
 	{
 		id = 40,
@@ -242,6 +246,7 @@ return {
 		consume = true,
 		food = 3,
 		grounded = true,
+		growreplaceable = true,
 	},
 	{
 		id = 41,
@@ -497,6 +502,7 @@ return {
 		id = 78,
 		name = "Flax",
 		grounded = true,
+		growreplaceable = true,
 	},
 	{
 		id = 79,
