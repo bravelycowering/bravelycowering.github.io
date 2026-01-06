@@ -98,6 +98,16 @@ quit
 	msg 3. &uFollow the server &a/rules&u where applicable.
 quit
 
+#fakeerrorkick
+	setrandrange i 1 2500
+	msg &7----------------
+	msg &cA script error has occured
+	msg &cOrigin: &7{LevelName} #main
+	msg &cCulprit: &7{LevelName} at line {i}
+	msg &cReason: &7Script permission check failed!
+	cmd main
+quit
+
 #changelog
 	msg &fChanges in the latest major version:
 	// msg - Fixed a bug where mining the walls would sometimes crash the script
@@ -116,7 +126,7 @@ quit
 	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.30
+	msg &fVersion &a0.3.31
 quit
 
 #initSave
