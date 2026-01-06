@@ -229,7 +229,7 @@ quit
 	ifnot PlayerCoords|=|l_PrevPlayerCoords_1 set usingStonecutter false
 	set l_PrevPlayerCoords_1 {PlayerCoords}
 	delay 100
-	if debug cpemsg top1 &c{actionCount}/60000
+	if debug cpemsg top1 {actionCount}/60000
 	if hp|=|l_prevhp_1 jump #ifnot_1
 		set l_prevhp_1 {hp}
 		// localname l_hpbar_1 
@@ -278,7 +278,6 @@ quit
 			// localname l_id_2 
 			setblockid l_id_2 {l_x_3} {l_y_2} {l_z_3}
 			if label #blocktick[{l_id_2}] call #blocktick[{l_id_2}]|{l_x_3}|{l_y_2}|{l_z_3}
-			if debug msg #blocktick[{l_id_2}]|{l_x_3}|{l_y_2}|{l_z_3}
 		if RandomTicks|>|0 jump #randomticks
 	#if_10
 	if actionCount|>=|60000 cmd oss #tick repeatable
@@ -1079,6 +1078,7 @@ quit
 	set l_x_5 {runArg1}
 	set l_y_4 {runArg2}
 	set l_z_5 {runArg3}
+	if debug msg trying to convert to grass at {l_x_5} {l_y_4} {l_z_5}
 	// localname l_i_4 
 	setadd l_y_4 1
 	call #getblock|l_i_4|{l_x_5}|{l_y_4}|{l_z_5}

@@ -229,7 +229,7 @@ function #tick
 	ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
 	set *PrevPlayerCoords {PlayerCoords}
 	delay 100
-	if debug cpemsg top1 &c{actionCount}/60000
+	if debug cpemsg top1 {actionCount}/60000
 	ifnot hp|=|*prevhp then
 		set *prevhp {hp}
 		localname hpbar
@@ -278,7 +278,6 @@ function #tick
 			localname id
 			setblockid *id {x} {y} {z}
 			if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
-			if debug msg #blocktick[{id}]|{x}|{y}|{z}
 		if RandomTicks|>|0 jump #randomticks
 	end
 	if actionCount|>=|60000 cmd oss #tick repeatable
@@ -1079,6 +1078,7 @@ function #blocktick[3]
 	local x {runArg1}
 	local y {runArg2}
 	local z {runArg3}
+	if debug msg trying to convert to grass at {x} {y} {z}
 	localname i
 	setadd *y 1
 	call #getblock|*i|{x}|{y}|{z}
