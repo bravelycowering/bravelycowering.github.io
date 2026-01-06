@@ -20,6 +20,10 @@ using no_runarg_underscore_conversion
 	set fireticks 0
 	set autosave 50
 
+	env cloudheight 144
+	env shadow 505050
+	env maxfog 256
+
 	set LevelXMax {LevelX}
 	setsub LevelXMax 1
 	set LevelYMax {LevelY}
@@ -82,7 +86,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.18
+	msg &fVersion &a0.3.19
 quit
 
 function #initSave
