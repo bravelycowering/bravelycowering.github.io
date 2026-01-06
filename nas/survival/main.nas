@@ -27,6 +27,8 @@ using no_runarg_underscore_conversion
 	set LevelZMax {LevelZ}
 	setsub LevelZMax 1
 
+	set RandomTickSpeed 3
+
 	include initinventory
 	setsplit inventory ,
 
@@ -80,7 +82,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.16
+	msg &fVersion &a0.3.18
 quit
 
 function #initSave
@@ -256,16 +258,25 @@ function #tick
 			call #damage|2|burn
 		end
 	end
-	// random tick
-	localname x
-	setrandrange *x 0 {LevelXMax}
-	localname y
-	setrandrange *y 0 {LevelYMax}
-	localname z
-	setrandrange *z 0 {LevelZMax}
-	localname id
-	setblockid *id {x} {y} {z}
-	if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
+	if RandomTickSpeed|>|0 then
+		set RandomTicks {RandomTickSpeed}
+		#randomticks
+			if actionCount|>=|60000 cmd oss #randomticks repeatable
+			if actionCount|>|60000 terminate
+			setsub RandomTicks 1
+			// random tick
+			localname x
+			setrandrange *x 0 {LevelXMax}
+			localname y
+			setrandrange *y 0 {LevelYMax}
+			localname z
+			setrandrange *z 0 {LevelZMax}
+			localname id
+			setblockid *id {x} {y} {z}
+			if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
+			if debug msg #blocktick[{id}]|{x}|{y}|{z}
+		if RandomTicks|>|0 jump #randomticks
+	end
 	if actionCount|>=|60000 cmd oss #tick repeatable
 	if actionCount|>|60000 terminate
 	jump #tick
@@ -280,11 +291,12 @@ quit
 
 #generate
 	// get seed
-	msg Generating
+	set RandomTickSpeed 0
 	call #generate.setupCommands
 	replysilent 1|Start generating!|#generate.start
 	quit
 	#generate.start
+	msg Generating
 	call #generate.isolate
 	call #generate.plantGrass
 	call #generate.flood
