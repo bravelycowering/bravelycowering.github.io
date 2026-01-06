@@ -80,7 +80,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.12
+	msg &fVersion &a0.3.13
 quit
 
 function #initSave
@@ -704,6 +704,8 @@ quit
 quit
 
 #setblock
+	setblockid id {runArg2} {runArg3} {runArg4}
+	if id|=|65535 quit
 	ifnot allowMapChanges then
 		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
@@ -1035,9 +1037,9 @@ quit
 quit
 
 #blocktick[6]
-jump #tree|{runArg1}|{runArg2}|{runArg3}
+jump #growtree|{runArg1}|{runArg2}|{runArg3}
 
-function #tree
+function #growtree
 	local x {runArg1}
 	local y {runArg2}
 	local z {runArg3}
