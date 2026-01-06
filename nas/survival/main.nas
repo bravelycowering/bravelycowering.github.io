@@ -116,7 +116,7 @@ quit
 	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.28
+	msg &fVersion &a0.3.29
 quit
 
 function #initSave
@@ -846,6 +846,7 @@ quit
 quit
 
 #input
+	ifnot blacklist.@p|=|"" quit
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
 	if runArg1|=|"craft" then
