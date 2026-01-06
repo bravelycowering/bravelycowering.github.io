@@ -84,7 +84,7 @@ quit
 
 #blacklisted
 	setrandlist msg You can look, but you can't touch!|Mistakes were made!|And you made it everyone else's problem.|Not my problem anymore!|Holy smokes, read the rules!
-	cpemsg announce &c{msg}
+	cpemsg bigannounce &4{msg}
 	menumsg smallannounce Blacklist Reason: &c{blacklist.@p}
 quit
 
@@ -113,7 +113,7 @@ quit
 	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.26
+	msg &fVersion &a0.3.27
 quit
 
 function #initSave
