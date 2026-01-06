@@ -83,9 +83,12 @@ quit
 quit
 
 #blacklisted
-	setrandlist msg You can look, but you can't touch!|Mistakes were made!|And you made it everyone else's problem.|Not my problem anymore!|Holy smokes, read the rules!
+	setrandlist msg You can look, but you can't touch!|Mistakes were made!|And you made it everyone else's problem.|Not my problem anymore!|Holy smokes, read the rules!|Sorry bud, you ruined the fun.|Yikes. Not your best work.|"i did that for the lulz"
 	cpemsg bigannounce &4{msg}
 	menumsg smallannounce Blacklist Reason: &c{blacklist.@p}
+	msg &cYou have been blacklisted from building here!
+	msg &fBlacklist Reason: &c{blacklist.@p}
+	msg &cIf you would still like to play, you can request to be unblacklisted.
 quit
 
 #rules
@@ -113,7 +116,7 @@ quit
 	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.27
+	msg &fVersion &a0.3.28
 quit
 
 function #initSave
