@@ -85,7 +85,7 @@ quit
 	msg - Grass will slowly turn into dirt under other blocks
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.23
+	msg &fVersion &a0.3.24
 quit
 
 function #initSave
@@ -417,18 +417,17 @@ quit
 	cmd replacebrush 1 cloudy 1/200 15 f=2 o=4 a=3 l=1.5
 	cmd m 0 0 0
 	cmd m {LevelX} 70 {LevelZ}
-	// upper gold
+	// gold concentrate
 	cmd replacebrush 1 cloudy 1/75 14 f=1.5 o=5
 	cmd m 0 16 0
-	cmd m {LevelX} 50 {LevelZ}
-	// lower gold
+	cmd m {LevelX} 42 {LevelZ}
+	// gold
 	cmd replacebrush 1 random 1/999 14
-	cmd m 0 0 0
-	cmd m {LevelX} 15 {LevelZ}
+	cmd ma
 	// diamond
-	cmd replacebrush 1 random 1/1999 52
+	cmd replacebrush 1 random 1/1499 52
 	cmd m 0 0 0
-	cmd m {LevelX} 15 {LevelZ}
+	cmd m {LevelX} 20 {LevelZ}
 quit
 
 #generate.plants
