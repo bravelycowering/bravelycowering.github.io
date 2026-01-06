@@ -85,7 +85,7 @@ quit
 	msg - Grass will slowly turn into dirt under other blocks
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.22
+	msg &fVersion &a0.3.23
 quit
 
 #initSave
@@ -410,8 +410,25 @@ quit
 #generate.ores
 	localmsg smallannounce Placing ores...
 	localmsg chat Placing ores...
-	cmd replacebrush 1 random 1/1993 14/2 15/2 16/2 52
+	// coal
+	cmd replacebrush 1 cloudy 1/75 16 f=1.5 o=2
 	cmd ma
+	// iron
+	cmd replacebrush 1 cloudy 1/200 15 f=2 o=4 a=3 l=1.5
+	cmd m 0 0 0
+	cmd m {LevelX} 70 {LevelZ}
+	// upper gold
+	cmd replacebrush 1 cloudy 1/75 14 f=1.5 o=5
+	cmd m 0 16 0
+	cmd m {LevelX} 50 {LevelZ}
+	// lower gold
+	cmd replacebrush 1 random 1/999 14
+	cmd m 0 0 0
+	cmd m {LevelX} 15 {LevelZ}
+	// diamond
+	cmd replacebrush 1 random 1/1999 52
+	cmd m 0 0 0
+	cmd m {LevelX} 15 {LevelZ}
 quit
 
 #generate.plants
