@@ -2,7 +2,7 @@ using local_packages
 using no_runarg_underscore_conversion
 
 #onJoin
-	if LevelName|=|"iloveminecraft1+" cmd g hell
+	ifnot LevelName|has|"bravelycowering+" jump #unregistered-hypercam-2
 	clickevent sync register #click
 	reach 4
 
@@ -38,7 +38,6 @@ using no_runarg_underscore_conversion
 
 	set allowMapChanges false
 	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
-	if LevelName|=|"bravelycowering+2" set allowMapChanges true
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg bigannounce &cNothing saves here
@@ -75,6 +74,10 @@ using no_runarg_underscore_conversion
 	cmd oss #tick repeatable
 quit
 
+#unregistered-hypercam-2
+	menumsg bigannounce &4Unregistered Hypercam 2
+quit
+
 #changelog
 	msg &fChanges in the latest major version:
 	msg - Fixed a bug where mining the walls would sometimes crash the script
@@ -86,7 +89,7 @@ quit
 	msg - A grave will now spawn containing your items where you die
 	// msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.19
+	msg &fVersion &a0.3.20
 quit
 
 function #initSave
