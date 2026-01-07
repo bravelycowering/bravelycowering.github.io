@@ -1,4 +1,4 @@
 #onJoin
-	delay 0
+	delay 1
 	msg {PlayerCoords}
 quit
