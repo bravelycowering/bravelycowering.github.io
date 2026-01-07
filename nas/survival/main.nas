@@ -120,13 +120,14 @@ quit
 	// msg &fChanges in the latest minor version:
 	// msg - Various bugfixes
 	// msg - There is now a build blacklist
+	msg - Graves now have 5 minutes of protection before they can be robbed
 	msg - Saplings now grow over time
 	msg - Dirt will slowly grow back into grass if placed next to other grass
 	msg - Grass will slowly turn into dirt under other blocks
 	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.31
+	msg &fVersion &a0.3.32
 quit
 
 function #initSave
@@ -1087,9 +1088,9 @@ jump #give|75|2
 	if data|=|"" jump #give|82|1
 	set canDestroyTombstone false
 	if data[0]|=|@p set canDestroyTombstone true
-	set timeUntilRob {data[1]}
-	setsub timeUntilRob {epochMS}
-	if timeUntilRob|<=|0 set canDestroyTombstone true
+	set timeSinceDeath {epochMS}
+	setsub timeSinceDeath {data[1]}
+	if timeSinceDeath|>|300000 set canDestroyTombstone true
 	ifnot canDestroyTombstone msg * &fThis grave belongs to {data[0]}, you cannot break it!
 	ifnot canDestroyTombstone msg * &fCome back 5 minutes after their death however, and it's all yours...
 	ifnot canDestroyTombstone set dontDestroyBlock true
@@ -1128,35 +1129,18 @@ function #blocktick[2]
 	call #getblock|*i|{x}|{y}|{z}
 	setsub *y 1
 	ifnot blocks[{i}].nonsolid jump #setblock|3|{x}|{y}|{z}
-end
-
-function #blocktick[3]
-	local x {runArg1}
-	local y {runArg2}
-	local z {runArg3}
-	localname i
+	setrandrange *i -2 2
+	setadd *x {i}
+	setrandrange *i -1 1
+	setadd *y {i}
+	setrandrange *i -2 2
+	setadd *z {i}
+	call #getblock|*i|{x}|{y}|{z}
+	ifnot *i|=|3 quit
 	setadd *y 1
 	call #getblock|*i|{x}|{y}|{z}
 	setsub *y 1
-	ifnot blocks[{i}].nonsolid quit
-	if debug msg trying to convert to grass at {x} {y} {z}
-	setadd *x 1
-	call #getblock|*i|{x}|{y}|{z}
-	setadd *x -1
-	if *i|=|2 jump #setblock|2|{x}|{y}|{z}
-	setsub *x 1
-	call #getblock|*i|{x}|{y}|{z}
-	setsub *x -1
-	if *i|=|2 jump #setblock|2|{x}|{y}|{z}
-	setadd *z 1
-	call #getblock|*i|{x}|{y}|{z}
-	setadd *z -1
-	if *i|=|2 jump #setblock|2|{x}|{y}|{z}
-	setsub *z 1
-	call #getblock|*i|{x}|{y}|{z}
-	setsub *z -1
-	if *i|=|2 jump #setblock|2|{x}|{y}|{z}
-	if debug msg FAILURE
+	if blocks[{i}].nonsolid jump #setblock|2|{x}|{y}|{z}
 end
 
 #blocktick[6]
