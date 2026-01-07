@@ -1,8 +1,8 @@
 #onJoin
-	delay 1000
+	delay 10
 	msg {PlayerCoords}
 quit
 
 #version
-	msg 1
+	msg 2
 quit
