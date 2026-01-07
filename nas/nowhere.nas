@@ -1,0 +1,3 @@
+#onJoin
+	msg {PlayerCoords}
+quit
