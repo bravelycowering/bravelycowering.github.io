@@ -130,7 +130,7 @@ quit
 	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.33
+	msg &fVersion &a0.3.34
 quit
 
 function #initSave
@@ -261,10 +261,10 @@ function #tick
 	setmod Hour 6
 	ifnot Hour|=|prevHour then
 		msg The current hour is: {Hour}
-		ifnot envcycle[{Hour}].sun|=|"" env sun {envcycle[{Hour}].sun}
-		ifnot envcycle[{Hour}].fog|=|"" env fog {envcycle[{Hour}].fog}
-		ifnot envcycle[{Hour}].sky|=|"" env sky {envcycle[{Hour}].sky}
-		ifnot envcycle[{Hour}].cloud|=|"" env cloud {envcycle[{Hour}].cloud}
+		env sun {envcycle[{Hour}].sun}
+		env fog {envcycle[{Hour}].fog}
+		env sky {envcycle[{Hour}].sky}
+		env cloud {envcycle[{Hour}].cloud}
 	end
 	set prevHour {Hour}
 	ifnot saveSlot|=|"" setsub autosave 1

@@ -130,7 +130,7 @@ quit
 	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.33
+	msg &fVersion &a0.3.34
 quit
 
 #initSave
@@ -261,10 +261,10 @@ quit
 	setmod Hour 6
 	if Hour|=|prevHour jump #ifnot_1
 		msg The current hour is: {Hour}
-		ifnot envcycle[{Hour}].sun|=|"" env sun {envcycle[{Hour}].sun}
-		ifnot envcycle[{Hour}].fog|=|"" env fog {envcycle[{Hour}].fog}
-		ifnot envcycle[{Hour}].sky|=|"" env sky {envcycle[{Hour}].sky}
-		ifnot envcycle[{Hour}].cloud|=|"" env cloud {envcycle[{Hour}].cloud}
+		env sun {envcycle[{Hour}].sun}
+		env fog {envcycle[{Hour}].fog}
+		env sky {envcycle[{Hour}].sky}
+		env cloud {envcycle[{Hour}].cloud}
 	#ifnot_1
 	set prevHour {Hour}
 	ifnot saveSlot|=|"" setsub autosave 1
@@ -2053,12 +2053,29 @@ set saveformat[6] maxhp
 set saveformat[7] fireticks
 set saveformat[8] inventory
 set saveformat[9] DeathSpawn
-set envcycle[1].cloud #444444
-set envcycle[1].fog #000000
-set envcycle[1].sky FF000000
-set envcycle[1].sun #444444
-set envcycle[4].cloud #ffffff
-set envcycle[4].fog #ffffff
-set envcycle[4].sky #9accff
-set envcycle[4].sun #ffffff
+set envcycle.Length 5
+set envcycle[0].cloud #ffffff
+set envcycle[0].fog #ffffff
+set envcycle[0].sky #9accff
+set envcycle[0].sun #ffffff
+set envcycle[1].cloud #c0c0c0
+set envcycle[1].fog #aaaaaa
+set envcycle[1].sky #6688aa
+set envcycle[1].sun #c0c0c0
+set envcycle[2].cloud #828282
+set envcycle[2].fog #555555
+set envcycle[2].sky #334455
+set envcycle[2].sun #828282
+set envcycle[3].cloud #444444
+set envcycle[3].fog #000000
+set envcycle[3].sky #000000
+set envcycle[3].sun #444444
+set envcycle[4].cloud #828282
+set envcycle[4].fog #555555
+set envcycle[4].sky #334455
+set envcycle[4].sun #828282
+set envcycle[5].cloud #c0c0c0
+set envcycle[5].fog #aaaaaa
+set envcycle[5].sky #6688aa
+set envcycle[5].sun #c0c0c0
 quit
