@@ -28,8 +28,11 @@ using no_runarg_underscore_conversion
 	set fireticks 0
 	set autosave 50
 
+	set Weather 0
+	set Hour -1
+
 	env cloudheight 144
-	env shadow 505050
+	env shadow 444444
 
 	set LevelXMax {LevelX}
 	setsub LevelXMax 1
@@ -127,7 +130,7 @@ quit
 	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.32
+	msg &fVersion &a0.3.33
 quit
 
 function #initSave
@@ -251,6 +254,19 @@ function #tick
 	localname PrevPlayerCoords
 	localname prevhp
 	localname myblock
+	localname prevHour
+	set Hour {epochms}
+	setdiv Hour 10000
+	setrounddown Hour
+	setmod Hour 6
+	ifnot Hour|=|prevHour then
+		msg The current hour is: {Hour}
+		ifnot envcycle[{Hour}].sun|=|"" env sun {envcycle[{Hour}].sun}
+		ifnot envcycle[{Hour}].fog|=|"" env fog {envcycle[{Hour}].fog}
+		ifnot envcycle[{Hour}].sky|=|"" env sky {envcycle[{Hour}].sky}
+		ifnot envcycle[{Hour}].cloud|=|"" env cloud {envcycle[{Hour}].cloud}
+	end
+	set prevHour {Hour}
 	ifnot saveSlot|=|"" setsub autosave 1
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
@@ -1331,4 +1347,5 @@ quit
 	include struct toollevel survival/toollevel
 	include struct deathmessages survival/deathmessages
 	include struct saveformat survival/saveformat
+	include struct envcycle survival/envcycle
 quit
