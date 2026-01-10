@@ -278,7 +278,7 @@ function #tick
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
 	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{myblock}].catchFire setadd fireticks 1
+	if blocks[{myblock}].catchFire setadd fireticks 2
 	if blocks[{myblock}].extinguishFire set fireticks 0
 	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
 	ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
