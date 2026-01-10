@@ -278,7 +278,7 @@ function #tick
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
 	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{myblock}].catchFire setadd fireticks 2
+	if blocks[{myblock}].catchFire setadd fireticks 6
 	if blocks[{myblock}].extinguishFire set fireticks 0
 	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
 	ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
@@ -893,9 +893,15 @@ quit
 		setmod debugpage {debugpages}
 		setadd debugpage 1
 	end
-	if runArg1|=|"restart" then
+	if runArg1|=|"reload" then
 		set TerminatePrematurely true
-		msg &fRestarting!
+		local startprofile {actionCount}
+		setadd *startprofile 2
+		call #initStructs
+		local profile {actionCount}
+		setsub *profile {startprofile}
+		msg &fReloading structs took {profile} actions!
+		msg &fRestarting...
 	end
 	if runArg1|=|"" then
 		if debug set debug false

@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan10-6&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-7&7)
 quit
 
 #initSave
@@ -278,7 +278,7 @@ quit
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
 	call #getblock|l_myblock_1|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{l_myblock_1}].catchFire setadd fireticks 2
+	if blocks[{l_myblock_1}].catchFire setadd fireticks 6
 	if blocks[{l_myblock_1}].extinguishFire set fireticks 0
 	ifnot blocks[{l_myblock_1}].damage|=|"" call #damage|{blocks[{l_myblock_1}].damage}|{blocks[{l_myblock_1}].damageType}
 	ifnot PlayerCoords|=|l_PrevPlayerCoords_1 set usingWorkbench false
@@ -893,9 +893,15 @@ quit
 		setmod debugpage {debugpages}
 		setadd debugpage 1
 	#if_21
-	ifnot runArg1|=|"restart" jump #if_22
+	ifnot runArg1|=|"reload" jump #if_22
 		set TerminatePrematurely true
-		msg &fRestarting!
+		set l_startprofile_1 {actionCount}
+		setadd l_startprofile_1 2
+		call #initStructs
+		set l_profile_1 {actionCount}
+		setsub l_profile_1 {l_startprofile_1}
+		msg &fReloading structs took {l_profile_1} actions!
+		msg &fRestarting...
 	#if_22
 	ifnot runArg1|=|"" jump #if_23
 		if debug set debug false
