@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan10-8&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-9&7)
 quit
 
 #initSave
@@ -258,12 +258,11 @@ quit
 quit
 
 #tick
-	if TerminatePrematurely jump #newloop|#tick
-	// localname l_PrevPlayerCoords_1 
+	// prev storage
 	// localname l_prevhp_1 
-	// localname l_myblock_1 
 	// localname l_prevHour_1 
-	// localname l_HourD_1 
+	if TerminatePrematurely jump #newloop|#tick
+	set l_profilestart_1 {actionCount}
 	set Hour {epochms}
 	setdiv Hour 10000
 	setmod Hour 144
@@ -278,25 +277,20 @@ quit
 	ifnot saveSlot|=|"" setsub autosave 1
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
+	// localname l_myblock_1 
 	call #getblock|l_myblock_1|{PlayerX}|{PlayerY}|{PlayerZ}
 	if blocks[{l_myblock_1}].catchFire setadd fireticks 6
-	if blocks[{l_myblock_1}].extinguishFire set fireticks 0
 	ifnot blocks[{l_myblock_1}].damage|=|"" call #damage|{blocks[{l_myblock_1}].damage}|{blocks[{l_myblock_1}].damageType}
-	ifnot PlayerCoords|=|l_PrevPlayerCoords_1 set usingWorkbench false
-	ifnot PlayerCoords|=|l_PrevPlayerCoords_1 set usingStonecutter false
-	set l_PrevPlayerCoords_1 {PlayerCoords}
-	if hp|=|l_prevhp_1 jump #ifnot_2
-		set l_prevhp_1 {hp}
-		// localname l_hpbar_1 
-		call #makebar|l_hpbar_1|c|{hp}|{maxhp}
-		cpemsg bot1 &c♥ {l_hpbar_1}
-	#ifnot_2
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
+	set PrevPlayerCoords {PlayerCoords}
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot2 Holding: &cNothing
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
 	ifnot fireticks|>|0 jump #if_3
 		setsub fireticks 1
 		if fireticks|>|100 set fireticks 100
+		if blocks[{l_myblock_1}].extinguishFire set fireticks 0
 		set l_firetickmod_1 {fireticks}
 		setmod l_firetickmod_1 10
 		ifnot l_firetickmod_1|=|0 jump #if_4
@@ -318,6 +312,14 @@ quit
 		if iframes|<|2 gui barSize 0
 		else gui barSize 1
 	#if_6
+	// redraw hp bar if hp changed
+	if hp|=|l_prevhp_1 jump #ifnot_2
+		set l_prevhp_1 {hp}
+		// localname l_hpbar_1 
+		call #makebar|l_hpbar_1|c|{hp}|{maxhp}
+		cpemsg bot1 &c♥ {l_hpbar_1}
+	#ifnot_2
+	// random ticks
 	ifnot RandomTickSpeed|>|0 jump #if_7
 		set RandomTicks {RandomTickSpeed}
 		#randomticks
@@ -335,11 +337,16 @@ quit
 			if label #blocktick[{l_id_2}] call #blocktick[{l_id_2}]|{l_x_4}|{l_y_2}|{l_z_3}
 		if RandomTicks|>|0 jump #randomticks
 	#if_7
+	// calculate actions per tick and show debug stuff
+	set actionsPerTick {actionCount}
+	setsub actionsPerTick {l_profilestart_1}
 	if debug call #debugpage[{debugpage}]
-	if debug cpemsg top1 AC: {actionCount}/60K, << Page {debugpage}/{debugpages} >>
+	if debug cpemsg top1 A: {actionCount}/60K, APT: {actionsPerTick}, << Page {debugpage}/{debugpages} >>
+	// loop
 	delay 100
 	if actionCount|>=|60000 jump #newloop|#tick
-jump #tick
+	jump #tick
+quit
 
 #newloop
 	set LoopPoint {runArg1}
@@ -903,6 +910,7 @@ quit
 		setsub l_profile_1 {l_startprofile_1}
 		msg &fReloading structs took {l_profile_1} actions!
 		msg &fRestarting...
+		jump #version
 	#if_22
 	ifnot runArg1|=|"" jump #if_23
 		if debug set debug false

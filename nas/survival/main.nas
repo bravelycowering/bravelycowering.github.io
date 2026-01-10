@@ -258,12 +258,11 @@ function #setdist
 end
 
 function #tick
-	if TerminatePrematurely jump #newloop|#tick
-	localname PrevPlayerCoords
+	// prev storage
 	localname prevhp
-	localname myblock
 	localname prevHour
-	localname HourD
+	if TerminatePrematurely jump #newloop|#tick
+	local profilestart {actionCount}
 	set Hour {epochms}
 	setdiv Hour 10000
 	setmod Hour 144
@@ -278,25 +277,20 @@ function #tick
 	ifnot saveSlot|=|"" setsub autosave 1
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
+	localname myblock
 	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
 	if blocks[{myblock}].catchFire setadd fireticks 6
-	if blocks[{myblock}].extinguishFire set fireticks 0
 	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
-	ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
-	ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
-	set *PrevPlayerCoords {PlayerCoords}
-	ifnot hp|=|*prevhp then
-		set *prevhp {hp}
-		localname hpbar
-		call #makebar|*hpbar|c|{hp}|{maxhp}
-		cpemsg bot1 &c♥ {hpbar}
-	end
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
+	set PrevPlayerCoords {PlayerCoords}
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot2 Holding: &cNothing
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
 	if fireticks|>|0 then
 		setsub fireticks 1
 		if fireticks|>|100 set fireticks 100
+		if blocks[{myblock}].extinguishFire set fireticks 0
 		local *firetickmod {fireticks}
 		setmod *firetickmod 10
 		if *firetickmod|=|0 then
@@ -318,6 +312,14 @@ function #tick
 		if iframes|<|2 gui barSize 0
 		else gui barSize 1
 	end
+	// redraw hp bar if hp changed
+	ifnot hp|=|*prevhp then
+		set *prevhp {hp}
+		localname hpbar
+		call #makebar|*hpbar|c|{hp}|{maxhp}
+		cpemsg bot1 &c♥ {hpbar}
+	end
+	// random ticks
 	if RandomTickSpeed|>|0 then
 		set RandomTicks {RandomTickSpeed}
 		#randomticks
@@ -335,11 +337,16 @@ function #tick
 			if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
 		if RandomTicks|>|0 jump #randomticks
 	end
+	// calculate actions per tick and show debug stuff
+	set actionsPerTick {actionCount}
+	setsub actionsPerTick {profilestart}
 	if debug call #debugpage[{debugpage}]
-	if debug cpemsg top1 AC: {actionCount}/60K, << Page {debugpage}/{debugpages} >>
+	if debug cpemsg top1 A: {actionCount}/60K, APT: {actionsPerTick}, << Page {debugpage}/{debugpages} >>
+	// loop
 	delay 100
 	if actionCount|>=|60000 jump #newloop|#tick
-jump #tick
+	jump #tick
+end
 
 #newloop
 	set LoopPoint {runArg1}
@@ -903,6 +910,7 @@ quit
 		setsub *profile {startprofile}
 		msg &fReloading structs took {profile} actions!
 		msg &fRestarting...
+		jump #version
 	end
 	if runArg1|=|"" then
 		if debug set debug false
