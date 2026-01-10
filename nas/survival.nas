@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan10-3&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-4&7)
 quit
 
 #initSave
@@ -342,7 +342,7 @@ quit
 		if RandomTicks|>|0 jump #randomticks
 	#if_10
 	if debug call #debugpage[{debugpage}]
-	if debug cpemsg top1 A: {actionCount}/60K, << Page {debugpage}/{debugpages} >>
+	if debug cpemsg top1 AC: {actionCount}/60K, << Page {debugpage}/{debugpages} >>
 	delay 100
 	if actionCount|>=|60000 jump #newloop|#tick
 jump #tick
@@ -919,7 +919,7 @@ quit
 quit
 
 #debugpage[1]
-	cpemsg top2 AC: EV: {Hour}, MC: {allowMapChanges}, RT: {RandomTickSpeed}, AU: {autoSave}, SS: {saveSlot}
+	cpemsg top2 EV: {Hour}, MC: {allowMapChanges}, RT: {RandomTickSpeed}, AU: {autoSave}, SS: {saveSlot}
 	cpemsg top3 HP: {hp}/{maxhp}, FT: {fireticks}, DT: {drownticks}, SB: {spawnBlock}
 quit
 
