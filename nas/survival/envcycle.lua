@@ -30,7 +30,7 @@ local function blendHex(hex1, hex2, p)
 end
 
 local last
-local maxtime = 6
+local maxtime = 24	*6
 
 local function env(hour)
 	local time = math.floor(hour*6)
@@ -69,18 +69,62 @@ env(0) {
 	cloud =	"#ffffff",
 }
 
-env(0.5) {
-	sun =	"#444444",
-	fog =	"#000000",
-	sky =	"#000000",
-	cloud =	"#444444",
-}
-
-env(1) {
+env(6) {
 	sun =	"#ffffff",
-	fog =	"#ffffff",
-	sky =	"#9accff",
+	fog =	"#cbdbfc",
+	sky =	"#7fb4ff",
 	cloud =	"#ffffff",
 }
+
+env(12) {
+	sun =	"#ffffff",
+	fog =	"#9accff",
+	sky =	"#639bff",
+	cloud =	"#ffffff",
+}
+
+env(13) {
+	sun =	"#888888",
+	fog =	"#e7922c",
+	sky =	"#306082",
+	cloud =	"#ffcd47",
+}
+
+env(14) {
+	sun =	"#555555",
+	fog =	"#200E4B",
+	sky =	"#242455",
+	cloud =	"#7C2352",
+}
+
+env(15) {
+	sun =	"#444444",
+	fog =	"#000000",
+	sky =	"#10102b",
+	cloud =	"#2A2835",
+}
+
+env(20) {
+	sun =	"#444444",
+	fog =	"#000000",
+	sky =	"#202038",
+	cloud =	"#2F2D3B",
+}
+
+env(22) {
+	sun =	"#666666",
+	fog =	"#cc4945",
+	sky =	"#4a0495",
+	cloud =	"#8a266e",
+}
+
+env(23) {
+	sun =	"#ffffff",
+	fog =	"#a9b5ff",
+	sky =	"#5b6ee1",
+	cloud =	"#ffffff",
+}
+
+env(24) (envcycle[0])
 
 return envcycle

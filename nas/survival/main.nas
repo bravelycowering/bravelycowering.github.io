@@ -130,7 +130,7 @@ quit
 	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.34
+	msg &fVersion &a0.3.35
 quit
 
 function #initSave
@@ -250,97 +250,98 @@ function #setdist
 	setsqrt {runArg1} {a}
 end
 
-function #tick
-	localname PrevPlayerCoords
-	localname prevhp
-	localname myblock
-	localname prevHour
-	set Hour {epochms}
-	setdiv Hour 10000
-	setrounddown Hour
-	setmod Hour 6
-	ifnot Hour|=|prevHour then
-		msg The current hour is: {Hour}
-		env sun {envcycle[{Hour}].sun}
-		env fog {envcycle[{Hour}].fog}
-		env sky {envcycle[{Hour}].sky}
-		env cloud {envcycle[{Hour}].cloud}
-	end
-	set prevHour {Hour}
-	ifnot saveSlot|=|"" setsub autosave 1
-	if autosave|<|0 call #save
-	if autosave|<|0 set autosave 50
-	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{myblock}].catchFire then
-		set fireticks 100
-		cpemsg smallannounce &6▐▐▐▐▐▐▐▐▐▐
-	end
-	if blocks[{myblock}].extinguishFire then
-		if fireticks|>|0 then
-			gui barSize 0
-			set fireticks 0
+#tick
+	ifnot paused then 
+		localname PrevPlayerCoords
+		localname prevhp
+		localname myblock
+		localname prevHour
+		set Hour {epochms}
+		setdiv Hour 100
+		setrounddown Hour
+		setmod Hour 144
+		ifnot Hour|=|prevHour then
+			msg The current hour is: {Hour}
+			env sun {envcycle[{Hour}].sun}
+			env fog {envcycle[{Hour}].fog}
+			env sky {envcycle[{Hour}].sky}
+			env cloud {envcycle[{Hour}].cloud}
 		end
-	end
-	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
-	ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
-	ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
-	set *PrevPlayerCoords {PlayerCoords}
-	delay 100
-	if debug cpemsg top1 {actionCount}/60000
-	ifnot hp|=|*prevhp then
-		set *prevhp {hp}
-		localname hpbar
-		call #makebar|*hpbar|c|{hp}|{maxhp}
-		cpemsg bot1 &c♥ {hpbar}
-	end
-	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
-	else cpemsg bot2 Holding: &cNothing
-	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
-	if iframes|>|0 then
-		setsub iframes 1
-		ifnot iframes|<|2 gui barColor #ff0000 0.25
-		if iframes|<|2 gui barSize 0
-		else gui barSize 1
-	end
-	if fireticks|>|0 then
-		setsub fireticks 1
-		local *firetickmod {fireticks}
-		setmod *firetickmod 10
-		if *firetickmod|=|0 then
+		set prevHour {Hour}
+		ifnot saveSlot|=|"" setsub autosave 1
+		if autosave|<|0 call #save
+		if autosave|<|0 set autosave 50
+		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
+		if blocks[{myblock}].catchFire then
+			set fireticks 100
+			cpemsg smallannounce &6▐▐▐▐▐▐▐▐▐▐
+		end
+		if blocks[{myblock}].extinguishFire then
 			if fireticks|>|0 then
-				localname temp
-				set *temp {fireticks}
-				setdiv *temp 10
-				localname firebar
-				call #makecharbar|*firebar|▐|6|{temp}|10
-				cpemsg smallannounce {firebar}
+				gui barSize 0
+				set fireticks 0
 			end
-			ifnot fireticks|>|0 cpemsg smallannounce
-			call #damage|2|burn
+		end
+		ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
+		ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
+		ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
+		set *PrevPlayerCoords {PlayerCoords}
+		if debug cpemsg top1 {actionCount}/60000
+		ifnot hp|=|*prevhp then
+			set *prevhp {hp}
+			localname hpbar
+			call #makebar|*hpbar|c|{hp}|{maxhp}
+			cpemsg bot1 &c♥ {hpbar}
+		end
+		if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
+		else cpemsg bot2 Holding: &cNothing
+		cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
+		if iframes|>|0 then
+			setsub iframes 1
+			ifnot iframes|<|2 gui barColor #ff0000 0.25
+			if iframes|<|2 gui barSize 0
+			else gui barSize 1
+		end
+		if fireticks|>|0 then
+			setsub fireticks 1
+			local *firetickmod {fireticks}
+			setmod *firetickmod 10
+			if *firetickmod|=|0 then
+				if fireticks|>|0 then
+					localname temp
+					set *temp {fireticks}
+					setdiv *temp 10
+					localname firebar
+					call #makecharbar|*firebar|▐|6|{temp}|10
+					cpemsg smallannounce {firebar}
+				end
+				ifnot fireticks|>|0 cpemsg smallannounce
+				call #damage|2|burn
+			end
+		end
+		if RandomTickSpeed|>|0 then
+			set RandomTicks {RandomTickSpeed}
+			#randomticks
+				if actionCount|>=|60000 cmd oss #randomticks repeatable
+				if actionCount|>|60000 terminate
+				setsub RandomTicks 1
+				// random tick
+				localname x
+				setrandrange *x 0 {LevelXMax}
+				localname y
+				setrandrange *y 0 {LevelYMax}
+				localname z
+				setrandrange *z 0 {LevelZMax}
+				localname id
+				setblockid *id {x} {y} {z}
+				if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
+			if RandomTicks|>|0 jump #randomticks
 		end
 	end
-	if RandomTickSpeed|>|0 then
-		set RandomTicks {RandomTickSpeed}
-		#randomticks
-			if actionCount|>=|60000 cmd oss #randomticks repeatable
-			if actionCount|>|60000 terminate
-			setsub RandomTicks 1
-			// random tick
-			localname x
-			setrandrange *x 0 {LevelXMax}
-			localname y
-			setrandrange *y 0 {LevelYMax}
-			localname z
-			setrandrange *z 0 {LevelZMax}
-			localname id
-			setblockid *id {x} {y} {z}
-			if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
-		if RandomTicks|>|0 jump #randomticks
-	end
+	delay 100
 	if actionCount|>=|60000 cmd oss #tick repeatable
 	if actionCount|>|60000 terminate
-	jump #tick
-end
+jump #tick
 
 #grow
 	cmd brush replace
