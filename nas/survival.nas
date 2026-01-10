@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan10-1&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-2&7)
 quit
 
 #initSave
@@ -349,13 +349,16 @@ jump #tick
 
 #newloop
 	set LoopPoint {runArg1}
+	show LoopPoint
 	set TerminatePrematurely false
 	cmd m 0 0 0
 terminate
 
 #resumeloop
+	show LoopPoint
 	set l_lbl_1 {LoopPoint}
 	set LoopPoint
+	show l_lbl_1
 	if l_lbl_1 jump {l_lbl_1}
 quit
 
@@ -1160,7 +1163,7 @@ jump #give|75|2
 	call #getblockdata|data|{x}|{y}|{z}
 	if data|=|"" jump #give|82|1
 	set canDestroyTombstone false
-	if data[0]|=|@p set canDestroyTombstone true
+	if data[0]|=|"@p" set canDestroyTombstone true
 	set timeSinceDeath {epochMS}
 	setsub timeSinceDeath {data[1]}
 	if timeSinceDeath|>|300000 set canDestroyTombstone true
