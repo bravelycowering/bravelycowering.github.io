@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan10-10&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-11&7)
 quit
 
 #initSave
@@ -901,7 +901,11 @@ quit
 		setmod debugpage {debugpages}
 		setadd debugpage 1
 	#if_21
-	ifnot runArg1|=|"reload" jump #if_22
+	ifnot runArg1|=|"reupload" jump #if_22
+		cmd osus https://bravelycowering.net/nas/survival.nas
+		set runArg1 reload
+	#if_22
+	ifnot runArg1|=|"reload" jump #if_23
 		set TerminatePrematurely true
 		set l_startprofile_1 {actionCount}
 		setadd l_startprofile_1 2
@@ -911,15 +915,15 @@ quit
 		msg &fReloading structs took {l_profile_1} actions!
 		msg &fRestarting...
 		jump #version
-	#if_22
-	ifnot runArg1|=|"" jump #if_23
+	#if_23
+	ifnot runArg1|=|"" jump #if_24
 		if debug set debug false
 		else set debug true
 		if debug definehotkey debug next|PERIOD|shift
 		else undefinehotkey COMMA|shift
 		if debug definehotkey debug prev|COMMA|shift
 		else undefinehotkey COMMA|shift
-	#if_23
+	#if_24
 	if debug quit
 	cpemsg top1
 	cpemsg top2
@@ -941,22 +945,22 @@ quit
 	if runArg1|=|"debug" jump #debug|{runArg2}
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
-	ifnot runArg1|=|"craft" jump #if_24
+	ifnot runArg1|=|"craft" jump #if_25
 		set craftArgs {runArg2}
 		if craftArgs|=|"" jump #ifnot_12
 			set craftArgs[1] 1
 			setsplit craftArgs *
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
 			call #getBlockByName|blockID|{craftArgs[0]}
-			ifnot blockID|=|"" jump #if_25
+			ifnot blockID|=|"" jump #if_26
 				msg &cInvalid item name or ID
 				quit
-			#if_25
+			#if_26
 			call #getRecipeByOutput|recipeID|{blockID}|{craftArgs[1]}
-			ifnot recipeID|=|"" jump #if_26
+			ifnot recipeID|=|"" jump #if_27
 				msg &cYou cannot craft {blocks[{blockID}].name}!
 				quit
-			#if_26
+			#if_27
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
 		#ifnot_12
@@ -969,7 +973,7 @@ quit
 		#while_11
 			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
-			ifnot canAfford|>|0 jump #if_27
+			ifnot canAfford|>|0 jump #if_28
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) &7* {canAfford}
 				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f)
 				set j 0
@@ -980,13 +984,13 @@ quit
 					setadd j 1
 				if j|<|{recipes[{i}].ingredients.Length} jump #while_12
 				msg {ingrediantList}
-			#if_27
+			#if_28
 			setadd i 1
 		if i|<|{recipes.Length} jump #while_11
 		msg &eType &a/in craft [name]&e to craft something
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
-	#if_24
+	#if_25
 	set i 0
 	msg &eResources:
 	#while_13
@@ -1025,9 +1029,9 @@ quit
 	if recipes[{runArg1}].condition|=|"" jump #ifnot_14
 		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
 	#ifnot_14
-	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_28
+	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_29
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
-	#if_28
+	#if_29
 	#while_15
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {inventory[{id}]}
@@ -1046,10 +1050,10 @@ quit
 	#ifnot_15
 	set i 0
 	#while_16
-		ifnot blocks[{i}].name|=|runArg2 jump #if_29
+		ifnot blocks[{i}].name|=|runArg2 jump #if_30
 			set {runArg1} {i}
 			quit
-		#if_29
+		#if_30
 		setadd i 1
 	if i|<|{blocks.Length} jump #while_16
 quit
@@ -1061,13 +1065,13 @@ quit
 	set {pname}
 	set i 0
 	#while_17
-		ifnot recipes[{i}].output.id|=|bid jump #if_30
+		ifnot recipes[{i}].output.id|=|bid jump #if_31
 			call #checkRecipeAfford|{i}|canAfford
-			ifnot canAfford|>=|c jump #if_31
+			ifnot canAfford|>=|c jump #if_32
 				set {pname} {i}
 				quit
-			#if_31
-		#if_30
+			#if_32
+		#if_31
 		setadd i 1
 	if i|<|{recipes.Length} jump #while_17
 quit
@@ -1084,7 +1088,7 @@ quit
 
 #use[67]
 	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_16
-		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_32
+		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_33
 			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
@@ -1093,7 +1097,7 @@ quit
 			setdeathspawn {DeathSpawn}
 			msg &fRespawn point set
 			quit
-		#if_32
+		#if_33
 	#ifnot_16
 	msg &cYou can't light a campfire with that
 quit
@@ -1107,17 +1111,17 @@ quit
 
 #use[70:80]
 #use[68:80]
-	ifnot inventory[80]|>|0 jump #if_33
+	ifnot inventory[80]|>|0 jump #if_34
 		call #take|80|1
 		call #give|70|1
-	#if_33
+	#if_34
 quit
 
 #use[68:12]
-	ifnot inventory[12]|>|0 jump #if_34
+	ifnot inventory[12]|>|0 jump #if_35
 		call #take|12|1
 		call #give|20|1
-	#if_34
+	#if_35
 quit
 
 #use[80:70]
@@ -1212,16 +1216,35 @@ quit
 	ifnot blocks[{l_i_3}].nonsolid jump #setblock|3|{l_x_5}|{l_y_3}|{l_z_4}
 	setrandrange l_i_3 -1 1
 	setadd l_x_5 {l_i_3}
-	setrandrange l_i_3 -1 1
-	setadd l_y_3 {l_i_3}
+	setsub l_y_3 1
 	setrandrange l_i_3 -1 1
 	setadd l_z_4 {l_i_3}
+	// bottom grass
 	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
-	ifnot l_i_3|=|3 quit
+	ifnot l_i_3|=|3 jump #if_36
+		setadd l_y_3 1
+		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
+		setsub l_y_3 1
+		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
+	#if_36
+	// middle grass
 	setadd l_y_3 1
 	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
-	setsub l_y_3 1
-	if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
+	ifnot l_i_3|=|3 jump #if_37
+		setadd l_y_3 1
+		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
+		setsub l_y_3 1
+		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
+	#if_37
+	// top grass
+	setadd l_y_3 1
+	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
+	ifnot l_i_3|=|3 jump #if_38
+		setadd l_y_3 1
+		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
+		setsub l_y_3 1
+		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
+	#if_38
 quit
 
 #blocktick[6]

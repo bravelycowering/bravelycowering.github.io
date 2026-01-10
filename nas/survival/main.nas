@@ -901,6 +901,10 @@ quit
 		setmod debugpage {debugpages}
 		setadd debugpage 1
 	end
+	if runArg1|=|"reupload" then
+		cmd osus https://bravelycowering.net/nas/survival.nas
+		set runArg1 reload
+	end
 	if runArg1|=|"reload" then
 		set TerminatePrematurely true
 		local startprofile {actionCount}
@@ -1212,16 +1216,35 @@ function #blocktick[2]
 	ifnot blocks[{i}].nonsolid jump #setblock|3|{x}|{y}|{z}
 	setrandrange *i -1 1
 	setadd *x {i}
-	setrandrange *i -1 1
-	setadd *y {i}
+	setsub *y 1
 	setrandrange *i -1 1
 	setadd *z {i}
+	// bottom grass
 	call #getblock|*i|{x}|{y}|{z}
-	ifnot *i|=|3 quit
+	if *i|=|3 then
+		setadd *y 1
+		call #getblock|*i|{x}|{y}|{z}
+		setsub *y 1
+		if blocks[{i}].nonsolid jump #setblock|2|{x}|{y}|{z}
+	end
+	// middle grass
 	setadd *y 1
 	call #getblock|*i|{x}|{y}|{z}
-	setsub *y 1
-	if blocks[{i}].nonsolid jump #setblock|2|{x}|{y}|{z}
+	if *i|=|3 then
+		setadd *y 1
+		call #getblock|*i|{x}|{y}|{z}
+		setsub *y 1
+		if blocks[{i}].nonsolid jump #setblock|2|{x}|{y}|{z}
+	end
+	// top grass
+	setadd *y 1
+	call #getblock|*i|{x}|{y}|{z}
+	if *i|=|3 then
+		setadd *y 1
+		call #getblock|*i|{x}|{y}|{z}
+		setsub *y 1
+		if blocks[{i}].nonsolid jump #setblock|2|{x}|{y}|{z}
+	end
 end
 
 #blocktick[6]
