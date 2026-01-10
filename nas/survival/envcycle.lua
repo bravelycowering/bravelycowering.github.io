@@ -54,6 +54,7 @@ local function env(hour)
 				fog = blendHex(last.fog, obj.fog, p),
 				sky = blendHex(last.sky, obj.sky, p),
 				cloud = blendHex(last.cloud, obj.cloud, p),
+				isday = last.isday,
 			}
 			envcycle[offset] = envv
 			offset = (offset + 1)%maxtime
@@ -67,6 +68,7 @@ env(0) {
 	fog =	"#ffffff",
 	sky =	"#9accff",
 	cloud =	"#ffffff",
+	isday =	true,
 }
 
 env(6) {
@@ -74,6 +76,7 @@ env(6) {
 	fog =	"#cbdbfc",
 	sky =	"#7fb4ff",
 	cloud =	"#ffffff",
+	isday =	true,
 }
 
 env(12) {
@@ -81,6 +84,7 @@ env(12) {
 	fog =	"#9accff",
 	sky =	"#639bff",
 	cloud =	"#ffffff",
+	isday =	true,
 }
 
 env(13) {
@@ -88,6 +92,7 @@ env(13) {
 	fog =	"#e7922c",
 	sky =	"#306082",
 	cloud =	"#ffcd47",
+	isday =	true,
 }
 
 env(14) {
@@ -95,6 +100,7 @@ env(14) {
 	fog =	"#200E4B",
 	sky =	"#242455",
 	cloud =	"#7C2352",
+	isday =	true,
 }
 
 env(15) {
@@ -116,6 +122,7 @@ env(22) {
 	fog =	"#F3885E",
 	sky =	"#4a0495",
 	cloud =	"#854673",
+	isday =	true,
 }
 
 env(23) {
@@ -123,6 +130,7 @@ env(23) {
 	fog =	"#a9b5ff",
 	sky =	"#5b6ee1",
 	cloud =	"#ffffff",
+	isday =	true,
 }
 
 env(24) (envcycle[0])

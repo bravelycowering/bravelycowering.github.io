@@ -20,4 +20,5 @@ f:write(builddate.."\n"..buildno)
 f:close()
 
 local buildversion = builddate.."-"..buildno
-return function() return "msg &fVersion &a"..fancynumber.." &7(&f"..buildversion.."&7)" end
+print("BUILD VERSION: "..buildversion)
+return function() return "msg &fVersion &a"..fancynumber.." &7"..buildversion end

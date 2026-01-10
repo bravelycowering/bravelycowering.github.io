@@ -26,5 +26,7 @@ local function comptbl(tbl, prefix, lines)
 end
 
 return function(name, location)
-	return table.concat(comptbl(require(location), name, {}), "\n")
+	local actions = comptbl(require(location), name, {})
+	print("compiled struct "..name.." from "..location.." into "..#actions.." actions")
+	return table.concat(actions, "\n")
 end

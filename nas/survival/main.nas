@@ -903,7 +903,7 @@ quit
 	end
 	if runArg1|=|"reupload" then
 		cmd osus https://bravelycowering.net/nas/survival.nas
-		set runArg1 reload
+		jump #debug|reload
 	end
 	if runArg1|=|"reload" then
 		set TerminatePrematurely true
@@ -1206,6 +1206,7 @@ quit
 quit
 
 function #blocktick[2]
+	ifnot envcycle[{Hour}].isday quit
 	local x {runArg1}
 	local y {runArg2}
 	local z {runArg3}
@@ -1248,6 +1249,7 @@ function #blocktick[2]
 end
 
 #blocktick[6]
+	ifnot envcycle[{Hour}].isday quit
 jump #growtree|{runArg1}|{runArg2}|{runArg3}
 
 function #growtree

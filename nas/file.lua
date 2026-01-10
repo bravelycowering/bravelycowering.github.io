@@ -40,6 +40,7 @@ local function resolvePackageUnwraps(locals, word)
 end
 
 return function(inpath)
+	print("processing file "..inpath.."...")
 	local infile = assert(io.open(inpath, "rb"))
 	local incontent = infile:read("a")
 	infile:close()
