@@ -18,7 +18,7 @@ using no_runarg_underscore_conversion
 
 	set debug false
 	set debugpage 0
-	set debugpages 1
+	set debugpages 2
 
 	set minetimer 0
 	set minepos
@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.42
+	include survival/version
 quit
 
 function #initSave
@@ -256,98 +256,102 @@ function #setdist
 	setsqrt {runArg1} {a}
 end
 
-#tick
-	ifnot paused then 
-		localname PrevPlayerCoords
-		localname prevhp
-		localname myblock
-		localname prevHour
-		localname HourD
-		set Hour {epochms}
-		setdiv Hour 10000
-		setmod Hour 144
-		setrounddown Hour
-		ifnot Hour|=|prevHour then
-			env sun {envcycle[{Hour}].sun}
-			env fog {envcycle[{Hour}].fog}
-			env sky {envcycle[{Hour}].sky}
-			env cloud {envcycle[{Hour}].cloud}
-		end
-		set prevHour {Hour}
-		ifnot saveSlot|=|"" setsub autosave 1
-		if autosave|<|0 call #save
-		if autosave|<|0 set autosave 50
-		call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-		if blocks[{myblock}].catchFire then
-			set fireticks 100
-			cpemsg smallannounce &6▐▐▐▐▐▐▐▐▐▐
-		end
-		if blocks[{myblock}].extinguishFire then
-			if fireticks|>|0 then
-				gui barSize 0
-				set fireticks 0
-			end
-		end
-		ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
-		ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
-		ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
-		set *PrevPlayerCoords {PlayerCoords}
-		ifnot hp|=|*prevhp then
-			set *prevhp {hp}
-			localname hpbar
-			call #makebar|*hpbar|c|{hp}|{maxhp}
-			cpemsg bot1 &c♥ {hpbar}
-		end
-		if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
-		else cpemsg bot2 Holding: &cNothing
-		cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
-		if iframes|>|0 then
-			setsub iframes 1
-			ifnot iframes|<|2 gui barColor #ff0000 0.25
-			if iframes|<|2 gui barSize 0
-			else gui barSize 1
-		end
-		if fireticks|>|0 then
-			setsub fireticks 1
-			local *firetickmod {fireticks}
-			setmod *firetickmod 10
-			if *firetickmod|=|0 then
-				if fireticks|>|0 then
-					localname temp
-					set *temp {fireticks}
-					setdiv *temp 10
-					localname firebar
-					call #makecharbar|*firebar|▐|6|{temp}|10
-					cpemsg smallannounce {firebar}
-				end
-				ifnot fireticks|>|0 cpemsg smallannounce
-				call #damage|2|burn
-			end
-		end
-		if RandomTickSpeed|>|0 then
-			set RandomTicks {RandomTickSpeed}
-			#randomticks
-				if actionCount|>=|60000 cmd oss #randomticks repeatable
-				if actionCount|>|60000 terminate
-				setsub RandomTicks 1
-				// random tick
-				localname x
-				setrandrange *x 0 {LevelXMax}
-				localname y
-				setrandrange *y 0 {LevelYMax}
-				localname z
-				setrandrange *z 0 {LevelZMax}
-				localname id
-				setblockid *id {x} {y} {z}
-				if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
-			if RandomTicks|>|0 jump #randomticks
-		end
-		if debug call #debugpage[{debugpage}]
+function #tick
+	if TerminatePrematurely jump #retick
+	localname PrevPlayerCoords
+	localname prevhp
+	localname myblock
+	localname prevHour
+	localname HourD
+	set Hour {epochms}
+	setdiv Hour 10000
+	setmod Hour 144
+	setrounddown Hour
+	ifnot Hour|=|prevHour then
+		env sun {envcycle[{Hour}].sun}
+		env fog {envcycle[{Hour}].fog}
+		env sky {envcycle[{Hour}].sky}
+		env cloud {envcycle[{Hour}].cloud}
 	end
+	set prevHour {Hour}
+	ifnot saveSlot|=|"" setsub autosave 1
+	if autosave|<|0 call #save
+	if autosave|<|0 set autosave 50
+	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
+	if blocks[{myblock}].catchFire then
+		set fireticks 100
+		cpemsg smallannounce &6▐▐▐▐▐▐▐▐▐▐
+	end
+	if blocks[{myblock}].extinguishFire then
+		if fireticks|>|0 then
+			gui barSize 0
+			set fireticks 0
+		end
+	end
+	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
+	ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
+	ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
+	set *PrevPlayerCoords {PlayerCoords}
+	ifnot hp|=|*prevhp then
+		set *prevhp {hp}
+		localname hpbar
+		call #makebar|*hpbar|c|{hp}|{maxhp}
+		cpemsg bot1 &c♥ {hpbar}
+	end
+	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
+	else cpemsg bot2 Holding: &cNothing
+	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
+	if iframes|>|0 then
+		setsub iframes 1
+		ifnot iframes|<|2 gui barColor #ff0000 0.25
+		if iframes|<|2 gui barSize 0
+		else gui barSize 1
+	end
+	if fireticks|>|0 then
+		setsub fireticks 1
+		local *firetickmod {fireticks}
+		setmod *firetickmod 10
+		if *firetickmod|=|0 then
+			if fireticks|>|0 then
+				localname temp
+				set *temp {fireticks}
+				setdiv *temp 10
+				localname firebar
+				call #makecharbar|*firebar|▐|6|{temp}|10
+				cpemsg smallannounce {firebar}
+			end
+			ifnot fireticks|>|0 cpemsg smallannounce
+			call #damage|2|burn
+		end
+	end
+	if RandomTickSpeed|>|0 then
+		set RandomTicks {RandomTickSpeed}
+		#randomticks
+			if actionCount|>=|60000 cmd oss #randomticks repeatable
+			if actionCount|>|60000 terminate
+			setsub RandomTicks 1
+			// random tick
+			localname x
+			setrandrange *x 0 {LevelXMax}
+			localname y
+			setrandrange *y 0 {LevelYMax}
+			localname z
+			setrandrange *z 0 {LevelZMax}
+			localname id
+			setblockid *id {x} {y} {z}
+			if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
+		if RandomTicks|>|0 jump #randomticks
+	end
+	if debug call #debugpage[{debugpage}]
+	if debug cpemsg top1 A: {actionCount}/60K, << Page {debugpage}/{debugpages} >>
 	delay 100
-	if actionCount|>=|60000 cmd oss #tick repeatable
-	if actionCount|>|60000 terminate
+	if actionCount|>=|60000 jump #retick
 jump #tick
+
+#retick
+	cmd oss #tick repeatable
+	set TerminatePrematurely false
+terminate
 
 #grow
 	cmd brush replace
@@ -881,12 +885,17 @@ quit
 
 #debug
 	if runArg1|=|"next" then
-		setadd debugpage 1
 		setmod debugpage {debugpages}
+		setadd debugpage 1
 	end
 	if runArg1|=|"prev" then
-		setadd debugpage 1
+		setsub debugpage 2
 		setmod debugpage {debugpages}
+		setadd debugpage 1
+	end
+	if runArg1|=|"restart" then
+		set TerminatePrematurely true
+		msg &fRestarting!
 	end
 	if runArg1|=|"" then
 		if debug set debug false
@@ -896,20 +905,20 @@ quit
 		if debug definehotkey debug prev|COMMA|shift
 		else undefinehotkey COMMA|shift
 	end
-	if debug then
-		setadd debugpage 1
-		cpemsg top3 Page {debugpage}/{debugpages}
-		setsub debugpage 1
-		quit
-	end
+	if debug quit
 	cpemsg top1
 	cpemsg top2
 	cpemsg top3
 quit
 
-#debugpage[0]
-	cpemsg top1 AC: {actionCount}/60K, EV: {Hour}, MC: {allowMapChanges}, RT: {RandomTickSpeed}, AU: {autoSave}, SS: {saveSlot}
-	cpemsg top2 HP: {hp}/{maxhp}, FT: {fireticks}, DT: {drownticks}, SB: {spawnBlock}
+#debugpage[1]
+	cpemsg top2 AC: EV: {Hour}, MC: {allowMapChanges}, RT: {RandomTickSpeed}, AU: {autoSave}, SS: {saveSlot}
+	cpemsg top3 HP: {hp}/{maxhp}, FT: {fireticks}, DT: {drownticks}, SB: {spawnBlock}
+quit
+
+#debugpage[2]
+	cpemsg top2 this is page 2
+	cpemsg top3 :)
 quit
 
 #input
