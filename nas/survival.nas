@@ -26,6 +26,7 @@ using no_runarg_underscore_conversion
 	set hp {maxhp}
 	set iframes 0
 	set fireticks 0
+	set drownticks 0
 	set autosave 50
 
 	set Weather 0
@@ -131,7 +132,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.39
+	msg &fVersion &a0.3.40
 quit
 
 #initSave
@@ -263,7 +264,6 @@ quit
 		setmod Hour 144
 		setrounddown Hour
 		if Hour|=|prevHour jump #ifnot_2
-			if debug cpemsg top2 The current hour is: {Hour}
 			env sun {envcycle[{Hour}].sun}
 			env fog {envcycle[{Hour}].fog}
 			env sky {envcycle[{Hour}].sky}
@@ -288,7 +288,6 @@ quit
 		ifnot PlayerCoords|=|l_PrevPlayerCoords_1 set usingWorkbench false
 		ifnot PlayerCoords|=|l_PrevPlayerCoords_1 set usingStonecutter false
 		set l_PrevPlayerCoords_1 {PlayerCoords}
-		if debug cpemsg top1 {actionCount}/60000
 		if hp|=|l_prevhp_1 jump #ifnot_3
 			set l_prevhp_1 {hp}
 			// localname l_hpbar_1 
@@ -339,6 +338,11 @@ quit
 				if label #blocktick[{l_id_2}] call #blocktick[{l_id_2}]|{l_x_3}|{l_y_2}|{l_z_3}
 			if RandomTicks|>|0 jump #randomticks
 		#if_10
+		ifnot debug jump #if_11
+			cpemsg top1 A: {actionCount}/60K, T: {Hour}, C: {allowMapChanges}
+			cpemsg top2 HP: {hp}/{maxhp}, F: {fireticks}, D: {drownticks}
+			cpemsg top3 AU: {autoSave}, S: {saveSlot}
+		#if_11
 	#ifnot_1
 	delay 100
 	if actionCount|>=|60000 cmd oss #tick repeatable
@@ -573,11 +577,11 @@ quit
 	if SpawnBlock|=|"none" jump #ifnot_4
 		setsplit SpawnBlock " "
 		call #getblock|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
-		ifnot spawnblockid|!=|68 jump #if_11
+		ifnot spawnblockid|!=|68 jump #if_12
 			set SpawnBlock none
 			set DeathSpawn {WorldSpawn}
 			setdeathspawn {DeathSpawn}
-		#if_11
+		#if_12
 	#ifnot_4
 	set deathY {PlayerY}
 	call #setblock|82|{PlayerX}|{deathY}|{PlayerZ}
@@ -649,7 +653,7 @@ quit
 	if toomuch set barcol c
 	else set barcol a
 	setsub minetimer {minespeed}
-	ifnot minetimer|>|0 jump #if_12
+	ifnot minetimer|>|0 jump #if_13
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
 		setdiv model {blocks[{id}].hardness}
@@ -663,7 +667,7 @@ quit
 		ifnot blocks[{id}].breakScale|=|"" cmd tempbot scale minemeter {blocks[{id}].breakScale}
 		cmd tempbot tp minemeter {x} {boty} {z} 0 0
 		quit
-	#if_12
+	#if_13
 	set minepos
 	jump #destroyblock|{x}|{y}|{z}|{toomuch}
 quit
@@ -689,10 +693,10 @@ quit
 quit
 
 #give
-	ifnot isTool({runArg1}) jump #if_13
+	ifnot isTool({runArg1}) jump #if_14
 		set {runArg1} {runArg2}
 		quit
-	#if_13
+	#if_14
 	if inventory[{runArg1}]|=|0 cmd holdsilent {runArg1}
 	setadd inventory[{runArg1}] {runArg2}
 quit
@@ -738,13 +742,13 @@ quit
 	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	if blocks[{id}].replaceable quit
 	if blocks[{id}].mergeInto|=|"" jump #ifnot_7
-		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_14
-			ifnot blocks[{id}].mergeFace|=|click.face jump #if_15
+		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_15
+			ifnot blocks[{id}].mergeFace|=|click.face jump #if_16
 				call #take|{playerHeldBlock}|1
 				jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
 				quit
-			#if_15
-		#if_14
+			#if_16
+		#if_15
 	#ifnot_7
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
@@ -754,19 +758,19 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
 	if blocks[{id}].mergeInto|=|"" jump #ifnot_8
-		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_16
+		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_17
 			call #take|{playerHeldBlock}|1
 			jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
 			quit
-		#if_16
+		#if_17
 	#ifnot_8
 	ifnot blocks[{id}].replaceable quit
-	ifnot blocks[{PlayerHeldBlock}].grounded jump #if_17
+	ifnot blocks[{PlayerHeldBlock}].grounded jump #if_18
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
 		if blocks[{id}].nonsolid quit
 		setadd y 1
-	#if_17
+	#if_18
 	call #take|{playerHeldBlock}|1
 	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
 quit
@@ -775,10 +779,10 @@ quit
 	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_9
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 		ifnot inventory[{PlayerHeldBlock}]|>|0 quit
-		ifnot hp|<|maxhp jump #if_18
+		ifnot hp|<|maxhp jump #if_19
 			call #take|{playerHeldBlock}|1
 			call #heal|{blocks[{PlayerHeldBlock}].food}
-		#if_18
+		#if_19
 	#ifnot_9
 quit
 
@@ -841,60 +845,60 @@ quit
 // package, color, amount, max
 	set i 0
 	set {runArg1} &{runArg2}
-	ifnot i|<|{runArg3} jump #if_19
+	ifnot i|<|{runArg3} jump #if_20
 		#while_7
 			set {runArg1} {{runArg1}}|
 			setadd i 1
 		if i|<|{runArg3} jump #while_7
-	#if_19
+	#if_20
 	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg4} jump #if_20
+	ifnot i|<|{runArg4} jump #if_21
 		#while_8
 			set {runArg1} {{runArg1}}|
 			setadd i 1
 		if i|<|{runArg4} jump #while_8
-	#if_20
+	#if_21
 quit
 
 #makecharbar
 // package, char, color, amount, max
 	set i 0
 	set {runArg1} &{runArg3}
-	ifnot i|<|{runArg4} jump #if_21
+	ifnot i|<|{runArg4} jump #if_22
 		#while_9
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
 		if i|<|{runArg4} jump #while_9
-	#if_21
+	#if_22
 	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg5} jump #if_22
+	ifnot i|<|{runArg5} jump #if_23
 		#while_10
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
 		if i|<|{runArg5} jump #while_10
-	#if_22
+	#if_23
 quit
 
 #input
 	ifnot blacklist.@p|=|"" quit
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
-	ifnot runArg1|=|"craft" jump #if_23
+	ifnot runArg1|=|"craft" jump #if_24
 		set craftArgs {runArg2}
 		if craftArgs|=|"" jump #ifnot_13
 			set craftArgs[1] 1
 			setsplit craftArgs *
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
 			call #getBlockByName|blockID|{craftArgs[0]}
-			ifnot blockID|=|"" jump #if_24
+			ifnot blockID|=|"" jump #if_25
 				msg &cInvalid item name or ID
 				quit
-			#if_24
+			#if_25
 			call #getRecipeByOutput|recipeID|{blockID}|{craftArgs[1]}
-			ifnot recipeID|=|"" jump #if_25
+			ifnot recipeID|=|"" jump #if_26
 				msg &cYou cannot craft {blocks[{blockID}].name}!
 				quit
-			#if_25
+			#if_26
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
 		#ifnot_13
@@ -907,7 +911,7 @@ quit
 		#while_11
 			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
-			ifnot canAfford|>|0 jump #if_26
+			ifnot canAfford|>|0 jump #if_27
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) &7* {canAfford}
 				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f)
 				set j 0
@@ -918,13 +922,13 @@ quit
 					setadd j 1
 				if j|<|{recipes[{i}].ingredients.Length} jump #while_12
 				msg {ingrediantList}
-			#if_26
+			#if_27
 			setadd i 1
 		if i|<|{recipes.Length} jump #while_11
 		msg &eType &a/in craft [name]&e to craft something
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
-	#if_23
+	#if_24
 	set i 0
 	msg &eResources:
 	#while_13
@@ -963,9 +967,9 @@ quit
 	if recipes[{runArg1}].condition|=|"" jump #ifnot_15
 		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
 	#ifnot_15
-	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_27
+	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_28
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
-	#if_27
+	#if_28
 	#while_15
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {inventory[{id}]}
@@ -984,10 +988,10 @@ quit
 	#ifnot_16
 	set i 0
 	#while_16
-		ifnot blocks[{i}].name|=|runArg2 jump #if_28
+		ifnot blocks[{i}].name|=|runArg2 jump #if_29
 			set {runArg1} {i}
 			quit
-		#if_28
+		#if_29
 		setadd i 1
 	if i|<|{blocks.Length} jump #while_16
 quit
@@ -999,13 +1003,13 @@ quit
 	set {pname}
 	set i 0
 	#while_17
-		ifnot recipes[{i}].output.id|=|bid jump #if_29
+		ifnot recipes[{i}].output.id|=|bid jump #if_30
 			call #checkRecipeAfford|{i}|canAfford
-			ifnot canAfford|>=|c jump #if_30
+			ifnot canAfford|>=|c jump #if_31
 				set {pname} {i}
 				quit
-			#if_30
-		#if_29
+			#if_31
+		#if_30
 		setadd i 1
 	if i|<|{recipes.Length} jump #while_17
 quit
@@ -1022,7 +1026,7 @@ quit
 
 #use[67]
 	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_17
-		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_31
+		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_32
 			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
@@ -1031,7 +1035,7 @@ quit
 			setdeathspawn {DeathSpawn}
 			msg &fRespawn point set
 			quit
-		#if_31
+		#if_32
 	#ifnot_17
 	msg &cYou can't light a campfire with that
 quit
@@ -1045,17 +1049,17 @@ quit
 
 #use[70:80]
 #use[68:80]
-	ifnot inventory[80]|>|0 jump #if_32
+	ifnot inventory[80]|>|0 jump #if_33
 		call #take|80|1
 		call #give|70|1
-	#if_32
+	#if_33
 quit
 
 #use[68:12]
-	ifnot inventory[12]|>|0 jump #if_33
+	ifnot inventory[12]|>|0 jump #if_34
 		call #take|12|1
 		call #give|20|1
-	#if_33
+	#if_34
 quit
 
 #use[80:70]
@@ -2061,89 +2065,89 @@ set envcycle[0].cloud #ffffff
 set envcycle[0].fog #ffffff
 set envcycle[0].sky #9accff
 set envcycle[0].sun #ffffff
-set envcycle[100].cloud #2c2a37
+set envcycle[100].cloud #211f22
 set envcycle[100].fog #000000
-set envcycle[100].sky #15152f
+set envcycle[100].sky #0e0e1d
 set envcycle[100].sun #444444
-set envcycle[101].cloud #2c2a37
+set envcycle[101].cloud #222023
 set envcycle[101].fog #000000
-set envcycle[101].sky #161630
+set envcycle[101].sky #0f0f1f
 set envcycle[101].sun #444444
-set envcycle[102].cloud #2c2a37
+set envcycle[102].cloud #222024
 set envcycle[102].fog #000000
-set envcycle[102].sky #161630
+set envcycle[102].sky #101020
 set envcycle[102].sun #444444
-set envcycle[103].cloud #2c2a38
+set envcycle[103].cloud #232125
 set envcycle[103].fog #000000
-set envcycle[103].sky #171731
+set envcycle[103].sky #111121
 set envcycle[103].sun #444444
-set envcycle[104].cloud #2c2a38
+set envcycle[104].cloud #242227
 set envcycle[104].fog #000000
-set envcycle[104].sky #171731
+set envcycle[104].sky #121223
 set envcycle[104].sun #444444
-set envcycle[105].cloud #2d2b38
+set envcycle[105].cloud #252328
 set envcycle[105].fog #000000
-set envcycle[105].sky #181832
+set envcycle[105].sky #131324
 set envcycle[105].sun #444444
-set envcycle[106].cloud #2d2b38
+set envcycle[106].cloud #252329
 set envcycle[106].fog #000000
-set envcycle[106].sky #191932
+set envcycle[106].sky #131325
 set envcycle[106].sun #444444
-set envcycle[107].cloud #2d2b38
+set envcycle[107].cloud #26242b
 set envcycle[107].fog #000000
-set envcycle[107].sky #191932
+set envcycle[107].sky #141427
 set envcycle[107].sun #444444
-set envcycle[108].cloud #2d2b39
+set envcycle[108].cloud #27252c
 set envcycle[108].fog #000000
-set envcycle[108].sky #1a1a33
+set envcycle[108].sky #151528
 set envcycle[108].sun #444444
-set envcycle[109].cloud #2d2b39
+set envcycle[109].cloud #27252d
 set envcycle[109].fog #000000
-set envcycle[109].sky #1a1a33
+set envcycle[109].sky #161629
 set envcycle[109].sun #444444
 set envcycle[10].cloud #ffffff
 set envcycle[10].fog #f1f5fe
 set envcycle[10].sky #93c5ff
 set envcycle[10].sun #ffffff
-set envcycle[110].cloud #2d2b39
+set envcycle[110].cloud #28262e
 set envcycle[110].fog #000000
-set envcycle[110].sky #1b1b34
+set envcycle[110].sky #17172b
 set envcycle[110].sun #444444
-set envcycle[111].cloud #2e2c39
+set envcycle[111].cloud #292730
 set envcycle[111].fog #000000
-set envcycle[111].sky #1b1b34
+set envcycle[111].sky #18182c
 set envcycle[111].sun #444444
-set envcycle[112].cloud #2e2c39
+set envcycle[112].cloud #292731
 set envcycle[112].fog #000000
-set envcycle[112].sky #1c1c35
+set envcycle[112].sky #19192d
 set envcycle[112].sun #444444
-set envcycle[113].cloud #2e2c3a
+set envcycle[113].cloud #2a2832
 set envcycle[113].fog #000000
-set envcycle[113].sky #1c1c35
+set envcycle[113].sky #1a1a2f
 set envcycle[113].sun #444444
-set envcycle[114].cloud #2e2c3a
+set envcycle[114].cloud #2b2933
 set envcycle[114].fog #000000
-set envcycle[114].sky #1d1d35
+set envcycle[114].sky #1b1b30
 set envcycle[114].sun #444444
-set envcycle[115].cloud #2e2c3a
+set envcycle[115].cloud #2c2a35
 set envcycle[115].fog #000000
-set envcycle[115].sky #1d1d36
+set envcycle[115].sky #1c1c31
 set envcycle[115].sun #444444
-set envcycle[116].cloud #2e2c3a
+set envcycle[116].cloud #2c2a36
 set envcycle[116].fog #000000
-set envcycle[116].sky #1e1e36
+set envcycle[116].sky #1c1c33
 set envcycle[116].sun #444444
-set envcycle[117].cloud #2f2d3a
+set envcycle[117].cloud #2d2b37
 set envcycle[117].fog #000000
-set envcycle[117].sky #1e1e37
+set envcycle[117].sky #1d1d34
 set envcycle[117].sun #444444
-set envcycle[118].cloud #2f2d3b
+set envcycle[118].cloud #2e2c38
 set envcycle[118].fog #000000
-set envcycle[118].sky #1f1f37
+set envcycle[118].sky #1e1e35
 set envcycle[118].sun #444444
-set envcycle[119].cloud #2f2d3b
+set envcycle[119].cloud #2e2c3a
 set envcycle[119].fog #000000
-set envcycle[119].sky #1f1f38
+set envcycle[119].sky #1f1f37
 set envcycle[119].sun #444444
 set envcycle[11].cloud #ffffff
 set envcycle[11].fog #eff4fe
@@ -2565,69 +2569,69 @@ set envcycle[84].cloud #7c2352
 set envcycle[84].fog #200e4b
 set envcycle[84].sky #242455
 set envcycle[84].sun #555555
-set envcycle[85].cloud #6e244d
+set envcycle[85].cloud #6c2148
 set envcycle[85].fog #1b0c3f
-set envcycle[85].sky #21214e
+set envcycle[85].sky #1f1f4a
 set envcycle[85].sun #525252
-set envcycle[86].cloud #612548
+set envcycle[86].cloud #5b1f3e
 set envcycle[86].fog #150932
-set envcycle[86].sky #1d1d47
+set envcycle[86].sky #1a1a3e
 set envcycle[86].sun #4f4f4f
-set envcycle[87].cloud #532644
+set envcycle[87].cloud #4b1e34
 set envcycle[87].fog #100726
-set envcycle[87].sky #1a1a40
+set envcycle[87].sky #151533
 set envcycle[87].sun #4d4d4d
-set envcycle[88].cloud #45263f
+set envcycle[88].cloud #3b1c29
 set envcycle[88].fog #0b0519
-set envcycle[88].sky #171739
+set envcycle[88].sky #0f0f27
 set envcycle[88].sun #4a4a4a
-set envcycle[89].cloud #38273a
+set envcycle[89].cloud #2a1a1f
 set envcycle[89].fog #05020c
-set envcycle[89].sky #131332
+set envcycle[89].sky #0a0a1c
 set envcycle[89].sun #474747
 set envcycle[8].cloud #ffffff
 set envcycle[8].fog #f3f7fe
 set envcycle[8].sky #94c7ff
 set envcycle[8].sun #ffffff
-set envcycle[90].cloud #2a2835
+set envcycle[90].cloud #1a1815
 set envcycle[90].fog #000000
-set envcycle[90].sky #10102b
+set envcycle[90].sky #050510
 set envcycle[90].sun #444444
-set envcycle[91].cloud #2a2835
+set envcycle[91].cloud #1b1916
 set envcycle[91].fog #000000
-set envcycle[91].sky #11112b
+set envcycle[91].sky #060611
 set envcycle[91].sun #444444
-set envcycle[92].cloud #2a2835
+set envcycle[92].cloud #1b1918
 set envcycle[92].fog #000000
-set envcycle[92].sky #11112c
+set envcycle[92].sky #070713
 set envcycle[92].sun #444444
-set envcycle[93].cloud #2b2936
+set envcycle[93].cloud #1c1a19
 set envcycle[93].fog #000000
-set envcycle[93].sky #12122c
+set envcycle[93].sky #080814
 set envcycle[93].sun #444444
-set envcycle[94].cloud #2b2936
+set envcycle[94].cloud #1d1b1a
 set envcycle[94].fog #000000
-set envcycle[94].sky #12122d
+set envcycle[94].sky #090915
 set envcycle[94].sun #444444
-set envcycle[95].cloud #2b2936
+set envcycle[95].cloud #1e1c1b
 set envcycle[95].fog #000000
-set envcycle[95].sky #13132d
+set envcycle[95].sky #0a0a17
 set envcycle[95].sun #444444
-set envcycle[96].cloud #2b2936
+set envcycle[96].cloud #1e1c1d
 set envcycle[96].fog #000000
-set envcycle[96].sky #13132e
+set envcycle[96].sky #0a0a18
 set envcycle[96].sun #444444
-set envcycle[97].cloud #2b2936
+set envcycle[97].cloud #1f1d1e
 set envcycle[97].fog #000000
-set envcycle[97].sky #14142e
+set envcycle[97].sky #0b0b19
 set envcycle[97].sun #444444
-set envcycle[98].cloud #2b2937
+set envcycle[98].cloud #201e1f
 set envcycle[98].fog #000000
-set envcycle[98].sky #14142e
+set envcycle[98].sky #0c0c1b
 set envcycle[98].sun #444444
-set envcycle[99].cloud #2c2a37
+set envcycle[99].cloud #201e20
 set envcycle[99].fog #000000
-set envcycle[99].sky #15152f
+set envcycle[99].sky #0d0d1c
 set envcycle[99].sun #444444
 set envcycle[9].cloud #ffffff
 set envcycle[9].fog #f2f6fe

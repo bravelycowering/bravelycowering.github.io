@@ -26,6 +26,7 @@ using no_runarg_underscore_conversion
 	set hp {maxhp}
 	set iframes 0
 	set fireticks 0
+	set drownticks 0
 	set autosave 50
 
 	set Weather 0
@@ -131,7 +132,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.39
+	msg &fVersion &a0.3.40
 quit
 
 function #initSave
@@ -263,7 +264,6 @@ end
 		setmod Hour 144
 		setrounddown Hour
 		ifnot Hour|=|prevHour then
-			if debug cpemsg top2 The current hour is: {Hour}
 			env sun {envcycle[{Hour}].sun}
 			env fog {envcycle[{Hour}].fog}
 			env sky {envcycle[{Hour}].sky}
@@ -288,7 +288,6 @@ end
 		ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
 		ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
 		set *PrevPlayerCoords {PlayerCoords}
-		if debug cpemsg top1 {actionCount}/60000
 		ifnot hp|=|*prevhp then
 			set *prevhp {hp}
 			localname hpbar
@@ -338,6 +337,11 @@ end
 				setblockid *id {x} {y} {z}
 				if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
 			if RandomTicks|>|0 jump #randomticks
+		end
+		if debug then
+			cpemsg top1 A: {actionCount}/60K, T: {Hour}, C: {allowMapChanges}
+			cpemsg top2 HP: {hp}/{maxhp}, F: {fireticks}, D: {drownticks}
+			cpemsg top3 AU: {autoSave}, S: {saveSlot}
 		end
 	end
 	delay 100
