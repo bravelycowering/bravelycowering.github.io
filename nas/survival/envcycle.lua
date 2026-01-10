@@ -15,7 +15,7 @@ end
 ---@param color color
 ---@return string
 local function toHex(color)
-	return string.format("#%02x%02x%02x", math.floor(color.r), math.floor(color.g), math.floor(color.b))
+	return string.format("#%02x%02x%02x", math.floor(color.r + 0.5), math.floor(color.g + 0.5), math.floor(color.b + 0.5))
 end
 
 local function blendHex(hex1, hex2, p)
@@ -113,9 +113,9 @@ env(20) {
 
 env(22) {
 	sun =	"#666666",
-	fog =	"#cc4945",
+	fog =	"#F3885E",
 	sky =	"#4a0495",
-	cloud =	"#8a266e",
+	cloud =	"#854673",
 }
 
 env(23) {
