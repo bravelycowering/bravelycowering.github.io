@@ -16,6 +16,10 @@ using no_runarg_underscore_conversion
 
 	set true true
 
+	set debug false
+	set debugpage 0
+	set debugpages 1
+
 	set minetimer 0
 	set minepos
 	set pickaxe 0
@@ -132,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.41
+	msg &fVersion &a0.3.42
 quit
 
 function #initSave
@@ -338,11 +342,7 @@ end
 				if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
 			if RandomTicks|>|0 jump #randomticks
 		end
-		if debug then
-			cpemsg top1 A: {actionCount}/60K, T: {Hour}, C: {allowMapChanges}
-			cpemsg top2 HP: {hp}/{maxhp}, F: {fireticks}, D: {drownticks}
-			cpemsg top3 AU: {autoSave}, S: {saveSlot}
-		end
+		if debug call #debugpage[{debugpage}]
 	end
 	delay 100
 	if actionCount|>=|60000 cmd oss #tick repeatable
@@ -880,13 +880,41 @@ quit
 quit
 
 #debug
-	if debug set debug false
-	else set debug true
+	if runArg1|=|"next" then
+		setadd debugpage 1
+		setmod debugpage {debugpages}
+	end
+	if runArg1|=|"prev" then
+		setadd debugpage 1
+		setmod debugpage {debugpages}
+	end
+	if runArg1|=|"" then
+		if debug set debug false
+		else set debug true
+		if debug definehotkey debug next|PERIOD|shift
+		else undefinehotkey COMMA|shift
+		if debug definehotkey debug prev|COMMA|shift
+		else undefinehotkey COMMA|shift
+	end
+	if debug then
+		setadd debugpage 1
+		cpemsg top3 Page {debugpage}/{debugpages}
+		setsub debugpage 1
+		quit
+	end
+	cpemsg top1
+	cpemsg top2
+	cpemsg top3
+quit
+
+#debugpage[0]
+	cpemsg top1 AC: {actionCount}/60K, EV: {Hour}, MC: {allowMapChanges}, RT: {RandomTickSpeed}, AU: {autoSave}, SS: {saveSlot}
+	cpemsg top2 HP: {hp}/{maxhp}, FT: {fireticks}, DT: {drownticks}, SB: {spawnBlock}
 quit
 
 #input
 	ifnot blacklist.@p|=|"" quit
-	if runArg1|=|"debug" jump #debug
+	if runArg1|=|"debug" jump #debug|{runArg2}
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
 	if runArg1|=|"craft" then
