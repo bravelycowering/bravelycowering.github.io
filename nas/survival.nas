@@ -130,7 +130,7 @@ quit
 	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.35
+	msg &fVersion &a0.3.36
 quit
 
 #initSave
@@ -261,7 +261,7 @@ quit
 		setrounddown Hour
 		setmod Hour 144
 		if Hour|=|prevHour jump #ifnot_2
-			msg The current hour is: {Hour}
+			if debug cpemsg top2 The current hour is: {Hour}
 			env sun {envcycle[{Hour}].sun}
 			env fog {envcycle[{Hour}].fog}
 			env sky {envcycle[{Hour}].sky}
