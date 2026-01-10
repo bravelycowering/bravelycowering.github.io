@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan10-11&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-12&7)
 quit
 
 #initSave
@@ -333,7 +333,7 @@ quit
 			// localname l_z_3 
 			setrandrange l_z_3 0 {LevelZMax}
 			// localname l_id_2 
-			setblockid l_id_2 {l_x_4} {l_y_2} {l_z_3}
+			call #getblock|l_id_2|{l_x_4}|{l_y_2}|{l_z_3}
 			if label #blocktick[{l_id_2}] call #blocktick[{l_id_2}]|{l_x_4}|{l_y_2}|{l_z_3}
 		if RandomTicks|>|0 jump #randomticks
 	#if_7

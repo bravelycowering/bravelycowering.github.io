@@ -333,7 +333,7 @@ function #tick
 			localname z
 			setrandrange *z 0 {LevelZMax}
 			localname id
-			setblockid *id {x} {y} {z}
+			call #getblock|*id|{x}|{y}|{z}
 			if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
 		if RandomTicks|>|0 jump #randomticks
 	end
