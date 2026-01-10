@@ -1210,11 +1210,11 @@ function #blocktick[2]
 	call #getblock|*i|{x}|{y}|{z}
 	setsub *y 1
 	ifnot blocks[{i}].nonsolid jump #setblock|3|{x}|{y}|{z}
-	setrandrange *i -2 2
+	setrandrange *i -1 1
 	setadd *x {i}
 	setrandrange *i -1 1
 	setadd *y {i}
-	setrandrange *i -2 2
+	setrandrange *i -1 1
 	setadd *z {i}
 	call #getblock|*i|{x}|{y}|{z}
 	ifnot *i|=|3 quit

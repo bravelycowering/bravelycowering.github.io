@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan10-9&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-10&7)
 quit
 
 #initSave
@@ -1210,11 +1210,11 @@ quit
 	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 	setsub l_y_3 1
 	ifnot blocks[{l_i_3}].nonsolid jump #setblock|3|{l_x_5}|{l_y_3}|{l_z_4}
-	setrandrange l_i_3 -2 2
+	setrandrange l_i_3 -1 1
 	setadd l_x_5 {l_i_3}
 	setrandrange l_i_3 -1 1
 	setadd l_y_3 {l_i_3}
-	setrandrange l_i_3 -2 2
+	setrandrange l_i_3 -1 1
 	setadd l_z_4 {l_i_3}
 	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 	ifnot l_i_3|=|3 quit
