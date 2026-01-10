@@ -143,9 +143,9 @@ function #initSave
 	localname msg
 	localname break
 	local x 0
-	local z 0
 	local prefix /nothing2 @p
 	while if *x|<|LevelX
+		local z 0
 		while if *z|<|LevelZ
 			setblockmessage *msg {x} 0 {z}
 			if *msg|=|"" then
@@ -278,16 +278,8 @@ function #tick
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
 	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{myblock}].catchFire then
-		set fireticks 100
-		cpemsg smallannounce &6▐▐▐▐▐▐▐▐▐▐
-	end
-	if blocks[{myblock}].extinguishFire then
-		if fireticks|>|0 then
-			gui barSize 0
-			set fireticks 0
-		end
-	end
+	if blocks[{myblock}].catchFire setadd fireticks 1
+	if blocks[{myblock}].extinguishFire set fireticks 0
 	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
 	ifnot PlayerCoords|=|*PrevPlayerCoords set usingWorkbench false
 	ifnot PlayerCoords|=|*PrevPlayerCoords set usingStonecutter false
@@ -309,6 +301,7 @@ function #tick
 	end
 	if fireticks|>|0 then
 		setsub fireticks 1
+		if fireticks|>|100 set fireticks 100
 		local *firetickmod {fireticks}
 		setmod *firetickmod 10
 		if *firetickmod|=|0 then
