@@ -142,11 +142,11 @@ quit
 function #initSave
 	localname msg
 	localname break
-	local x 0
+	local x 1
+	local z 0
 	local prefix /nothing2 @p
-	while if *x|<|LevelX
-		local z 0
-		while if *z|<|LevelZ
+	while if *z|<|LevelX
+		while if *x|<|LevelZ
 			setblockmessage *msg {x} 0 {z}
 			if *msg|=|"" then
 				// set save slot and claim block
@@ -159,9 +159,10 @@ function #initSave
 				set saveSlot {x} 0 {z}
 				jump #load
 			end
-			setadd *z 1
+			setadd *x 1
 		end
-		setadd *x 1
+		setadd *z 1
+		local x 0
 	end
 end
 
@@ -293,12 +294,6 @@ function #tick
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot2 Holding: &cNothing
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
-	if iframes|>|0 then
-		setsub iframes 1
-		ifnot iframes|<|2 gui barColor #ff0000 0.25
-		if iframes|<|2 gui barSize 0
-		else gui barSize 1
-	end
 	if fireticks|>|0 then
 		setsub fireticks 1
 		if fireticks|>|100 set fireticks 100
@@ -316,6 +311,12 @@ function #tick
 			ifnot fireticks|>|0 cpemsg smallannounce
 			call #damage|2|burn
 		end
+	end
+	if iframes|>|0 then
+		setsub iframes 1
+		ifnot iframes|<|2 gui barColor #ff0000 0.25
+		if iframes|<|2 gui barSize 0
+		else gui barSize 1
 	end
 	if RandomTickSpeed|>|0 then
 		set RandomTicks {RandomTickSpeed}
