@@ -132,7 +132,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.40
+	msg &fVersion &a0.3.41
 quit
 
 #initSave
@@ -879,8 +879,14 @@ quit
 	#if_23
 quit
 
+#debug
+	if debug set debug false
+	else set debug true
+quit
+
 #input
 	ifnot blacklist.@p|=|"" quit
+	if runArg1|=|"debug" jump #debug
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
 	ifnot runArg1|=|"craft" jump #if_24
