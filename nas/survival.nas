@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan10-2&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-3&7)
 quit
 
 #initSave
@@ -349,17 +349,14 @@ jump #tick
 
 #newloop
 	set LoopPoint {runArg1}
-	show LoopPoint
 	set TerminatePrematurely false
 	cmd m 0 0 0
 terminate
 
 #resumeloop
-	show LoopPoint
 	set l_lbl_1 {LoopPoint}
 	set LoopPoint
-	show l_lbl_1
-	if l_lbl_1 jump {l_lbl_1}
+	ifnot l_lbl_1|=|"" jump {l_lbl_1}
 quit
 
 #grow

@@ -349,17 +349,14 @@ jump #tick
 
 #newloop
 	set LoopPoint {runArg1}
-	show LoopPoint
 	set TerminatePrematurely false
 	cmd m 0 0 0
 terminate
 
 function #resumeloop
-	show LoopPoint
 	local lbl {LoopPoint}
 	set LoopPoint
-	show *lbl
-	if *lbl jump {lbl}
+	ifnot *lbl|=|"" jump {lbl}
 end
 
 #grow
