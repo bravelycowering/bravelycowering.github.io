@@ -37,7 +37,7 @@ quit
 	ifnot id|=|709 call #resumesong
 	else msg cef create -n m -sgqa bravelycowering.net/music/womp.mp3
 #endJoin
-	cmd oss #mainloop repeatable
+	cmd m 0 0 3
 quit
 
 #setupsnow
@@ -68,7 +68,7 @@ quit
 		if id|=|706 tempblock 53 {coords} true
 	#endofsnowy
 	delay 100
-	if actionCount|>=|50000 cmd oss #mainloop repeatable
+	if actionCount|>=|50000 cmd m 0 0 3
 	if actionCount|>|50000 terminate
 jump #mainloop
 
