@@ -17,7 +17,7 @@ using no_runarg_underscore_conversion
 	set true true
 
 	set debug false
-	set debugpage 0
+	set debugpage 1
 	set debugpages 2
 
 	set minetimer 0
@@ -83,7 +83,7 @@ using no_runarg_underscore_conversion
 	set allowSaving false
 	if allowSaving call #initSave
 
-	cmd oss #tick repeatable
+	jump #newloop|#tick
 quit
 
 #unregistered-hypercam-2
@@ -257,7 +257,7 @@ function #setdist
 end
 
 function #tick
-	if TerminatePrematurely jump #retick
+	if TerminatePrematurely jump #newloop|#tick
 	localname PrevPlayerCoords
 	localname prevhp
 	localname myblock
@@ -327,8 +327,7 @@ function #tick
 	if RandomTickSpeed|>|0 then
 		set RandomTicks {RandomTickSpeed}
 		#randomticks
-			if actionCount|>=|60000 cmd oss #randomticks repeatable
-			if actionCount|>|60000 terminate
+			if actionCount|>=|60000 jump #newloop|#randomticks
 			setsub RandomTicks 1
 			// random tick
 			localname x
@@ -345,11 +344,11 @@ function #tick
 	if debug call #debugpage[{debugpage}]
 	if debug cpemsg top1 A: {actionCount}/60K, << Page {debugpage}/{debugpages} >>
 	delay 100
-	if actionCount|>=|60000 jump #retick
+	if actionCount|>=|60000 jump #newloop|#tick
 jump #tick
 
-#retick
-	cmd oss #tick repeatable
+#newloop
+	newthread {runArg1}
 	set TerminatePrematurely false
 terminate
 
