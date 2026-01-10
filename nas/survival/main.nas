@@ -128,9 +128,10 @@ quit
 	msg - Dirt will slowly grow back into grass if placed next to other grass
 	msg - Grass will slowly turn into dirt under other blocks
 	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
+	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-	msg &fVersion &a0.3.38
+	msg &fVersion &a0.3.39
 quit
 
 function #initSave
@@ -258,7 +259,7 @@ end
 		localname prevHour
 		localname HourD
 		set Hour {epochms}
-		setdiv Hour 100
+		setdiv Hour 10000
 		setmod Hour 144
 		setrounddown Hour
 		ifnot Hour|=|prevHour then
