@@ -6,10 +6,11 @@ quit
 	cpemsg top1 AC: {actionCount}
 	delay 200
 	if actionCount|>=|100 jump #newloop|#tick
-ifnot ABORT jump #tick
+	ifnot ABORT jump #tick
+quit
 
 #newloop
 	newthread {runArg1}
 	setadd threads 1
-	msg THREADS: {threads}
+	msg THREATS: {threads}
 terminate

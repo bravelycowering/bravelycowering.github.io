@@ -348,9 +348,16 @@ function #tick
 jump #tick
 
 #newloop
-	newthread {runArg1}
+	set LoopPoint {runArg1}
 	set TerminatePrematurely false
+	cmd m 0 0 0
 terminate
+
+function #resumeloop
+	local lbl {LoopPoint}
+	set LoopPoint
+	if *lbl jump {lbl}
+end
 
 #grow
 	cmd brush replace
@@ -376,6 +383,7 @@ quit
 	call #generate.lavaFloor
 	call #generate.plants
 	call #generate.cleanupCommands
+	placemessageblock 7 0 0 0 /oss #resumeloop
 quit
 
 #generate.setupCommands
@@ -1152,7 +1160,7 @@ jump #give|75|2
 	call #getblockdata|data|{x}|{y}|{z}
 	if data|=|"" jump #give|82|1
 	set canDestroyTombstone false
-	if data[0]|=|@p set canDestroyTombstone true
+	if data[0]|=|"@p" set canDestroyTombstone true
 	set timeSinceDeath {epochMS}
 	setsub timeSinceDeath {data[1]}
 	if timeSinceDeath|>|300000 set canDestroyTombstone true

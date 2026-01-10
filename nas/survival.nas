@@ -136,7 +136,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &7(&f26Jan09-3&7)
+msg &fVersion &abeta 4.0 &7(&f26Jan10-1&7)
 quit
 
 #initSave
@@ -348,9 +348,16 @@ quit
 jump #tick
 
 #newloop
-	newthread {runArg1}
+	set LoopPoint {runArg1}
 	set TerminatePrematurely false
+	cmd m 0 0 0
 terminate
+
+#resumeloop
+	set l_lbl_1 {LoopPoint}
+	set LoopPoint
+	if l_lbl_1 jump {l_lbl_1}
+quit
 
 #grow
 	cmd brush replace
@@ -376,6 +383,7 @@ quit
 	call #generate.lavaFloor
 	call #generate.plants
 	call #generate.cleanupCommands
+	placemessageblock 7 0 0 0 /oss #resumeloop
 quit
 
 #generate.setupCommands
