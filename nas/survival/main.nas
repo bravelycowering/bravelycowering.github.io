@@ -360,7 +360,6 @@ end
 #newloop
 	set LoopPoint {runArg1}
 	set TerminatePrematurely false
-	cmd a
 	cmd m 0 0 0
 terminate
 

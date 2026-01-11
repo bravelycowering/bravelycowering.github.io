@@ -120,16 +120,6 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
-	// msg - Fixed a bug where mining the walls would sometimes crash the script
-	// msg - Your respawn is properly updated if your campfire goes out now
-	// msg - Slight changes to the quantity of mushrooms in a world
-	// msg - New recipes for Slab and Stone brick, along with a way of obtaining Glass with the Campfire
-	// msg - New blocks: Flax, Tombstone
-	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	// msg - A grave will now spawn containing your items where you die
-	// msg &fChanges in the latest minor version:
-	// msg - Various bugfixes
-	// msg - There is now a build blacklist
 	msg - Fixed a bug where you would not take damage if your head was in lava
 	msg - Graves now have 5 minutes of protection before they can be robbed
 	msg - Saplings now grow over time
@@ -142,7 +132,7 @@ quit
 	msg &fChanges in the latest minor version:
 	msg - Leaves now decay when far enough from a log
 #version
-msg &fVersion &abeta 4.1 &726Jan10-20
+msg &fVersion &abeta 4.1 &726Jan10-21
 quit
 
 #initSave
@@ -370,7 +360,6 @@ quit
 #newloop
 	set LoopPoint {runArg1}
 	set TerminatePrematurely false
-	cmd a
 	cmd m 0 0 0
 terminate
 
