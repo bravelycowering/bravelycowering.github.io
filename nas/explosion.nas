@@ -6,6 +6,8 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
+	placeblock 0 {x} {y} {z}
+	effect explosion {x} {y} {z} 0 0 0
 	setsplit PlayerCoordsDecimal " "
 	// adjust tnt explotion coords
 	setadd x 0.5
@@ -45,8 +47,6 @@ quit
 	setmul vel.z {velocity}
 	// finally, do the explosion
 	boost {vel.x} {vel.y} {vel.z} 0 0 0
-	placeblock 0 {x} {y} {z}
-	effect explosion {x} {y} {z} 0 0 0
 quit
 
 #click
