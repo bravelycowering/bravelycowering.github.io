@@ -3,16 +3,30 @@
 quit
 
 #explode
-	placeblock 0 {runArg1} {runArg2} {runArg3}
-	effect explosion {runArg1} {runArg2} {runArg3} 0 0 0
+	set x {runArg1}
+	set y {runArg2}
+	set z {runArg3}
+	placeblock 0 {x} {y} {z}
+	effect explosion {x} {y} {z} 0 0 0
 	setsplit PlayerCoordsDecimal " "
-	set dx {PlayerCoordsDecimal[0]}
-	setsub dx {runArg1}
-	set dy {PlayerCoordsDecimal[1]}
-	setsub dy {runArg2}
-	set dz {PlayerCoordsDecimal[2]}
-	setsub dz {runArg3}
-	boost {dx} {dy} {dz} 1 1 1
+	call #getvelfromdist|dx|{PlayerCoordsDecimal[0]}|{x}
+	call #getvelfromdist|dy|{PlayerCoordsDecimal[1]}|{y}
+	call #getvelfromdist|dz|{PlayerCoordsDecimal[2]}|{z}
+	boost {dx} {dy} {dz} 0 0 0
+quit
+
+#getvelfromdist
+	// &package, playercoord, blockcoord
+	set {runArg1} {runArg3}
+	setsub {runArg1} {runArg2}
+	ifnot {runArg1}|<|0 jump #getvelfromdist>=0
+		setadd {runArg} 5
+		if {runArg}|<|0 set {runArg} 0
+	quit
+	#getvelfromdist>=0
+		setsub {runArg} 5
+		if {runArg}|>|0 set {runArg} 0
+	quit
 quit
 
 #click
