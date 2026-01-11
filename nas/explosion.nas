@@ -20,12 +20,12 @@ quit
 	set {runArg1} {runArg3}
 	setsub {runArg1} {runArg2}
 	ifnot {runArg1}|<|0 jump #getvelfromdist>=0
-		setadd {runArg} 5
-		if {runArg}|<|0 set {runArg} 0
+		setadd {runArg1} 5
+		if {runArg1}|<|0 set {runArg1} 0
 	quit
 	#getvelfromdist>=0
-		setsub {runArg} 5
-		if {runArg}|>|0 set {runArg} 0
+		setsub {runArg1} 5
+		if {runArg1}|>|0 set {runArg1} 0
 	quit
 quit
 
