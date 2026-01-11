@@ -65,7 +65,7 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 	msg &fType &a/in changes&f to view the changelog.
 
 	msg &fYou can place and break blocks freely in this map.
-	if allowMapChanges msg &aYour progress will be saved in this world.
+	if allowMapChanges msg &aBlock changes are saved, &cbut your items are not. &7(yet)
 	else msg &cEverything you do is temporary. Leaving the map will reset your progress.
 	msg &fType &a/in&f to view your &ainventory&f.
 
@@ -139,7 +139,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	// msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &726Jan10-18
+msg &fVersion &abeta 4.0 &726Jan10-19
 quit
 
 #initSave
