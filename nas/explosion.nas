@@ -22,7 +22,7 @@ quit
 
 #click:Left
 	set coords {click.coords}
-	setsplit coords
+	setsplit coords " "
 	set x {coords[0]}
 	set y {coords[1]}
 	set z {coords[2]}
@@ -33,7 +33,7 @@ quit
 #click:Right[46]
 	// get place block coordinates
 	set coords {click.coords}
-	setsplit coords
+	setsplit coords " "
 	set x {coords[0]}
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"TowardsX" setsub x 1
