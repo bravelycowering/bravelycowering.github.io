@@ -35,13 +35,6 @@ quit
 	setdiv dx {distance}
 	setdiv dy {distance}
 	setdiv dz {distance}
-	// calculate the pitch
-	set pitch 0
-	setsub pitch {dy}
-	setarcsin pitch {pitch}
-	setradtodeg pitch {pitch}
-	call #setatan2|yaw|{dx}|{dz}
-	setradtodeg yaw {yaw}
 	// calculate the velocity based on distance
 	set velocity {distance}
 	setdiv velocity 5
@@ -51,12 +44,11 @@ quit
 	setmul velocity 8
 	if distance|>|5 set velocity 0
 	// set new dir vector
-	setdirvector vel.x vel.y vel.z {yaw} {pitch}
-	setmul vel.x {velocity}
-	setmul vel.y {velocity}
-	setmul vel.z {velocity}
+	setmul dx {velocity}
+	setmul dy {velocity}
+	setmul dz {velocity}
 	// finally, do the explosion
-	boost {vel.x} {vel.y} {vel.z} 0 0 0
+	boost {dx} {dy} {dz} 0 0 0
 quit
 
 #click
