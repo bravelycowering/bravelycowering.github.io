@@ -30,7 +30,7 @@ using no_runarg_underscore_conversion
 	set hp {maxhp}
 	set iframes 0
 	set fireticks 0
-	set drownticks 0
+	set airticks 100
 	set autosave 50
 
 	set Weather 0
@@ -135,11 +135,11 @@ quit
 	msg - Saplings now grow over time
 	msg - Dirt will slowly grow back into grass if placed next to other grass
 	msg - Grass will slowly turn into dirt under other blocks
-	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
+	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - There is now a (purely visual) daylight cycle
-	msg - Progress now saves every 5 seconds
+	// msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &726Jan10-17
+msg &fVersion &abeta 4.0 &726Jan10-18
 quit
 
 #initSave
@@ -283,13 +283,14 @@ quit
 	set l_py_1 {PlayerY}
 	// localname l_mylowblock_1 
 	call #getblock|l_mylowblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
-	setadd l_py_1 1
+	setadd l_py_1 1.5
+	setrounddown l_py_1
 	// localname l_myhighblock_1 
 	call #getblock|l_myhighblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
 	if blocks[{l_mylowblock_1}].catchFire setadd fireticks 6
 	if blocks[{l_myhighblock_1}].catchFire setadd fireticks 6
-	if blocks[{l_myhighblock_1}].drowning setadd drownticks 1
-	else set drownticks 0
+	if blocks[{l_myhighblock_1}].drowning setsub airticks 1
+	else set airticks 1
 	ifnot blocks[{l_mylowblock_1}].damage|=|"" call #damage|{blocks[{l_mylowblock_1}].damage}|{blocks[{l_mylowblock_1}].damageType}
 	ifnot blocks[{l_myhighblock_1}].damage|=|"" call #damage|{blocks[{l_myhighblock_1}].damage}|{blocks[{l_myhighblock_1}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
@@ -955,7 +956,7 @@ quit
 
 #debugpage[1]
 	cpemsg top2 EV: {Hour}, MC: {allowMapChanges}, RT: {RandomTickSpeed}, AU: {autoSave}, SS: {saveSlot}
-	cpemsg top3 HP: {hp}/{maxhp}, FT: {fireticks}, DT: {drownticks}, SB: {spawnBlock}
+	cpemsg top3 HP: {hp}/{maxhp}, FT: {fireticks}, AT: {airticks}, SB: {spawnBlock}
 quit
 
 #debugpage[2]

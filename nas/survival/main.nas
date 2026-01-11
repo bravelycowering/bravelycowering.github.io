@@ -30,7 +30,7 @@ using no_runarg_underscore_conversion
 	set hp {maxhp}
 	set iframes 0
 	set fireticks 0
-	set drownticks 0
+	set airticks 100
 	set autosave 50
 
 	set Weather 0
@@ -135,9 +135,9 @@ quit
 	msg - Saplings now grow over time
 	msg - Dirt will slowly grow back into grass if placed next to other grass
 	msg - Grass will slowly turn into dirt under other blocks
-	msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
+	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
 	msg - There is now a (purely visual) daylight cycle
-	msg - Progress now saves every 5 seconds
+	// msg - Progress now saves every 5 seconds
 #version
 	include survival/version
 quit
@@ -283,13 +283,14 @@ function #tick
 	local py {PlayerY}
 	localname mylowblock
 	call #getblock|*mylowblock|{PlayerX}|{py}|{PlayerZ}
-	setadd *py 1
+	setadd *py 1.5
+	setrounddown *py
 	localname myhighblock
 	call #getblock|*myhighblock|{PlayerX}|{py}|{PlayerZ}
 	if blocks[{mylowblock}].catchFire setadd fireticks 6
 	if blocks[{myhighblock}].catchFire setadd fireticks 6
-	if blocks[{myhighblock}].drowning setadd drownticks 1
-	else set drownticks 0
+	if blocks[{myhighblock}].drowning setsub airticks 1
+	else set airticks 1
 	ifnot blocks[{mylowblock}].damage|=|"" call #damage|{blocks[{mylowblock}].damage}|{blocks[{mylowblock}].damageType}
 	ifnot blocks[{myhighblock}].damage|=|"" call #damage|{blocks[{myhighblock}].damage}|{blocks[{myhighblock}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
@@ -955,7 +956,7 @@ quit
 
 #debugpage[1]
 	cpemsg top2 EV: {Hour}, MC: {allowMapChanges}, RT: {RandomTickSpeed}, AU: {autoSave}, SS: {saveSlot}
-	cpemsg top3 HP: {hp}/{maxhp}, FT: {fireticks}, DT: {drownticks}, SB: {spawnBlock}
+	cpemsg top3 HP: {hp}/{maxhp}, FT: {fireticks}, AT: {airticks}, SB: {spawnBlock}
 quit
 
 #debugpage[2]
