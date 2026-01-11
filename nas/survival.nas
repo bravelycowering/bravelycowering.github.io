@@ -139,7 +139,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &726Jan10-15
+msg &fVersion &abeta 4.0 &726Jan10-16
 quit
 
 #initSave
@@ -799,8 +799,8 @@ quit
 	setdiv placedir 90
 	setrounddown placedir
 	set placedir {Directions[{placedir}]}
-	ifnot blocks[{PlayerHeldBlock}].{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
-	ifnot blocks[{PlayerHeldBlock}].{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
+	ifnot blocks[{PlayerHeldBlock}].Face{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
+	ifnot blocks[{PlayerHeldBlock}].Face{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
 	ifnot blocks[{placeid}].grounded jump #if_15
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
@@ -927,7 +927,6 @@ quit
 	#if_22
 	ifnot runArg1|=|"reupload" jump #if_23
 		cmd osus https://bravelycowering.net/nas/survival.nas
-		jump #debug|reload
 	#if_23
 	ifnot runArg1|=|"reload" jump #if_24
 		set TerminatePrematurely true

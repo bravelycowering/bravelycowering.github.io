@@ -799,8 +799,8 @@ quit
 	setdiv placedir 90
 	setrounddown placedir
 	set placedir {Directions[{placedir}]}
-	ifnot blocks[{PlayerHeldBlock}].{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
-	ifnot blocks[{PlayerHeldBlock}].{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
+	ifnot blocks[{PlayerHeldBlock}].Face{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
+	ifnot blocks[{PlayerHeldBlock}].Face{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
 	if blocks[{placeid}].grounded then
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
@@ -927,7 +927,6 @@ quit
 	end
 	if runArg1|=|"reupload" then
 		cmd osus https://bravelycowering.net/nas/survival.nas
-		jump #debug|reload
 	end
 	if runArg1|=|"reload" then
 		set TerminatePrematurely true
