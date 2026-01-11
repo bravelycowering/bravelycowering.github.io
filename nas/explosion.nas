@@ -23,7 +23,7 @@ quit
 	setmul vel.x 5
 	setmul vel.y 5
 	setmul vel.z 5
-	boost {vel.x} {vel.y} {vel.z} 0 0 0
+	boost {vel.x} {vel.y} {vel.z} 0 1 0
 quit
 
 #setatan2
