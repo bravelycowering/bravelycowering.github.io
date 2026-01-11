@@ -70,6 +70,8 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 	msg &fType &a/in&f to view your &ainventory&f.
 
 	call #initStructs
+	set Directions North|East|South|West
+	setsplit Directions
 
 	// compat with id finder thingy
 	set blocks[pickaxe].name Pickaxe
@@ -137,7 +139,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &726Jan10-14
+msg &fVersion &abeta 4.0 &726Jan10-15
 quit
 
 #initSave
@@ -791,7 +793,14 @@ quit
 	#ifnot_7
 	ifnot blocks[{id}].replaceable quit
 	set placeid {PlayerHeldBlock}
-	ifnot blocks[{PlayerHeldBlock}].{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].{click.face}}
+	set placedir {PlayerYaw}
+	setadd placedir 45
+	setmod placedir 360
+	setdiv placedir 90
+	setrounddown placedir
+	set placedir {Directions[{placedir}]}
+	ifnot blocks[{PlayerHeldBlock}].{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
+	ifnot blocks[{PlayerHeldBlock}].{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
 	ifnot blocks[{placeid}].grounded jump #if_15
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
@@ -1204,9 +1213,9 @@ jump #give|75|2
 	if i|<|data[3].Length jump #while_18
 jump #give|82|1
 
-#loot[84]
+#loot[85]
 #loot[86]
-jump #give|85|1
+jump #give|84|1
 
 #use[82]
 	call #getblockdata|data|{x}|{y}|{z}
@@ -1823,22 +1832,25 @@ set blocks[83].hardness 8
 set blocks[83].id 83
 set blocks[83].name Sign
 set blocks[83].tooltype axe
+set blocks[84].FaceAwayX 86
+set blocks[84].FaceAwayZ 85
+set blocks[84].FaceTowardsX 86
+set blocks[84].FaceTowardsZ 85
+set blocks[84].breakScale 0.55 1.07 0.55
 set blocks[84].hardness 12
 set blocks[84].id 84
-set blocks[84].name Pipe-Y
+set blocks[84].name Pipe
 set blocks[84].nonsolid true
 set blocks[84].tooltype pickaxe
 set blocks[84].toughness 3
-set blocks[85].AwayX 86
-set blocks[85].AwayY 84
-set blocks[85].TowardsX 86
-set blocks[85].TowardsY 84
+set blocks[85].breakScale 0.55 0.8 1.07
 set blocks[85].hardness 12
 set blocks[85].id 85
-set blocks[85].name Pipe
+set blocks[85].name Pipe-Z
 set blocks[85].nonsolid true
 set blocks[85].tooltype pickaxe
 set blocks[85].toughness 3
+set blocks[86].breakScale 1.07 0.8 0.55
 set blocks[86].hardness 12
 set blocks[86].id 86
 set blocks[86].name Pipe-X

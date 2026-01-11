@@ -70,6 +70,8 @@ using no_runarg_underscore_conversion
 	msg &fType &a/in&f to view your &ainventory&f.
 
 	call #initStructs
+	set Directions North|East|South|West
+	setsplit Directions
 
 	// compat with id finder thingy
 	set blocks[pickaxe].name Pickaxe
@@ -791,7 +793,14 @@ quit
 	end
 	ifnot blocks[{id}].replaceable quit
 	set placeid {PlayerHeldBlock}
-	ifnot blocks[{PlayerHeldBlock}].{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].{click.face}}
+	set placedir {PlayerYaw}
+	setadd placedir 45
+	setmod placedir 360
+	setdiv placedir 90
+	setrounddown placedir
+	set placedir {Directions[{placedir}]}
+	ifnot blocks[{PlayerHeldBlock}].{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
+	ifnot blocks[{PlayerHeldBlock}].{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
 	if blocks[{placeid}].grounded then
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
@@ -1204,9 +1213,9 @@ jump #give|75|2
 	end
 jump #give|82|1
 
-#loot[84]
+#loot[85]
 #loot[86]
-jump #give|85|1
+jump #give|84|1
 
 #use[82]
 	call #getblockdata|data|{x}|{y}|{z}
