@@ -7,7 +7,7 @@ quit
 	set y {runArg2}
 	set z {runArg3}
 	placeblock 0 {x} {y} {z}
-	effect explosion {x} {y} {z} 0 0 0
+	effect explosion {x} {y} {z} 0 0 0 true
 	setsplit PlayerCoordsDecimal " "
 	// adjust tnt explotion coords
 	setadd x 0.5
@@ -94,10 +94,10 @@ quit
 #setatan2
 // &angle, x, y
 	set {runArg1} {runArg3}
+	if runArg2|=|0 jump #setatan2=0
 	setdiv {runArg1} {runArg2}
 	setarctan {runArg1} {{runArg1}}
 	if runArg2|<|0 jump #setatan2<0
-	if runArg2|<|0 jump #setatan2=0
 quit
 	#setatan2<0
 	if runArg3|>=|0 setadd {runArg1} {PI}
