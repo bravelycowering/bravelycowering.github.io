@@ -120,24 +120,17 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
-	// msg - Fixed a bug where mining the walls would sometimes crash the script
-	// msg - Your respawn is properly updated if your campfire goes out now
-	// msg - Slight changes to the quantity of mushrooms in a world
-	// msg - New recipes for Slab and Stone brick, along with a way of obtaining Glass with the Campfire
-	// msg - New blocks: Flax, Tombstone
-	// msg - Flax now generate alongside roses and dandelions, albiet in smaller quantities
-	// msg - A grave will now spawn containing your items where you die
-	// msg &fChanges in the latest minor version:
-	// msg - Various bugfixes
-	// msg - There is now a build blacklist
 	msg - Fixed a bug where you would not take damage if your head was in lava
 	msg - Graves now have 5 minutes of protection before they can be robbed
 	msg - Saplings now grow over time
 	msg - Dirt will slowly grow back into grass if placed next to other grass
 	msg - Grass will slowly turn into dirt under other blocks
 	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
+	// msg - A different variant of tall tree generates
 	msg - There is now a (purely visual) daylight cycle
 	// msg - Progress now saves every 5 seconds
+	msg &fChanges in the latest minor version:
+	msg - Leaves now decay when far enough from a log
 #version
 	include survival/version
 quit
@@ -356,7 +349,7 @@ function #tick
 		setsub actionsPerTick {profilestart}
 		call #debugpage[{debugpage}]
 		cpemsg top1 A: {actionCount}/60K, APT: {actionsPerTick}, << Page {debugpage}/{debugpages} >>
-		local profilestart {actionCount}
+		set *profilestart {actionCount}
 	end
 	// loop
 	delay 100
@@ -367,6 +360,7 @@ end
 #newloop
 	set LoopPoint {runArg1}
 	set TerminatePrematurely false
+	cmd a
 	cmd m 0 0 0
 terminate
 
@@ -533,10 +527,10 @@ quit
 	cmd ma
 	cmd foreach 767 tree notch,m ~ ~1 ~
 	cmd replaceall 767 3
-	// plant big oak trees sparsely everywhere
-	cmd replacebrush 2 random 2/999 767
+	// plant big trees sparsely everywhere
+	cmd replacebrush 2 random 2/1999 767
 	cmd ma
-	cmd foreach 767 tree oak,m ~ ~1 ~
+	cmd foreach 767 tree ash,m ~ ~1 ~
 	cmd replaceall 767 3
 	// flowers
 	call #grow|2|767
@@ -1279,6 +1273,42 @@ end
 #blocktick[6]
 	ifnot envcycle[{Hour}].isday quit
 jump #growtree|{runArg1}|{runArg2}|{runArg3}
+
+function #blocktick[18]
+	local decay #setblock|0|{runArg1}|{runArg2}|{runArg3}
+	local x1 {runArg1}
+	setsub *x1 2
+	local x2 {runArg1}
+	setadd *x2 2
+
+	local y1 {runArg1}
+	setsub *y1 2
+	local y2 {runArg1}
+	setadd *y2 2
+
+	local z1 {runArg1}
+	setsub *z1 2
+	local z2 {runArg1}
+	setadd *z2 2
+
+	local x {x1}
+	while if *x|<=|*x2
+		local y {y1}
+		while if *y|<=|*y2
+			local z {z1}
+			while if *z|<=|*z2
+				localname id
+				call #getblock|*id|{x}|{y}|{z}
+				if *id|=|17 quit
+				setadd *z 1
+			end
+			setadd *y 1
+		end
+		setadd *x 1
+	end
+
+	jump {decay}
+end
 
 function #growtree
 	local x {runArg1}

@@ -1,5 +1,5 @@
 local MAJOR = 4
-local MINOR = 0
+local MINOR = 1
 
 local fancynumber = "beta "..MAJOR.."."..MINOR
 local builddate = os.date("%y%b%d")
