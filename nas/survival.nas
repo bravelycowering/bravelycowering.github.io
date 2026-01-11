@@ -48,7 +48,7 @@ using no_runarg_underscore_conversion
 
 	set RandomTickSpeed 3
 
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
@@ -128,6 +128,7 @@ quit
 	// msg &fChanges in the latest minor version:
 	// msg - Various bugfixes
 	// msg - There is now a build blacklist
+	msg - Fixed a bug where you would not take damage if your head was in lava
 	msg - Graves now have 5 minutes of protection before they can be robbed
 	msg - Saplings now grow over time
 	msg - Dirt will slowly grow back into grass if placed next to other grass
@@ -136,7 +137,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &726Jan10-13
+msg &fVersion &abeta 4.0 &726Jan10-14
 quit
 
 #initSave
@@ -170,7 +171,7 @@ quit
 	if saveSlot|=|"" quit
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	set HeldBlock {PlayerHeldBlock}
-placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
+placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
 quit
 
 #load
@@ -261,8 +262,8 @@ quit
 	// prev storage
 	// localname l_prevhp_1 
 	// localname l_prevHour_1 
+	// localname l_profilestart_1 
 	if TerminatePrematurely jump #newloop|#tick
-	set l_profilestart_1 {actionCount}
 	set Hour {epochms}
 	setdiv Hour 10000
 	setmod Hour 144
@@ -277,10 +278,18 @@ quit
 	ifnot saveSlot|=|"" setsub autosave 1
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
-	// localname l_myblock_1 
-	call #getblock|l_myblock_1|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{l_myblock_1}].catchFire setadd fireticks 6
-	ifnot blocks[{l_myblock_1}].damage|=|"" call #damage|{blocks[{l_myblock_1}].damage}|{blocks[{l_myblock_1}].damageType}
+	set l_py_1 {PlayerY}
+	// localname l_mylowblock_1 
+	call #getblock|l_mylowblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
+	setadd l_py_1 1
+	// localname l_myhighblock_1 
+	call #getblock|l_myhighblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
+	if blocks[{l_mylowblock_1}].catchFire setadd fireticks 6
+	if blocks[{l_myhighblock_1}].catchFire setadd fireticks 6
+	if blocks[{l_myhighblock_1}].drowning setadd drownticks 1
+	else set drownticks 0
+	ifnot blocks[{l_mylowblock_1}].damage|=|"" call #damage|{blocks[{l_mylowblock_1}].damage}|{blocks[{l_mylowblock_1}].damageType}
+	ifnot blocks[{l_myhighblock_1}].damage|=|"" call #damage|{blocks[{l_myhighblock_1}].damage}|{blocks[{l_myhighblock_1}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
 	set PrevPlayerCoords {PlayerCoords}
@@ -290,7 +299,8 @@ quit
 	ifnot fireticks|>|0 jump #if_3
 		setsub fireticks 1
 		if fireticks|>|100 set fireticks 100
-		if blocks[{l_myblock_1}].extinguishFire set fireticks 0
+		if blocks[{l_mylowblock_1}].extinguishFire set fireticks 0
+		if blocks[{l_myhighblock_1}].extinguishFire set fireticks 0
 		set l_firetickmod_1 {fireticks}
 		setmod l_firetickmod_1 10
 		ifnot l_firetickmod_1|=|0 jump #if_4
@@ -338,10 +348,13 @@ quit
 		if RandomTicks|>|0 jump #randomticks
 	#if_7
 	// calculate actions per tick and show debug stuff
-	set actionsPerTick {actionCount}
-	setsub actionsPerTick {l_profilestart_1}
-	if debug call #debugpage[{debugpage}]
-	if debug cpemsg top1 A: {actionCount}/60K, APT: {actionsPerTick}, << Page {debugpage}/{debugpages} >>
+	ifnot debug jump #if_8
+		set actionsPerTick {actionCount}
+		setsub actionsPerTick {l_profilestart_1}
+		call #debugpage[{debugpage}]
+		cpemsg top1 A: {actionCount}/60K, APT: {actionsPerTick}, << Page {debugpage}/{debugpages} >>
+		set l_profilestart_2 {actionCount}
+	#if_8
 	// loop
 	delay 100
 	if actionCount|>=|60000 jump #newloop|#tick
@@ -589,15 +602,15 @@ quit
 	if SpawnBlock|=|"none" jump #ifnot_3
 		setsplit SpawnBlock " "
 		call #getblock|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
-		ifnot spawnblockid|!=|68 jump #if_8
+		ifnot spawnblockid|!=|68 jump #if_9
 			set SpawnBlock none
 			set DeathSpawn {WorldSpawn}
 			setdeathspawn {DeathSpawn}
-		#if_8
+		#if_9
 	#ifnot_3
 	set deathY {PlayerY}
 	call #setblock|82|{PlayerX}|{deathY}|{PlayerZ}
-set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]}
+set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]}
 	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|* &f{deathmsg}|{inventory}
 	setsub deathY 1
 	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
@@ -608,7 +621,7 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 	cmd holdsilent 0
 quit
@@ -665,7 +678,7 @@ quit
 	if toomuch set barcol c
 	else set barcol a
 	setsub minetimer {minespeed}
-	ifnot minetimer|>|0 jump #if_9
+	ifnot minetimer|>|0 jump #if_10
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
 		setdiv model {blocks[{id}].hardness}
@@ -679,7 +692,7 @@ quit
 		ifnot blocks[{id}].breakScale|=|"" cmd tempbot scale minemeter {blocks[{id}].breakScale}
 		cmd tempbot tp minemeter {x} {boty} {z} 0 0
 		quit
-	#if_9
+	#if_10
 	set minepos
 	jump #destroyblock|{x}|{y}|{z}|{toomuch}
 quit
@@ -705,10 +718,10 @@ quit
 quit
 
 #give
-	ifnot isTool({runArg1}) jump #if_10
+	ifnot isTool({runArg1}) jump #if_11
 		set {runArg1} {runArg2}
 		quit
-	#if_10
+	#if_11
 	if inventory[{runArg1}]|=|0 cmd holdsilent {runArg1}
 	setadd inventory[{runArg1}] {runArg2}
 quit
@@ -754,13 +767,13 @@ quit
 	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	if blocks[{id}].replaceable quit
 	if blocks[{id}].mergeInto|=|"" jump #ifnot_6
-		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_11
-			ifnot blocks[{id}].mergeFace|=|click.face jump #if_12
+		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_12
+			ifnot blocks[{id}].mergeFace|=|click.face jump #if_13
 				call #take|{playerHeldBlock}|1
 				jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
 				quit
-			#if_12
-		#if_11
+			#if_13
+		#if_12
 	#ifnot_6
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
@@ -770,31 +783,33 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
 	if blocks[{id}].mergeInto|=|"" jump #ifnot_7
-		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_13
+		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_14
 			call #take|{playerHeldBlock}|1
 			jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
 			quit
-		#if_13
+		#if_14
 	#ifnot_7
 	ifnot blocks[{id}].replaceable quit
-	ifnot blocks[{PlayerHeldBlock}].grounded jump #if_14
+	set placeid {PlayerHeldBlock}
+	ifnot blocks[{PlayerHeldBlock}].{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].{click.face}}
+	ifnot blocks[{placeid}].grounded jump #if_15
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
 		if blocks[{id}].nonsolid quit
 		setadd y 1
-	#if_14
+	#if_15
 	call #take|{playerHeldBlock}|1
-	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
+	jump #setblock|{placeid}|{x}|{y}|{z}
 quit
 
 #itemuse
 	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_8
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 		ifnot inventory[{PlayerHeldBlock}]|>|0 quit
-		ifnot hp|<|maxhp jump #if_15
+		ifnot hp|<|maxhp jump #if_16
 			call #take|{playerHeldBlock}|1
 			call #heal|{blocks[{PlayerHeldBlock}].food}
-		#if_15
+		#if_16
 	#ifnot_8
 quit
 
@@ -857,55 +872,55 @@ quit
 // package, color, amount, max
 	set i 0
 	set {runArg1} &{runArg2}
-	ifnot i|<|{runArg3} jump #if_16
+	ifnot i|<|{runArg3} jump #if_17
 		#while_7
 			set {runArg1} {{runArg1}}|
 			setadd i 1
 		if i|<|{runArg3} jump #while_7
-	#if_16
+	#if_17
 	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg4} jump #if_17
+	ifnot i|<|{runArg4} jump #if_18
 		#while_8
 			set {runArg1} {{runArg1}}|
 			setadd i 1
 		if i|<|{runArg4} jump #while_8
-	#if_17
+	#if_18
 quit
 
 #makecharbar
 // package, char, color, amount, max
 	set i 0
 	set {runArg1} &{runArg3}
-	ifnot i|<|{runArg4} jump #if_18
+	ifnot i|<|{runArg4} jump #if_19
 		#while_9
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
 		if i|<|{runArg4} jump #while_9
-	#if_18
+	#if_19
 	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg5} jump #if_19
+	ifnot i|<|{runArg5} jump #if_20
 		#while_10
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
 		if i|<|{runArg5} jump #while_10
-	#if_19
+	#if_20
 quit
 
 #debug
-	ifnot runArg1|=|"next" jump #if_20
-		setmod debugpage {debugpages}
-		setadd debugpage 1
-	#if_20
-	ifnot runArg1|=|"prev" jump #if_21
-		setsub debugpage 2
+	ifnot runArg1|=|"next" jump #if_21
 		setmod debugpage {debugpages}
 		setadd debugpage 1
 	#if_21
-	ifnot runArg1|=|"reupload" jump #if_22
+	ifnot runArg1|=|"prev" jump #if_22
+		setsub debugpage 2
+		setmod debugpage {debugpages}
+		setadd debugpage 1
+	#if_22
+	ifnot runArg1|=|"reupload" jump #if_23
 		cmd osus https://bravelycowering.net/nas/survival.nas
 		jump #debug|reload
-	#if_22
-	ifnot runArg1|=|"reload" jump #if_23
+	#if_23
+	ifnot runArg1|=|"reload" jump #if_24
 		set TerminatePrematurely true
 		set l_startprofile_1 {actionCount}
 		setadd l_startprofile_1 2
@@ -915,15 +930,15 @@ quit
 		msg &fReloading structs took {l_profile_1} actions!
 		msg &fRestarting...
 		jump #version
-	#if_23
-	ifnot runArg1|=|"" jump #if_24
+	#if_24
+	ifnot runArg1|=|"" jump #if_25
 		if debug set debug false
 		else set debug true
 		if debug definehotkey debug next|PERIOD|shift
 		else undefinehotkey COMMA|shift
 		if debug definehotkey debug prev|COMMA|shift
 		else undefinehotkey COMMA|shift
-	#if_24
+	#if_25
 	if debug quit
 	cpemsg top1
 	cpemsg top2
@@ -945,22 +960,22 @@ quit
 	if runArg1|=|"debug" jump #debug|{runArg2}
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
-	ifnot runArg1|=|"craft" jump #if_25
+	ifnot runArg1|=|"craft" jump #if_26
 		set craftArgs {runArg2}
 		if craftArgs|=|"" jump #ifnot_12
 			set craftArgs[1] 1
 			setsplit craftArgs *
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
 			call #getBlockByName|blockID|{craftArgs[0]}
-			ifnot blockID|=|"" jump #if_26
+			ifnot blockID|=|"" jump #if_27
 				msg &cInvalid item name or ID
 				quit
-			#if_26
+			#if_27
 			call #getRecipeByOutput|recipeID|{blockID}|{craftArgs[1]}
-			ifnot recipeID|=|"" jump #if_27
+			ifnot recipeID|=|"" jump #if_28
 				msg &cYou cannot craft {blocks[{blockID}].name}!
 				quit
-			#if_27
+			#if_28
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
 		#ifnot_12
@@ -973,7 +988,7 @@ quit
 		#while_11
 			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
-			ifnot canAfford|>|0 jump #if_28
+			ifnot canAfford|>|0 jump #if_29
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) &7* {canAfford}
 				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f)
 				set j 0
@@ -984,13 +999,13 @@ quit
 					setadd j 1
 				if j|<|{recipes[{i}].ingredients.Length} jump #while_12
 				msg {ingrediantList}
-			#if_28
+			#if_29
 			setadd i 1
 		if i|<|{recipes.Length} jump #while_11
 		msg &eType &a/in craft [name]&e to craft something
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
-	#if_25
+	#if_26
 	set i 0
 	msg &eResources:
 	#while_13
@@ -1029,9 +1044,9 @@ quit
 	if recipes[{runArg1}].condition|=|"" jump #ifnot_14
 		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
 	#ifnot_14
-	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_29
+	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_30
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
-	#if_29
+	#if_30
 	#while_15
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {inventory[{id}]}
@@ -1050,10 +1065,10 @@ quit
 	#ifnot_15
 	set i 0
 	#while_16
-		ifnot blocks[{i}].name|=|runArg2 jump #if_30
+		ifnot blocks[{i}].name|=|runArg2 jump #if_31
 			set {runArg1} {i}
 			quit
-		#if_30
+		#if_31
 		setadd i 1
 	if i|<|{blocks.Length} jump #while_16
 quit
@@ -1065,13 +1080,13 @@ quit
 	set {pname}
 	set i 0
 	#while_17
-		ifnot recipes[{i}].output.id|=|bid jump #if_31
+		ifnot recipes[{i}].output.id|=|bid jump #if_32
 			call #checkRecipeAfford|{i}|canAfford
-			ifnot canAfford|>=|c jump #if_32
+			ifnot canAfford|>=|c jump #if_33
 				set {pname} {i}
 				quit
-			#if_32
-		#if_31
+			#if_33
+		#if_32
 		setadd i 1
 	if i|<|{recipes.Length} jump #while_17
 quit
@@ -1088,7 +1103,7 @@ quit
 
 #use[67]
 	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_16
-		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_33
+		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_34
 			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
@@ -1097,7 +1112,7 @@ quit
 			setdeathspawn {DeathSpawn}
 			msg &fRespawn point set
 			quit
-		#if_33
+		#if_34
 	#ifnot_16
 	msg &cYou can't light a campfire with that
 quit
@@ -1111,17 +1126,17 @@ quit
 
 #use[70:80]
 #use[68:80]
-	ifnot inventory[80]|>|0 jump #if_34
+	ifnot inventory[80]|>|0 jump #if_35
 		call #take|80|1
 		call #give|70|1
-	#if_34
+	#if_35
 quit
 
 #use[68:12]
-	ifnot inventory[12]|>|0 jump #if_35
+	ifnot inventory[12]|>|0 jump #if_36
 		call #take|12|1
 		call #give|20|1
-	#if_35
+	#if_36
 quit
 
 #use[80:70]
@@ -1189,6 +1204,10 @@ jump #give|75|2
 	if i|<|data[3].Length jump #while_18
 jump #give|82|1
 
+#loot[84]
+#loot[86]
+jump #give|85|1
+
 #use[82]
 	call #getblockdata|data|{x}|{y}|{z}
 	if data|=|"" msg * &fThe tombstone is unreadable...
@@ -1222,22 +1241,13 @@ quit
 	setadd l_z_4 {l_i_3}
 	// bottom grass
 	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
-	ifnot l_i_3|=|3 jump #if_36
-		setadd l_y_3 1
-		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
-		setsub l_y_3 1
-		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
-	#if_36
-	// middle grass
-	setadd l_y_3 1
-	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 	ifnot l_i_3|=|3 jump #if_37
 		setadd l_y_3 1
 		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 		setsub l_y_3 1
 		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
 	#if_37
-	// top grass
+	// middle grass
 	setadd l_y_3 1
 	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 	ifnot l_i_3|=|3 jump #if_38
@@ -1246,6 +1256,15 @@ quit
 		setsub l_y_3 1
 		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
 	#if_38
+	// top grass
+	setadd l_y_3 1
+	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
+	ifnot l_i_3|=|3 jump #if_39
+		setadd l_y_3 1
+		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
+		setsub l_y_3 1
+		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
+	#if_39
 quit
 
 #blocktick[6]
@@ -1432,7 +1451,7 @@ set blacklist.CODVeteran+ Repeated grief
 quit
 
 #initStructs
-set blocks.Length 84
+set blocks.Length 88
 set blocks[0].growreplaceable true
 set blocks[0].id 0
 set blocks[0].name Air
@@ -1804,6 +1823,33 @@ set blocks[83].hardness 8
 set blocks[83].id 83
 set blocks[83].name Sign
 set blocks[83].tooltype axe
+set blocks[84].hardness 12
+set blocks[84].id 84
+set blocks[84].name Pipe-Y
+set blocks[84].nonsolid true
+set blocks[84].tooltype pickaxe
+set blocks[84].toughness 3
+set blocks[85].AwayX 86
+set blocks[85].AwayY 84
+set blocks[85].TowardsX 86
+set blocks[85].TowardsY 84
+set blocks[85].hardness 12
+set blocks[85].id 85
+set blocks[85].name Pipe
+set blocks[85].nonsolid true
+set blocks[85].tooltype pickaxe
+set blocks[85].toughness 3
+set blocks[86].hardness 12
+set blocks[86].id 86
+set blocks[86].name Pipe-X
+set blocks[86].nonsolid true
+set blocks[86].tooltype pickaxe
+set blocks[86].toughness 3
+set blocks[87].hardness 20
+set blocks[87].id 87
+set blocks[87].name Cage
+set blocks[87].tooltype pickaxe
+set blocks[87].toughness 6
 set blocks[8].extinguishFire true
 set blocks[8].fluid true
 set blocks[8].id 8

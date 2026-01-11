@@ -128,6 +128,7 @@ quit
 	// msg &fChanges in the latest minor version:
 	// msg - Various bugfixes
 	// msg - There is now a build blacklist
+	msg - Fixed a bug where you would not take damage if your head was in lava
 	msg - Graves now have 5 minutes of protection before they can be robbed
 	msg - Saplings now grow over time
 	msg - Dirt will slowly grow back into grass if placed next to other grass
@@ -261,8 +262,8 @@ function #tick
 	// prev storage
 	localname prevhp
 	localname prevHour
+	localname profilestart
 	if TerminatePrematurely jump #newloop|#tick
-	local profilestart {actionCount}
 	set Hour {epochms}
 	setdiv Hour 10000
 	setmod Hour 144
@@ -277,10 +278,18 @@ function #tick
 	ifnot saveSlot|=|"" setsub autosave 1
 	if autosave|<|0 call #save
 	if autosave|<|0 set autosave 50
-	localname myblock
-	call #getblock|*myblock|{PlayerX}|{PlayerY}|{PlayerZ}
-	if blocks[{myblock}].catchFire setadd fireticks 6
-	ifnot blocks[{myblock}].damage|=|"" call #damage|{blocks[{myblock}].damage}|{blocks[{myblock}].damageType}
+	local py {PlayerY}
+	localname mylowblock
+	call #getblock|*mylowblock|{PlayerX}|{py}|{PlayerZ}
+	setadd *py 1
+	localname myhighblock
+	call #getblock|*myhighblock|{PlayerX}|{py}|{PlayerZ}
+	if blocks[{mylowblock}].catchFire setadd fireticks 6
+	if blocks[{myhighblock}].catchFire setadd fireticks 6
+	if blocks[{myhighblock}].drowning setadd drownticks 1
+	else set drownticks 0
+	ifnot blocks[{mylowblock}].damage|=|"" call #damage|{blocks[{mylowblock}].damage}|{blocks[{mylowblock}].damageType}
+	ifnot blocks[{myhighblock}].damage|=|"" call #damage|{blocks[{myhighblock}].damage}|{blocks[{myhighblock}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
 	set PrevPlayerCoords {PlayerCoords}
@@ -290,7 +299,8 @@ function #tick
 	if fireticks|>|0 then
 		setsub fireticks 1
 		if fireticks|>|100 set fireticks 100
-		if blocks[{myblock}].extinguishFire set fireticks 0
+		if blocks[{mylowblock}].extinguishFire set fireticks 0
+		if blocks[{myhighblock}].extinguishFire set fireticks 0
 		local *firetickmod {fireticks}
 		setmod *firetickmod 10
 		if *firetickmod|=|0 then
@@ -338,10 +348,13 @@ function #tick
 		if RandomTicks|>|0 jump #randomticks
 	end
 	// calculate actions per tick and show debug stuff
-	set actionsPerTick {actionCount}
-	setsub actionsPerTick {profilestart}
-	if debug call #debugpage[{debugpage}]
-	if debug cpemsg top1 A: {actionCount}/60K, APT: {actionsPerTick}, << Page {debugpage}/{debugpages} >>
+	if debug then
+		set actionsPerTick {actionCount}
+		setsub actionsPerTick {profilestart}
+		call #debugpage[{debugpage}]
+		cpemsg top1 A: {actionCount}/60K, APT: {actionsPerTick}, << Page {debugpage}/{debugpages} >>
+		local profilestart {actionCount}
+	end
 	// loop
 	delay 100
 	if actionCount|>=|60000 jump #newloop|#tick
@@ -777,14 +790,16 @@ quit
 		end
 	end
 	ifnot blocks[{id}].replaceable quit
-	if blocks[{PlayerHeldBlock}].grounded then
+	set placeid {PlayerHeldBlock}
+	ifnot blocks[{PlayerHeldBlock}].{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].{click.face}}
+	if blocks[{placeid}].grounded then
 		setsub y 1
 		call #getblock|id|{x}|{y}|{z}
 		if blocks[{id}].nonsolid quit
 		setadd y 1
 	end
 	call #take|{playerHeldBlock}|1
-	jump #setblock|{PlayerHeldBlock}|{x}|{y}|{z}
+	jump #setblock|{placeid}|{x}|{y}|{z}
 quit
 
 #itemuse
@@ -1188,6 +1203,10 @@ jump #give|75|2
 		setadd i 1
 	end
 jump #give|82|1
+
+#loot[84]
+#loot[86]
+jump #give|85|1
 
 #use[82]
 	call #getblockdata|data|{x}|{y}|{z}
