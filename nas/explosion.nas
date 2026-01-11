@@ -21,24 +21,26 @@ quit
 quit
 
 #click:Left
-	setsplit click.coords
-	set x {click.coords[0]}
-	set y {click.coords[1]}
-	set z {click.coords[2]}
+	set coords {click.coords}
+	setsplit coords
+	set x {coords[0]}
+	set y {coords[1]}
+	set z {coords[2]}
 	setblockid id {x} {y} {z}
 	if id|=|46 jump #explode|{x}|{y}|{z}
 quit
 
 #click:Right[46]
 	// get place block coordinates
-	setsplit click.coords
-	set x {click.coords[0]}
+	set coords {click.coords}
+	setsplit coords
+	set x {coords[0]}
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"TowardsX" setsub x 1
-	set y {click.coords[1]}
+	set y {coords[1]}
 	if click.face|=|"AwayY" setadd y 1
 	if click.face|=|"TowardsY" setsub y 1
-	set z {click.coords[2]}
+	set z {coords[2]}
 	if click.face|=|"AwayZ" setadd z 1
 	if click.face|=|"TowardsZ" setsub z 1
 	setblockid id {x} {y} {z}
