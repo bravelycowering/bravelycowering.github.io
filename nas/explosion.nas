@@ -39,6 +39,7 @@ quit
 	setmul velocity -1
 	setadd velocity 1
 	setpow velocity 2
+	setmul velocity 8
 	if distance|>|5 set velocity 0
 	// set new dir vector
 	setdirvector vel.x vel.y vel.z {yaw} {pitch}
@@ -93,8 +94,8 @@ quit
 
 #setatan2
 // &angle, x, y
-	set {runArg1} {runArg3}
 	if runArg2|=|0 jump #setatan2=0
+	set {runArg1} {runArg3}
 	setdiv {runArg1} {runArg2}
 	setarctan {runArg1} {{runArg1}}
 	if runArg2|<|0 jump #setatan2<0
