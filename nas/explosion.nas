@@ -6,27 +6,47 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
+	setsplit PlayerCoordsDecimal " "
+	// adjust tnt explotion coords
+	setadd x 0.5
+	setsub y 0.5
+	setadd z 0.5
+	// find the distance between the middle of the tnt block and the middle of the player on all axes
+	set dx {PlayerCoordsDecimal[0]}
+	setsub dx {x}
+	set dy {PlayerCoordsDecimal[1]}
+	setsub dy {y}
+	set dz {PlayerCoordsDecimal[2]}
+	setsub dz {z}
+	// calculate the pitch
+	set pitch 0
+	setsub pitch {dy}
+	setarcsin pitch {pitch}
+	call #setatan2|yaw|{dx}|{dz}
+	// calculate the distance
+	setpow dx 2
+	setpow dy 2
+	setpow dz 2
+	set distance {dx}
+	setadd distance {dy}
+	setadd distance {dz}
+	setsqrt distance {distance}
+	// calculate the velocity based on distance
+	set velocity {distance}
+	setdiv velocity 5
+	setmul velocity -1
+	setadd velocity 1
+	setpow velocity 2
+	if distance|>|5 set velocity 0
+	// set new dir vector
+	setdirvector vel.x vel.y vel.z {yaw} {pitch}
+	setmul vel.x {velocity}
+	setmul vel.y {velocity}
+	setmul vel.z {velocity}
+	// finally, do the explosion
+	boost {vel.x} {vel.y} {vel.z} 0 0 0
 	placeblock 0 {x} {y} {z}
 	effect explosion {x} {y} {z} 0 0 0
-	setsplit PlayerCoordsDecimal " "
-	call #getvelfromdist|dx|{PlayerCoordsDecimal[0]}|{x}
-	call #getvelfromdist|dy|{PlayerCoordsDecimal[1]}|{y}
-	call #getvelfromdist|dz|{PlayerCoordsDecimal[2]}|{z}
-	boost {dx} {dy} {dz} 0 0 0
-quit
-
-#getvelfromdist
-	// &package, playercoord, blockcoord
-	set {runArg1} {runArg3}
-	setsub {runArg1} {runArg2}
-	ifnot {runArg1}|<|0 jump #getvelfromdist>=0
-		setadd {runArg1} 5
-		if {runArg1}|<|0 set {runArg1} 0
-	quit
-	#getvelfromdist>=0
-		setsub {runArg1} 5
-		if {runArg1}|>|0 set {runArg1} 0
-	quit
 quit
 
 #click
