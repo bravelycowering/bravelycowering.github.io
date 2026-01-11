@@ -139,7 +139,7 @@ quit
 	msg - There is now a (purely visual) daylight cycle
 	msg - Progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.0 &726Jan10-16
+msg &fVersion &abeta 4.0 &726Jan10-17
 quit
 
 #initSave
@@ -1861,6 +1861,7 @@ set blocks[87].id 87
 set blocks[87].name Cage
 set blocks[87].tooltype pickaxe
 set blocks[87].toughness 6
+set blocks[8].drowning true
 set blocks[8].extinguishFire true
 set blocks[8].fluid true
 set blocks[8].id 8
@@ -1869,6 +1870,7 @@ set blocks[8].name Water
 set blocks[8].nonsolid true
 set blocks[8].replaceable true
 set blocks[8].unbreakable true
+set blocks[9].drowning true
 set blocks[9].extinguishFire true
 set blocks[9].fluid true
 set blocks[9].id 9
