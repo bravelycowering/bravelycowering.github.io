@@ -3,27 +3,56 @@
 quit
 
 #explode
-	effect explosion {MBX} {MBY} {MBZ} 0 0 0
+	placeblock 0 {runArg1} {runArg2} {runArg3}
+	effect explosion {runArg1} {runArg2} {runArg3} 0 0 0
 	setsplit PlayerCoordsDecimal " "
 	set dx {PlayerCoordsDecimal[0]}
-	setsub dx {MBX}
+	setsub dx {runArg1}
 	set dy {PlayerCoordsDecimal[1]}
-	setsub dy {MBY}
+	setsub dy {runArg2}
 	set dz {PlayerCoordsDecimal[2]}
-	setsub dz {MBZ}
+	setsub dz {runArg3}
 	boost {dx} {dy} {dz} 1 1 1
 quit
 
 #click
-	if click.button|=|"Right" jump #dash
+	if label #click:{click.button}[{PlayerHeldBlock}] jump #click:{click.button}[{PlayerHeldBlock}]
+	if label #click:{click.button} jump #click:{click.button}
 quit
 
-#dash
+#click:Left
+	setsplit click.coords
+	set x {click.coords[0]}
+	set y {click.coords[1]}
+	set z {click.coords[2]}
+	setblockid id {x} {y} {z}
+	if id|=|46 jump #explode|{x}|{y}|{z}
+quit
+
+#click:Right[46]
+	// get place block coordinates
+	setsplit click.coords
+	set x {click.coords[0]}
+	if click.face|=|"AwayX" setadd x 1
+	if click.face|=|"TowardsX" setsub x 1
+	set y {click.coords[1]}
+	if click.face|=|"AwayY" setadd y 1
+	if click.face|=|"TowardsY" setsub y 1
+	set z {click.coords[2]}
+	if click.face|=|"AwayZ" setadd z 1
+	if click.face|=|"TowardsZ" setsub z 1
+	setblockid id {x} {y} {z}
+	if id|=|0 placeblock 46 {x} {y} {z}
+quit
+
+#click:Right
 	setdirvector vel.x vel.y vel.z {click.yaw} {click.pitch}
 	setmul vel.x 5
 	setmul vel.y 5
 	setmul vel.z 5
-	boost {vel.x} {vel.y} {vel.z} 0 1 0
+	set vel.ymode 1
+	if vel.y|<|0 set vel.ymode 0
+	boost {vel.x} {vel.y} {vel.z} 0 {vel.ymode} 0
 quit
 
 #setatan2
