@@ -9,11 +9,13 @@ quit
 	placeblock 0 {x} {y} {z}
 	effect explosion {x} {y} {z} 0 0 0 true
 	setsplit PlayerCoordsDecimal " "
+	msg ----------------------------------------------------------------
 	show every single package
 	// adjust tnt explotion coords
 	setadd x 0.5
 	setsub y 0.5
 	setadd z 0.5
+	msg ----------------------------------------------------------------
 	show every single package
 	// find the distance between the middle of the tnt block and the middle of the player on all axes
 	set dx {PlayerCoordsDecimal[0]}
@@ -22,12 +24,14 @@ quit
 	setsub dy {y}
 	set dz {PlayerCoordsDecimal[2]}
 	setsub dz {z}
+	msg ----------------------------------------------------------------
 	show every single package
 	// calculate the pitch
 	set pitch 0
 	setsub pitch {dy}
 	setarcsin pitch {pitch}
 	call #setatan2|yaw|{dx}|{dz}
+	msg ----------------------------------------------------------------
 	show every single package
 	// calculate the distance
 	setpow dx 2
@@ -37,6 +41,7 @@ quit
 	setadd distance {dy}
 	setadd distance {dz}
 	setsqrt distance {distance}
+	msg ----------------------------------------------------------------
 	show every single package
 	// calculate the velocity based on distance
 	set velocity {distance}
@@ -46,12 +51,14 @@ quit
 	setpow velocity 2
 	setmul velocity 8
 	if distance|>|5 set velocity 0
+	msg ----------------------------------------------------------------
 	show every single package
 	// set new dir vector
 	setdirvector vel.x vel.y vel.z {yaw} {pitch}
 	setmul vel.x {velocity}
 	setmul vel.y {velocity}
 	setmul vel.z {velocity}
+	msg ----------------------------------------------------------------
 	show every single package
 	// finally, do the explosion
 	boost {vel.x} {vel.y} {vel.z} 0 0 0
