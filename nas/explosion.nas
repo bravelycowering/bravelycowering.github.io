@@ -19,7 +19,7 @@ quit
 quit
 
 #dash
-	setdirvector vel.x vel.y vel.z {PlayerYaw} {PlayerPitch}
+	setdirvector vel.x vel.y vel.z {click.yaw} {click.pitch}
 	setmul vel.x 5
 	setmul vel.y 5
 	setmul vel.z 5
