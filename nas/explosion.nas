@@ -68,15 +68,15 @@ quit
 	setsub x 2
 	set x1 {x}
 	set x2 {x}
-	setadd x1 4
+	setadd x2 4
 	setsub y 2
 	set y1 {y}
 	set y2 {y}
-	setadd y1 4
+	setadd y2 4
 	setsub z 2
 	set z1 {z}
 	set z2 {z}
-	setadd z1 4
+	setadd z2 4
 	set edge-x({x1}) true
 	set edge-x({x2}) true
 	set edge-y({y1}) true
