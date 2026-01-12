@@ -5,7 +5,7 @@ using local_packages
 #d[70]
 
 #onJoin
-	clickevent async register #click
+	clickevent sync register #click
 quit
 
 #getblock
