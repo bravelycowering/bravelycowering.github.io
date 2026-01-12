@@ -18,6 +18,17 @@ quit
 	set world[{runArg2},{runArg3},{runArg4}] {runArg1}
 quit
 
+#resetlevel
+	set x {LevelX}
+	setsub z 1
+	set y {LevelY}
+	setsub y 1
+	set z {LevelZ}
+	setsub z 1
+	tempchunk 0 0 0 {x} {y} {z} 0 0 0
+	resetdata packages world[*]
+quit
+
 #explode
 	if exploding quit
 	set exploding true
