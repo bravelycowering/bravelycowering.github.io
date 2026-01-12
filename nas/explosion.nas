@@ -1763,6 +1763,17 @@ quit
 	if id|=|0 call #setblock|46|{x}|{y}|{z}
 quit
 
+#click:Right
+	// get place block coordinates
+	set coords {click.coords}
+	setsplit coords " "
+	set x {coords[0]}
+	set y {coords[1]}
+	set z {coords[2]}
+	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
+	if id|=|46 jump #explode|{x}|{y}|{z}
+quit
+
 #dash
 	setdirvector vel.x vel.y vel.z {click.yaw} {click.pitch}
 	setmul vel.x 5
