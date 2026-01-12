@@ -65,18 +65,18 @@ quit
 	effect explosion {x} {y} {z} 0 0 0 false
 	cs pos {x} {y} {z} explode:choose(12)
 	// setup for loop (this whole loop could probably be hardcoded)
-	setsub x 2
+	setsub x 3
 	set x1 {x}
 	set x2 {x}
-	setadd x2 4
-	setsub y 2
+	setadd x2 6
+	setsub y 3
 	set y1 {y}
 	set y2 {y}
-	setadd y2 4
-	setsub z 2
+	setadd y2 6
+	setsub z 3
 	set z1 {z}
 	set z2 {z}
-	setadd z2 4
+	setadd z2 6
 	set edge-x({x1}) true
 	set edge-x({x2}) true
 	set edge-y({y1}) true
@@ -100,6 +100,7 @@ quit
 		if y|<=|y2 jump #explode-loop-y
 		setadd x 1
 	if x|<=|x2 jump #explode-loop-x
+	resetdata packages edge-?(*)
 	msg Final count: {actionCount}
 quit
 
