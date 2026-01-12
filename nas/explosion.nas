@@ -57,7 +57,7 @@ quit
 quit
 
 #click:Left
-	ifnot hastnt jump #click:Right
+	jump #click:Right
 	set coords {click.coords}
 	setsplit coords " "
 	set x {coords[0]}
@@ -177,301 +177,448 @@ quit
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp0
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp0
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp1
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp1
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp2
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp2
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp3
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp3
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp4
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp4
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp5
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp5
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp6
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp6
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp7
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp7
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp8
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp8
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp9
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp9
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp10
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp10
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp11
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp11
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp12
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp12
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp13
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp13
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp14
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp14
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp15
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp15
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp16
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp16
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp17
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp17
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp18
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp18
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp19
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp19
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp20
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp20
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp21
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp21
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp22
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp22
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp23
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp23
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp24
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp24
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp25
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp25
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp26
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp26
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp27
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp27
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp28
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp28
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp29
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp29
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp30
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp30
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp31
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp31
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp32
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp32
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp33
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp33
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp34
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp34
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp35
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp35
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp36
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp36
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp37
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp37
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp38
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp38
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp39
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp39
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp40
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp40
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp41
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp41
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp42
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp42
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp43
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp43
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp44
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp44
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp45
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp45
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp46
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp46
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp47
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp47
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp48
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp48
 		setadd x 1
 		setadd y -6
 		setadd z -6
@@ -479,276 +626,423 @@ quit
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp49
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp49
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp50
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp50
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp51
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp51
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp52
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp52
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp53
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp53
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp54
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp54
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp55
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp55
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp56
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp56
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp57
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp57
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp58
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp58
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp59
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp59
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp60
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp60
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp61
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp61
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp62
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp62
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp63
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp63
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp64
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp64
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp65
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp65
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp66
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp66
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp67
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp67
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp68
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp68
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp69
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp69
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp70
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp70
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp71
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp71
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp72
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp72
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp73
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp73
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp74
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp74
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp75
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp75
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp76
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp76
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp77
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp77
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp78
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp78
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp79
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp79
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp80
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp80
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp81
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp81
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp82
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp82
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp83
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp83
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp84
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp84
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp85
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp85
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp86
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp86
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp87
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp87
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp88
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp88
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp89
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp89
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp90
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp90
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp91
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp91
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp92
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp92
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp93
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp93
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp94
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp94
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp95
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp95
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp96
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp96
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp97
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp97
 		setadd x 1
 		setadd y -6
 		setadd z -6
@@ -756,276 +1050,423 @@ quit
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp98
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp98
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp99
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp99
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp100
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp100
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp101
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp101
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp102
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp102
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp103
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp103
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp104
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp104
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp105
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp105
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp106
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp106
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp107
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp107
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp108
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp108
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp109
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp109
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp110
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp110
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp111
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp111
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp112
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp112
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp113
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp113
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp114
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp114
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp115
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp115
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp116
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp116
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp117
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp117
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp118
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp118
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp119
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp119
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp120
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp120
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp121
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp121
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp122
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp122
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp123
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp123
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp124
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp124
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp125
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp125
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp126
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp126
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp127
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp127
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp128
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp128
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp129
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp129
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp130
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp130
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp131
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp131
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp132
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp132
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp133
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp133
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp134
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp134
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp135
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp135
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp136
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp136
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp137
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp137
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp138
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp138
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp139
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp139
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp140
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp140
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp141
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp141
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp142
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp142
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp143
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp143
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp144
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp144
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp145
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp145
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp146
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp146
 		setadd x 1
 		setadd y -6
 		setadd z -6
@@ -1033,276 +1474,423 @@ quit
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp147
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp147
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp148
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp148
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp149
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp149
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp150
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp150
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp151
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp151
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp152
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp152
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp153
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp153
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp154
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp154
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp155
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp155
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp156
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp156
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp157
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp157
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp158
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp158
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp159
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp159
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp160
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp160
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp161
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp161
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp162
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp162
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp163
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp163
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp164
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp164
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp165
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp165
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp166
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp166
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp167
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp167
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp168
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp168
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp169
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp169
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp170
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp170
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp171
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp171
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp172
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp172
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp173
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp173
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp174
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp174
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp175
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp175
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp176
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp176
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp177
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp177
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp178
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp178
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp179
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp179
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp180
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp180
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp181
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp181
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp182
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp182
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp183
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp183
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp184
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp184
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp185
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp185
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp186
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp186
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp187
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp187
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp188
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp188
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp189
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp189
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp190
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp190
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp191
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp191
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp192
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp192
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp193
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp193
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp194
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp194
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp195
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp195
 		setadd x 1
 		setadd y -6
 		setadd z -6
@@ -1310,276 +1898,423 @@ quit
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp196
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp196
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp197
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp197
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp198
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp198
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp199
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp199
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp200
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp200
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp201
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp201
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp202
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp202
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp203
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp203
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp204
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp204
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp205
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp205
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp206
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp206
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp207
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp207
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp208
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp208
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp209
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp209
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp210
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp210
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp211
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp211
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp212
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp212
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp213
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp213
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp214
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp214
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp215
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp215
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp216
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp216
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp217
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp217
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp218
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp218
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp219
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp219
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp220
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp220
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp221
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp221
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp222
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp222
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp223
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp223
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp224
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp224
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp225
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp225
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp226
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp226
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp227
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp227
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp228
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp228
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp229
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp229
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp230
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp230
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp231
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp231
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp232
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp232
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp233
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp233
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp234
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp234
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp235
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp235
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp236
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp236
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp237
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp237
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp238
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp238
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp239
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp239
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp240
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp240
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp241
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp241
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp242
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp242
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp243
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp243
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp244
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp244
 		setadd x 1
 		setadd y -6
 		setadd z -6
@@ -1587,276 +2322,423 @@ quit
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp245
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp245
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp246
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp246
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp247
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp247
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp248
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp248
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp249
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp249
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp250
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp250
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp251
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp251
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp252
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp252
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp253
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp253
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp254
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp254
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp255
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp255
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp256
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp256
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp257
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp257
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp258
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp258
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp259
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp259
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp260
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp260
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp261
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp261
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp262
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp262
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp263
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp263
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp264
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp264
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp265
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp265
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp266
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp266
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp267
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp267
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp268
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp268
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp269
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp269
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp270
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp270
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp271
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp271
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp272
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp272
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp273
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp273
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp274
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp274
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp275
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp275
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp276
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp276
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp277
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp277
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp278
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp278
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp279
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp279
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp280
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp280
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp281
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp281
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp282
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp282
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp283
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp283
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp284
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp284
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp285
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp285
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp286
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp286
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp287
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp287
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp288
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp288
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp289
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp289
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp290
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp290
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp291
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp291
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp292
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp292
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp293
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp293
 		setadd x 1
 		setadd y -6
 		setadd z -6
@@ -1864,301 +2746,448 @@ quit
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp294
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp294
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp295
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp295
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp296
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp296
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp297
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp297
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp298
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp298
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp299
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp299
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp300
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp300
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp301
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp301
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp302
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp302
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp303
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp303
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp304
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp304
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp305
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp305
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp306
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp306
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp307
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp307
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp308
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp308
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp309
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp309
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp310
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp310
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp311
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp311
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp312
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp312
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp313
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp313
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp314
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp314
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp315
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp315
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp316
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp316
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp317
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp317
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp318
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp318
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp319
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp319
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp320
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp320
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp321
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp321
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp322
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp322
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp323
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp323
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp324
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp324
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp325
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp325
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp326
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp326
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp327
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp327
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp328
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp328
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp329
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp329
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp330
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp330
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp331
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp331
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp332
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp332
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp333
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp333
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp334
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp334
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp335
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp335
 		setadd y 1
 		setadd z -6
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp336
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp336
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp337
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp337
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp338
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp338
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp339
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp339
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp340
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp340
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp341
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp341
 		setadd z 1
 		set id {world[{x},{y},{z}]}
 		if id|=|"" setblockid id {x} {y} {z}
 		setrandlist id {id}|7|7|7
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		ifnot label #d[{id}] jump #exp342
+			tempblock 0 {x} {y} {z}
+			set world[{x},{y},{z}] 0
+		#exp342
 	set exploding false
 	msg actionCount: {actionCount}
 quit

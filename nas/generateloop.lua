@@ -5,6 +5,7 @@ local function li(txt)
 end
 
 local lx, ly, lz = 0, 0, 0
+local labelno = 0
 
 for x = -3, 3 do
 	for y = -3, 3 do
@@ -44,7 +45,11 @@ li "		if id|=|\"\" setblockid id {x} {y} {z}"
 li("		setrandlist id "..chance)
 			end
 li "		ifnot particle[{id}]|=|\"\" effect {particle[{id}]} {x} {y} {z} 0 0 0"
-li "		if label #d[{id}] call #setblock|0|{x}|{y}|{z}"
+li("		ifnot label #d[{id}] jump #exp"..labelno)
+li "			tempblock 0 {x} {y} {z}"
+li "			set world[{x},{y},{z}] 0"
+li("		#exp"..labelno)
+			labelno = labelno + 1
 		end
 	end
 end
