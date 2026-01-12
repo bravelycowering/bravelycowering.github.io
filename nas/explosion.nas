@@ -19,6 +19,8 @@ quit
 quit
 
 #explode
+	if exploding quit
+	set exploding true
 	// save the runargs
 	set x {runArg1}
 	set y {runArg2}
@@ -101,6 +103,7 @@ quit
 		setadd x 1
 	if x|<=|x2 jump #explode-loop-x
 	resetdata packages edge-?(*)
+	set exploding false
 	msg Final count: {actionCount}
 quit
 
