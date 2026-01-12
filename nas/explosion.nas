@@ -122,16 +122,17 @@ quit
 	// get place block coordinates
 	set coords {click.coords}
 	setsplit coords " "
-	call #getblock|surface|{coords[0]}|{coords[1]}|{coords[2]}
-	ifnot surface|=|42 msg &cYou can only place TNT on &fIron&c!
-	ifnot surface|=|42 quit
 	set x {coords[0]}
+	set y {coords[1]}
+	set z {coords[2]}
+	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
+	if id|=|46 jump #explode|{x}|{y}|{z}
+	ifnot id|=|42 msg &cYou can only place TNT on &fIron&c!
+	ifnot id|=|42 quit
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"TowardsX" setsub x 1
-	set y {coords[1]}
 	if click.face|=|"AwayY" setadd y 1
 	if click.face|=|"TowardsY" setsub y 1
-	set z {coords[2]}
 	if click.face|=|"AwayZ" setadd z 1
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
