@@ -90,9 +90,9 @@ quit
 			#explode-loop-z
 				call #getblock|id|{x}|{y}|{z}
 				if edge-x({x}) setrandlist id {id}|7
-				if edge-y({x}) setrandlist id {id}|7
-				if edge-z({x}) setrandlist id {id}|7
-				if label #d[{id}] effect puff {x} {y} {z} 0 0 0
+				if edge-y({y}) setrandlist id {id}|7
+				if edge-z({z}) setrandlist id {id}|7
+				if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 				if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 				setadd z 1
 			if z|<=|z2 jump #explode-loop-z
