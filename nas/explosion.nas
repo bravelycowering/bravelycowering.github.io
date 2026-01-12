@@ -20,7 +20,7 @@ quit
 
 #resetlevel
 	set x {LevelX}
-	setsub z 1
+	setsub x 1
 	set y {LevelY}
 	setsub y 1
 	set z {LevelZ}
