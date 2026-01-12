@@ -113,7 +113,13 @@ quit
 quit
 
 #click:Left
-	call #setblock|0|{x}|{y}|{z}
+	set coords {click.coords}
+	setsplit coords " "
+	set x {coords[0]}
+	set y {coords[1]}
+	set z {coords[2]}
+	call #getblock|id|{x}|{y}|{z}
+	if id|=|46 call #setblock|0|{x}|{y}|{z}
 quit
 
 #click:Right[46]
