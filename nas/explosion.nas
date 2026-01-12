@@ -8,11 +8,11 @@ using local_packages
 
 #onJoin
 	clickevent sync register #click
-	set breakable[5] explosionsteamsmall
-	set breakable[69] explosionsteamsmall
-	set breakable[70] explosionsteamsmall
-	set breakable[766] sparkle
-	set breakable[767] electric
+	set particle[5] explosionsteamsmall
+	set particle[69] explosionsteamsmall
+	set particle[70] explosionsteamsmall
+	set particle[766] sparkle
+	set particle[767] electric
 quit
 
 #getblock
@@ -89,1647 +89,1647 @@ quit
 		setadd z -3
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
 		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
-		ifnot breakable[{id}]|=|"" effect {breakable[{id}]} {x} {y} {z} 0 0 0
-		ifnot breakable[{id}]|=|"" call #setblock|0|{x}|{y}|{z}
+		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 	set exploding false
 	msg Final count: {actionCount}
 quit

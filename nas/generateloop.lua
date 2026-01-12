@@ -42,8 +42,8 @@ li "		call #getblock|id|{x}|{y}|{z}"
 			if dorandom then
 li("		setrandlist id "..chance)
 			end
-li "		ifnot breakable[{id}]|=|\"\" effect {breakable[{id}]} {x} {y} {z} 0 0 0"
-li "		ifnot breakable[{id}]|=|\"\" call #setblock|0|{x}|{y}|{z}"
+li "		ifnot particle[{id}]|=|\"\" effect {particle[{id}]} {x} {y} {z} 0 0 0"
+li "		if label #d[{id}] call #setblock|0|{x}|{y}|{z}"
 		end
 	end
 end
