@@ -24,6 +24,7 @@ li("		setadd y "..dy)
 				lz = z
 li("		setadd z "..dz)
 			end
+li "		call #getblock|id|{x}|{y}|{z}"
 			local chance = "{id}"
 			local dorandom = false
 			if math.abs(x) == 3 then

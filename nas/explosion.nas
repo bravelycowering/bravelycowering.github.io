@@ -70,1303 +70,1646 @@ quit
 		setadd x -3
 		setadd y -3
 		setadd z -3
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd x 1
-		setadd y -6
-		setadd z -6
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd x 1
-		setadd y -6
-		setadd z -6
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd x 1
 		setadd y -6
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd x 1
+		setadd y -6
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd x 1
+		setadd y -6
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd y 1
-		setadd z -6
-		setrandlist id {id}|7|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
-		setrandlist id {id}|7
-		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
-		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
-		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd y 1
 		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
+		setrandlist id {id}|7|7
+		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
+		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
+		setadd y 1
+		setadd z -6
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 		setadd z 1
+		call #getblock|id|{x}|{y}|{z}
 		setrandlist id {id}|7|7|7
 		if label #d[{id}] effect explosionsteamsmall {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
