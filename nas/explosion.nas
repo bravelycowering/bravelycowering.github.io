@@ -37,11 +37,9 @@ quit
 	setdiv dz {distance}
 	// calculate the velocity based on distance
 	set velocity {distance}
-	setdiv velocity 5
 	setmul velocity -1
-	setadd velocity 1
-	setpow velocity 2
-	setmul velocity 8
+	setadd velocity 5
+	setmul velocity 2
 	if distance|>|5 set velocity 0
 	// set new dir vector
 	setmul dx {velocity}
