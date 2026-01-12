@@ -1,8 +1,14 @@
 using local_packages
 
 #d[5]
+#d[18]
+#d[20]
+#d[46]
+#d[64]
 #d[69]
 #d[70]
+#d[154]
+#d[155]
 #d[763]
 #d[766]
 #d[767]
@@ -10,8 +16,14 @@ using local_packages
 #onJoin
 	clickevent sync register #click
 	set particle[5] explosionsteamsmall
+	set particle[20] leafgreenprecise
+	set particle[20] sparkle
+	set particle[46] explosionsmall
+	set particle[64] explosionsteamsmall
 	set particle[69] explosionsteamsmall
 	set particle[70] explosionsteamsmall
+	set particle[154] sparkle
+	set particle[155] sparkle
 	set particle[763] blood
 	set particle[766] sparkle
 	set particle[767] electric
