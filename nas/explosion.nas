@@ -122,8 +122,6 @@ quit
 #explode
 	if exploding quit
 	set exploding true
-	ifnot hastnt cmd holdsilent 46
-	ifnot hastnt set hastnt true
 	// save the runargs
 	set x {runArg1}
 	set y {runArg2}
@@ -166,10 +164,12 @@ quit
 	setmul dz {velocity}
 	// finally, do the explosion velocity
 	boost {dx} {dy} {dz} 0 0 0
-	call #setblock|0|{x}|{y}|{z}
 	effect explosion {x} {y} {z} 0 0 0 false
 	setrandlist explodesound 3|12|13|14|22|23|24
 	cs pos {x} {y} {z} explode:choose({explodesound})
+	// inlined call to #setblock
+	tempblock 0 {x} {y} {z}
+	set world[{x},{y},{z}] 0
 	// setup for loop (this whole loop is hardcoded)
 		setadd x -3
 		setadd y -3
