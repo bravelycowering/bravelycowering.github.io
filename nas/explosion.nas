@@ -57,6 +57,7 @@ quit
 quit
 
 #click:Left
+	ifnot hastnt jump #click:Right
 	set coords {click.coords}
 	setsplit coords " "
 	set x {coords[0]}
@@ -121,6 +122,8 @@ quit
 #explode
 	if exploding quit
 	set exploding true
+	ifnot hastnt cmd holdsilent 46
+	ifnot hastnt set hastnt true
 	// save the runargs
 	set x {runArg1}
 	set y {runArg2}
