@@ -3,6 +3,7 @@ using local_packages
 #d[5]
 #d[69]
 #d[70]
+#d[763]
 #d[766]
 #d[767]
 
@@ -11,6 +12,7 @@ using local_packages
 	set particle[5] explosionsteamsmall
 	set particle[69] explosionsteamsmall
 	set particle[70] explosionsteamsmall
+	set particle[763] blood
 	set particle[766] sparkle
 	set particle[767] electric
 quit
@@ -33,6 +35,73 @@ quit
 	resetdata packages world[*]
 	menumsg bigannounce
 	menumsg smallannounce
+quit
+
+#click
+	if label #click:{click.button}[{PlayerHeldBlock}] jump #click:{click.button}[{PlayerHeldBlock}]
+	if label #click:{click.button} jump #click:{click.button}
+quit
+
+#click:Left
+	set coords {click.coords}
+	setsplit coords " "
+	set x {coords[0]}
+	set y {coords[1]}
+	set z {coords[2]}
+	call #getblock|id|{x}|{y}|{z}
+	if id|=|46 effect fireprecise {x} {y} {z} 0 0 0
+	if id|=|46 call #setblock|0|{x}|{y}|{z}
+quit
+
+#click:Right[46]
+	// get place block coordinates
+	set coords {click.coords}
+	setsplit coords " "
+	set x {coords[0]}
+	set y {coords[1]}
+	set z {coords[2]}
+	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
+	if id|=|46 jump #explode|{x}|{y}|{z}
+	ifnot id|=|42 msg &cYou can only place TNT on &fIron&c!
+	ifnot id|=|42 quit
+	if click.face|=|"AwayX" setadd x 1
+	if click.face|=|"TowardsX" setsub x 1
+	if click.face|=|"AwayY" setadd y 1
+	if click.face|=|"TowardsY" setsub y 1
+	if click.face|=|"AwayZ" setadd z 1
+	if click.face|=|"TowardsZ" setsub z 1
+	call #getblock|id|{x}|{y}|{z}
+	if id|=|0 call #setblock|46|{x}|{y}|{z}
+quit
+
+#click:Right
+	// get place block coordinates
+	set coords {click.coords}
+	setsplit coords " "
+	set x {coords[0]}
+	set y {coords[1]}
+	set z {coords[2]}
+	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
+	if id|=|46 jump #explode|{x}|{y}|{z}
+quit
+
+#setatan2
+// &angle, x, y
+	if runArg2|=|0 jump #setatan2=0
+	set {runArg1} {runArg3}
+	setdiv {runArg1} {runArg2}
+	setarctan {runArg1} {{runArg1}}
+	if runArg2|<|0 jump #setatan2<0
+quit
+	#setatan2<0
+	if runArg3|>=|0 setadd {runArg1} {PI}
+	if runArg3|<|0 setsub {runArg1} {PI}
+quit
+	#setatan2=0
+	if runArg3|>|0 setdegtorad {runArg1} 90
+	if runArg3|<|0 setdegtorad {runArg1} -90
+	// should technically be undefined, we are going to set it to 0 instead
+	if runArg3|=|0 set {runArg1} 0
 quit
 
 #explode
@@ -1731,81 +1800,4 @@ quit
 		ifnot particle[{id}]|=|"" effect {particle[{id}]} {x} {y} {z} 0 0 0
 		if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 	set exploding false
-	msg Final count: {actionCount}
-quit
-
-#click
-	if label #click:{click.button}[{PlayerHeldBlock}] jump #click:{click.button}[{PlayerHeldBlock}]
-	if label #click:{click.button} jump #click:{click.button}
-quit
-
-#click:Left
-	set coords {click.coords}
-	setsplit coords " "
-	set x {coords[0]}
-	set y {coords[1]}
-	set z {coords[2]}
-	call #getblock|id|{x}|{y}|{z}
-	if id|=|46 call #setblock|0|{x}|{y}|{z}
-quit
-
-#click:Right[46]
-	// get place block coordinates
-	set coords {click.coords}
-	setsplit coords " "
-	set x {coords[0]}
-	set y {coords[1]}
-	set z {coords[2]}
-	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
-	if id|=|46 jump #explode|{x}|{y}|{z}
-	ifnot id|=|42 msg &cYou can only place TNT on &fIron&c!
-	ifnot id|=|42 quit
-	if click.face|=|"AwayX" setadd x 1
-	if click.face|=|"TowardsX" setsub x 1
-	if click.face|=|"AwayY" setadd y 1
-	if click.face|=|"TowardsY" setsub y 1
-	if click.face|=|"AwayZ" setadd z 1
-	if click.face|=|"TowardsZ" setsub z 1
-	call #getblock|id|{x}|{y}|{z}
-	if id|=|0 call #setblock|46|{x}|{y}|{z}
-quit
-
-#click:Right
-	// get place block coordinates
-	set coords {click.coords}
-	setsplit coords " "
-	set x {coords[0]}
-	set y {coords[1]}
-	set z {coords[2]}
-	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
-	if id|=|46 jump #explode|{x}|{y}|{z}
-quit
-
-#dash
-	setdirvector vel.x vel.y vel.z {click.yaw} {click.pitch}
-	setmul vel.x 5
-	setmul vel.y 5
-	setmul vel.z 5
-	set vel.ymode 1
-	if vel.y|<|0 set vel.ymode 0
-	boost {vel.x} {vel.y} {vel.z} 0 {vel.ymode} 0
-quit
-
-#setatan2
-// &angle, x, y
-	if runArg2|=|0 jump #setatan2=0
-	set {runArg1} {runArg3}
-	setdiv {runArg1} {runArg2}
-	setarctan {runArg1} {{runArg1}}
-	if runArg2|<|0 jump #setatan2<0
-quit
-	#setatan2<0
-	if runArg3|>=|0 setadd {runArg1} {PI}
-	if runArg3|<|0 setsub {runArg1} {PI}
-quit
-	#setatan2=0
-	if runArg3|>|0 setdegtorad {runArg1} 90
-	if runArg3|<|0 setdegtorad {runArg1} -90
-	// should technically be undefined, we are going to set it to 0 instead
-	if runArg3|=|0 set {runArg1} 0
 quit
