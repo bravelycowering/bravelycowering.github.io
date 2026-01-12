@@ -19,14 +19,13 @@ quit
 quit
 
 #resetlevel
-	set x {LevelX}
-	setsub x 1
-	set y {LevelY}
-	setsub y 1
-	set z {LevelZ}
-	setsub z 1
-	tempchunk 0 0 0 {x} {y} {z} 0 0 0
+	menumsg bigannounce &fResetting...
+	menumsg smallannounce &fThis may take a bit, so there's a progress bar in the level.
+	tempchunk 1 63 127 126 63 127 1 65 127
+	tempchunk 0 0 0 127 127 127 0 0 0
 	resetdata packages world[*]
+	menumsg bigannounce
+	menumsg smallannounce
 quit
 
 #explode
