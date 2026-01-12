@@ -53,19 +53,15 @@ quit
 
 #click
 	if label #click:{click.button}[{PlayerHeldBlock}] jump #click:{click.button}[{PlayerHeldBlock}]
-	if label #click:{click.button} jump #click:{click.button}
-quit
 
-#click:Left
-	jump #click:Right
+	// get place block coordinates
 	set coords {click.coords}
 	setsplit coords " "
 	set x {coords[0]}
 	set y {coords[1]}
 	set z {coords[2]}
-	call #getblock|id|{x}|{y}|{z}
-	if id|=|46 effect fireprecise {x} {y} {z} 0 0 0
-	if id|=|46 call #setblock|0|{x}|{y}|{z}
+	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
+	if id|=|46 jump #explode|{x}|{y}|{z}
 quit
 
 #click:Right[46]
@@ -87,17 +83,6 @@ quit
 	if click.face|=|"TowardsZ" setsub z 1
 	call #getblock|id|{x}|{y}|{z}
 	if id|=|0 call #setblock|46|{x}|{y}|{z}
-quit
-
-#click:Right
-	// get place block coordinates
-	set coords {click.coords}
-	setsplit coords " "
-	set x {coords[0]}
-	set y {coords[1]}
-	set z {coords[2]}
-	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
-	if id|=|46 jump #explode|{x}|{y}|{z}
 quit
 
 #setatan2
