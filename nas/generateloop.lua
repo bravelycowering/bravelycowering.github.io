@@ -44,8 +44,7 @@ li "		if id|=|\"\" setblockid id {x} {y} {z}"
 li("		setrandlist id "..chance)
 			end
 li "		ifnot particle[{id}]|=|\"\" effect {particle[{id}]} {x} {y} {z} 0 0 0"
-li "		if label #d[{id}] tempblock 0 {x} {y} {z}"
-li "		if label #d[{id}] set world[{x},{y},{z}] 0"
+li "		if label #d[{id}] call #setblock|0|{x}|{y}|{z}"
 		end
 	end
 end
