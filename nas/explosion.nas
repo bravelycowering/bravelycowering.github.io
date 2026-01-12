@@ -10,9 +10,7 @@ quit
 	effect explosion {x} {y} {z} 0 0 0 true
 	setsplit PlayerCoordsDecimal " "
 	// adjust tnt explotion coords
-	setadd x 0.5
 	setsub y 0.5
-	setadd z 0.5
 	// find the distance between the middle of the tnt block and the middle of the player on all axes
 	set dx {PlayerCoordsDecimal[0]}
 	setsub dx {x}
