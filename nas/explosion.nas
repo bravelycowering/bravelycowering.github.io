@@ -9,13 +9,13 @@ using local_packages
 quit
 
 #getblock
-	set {runArg1} {world[{runArg2}]}
-	if {runArg1}|=|"" setblockid {runArg1} {runArg2}
+	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
+	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
 #setblock
-	tempblock {runArg1} {runArg2}
-	set world[{runArg2}] {runArg1}
+	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
+	set world[{runArg2},{runArg3},{runArg4}] {runArg1}
 quit
 
 #explode
@@ -61,7 +61,7 @@ quit
 	setmul dz {velocity}
 	// finally, do the explosion velocity
 	boost {dx} {dy} {dz} 0 0 0
-	call #setblock|0|{x} {y} {z}
+	call #setblock|0|{x}|{y}|{z}
 	effect explosion {x} {y} {z} 0 0 0 false
 	cs pos {x} {y} {z} explode:choose(12)
 	// setup for loop (this whole loop could probably be hardcoded)
@@ -88,12 +88,12 @@ quit
 		#explode-loop-y
 			set z {z1}
 			#explode-loop-z
-				call #getblock|id|{x} {y} {z}
+				call #getblock|id|{x}|{y}|{z}
 				if edge-x({x}) setrandlist id {id}|7
 				if edge-y({x}) setrandlist id {id}|7
 				if edge-z({x}) setrandlist id {id}|7
 				if label #d[{id}] effect puff {x} {y} {z} 0 0 0
-				if label #d[{id}] call #setblock|0|{x} {y} {z}
+				if label #d[{id}] call #setblock|0|{x}|{y}|{z}
 				setadd z 1
 			if z|<=|z2 jump #explode-loop-z
 			setadd y 1
@@ -114,7 +114,7 @@ quit
 	set x {coords[0]}
 	set y {coords[1]}
 	set z {coords[2]}
-	call #getblock|id|{x} {y} {z}
+	call #getblock|id|{x}|{y}|{z}
 	if id|=|46 jump #explode|{x}|{y}|{z}
 quit
 
@@ -122,8 +122,8 @@ quit
 	// get place block coordinates
 	set coords {click.coords}
 	setsplit coords " "
-	call #getblock|surface|{coords}
-	ifnot surface|=|42 msg &cYou can only place TNT on &fIron7c!
+	call #getblock|surface|{coords[0]}|{coords[1]}|{coords[2]}
+	ifnot surface|=|42 msg &cYou can only place TNT on &fIron&c!
 	ifnot surface|=|42 quit
 	set x {coords[0]}
 	if click.face|=|"AwayX" setadd x 1
@@ -134,8 +134,8 @@ quit
 	set z {coords[2]}
 	if click.face|=|"AwayZ" setadd z 1
 	if click.face|=|"TowardsZ" setsub z 1
-	call #getblock|id|{x} {y} {z}
-	if id|=|0 call #setblock|46|{x} {y} {z}
+	call #getblock|id|{x}|{y}|{z}
+	if id|=|0 call #setblock|46|{x}|{y}|{z}
 quit
 
 #dash
