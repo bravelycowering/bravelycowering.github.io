@@ -44,8 +44,8 @@ li "		if id|=|\"\" setblockid id {x} {y} {z}"
 			if dorandom then
 li("		setrandlist id "..chance)
 			end
-li "		ifnot particle[{id}]|=|\"\" effect {particle[{id}]} {x} {y} {z} 0 0 0"
 li("		ifnot label #d[{id}] jump #exp"..labelno)
+li "			ifnot particle[{id}]|=|\"\" effect {particle[{id}]} {x} {y} {z} 0 0 0"
 li "			tempblock 0 {x} {y} {z}"
 li "			set world[{x},{y},{z}] 0"
 li("		#exp"..labelno)
