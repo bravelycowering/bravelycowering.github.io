@@ -13,21 +13,21 @@ for x = -3, 3 do
 			if lx ~= x then
 				local dx = x - lx
 				lx = x
-li("		setadd x "..dx)
+li("		setadd l_x "..dx)
 			end
 			if ly ~= y then
 				local dy = y - ly
 				ly = y
-li("		setadd y "..dy)
+li("		setadd l_y "..dy)
 			end
 			if lz ~= z then
 				local dz = z - lz
 				lz = z
-li("		setadd z "..dz)
+li("		setadd l_z "..dz)
 			end
-li "		set id {world[{x},{y},{z}]}"
-li "		if id|=|\"\" setblockid id {x} {y} {z}"
-			local chance = "{id}"
+li "		set l_id {world[{l_x},{l_y},{l_z}]}"
+li "		if l_id|=|\"\" setblockid l_id {l_x} {l_y} {l_z}"
+			local chance = "{l_id}"
 			local dorandom = false
 			if math.abs(x) == 3 then
 				dorandom = true
@@ -42,12 +42,12 @@ li "		if id|=|\"\" setblockid id {x} {y} {z}"
 				chance = chance.."|7"
 			end
 			if dorandom then
-li("		setrandlist id "..chance)
+li("		setrandlist l_id "..chance)
 			end
-li("		ifnot label #d[{id}] jump #exp"..labelno)
-li "			ifnot particle[{id}]|=|\"\" effect {particle[{id}]} {x} {y} {z} 0 0 0"
-li "			tempblock 0 {x} {y} {z}"
-li "			set world[{x},{y},{z}] 0"
+li("		ifnot label #d[{l_id}] jump #exp"..labelno)
+li "			ifnot particle[{l_id}]|=|\"\" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0"
+li "			tempblock 0 {l_x} {l_y} {l_z}"
+li "			set world[{l_x},{l_y},{l_z}] 0"
 li("		#exp"..labelno)
 			labelno = labelno + 1
 		end
