@@ -168,7 +168,8 @@ quit
 	boost {dx} {dy} {dz} 0 0 0
 	call #setblock|0|{x}|{y}|{z}
 	effect explosion {x} {y} {z} 0 0 0 false
-	cs pos {x} {y} {z} explode:choose(12)
+	setrandlist explodesound 3|12|13|14|22|23|24
+	cs pos {x} {y} {z} explode:choose({explodesound})
 	// setup for loop (this whole loop is hardcoded)
 		setadd x -3
 		setadd y -3
