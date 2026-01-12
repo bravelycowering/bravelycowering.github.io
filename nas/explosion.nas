@@ -18,7 +18,7 @@ using local_packages
 	clickevent sync register #click
 	set particle[5] explosionsteamsmall
 	set particle[17] explosionsteamsmall
-	set particle[20] leafgreenprecise
+	set particle[18] leafgreenprecise
 	set particle[20] sparkle
 	set particle[46] explosionsmall
 	set particle[64] explosionsteamsmall
