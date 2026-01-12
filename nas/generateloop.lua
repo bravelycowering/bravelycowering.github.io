@@ -24,7 +24,8 @@ li("		setadd y "..dy)
 				lz = z
 li("		setadd z "..dz)
 			end
-li "		call #getblock|id|{x}|{y}|{z}"
+li "		set id {world[{x},{y},{z}]}"
+li "		if id|=|\"\" setblockid id {x} {y} {z}"
 			local chance = "{id}"
 			local dorandom = false
 			if math.abs(x) == 3 then
@@ -43,7 +44,8 @@ li "		call #getblock|id|{x}|{y}|{z}"
 li("		setrandlist id "..chance)
 			end
 li "		ifnot particle[{id}]|=|\"\" effect {particle[{id}]} {x} {y} {z} 0 0 0"
-li "		if label #d[{id}] call #setblock|0|{x}|{y}|{z}"
+li "		if label #d[{id}] tempblock 0 {x} {y} {z}"
+li "		if label #d[{id}] set world[{x},{y},{z}] 0"
 		end
 	end
 end
