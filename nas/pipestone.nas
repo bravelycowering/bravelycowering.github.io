@@ -176,8 +176,10 @@ quit
 	setblockmessage tempmsg2 {X} {TEMP2} {Z}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
-	placemessageblock {tempid1} {X} {TEMP2} {Z} {tempmsg1}
-	placemessageblock {tempid2} {X} {TEMP1} {Z} {tempmsg2}
+	ifnot tempmsg1|=|"" placemessageblock {tempid1} {X} {TEMP2} {Z} {tempmsg1}
+	else placemessageblock {tempid1} {X} {TEMP2} {Z}
+	ifnot tempmsg2|=|"" placemessageblock {tempid2} {X} {TEMP1} {Z} {tempmsg2}
+	else placemessageblock {tempid2} {X} {TEMP1} {Z}
 quit
 
 // Swapper-NS
@@ -194,8 +196,10 @@ quit
 	setblockmessage tempmsg2 {X} {Y} {TEMP2}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
-	placemessageblock {tempid1} {X} {Y} {TEMP2} {tempmsg1}
-	placemessageblock {tempid2} {X} {Y} {TEMP1} {tempmsg2}
+	ifnot tempmsg1|=|"" placemessageblock {tempid1} {X} {Y} {TEMP2} {tempmsg1}
+	else placemessageblock {tempid1} {X} {Y} {TEMP2}
+	ifnot tempmsg2|=|"" placemessageblock {tempid2} {X} {Y} {TEMP1} {tempmsg2}
+	else placemessageblock {tempid2} {X} {Y} {TEMP1}
 quit
 
 // Swapper-WE
@@ -212,6 +216,8 @@ quit
 	setblockmessage tempmsg2 {TEMP2} {Y} {Z}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
-	placemessageblock {tempid1} {TEMP2} {Y} {Z} {tempmsg1}
-	placemessageblock {tempid2} {TEMP1} {Y} {Z} {tempmsg2}
+	ifnot tempmsg1|=|"" placemessageblock {tempid1} {TEMP2} {Y} {Z} {tempmsg1}
+	else placemessageblock {tempid1} {TEMP2} {Y} {Z}
+	ifnot tempmsg2|=|"" placemessageblock {tempid2} {TEMP1} {Y} {Z} {tempmsg2}
+	else placemessageblock {tempid2} {TEMP1} {Y} {Z}
 quit
