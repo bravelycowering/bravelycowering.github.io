@@ -31,6 +31,11 @@ using local_packages
 	set particle[767] electric
 quit
 
+#hax
+	cmd maphack
+	motd jumpheight=2.2 horspeed=2 -push
+quit
+
 #getblock
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
 	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
