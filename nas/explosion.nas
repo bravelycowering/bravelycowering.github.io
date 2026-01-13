@@ -10,7 +10,9 @@ using local_packages
 #d[70]
 #d[154]
 #d[155]
+#d[159]
 #d[763]
+#d[765]
 #d[766]
 #d[767]
 
@@ -26,14 +28,18 @@ using local_packages
 	set particle[70] explosionsteamsmall
 	set particle[154] sparkle
 	set particle[155] sparkle
+	set particle[159] explosionsteamsmall
 	set particle[763] blood
+	set particle[765]
 	set particle[766] sparkle
 	set particle[767] electric
 quit
 
 #hax
-	cmd maphack
-	motd jumpheight=2.2 horspeed=2 -push
+	cmd maphack {runArg1}
+	if runArg1|=|"off" motd jumpheight=2.2 horspeed=2 -push model=humanoid
+	else motd -hax +thirdperson jumpheight=2.2 horspeed=2 -push model=humanoid
+	set runArg1
 quit
 
 #getblock
