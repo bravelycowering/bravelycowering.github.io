@@ -169,13 +169,15 @@ quit
 	set TEMP1 {Y}
 	setadd TEMP1 1
 	setblockid tempid1 {X} {TEMP1} {Z}
+	setblockmessage tempmsg1 {X} {TEMP1} {Z}
 	set TEMP2 {Y}
 	setsub TEMP2 1
 	setblockid tempid2 {X} {TEMP2} {Z}
+	setblockmessage tempmsg2 {X} {TEMP2} {Z}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
-	placeblock {tempid1} {X} {TEMP2} {Z}
-	placeblock {tempid2} {X} {TEMP1} {Z}
+	placemessageblock {tempid1} {X} {TEMP2} {Z} {tempmsg1}
+	placemessageblock {tempid2} {X} {TEMP1} {Z} {tempmsg2}
 quit
 
 // Swapper-NS
@@ -185,13 +187,15 @@ quit
 	set TEMP1 {Z}
 	setadd TEMP1 1
 	setblockid tempid1 {X} {Y} {TEMP1}
+	setblockmessage tempmsg1 {X} {Y} {TEMP1}
 	set TEMP2 {Z}
 	setsub TEMP2 1
 	setblockid tempid2 {X} {Y} {TEMP2}
+	setblockmessage tempmsg2 {X} {Y} {TEMP2}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
-	placeblock {tempid1} {X} {Y} {TEMP2}
-	placeblock {tempid2} {X} {Y} {TEMP1}
+	placemessageblock {tempid1} {X} {Y} {TEMP2} {tempmsg1}
+	placemessageblock {tempid2} {X} {Y} {TEMP1} {tempmsg2}
 quit
 
 // Swapper-WE
@@ -201,11 +205,13 @@ quit
 	set TEMP1 {X}
 	setadd TEMP1 1
 	setblockid tempid1 {TEMP1} {Y} {Z}
+	setblockmessage tempmsg1 {TEMP1} {Y} {Z}
 	set TEMP2 {X}
 	setsub TEMP2 1
 	setblockid tempid2 {TEMP2} {Y} {Z}
+	setblockmessage tempmsg2 {TEMP2} {Y} {Z}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
-	placeblock {tempid1} {TEMP2} {Y} {Z}
-	placeblock {tempid2} {TEMP1} {Y} {Z}
+	placemessageblock {tempid1} {TEMP2} {Y} {Z} {tempmsg1}
+	placemessageblock {tempid2} {TEMP1} {Y} {Z} {tempmsg2}
 quit
