@@ -176,10 +176,16 @@ quit
 	setblockmessage tempmsg2 {X} {TEMP2} {Z}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
+	ifnot tempmsg1|=|"" jump #Pipes:gizmo[755].swapmbs
+	ifnot tempmsg2|=|"" jump #Pipes:gizmo[755].swapmbs
+	placeblock {tempid1} {X} {TEMP2} {Z}
+	placeblock {tempid2} {X} {TEMP1} {Z}
+	quit
+	#Pipes:gizmo[755].swapmbs
 	ifnot tempmsg1|=|"" placemessageblock {tempid1} {X} {TEMP2} {Z} {tempmsg1}
-	else placemessageblock {tempid1} {X} {TEMP2} {Z}
+	else placemessageblock {tempid1} {X} {TEMP2} {Z} {tempmsg1}
 	ifnot tempmsg2|=|"" placemessageblock {tempid2} {X} {TEMP1} {Z} {tempmsg2}
-	else placemessageblock {tempid2} {X} {TEMP1} {Z}
+	else placemessageblock {tempid2} {X} {TEMP1} {Z} {tempmsg2}
 quit
 
 // Swapper-NS
@@ -196,10 +202,16 @@ quit
 	setblockmessage tempmsg2 {X} {Y} {TEMP2}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
+	ifnot tempmsg1|=|"" jump #Pipes:gizmo[754].swapmbs
+	ifnot tempmsg2|=|"" jump #Pipes:gizmo[754].swapmbs
+	placeblock {tempid1} {X} {Y} {TEMP2}
+	placeblock {tempid2} {X} {Y} {TEMP1}
+	quit
+	#Pipes:gizmo[754].swapmbs
 	ifnot tempmsg1|=|"" placemessageblock {tempid1} {X} {Y} {TEMP2} {tempmsg1}
-	else placemessageblock {tempid1} {X} {Y} {TEMP2}
+	else placemessageblock {tempid1} {X} {Y} {TEMP2} {tempmsg1}
 	ifnot tempmsg2|=|"" placemessageblock {tempid2} {X} {Y} {TEMP1} {tempmsg2}
-	else placemessageblock {tempid2} {X} {Y} {TEMP1}
+	else placemessageblock {tempid2} {X} {Y} {TEMP1} {tempmsg2}
 quit
 
 // Swapper-WE
@@ -216,8 +228,14 @@ quit
 	setblockmessage tempmsg2 {TEMP2} {Y} {Z}
 	if tempid1|>|767 quit
 	if tempid2|>|767 quit
+	ifnot tempmsg1|=|"" jump #Pipes:gizmo[753].swapmbs
+	ifnot tempmsg2|=|"" jump #Pipes:gizmo[753].swapmbs
+	placeblock {tempid1} {TEMP2} {Y} {Z}
+	placeblock {tempid2} {TEMP1} {Y} {Z}
+	quit
+	#Pipes:gizmo[753].swapmbs
 	ifnot tempmsg1|=|"" placemessageblock {tempid1} {TEMP2} {Y} {Z} {tempmsg1}
-	else placemessageblock {tempid1} {TEMP2} {Y} {Z}
+	else placemessageblock {tempid1} {TEMP2} {Y} {Z} {tempmsg1}
 	ifnot tempmsg2|=|"" placemessageblock {tempid2} {TEMP1} {Y} {Z} {tempmsg2}
-	else placemessageblock {tempid2} {TEMP1} {Y} {Z}
+	else placemessageblock {tempid2} {TEMP1} {Y} {Z} {tempmsg2}
 quit
