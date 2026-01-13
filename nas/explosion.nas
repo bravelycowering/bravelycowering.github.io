@@ -73,7 +73,7 @@ quit
 	set z {coords[2]}
 	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
 	if id|=|46 jump #explode|{x}|{y}|{z}
-	ifnot id|=|42 msg &cYou can only place TNT on &fIron&c!
+	ifnot id|=|42 cpemsg smallannounce &cYou can only place TNT on &fIron&c!
 	ifnot id|=|42 quit
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"TowardsX" setsub x 1
@@ -3175,5 +3175,4 @@ quit
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp342
 	set exploding false
-	msg actionCount: {actionCount}
 quit
