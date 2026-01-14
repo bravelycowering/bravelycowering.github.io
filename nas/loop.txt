@@ -1508,7 +1508,6 @@
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
 		ifnot label #d[{l_id}] jump #exp171
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp171

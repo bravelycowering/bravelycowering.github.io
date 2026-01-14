@@ -45,7 +45,9 @@ li "		if l_id|=|\"\" setblockid l_id {l_x} {l_y} {l_z}"
 li("		setrandlist l_id "..chance)
 			end
 li("		ifnot label #d[{l_id}] jump #exp"..labelno)
+			if x ~= 0 or y ~= 0 or z ~= 0 then
 li "			ifnot particle[{l_id}]|=|\"\" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0"
+			end
 li "			tempblock 0 {l_x} {l_y} {l_z}"
 li "			set world[{l_x},{l_y},{l_z}] 0"
 li("		#exp"..labelno)

@@ -261,9 +261,6 @@ quit
 	effect explosion {l_x} {l_y} {l_z} 0 0 0 false
 	setrandlist l_explodesound 3|12|13|14|22|23|24
 	cs pos {l_x} {l_y} {l_z} explode:choose({l_explodesound})
-	// inlined call to #setblock
-	tempblock 0 {l_x} {l_y} {l_z}
-	set world[{l_x},{l_y},{l_z}] 0
 	// setup for loop (this whole loop is hardcoded)
 		setadd l_x -3
 		setadd l_y -3
@@ -1775,7 +1772,6 @@ quit
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
 		ifnot label #d[{l_id}] jump #exp171
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp171
