@@ -145,7 +145,7 @@ quit
 	#clickbuild:Left
 		if marks|>|0 jump #clickbuild:Mark|{markcallback}
 		setblockmessage msg {x} {y} {z}
-		ifnot msg|=|"" jump #clickbuild:Mark|{markcallback}
+		ifnot msg|=|"" quit
 		call #getblock|id|{x}|{y}|{z}
 		ifnot id|=|65535 placeblock 0 {x} {y} {z}
 		resetdata packages world[{x},{y},{z}]
