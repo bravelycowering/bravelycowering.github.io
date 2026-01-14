@@ -73,23 +73,23 @@ quit
 quit
 
 #input:z
+#input:cuboid
 	cmd z {runArgs}
 	set marks 2
 quit
 
 #input:a
+#input:abort
 	cmd a
 	set marks 0
 quit
 
-#input:explode
-	set marks 1
-	set markcallback #explode
-quit
-
 #input:expcheck
+#input:ec
+	msg &fClick a block to check the explosion range
+	msg &a/in a&f to abort
 	if expchunk|=|"" set marks 1
-	if expchunk|=|"" set markcallback #explode
+	if expchunk|=|"" set markcallback #explodecheck
 	ifnot expchunk|=|"" tempchunk {expchunk}
 	ifnot expchunk|=|"" set expchunk
 quit
