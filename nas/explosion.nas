@@ -65,10 +65,8 @@ quit
 quit
 
 #input:build
-	ifnot runArgs[1]|=|"off" clickevent sync unregister #click
-	else clickevent sync register #click
 	ifnot runArgs[1]|=|"off" clickevent sync register #clickbuild
-	else clickevent sync unregister #clickbuild
+	else clickevent sync register #click
 	ifnot runArgs[1]|=|"off" msg &aYou are now building on this map
 	else msg &eYou are no longer building.
 quit
