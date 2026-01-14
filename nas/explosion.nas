@@ -130,6 +130,12 @@ quit
 	set x {coords[0]}
 	set y {coords[1]}
 	set z {coords[2]}
+	if x|>=|65535 quit
+	if y|>=|65535 quit
+	if z|>=|65535 quit
+	if x|<|0 quit
+	if y|<|0 quit
+	if z|<|0 quit
 	jump #clickbuild:{click.button}
 
 	#clickbuild:Mark
