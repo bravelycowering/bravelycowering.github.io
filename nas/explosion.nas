@@ -3341,1428 +3341,1771 @@ quit
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_x 1
 		setadd l_y -6
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_x 1
 		setadd l_y -6
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_x 1
 		setadd l_y -6
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_x 1
 		setadd l_y -6
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_x 1
 		setadd l_y -6
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_x 1
 		setadd l_y -6
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_y 1
 		setadd l_z -6
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 		setadd l_z 1
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
+		ifnot world[{l_x},{l_y},{l_z}]|=|"" set world[{l_x},{l_y},{l_z}]
 	msg &a{l_affected}&7 blocks affected
 	tempblock 170 {exppos}
 quit

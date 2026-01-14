@@ -67,6 +67,7 @@ l2 "		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}"
 l2 "		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}"
 			end
 l2 "		if label #d[{l_id}] setadd l_affected 1"
+l2 "		ifnot world[{l_x},{l_y},{l_z}]|=|\"\" set world[{l_x},{l_y},{l_z}]"
 l1("		#exp"..labelno)
 			labelno = labelno + 1
 		end
