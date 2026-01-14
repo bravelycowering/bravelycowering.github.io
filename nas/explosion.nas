@@ -54,6 +54,7 @@ quit
 	ifnot label #input:{runArg1} quit
 	set runArgs {runArg1} {runArg2}
 	setsplit runArgs " "
+	set runArgs {runArg2}
 	call #input:{runArg1}
 	resetdata packages runArgs*
 quit
