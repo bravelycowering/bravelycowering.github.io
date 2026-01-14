@@ -4760,6 +4760,5 @@ quit
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
 	msg &a{l_affected}&7 blocks affected
-	msg &a{l_affected}&7 blocks affected
 	tempblock 170 {exppos}
 quit
