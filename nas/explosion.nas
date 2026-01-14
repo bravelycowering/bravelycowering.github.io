@@ -123,7 +123,7 @@ quit
 	jump #clickbuild:{click.button}
 
 	#clickbuild:Mark
-		cmd m {x} {y} {z}
+		if runArg1|=|"" cmd m {x} {y} {z}
 		if marks|>|0 setsub marks 1
 		ifnot runArg1|=|"" set markcallback
 		ifnot runArg1|=|"" jump {runArg1}|{x}|{y}|{z}
