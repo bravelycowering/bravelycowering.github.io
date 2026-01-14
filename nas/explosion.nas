@@ -137,6 +137,8 @@ quit
 		if click.face|=|"AwayZ" setadd z 1
 		if click.face|=|"TowardsZ" setsub z 1
 		if marks|>|0 jump #clickbuild:Mark|{markcallback}
+		setblockmessage msg {x} {y} {z}
+		ifnot msg|=|"" quit
 		call #getblock|id|{x}|{y}|{z}
 		if id|=|0 placeblock {PlayerHeldBlock} {x} {y} {z}
 		resetdata packages world[{x},{y},{z}]
