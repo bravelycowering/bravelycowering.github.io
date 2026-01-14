@@ -83,6 +83,7 @@ quit
 	cmd a
 	set marks 0
 	ifnot expchunk|=|"" tempchunk {expchunk}
+	ifnot expchunk|=|"" set exppos
 	ifnot expchunk|=|"" set expchunk
 quit
 
@@ -94,6 +95,7 @@ quit
 	if expchunk|=|"" set markcallback #explodecheck
 	ifnot expchunk|=|"" msg &fExplosion check hidden
 	ifnot expchunk|=|"" tempchunk {expchunk}
+	ifnot expchunk|=|"" set exppos
 	ifnot expchunk|=|"" set expchunk
 quit
 
@@ -162,6 +164,7 @@ quit
 	quit
 
 	#clickbuild:Left
+		if exppos|=|coords jump #hideexplosioncheck
 		if label #clickbuild[{PlayerHeldBlock}] jump #clickbuild[{PlayerHeldBlock}] 
 		if marks|>|0 jump #clickbuild:Mark|{markcallback}
 		setblockmessage msg {x} {y} {z}
@@ -186,6 +189,12 @@ quit
 		jump #explodecheck|{x}|{y}|{z}
 	quit
 
+quit
+
+#hideexplosioncheck
+	ifnot expchunk|=|"" tempchunk {expchunk}
+	ifnot expchunk|=|"" set exppos
+	ifnot expchunk|=|"" set expchunk
 quit
 
 #click
@@ -3312,7 +3321,6 @@ quit
 	set l_x {runArg1}
 	set l_y {runArg2}
 	set l_z {runArg3}
-	tempblock 170 {l_x} {l_y} {l_z}
 	set l_xend {runArg1}
 	set l_yend {runArg2}
 	set l_zend {runArg3}
@@ -3325,6 +3333,8 @@ quit
 		setadd l_z -3
 	ifnot expchunk|=|"" tempchunk {expchunk}
 	set expchunk {l_x} {l_y} {l_z} {l_xend} {l_yend} {l_zend} {l_x} {l_y} {l_z}
+	tempblock 170 {runArg1} {runArg2} {runArg3}
+	set exppos {runArg1} {runArg2} {runArg3}
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
