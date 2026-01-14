@@ -17,6 +17,14 @@ using local_packages
 #d[767]
 
 #p[42]
+#p[744]
+#p[745]
+#p[746]
+#p[747]
+#p[748]
+#p[749]
+#p[750]
+#p[751]
 
 #onJoin
 	clickevent sync register #click
