@@ -16,6 +16,8 @@ using local_packages
 #d[766]
 #d[767]
 
+#p[42]
+
 #onJoin
 	clickevent sync register #click
 	set particle[5] explosionsteamsmall
@@ -37,7 +39,7 @@ quit
 
 #hax
 	cmd maphack {runArg1}
-	if runArg1|=|"off" motd jumpheight=2.2 horspeed=2 -push model=humanoid
+	ifnot runArg1|=|"off" motd jumpheight=2.2 horspeed=2 -push model=humanoid
 	else motd -hax +thirdperson jumpheight=2.2 horspeed=2 -push model=humanoid
 	set runArg1
 quit
@@ -84,8 +86,8 @@ quit
 	set z {coords[2]}
 	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
 	if id|=|46 jump #explode|{x}|{y}|{z}
-	ifnot id|=|42 cpemsg smallannounce &cYou can only place TNT on &fIron&c!
-	ifnot id|=|42 quit
+	ifnot label #p[{id}] cpemsg smallannounce &cYou can only place TNT on &fIron&c!
+	ifnot label #p[{id}] quit
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"TowardsX" setsub x 1
 	if click.face|=|"AwayY" setadd y 1
