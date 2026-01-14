@@ -37,6 +37,7 @@ li("		setadd l_z "..dz)
 			end
 l1 "		set l_id {world[{l_x},{l_y},{l_z}]}"
 l1 "		if l_id|=|\"\" setblockid l_id {l_x} {l_y} {l_z}"
+l2 "		setblockid l_id {l_x} {l_y} {l_z}"
 			local chance = "{l_id}"
 			local dorandom = false
 			if math.abs(x) == 3 then
