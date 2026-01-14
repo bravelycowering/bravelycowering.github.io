@@ -190,7 +190,7 @@ quit
 	quit
 
 	#clickbuild[739]
-		jump #clickbuild:mark|{markcallback}
+		jump #clickbuild:Mark|{markcallback}
 	quit
 
 quit
