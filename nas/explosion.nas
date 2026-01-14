@@ -82,6 +82,17 @@ quit
 	set marks 0
 quit
 
+#input:explode
+	set marks 1
+	set markcallback #explode
+quit
+
+#input:reload
+	clickevent sync register #click
+	cmd maphack
+	cmd reload
+quit
+
 #getblock
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
 	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
@@ -113,6 +124,8 @@ quit
 	#clickbuild:Mark
 		cmd m {x} {y} {z}
 		if marks|>|0 setsub marks 1
+		ifnot runArg1|=|"" set markcallback
+		ifnot runArg1|=|"" jump {runArg1}|{x}|{y}|{z}
 	quit
 
 	#clickbuild:Right
@@ -122,16 +135,16 @@ quit
 		if click.face|=|"TowardsY" setsub y 1
 		if click.face|=|"AwayZ" setadd z 1
 		if click.face|=|"TowardsZ" setsub z 1
-		if marks|>|0 jump #clickbuild:Mark
+		if marks|>|0 jump #clickbuild:Mark|{markcallback}
 		call #getblock|id|{x}|{y}|{z}
 		if id|=|0 placeblock {PlayerHeldBlock} {x} {y} {z}
 		resetdata packages world[{x},{y},{z}]
 	quit
 
 	#clickbuild:Left
-		if marks|>|0 jump #clickbuild:Mark
+		if marks|>|0 jump #clickbuild:Mark|{markcallback}
 		setblockmessage msg {x} {y} {z}
-		ifnot msg|=|"" jump #clickbuild:Mark
+		ifnot msg|=|"" jump #clickbuild:Mark|{markcallback}
 		call #getblock|id|{x}|{y}|{z}
 		ifnot id|=|65535 placeblock 0 {x} {y} {z}
 		resetdata packages world[{x},{y},{z}]
