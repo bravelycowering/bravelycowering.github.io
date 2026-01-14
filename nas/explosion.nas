@@ -54,28 +54,22 @@ quit
 	ifnot label #input:{runArg1} quit
 	set runArgs {runArg2}
 	setsplit runArgs " "
-	set i 0
-	set args
-	#argparser
-		set args {args}|{runArgs[i]}
-		setadd i 1
-	if i|<|runArgs.Length jump #argparser
-	jump #input:{runArg1}{args}
+	call #input:{runArg1}
+	resetdata packages runArgs*
 quit
 
 #input:hax
-	cmd maphack {runArg1}
-	ifnot runArg1|=|"off" motd jumpheight=2.2 horspeed=2 -push model=humanoid
+	cmd maphack {runArgs[1]}
+	ifnot runArgs[1]|=|"off" motd jumpheight=2.2 horspeed=2 -push model=humanoid
 	else motd -hax +thirdperson jumpheight=2.2 horspeed=2 -push model=humanoid
-	set runArg1
 quit
 
 #input:build
-	ifnot runArg1|=|"off" clickevent sync unregister #click
+	ifnot runArgs[1]|=|"off" clickevent sync unregister #click
 	else clickevent sync register #click
-	ifnot runArg1|=|"off" clickevent sync register #clickbuild
+	ifnot runArgs[1]|=|"off" clickevent sync register #clickbuild
 	else clickevent sync unregister #clickbuild
-	ifnot runArg1|=|"off" msg &aYou are now building on this map
+	ifnot runArgs[1]|=|"off" msg &aYou are now building on this map
 	else msg &eYou are no longer building.
 quit
 
