@@ -82,6 +82,8 @@ quit
 #input:abort
 	cmd a
 	set marks 0
+	ifnot expchunk|=|"" tempchunk {expchunk}
+	ifnot expchunk|=|"" set expchunk
 quit
 
 #input:expcheck
@@ -144,6 +146,7 @@ quit
 		if click.face|=|"TowardsY" setsub y 1
 		if click.face|=|"AwayZ" setadd z 1
 		if click.face|=|"TowardsZ" setsub z 1
+		if label #clickbuild[{PlayerHeldBlock}] jump #clickbuild[{PlayerHeldBlock}] 
 		if marks|>|0 jump #clickbuild:Mark|{markcallback}
 		setblockmessage msg {x} {y} {z}
 		ifnot msg|=|"" quit
@@ -153,6 +156,7 @@ quit
 	quit
 
 	#clickbuild:Left
+		if label #clickbuild[{PlayerHeldBlock}] jump #clickbuild[{PlayerHeldBlock}] 
 		if marks|>|0 jump #clickbuild:Mark|{markcallback}
 		setblockmessage msg {x} {y} {z}
 		ifnot msg|=|"" quit
@@ -164,6 +168,16 @@ quit
 	#clickbuild:Middle
 		call #getblock|id|{x}|{y}|{z}
 		cmd holdsilent {id}
+	quit
+
+	#clickbuild[741]
+		set marks 1
+		cmd z
+		cmd m {x} {y} {z}
+	quit
+
+	#clickbuild[740]
+		jump #explodecheck|{x}|{y}|{z}
 	quit
 
 quit
