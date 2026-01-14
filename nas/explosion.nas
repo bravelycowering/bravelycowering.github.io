@@ -52,6 +52,15 @@ quit
 	set runArg1
 quit
 
+#build
+	ifnot runArg1|=|"off" clickevent sync unregister #click
+	else clickevent sync register #click
+	ifnot runArg1|=|"off" clickevent sync unregister #clickbuild
+	else clickevent sync register #clickbuild
+	ifnot runArg1|=|"off" msg &aYou are now building on this map
+	else msg &eYou are no longer building.
+quit
+
 #getblock
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
 	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
@@ -70,6 +79,37 @@ quit
 	resetdata packages world[*]
 	menumsg bigannounce
 	menumsg smallannounce
+quit
+
+#clickbuild
+	set coords {click.coords}
+	setsplit coords " "
+	set x {coords[0]}
+	set y {coords[1]}
+	set z {coords[2]}
+	jump #clickbuild:{click.button}
+
+	#clickbuild:Right
+		if click.face|=|"AwayX" setadd x 1
+		if click.face|=|"TowardsX" setsub x 1
+		if click.face|=|"AwayY" setadd y 1
+		if click.face|=|"TowardsY" setsub y 1
+		if click.face|=|"AwayZ" setadd z 1
+		if click.face|=|"TowardsZ" setsub z 1
+		setblockid id {x} {y} {z}
+		if id|=|0 placeblock {PlayerHeldBlock} {x} {y} {z}
+	quit
+
+	#clickbuild:Left
+		setblockid id {x} {y} {z}
+		ifnot id|=|65535 placeblock 0 {x} {y} {z}
+	quit
+
+	#clickbuild:Middle
+		setblockid id {x} {y} {z}
+		cmd holdsilent {id}
+	quit
+
 quit
 
 #click
