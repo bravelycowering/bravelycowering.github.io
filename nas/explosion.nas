@@ -87,6 +87,13 @@ quit
 	set markcallback #explode
 quit
 
+#input:expcheck
+	if expchunk|=|"" set marks 1
+	if expchunk|=|"" set markcallback #explode
+	ifnot expchunk|=|"" tempchunk {expchunk}
+	ifnot expchunk|=|"" set expchunk
+quit
+
 #input:reload
 	clickevent sync register #click
 	cmd maphack
@@ -214,8 +221,6 @@ quit
 quit
 
 #explode
-	if exploding quit
-	set exploding true
 	// save the runargs
 	set l_x {runArg1}
 	set l_y {runArg2}
@@ -3279,5 +3284,761 @@ quit
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp342
-	set exploding false
+quit
+
+#explodecheck
+	// save the runargs
+	set l_x {runArg1}
+	set l_y {runArg2}
+	set l_z {runArg3}
+	set l_xend {runArg1}
+	set l_yend {runArg2}
+	set l_zend {runArg3}
+	setadd l_xend 3
+	setadd l_yend 3
+	setadd l_zend 3
+		setadd l_x -3
+		setadd l_y -3
+		setadd l_z -3
+	ifnot expchunk|=|"" tempchunk {expchunk}
+	set expchunk {l_x} {l_y} {l_z} {l_xend} {l_yend} {l_zend} {l_x} {l_y} {l_z}
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_x 1
+		setadd l_y -6
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_x 1
+		setadd l_y -6
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_x 1
+		setadd l_y -6
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_x 1
+		setadd l_y -6
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_x 1
+		setadd l_y -6
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_x 1
+		setadd l_y -6
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_y 1
+		setadd l_z -6
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
+		setadd l_z 1
+		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 quit
