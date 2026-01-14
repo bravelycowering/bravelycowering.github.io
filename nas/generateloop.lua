@@ -65,6 +65,7 @@ l2 "		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}"
 			else
 l2 "		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}"
 			end
+l2 "		if label #d[{l_id}] setadd l_affected 1"
 l1("		#exp"..labelno)
 			labelno = labelno + 1
 		end
