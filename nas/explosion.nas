@@ -52,10 +52,10 @@ quit
 	ifnot label #hax[@p] quit
 	ifnot label #input:{runArg1} msg &cSub-command &f'{runArg1}'&c does not exist!
 	ifnot label #input:{runArg1} quit
+	resetdata packages runArgs*
 	set runArgs {runArg2}
 	setsplit runArgs " "
 	call #input:{runArg1}
-	resetdata packages runArgs*
 quit
 
 #input:hax
