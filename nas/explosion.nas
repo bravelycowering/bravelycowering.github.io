@@ -91,6 +91,7 @@ quit
 	clickevent sync register #click
 	cmd maphack
 	cmd reload
+	resetdata packages world[*]
 quit
 
 #getblock
