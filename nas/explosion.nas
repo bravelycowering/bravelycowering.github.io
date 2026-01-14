@@ -26,6 +26,8 @@ using local_packages
 #p[750]
 #p[751]
 
+#hax[bravelycowering+]
+
 #onJoin
 	clickevent sync register #click
 	set particle[5] explosionsteamsmall
