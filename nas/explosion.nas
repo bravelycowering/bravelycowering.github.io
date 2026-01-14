@@ -45,20 +45,46 @@ using local_packages
 	set particle[767] electric
 quit
 
-#hax
+#input
+	ifnot label #hax[@p] msg &a/Input &7is not used in {LevelName}.
+	ifnot label #hax[@p] quit
+	ifnot label #input:{runArg1} msg &cSub-command &f'{runArg1}'&c does not exist!
+	ifnot label #input:{runArg1} quit
+	set runArgs {runArg2}
+	setsplit runArgs " "
+	set i 0
+	set args
+	#argparser
+		set args {args}|{runArgs[i]}
+		setadd i 1
+	if i|<|runArgs.Length jump #argparser
+	jump #input:{runArg1}{args}
+quit
+
+#input:hax
 	cmd maphack {runArg1}
 	ifnot runArg1|=|"off" motd jumpheight=2.2 horspeed=2 -push model=humanoid
 	else motd -hax +thirdperson jumpheight=2.2 horspeed=2 -push model=humanoid
 	set runArg1
 quit
 
-#build
+#input:build
 	ifnot runArg1|=|"off" clickevent sync unregister #click
 	else clickevent sync register #click
 	ifnot runArg1|=|"off" clickevent sync register #clickbuild
 	else clickevent sync unregister #clickbuild
 	ifnot runArg1|=|"off" msg &aYou are now building on this map
 	else msg &eYou are no longer building.
+quit
+
+#input:z
+	cmd z {runArgs}
+	set marks 2
+quit
+
+#input:a
+	cmd a
+	set marks 0
 quit
 
 #getblock
@@ -89,6 +115,11 @@ quit
 	set z {coords[2]}
 	jump #clickbuild:{click.button}
 
+	#clickbuild:Mark
+		cmd m {x} {y} {z}
+		if marks|>|0 setsub marks 1
+	quit
+
 	#clickbuild:Right
 		if click.face|=|"AwayX" setadd x 1
 		if click.face|=|"TowardsX" setsub x 1
@@ -96,17 +127,23 @@ quit
 		if click.face|=|"TowardsY" setsub y 1
 		if click.face|=|"AwayZ" setadd z 1
 		if click.face|=|"TowardsZ" setsub z 1
-		setblockid id {x} {y} {z}
+		if marks|>|0 jump #clickbuild:Mark
+		call #getblock|id|{x}|{y}|{z}
 		if id|=|0 placeblock {PlayerHeldBlock} {x} {y} {z}
+		resetdata packages world[{x},{y},{z}]
 	quit
 
 	#clickbuild:Left
-		setblockid id {x} {y} {z}
+		if marks|>|0 jump #clickbuild:Mark
+		setblockmessage msg {x} {y} {z}
+		ifnot msg|=|"" jump #clickbuild:Mark
+		call #getblock|id|{x}|{y}|{z}
 		ifnot id|=|65535 placeblock 0 {x} {y} {z}
+		resetdata packages world[{x},{y},{z}]
 	quit
 
 	#clickbuild:Middle
-		setblockid id {x} {y} {z}
+		call #getblock|id|{x}|{y}|{z}
 		cmd holdsilent {id}
 	quit
 
