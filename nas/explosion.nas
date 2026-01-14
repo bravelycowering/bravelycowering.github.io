@@ -189,6 +189,10 @@ quit
 		jump #explodecheck|{x}|{y}|{z}
 	quit
 
+	#clickbuild[739]
+		jump #clickbuild:mark|{markcallback}
+	quit
+
 quit
 
 #hideexplosioncheck
