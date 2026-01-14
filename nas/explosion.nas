@@ -126,6 +126,8 @@ quit
 	menumsg smallannounce
 quit
 
+#click:Left[740]
+#click:Right[740]
 #clickbuild
 	set coords {click.coords}
 	setsplit coords " "
