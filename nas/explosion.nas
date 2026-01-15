@@ -50,8 +50,8 @@ quit
 
 #spawntntpickup
 	set pickupx {runArg1}
-	set pickupy {runArg1}
-	set pickupz {runArg1}
+	set pickupy {runArg2}
+	set pickupz {runArg3}
 	cmd tempbot remove tntpickup
 	cmd tempbot add tntpickup {pickupx} {pickupy} {pickupz} 45 0 0 &f
 	cmd tempbot model tntpickup tnt|0.7
@@ -75,6 +75,10 @@ quit
 	effect exclamation {pickupx} {pickupy} {pickupz} 0 0 0
 
 	cmd tempbot remove tntpickup
+
+	cpemsg smallannounce &aYou got the &fTNT&a!
+	msg &aYou got the &fTNT&a!
+	msg something idfk you can put it on iron
 
 	set hastnt true
 quit
@@ -257,6 +261,8 @@ quit
 	set z {coords[2]}
 	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
 	if id|=|46 jump #explode|{x}|{y}|{z}
+	ifnot hastnt cpemsg smallannounce &cYou do not have any TNT!
+	ifnot hastnt quit
 	ifnot label #p[{id}] cpemsg smallannounce &cYou can only place TNT on &fIron&c!
 	ifnot label #p[{id}] quit
 	if click.face|=|"AwayX" setadd x 1
