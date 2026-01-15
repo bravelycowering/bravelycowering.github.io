@@ -45,6 +45,38 @@ using local_packages
 	set particle[765]
 	set particle[766] sparkle
 	set particle[767] electric
+	call #spawntntpickup|79.5|69.5|50.5
+quit
+
+#spawntntpickup
+	set pickupx {runArg1}
+	set pickupy {runArg1}
+	set pickupz {runArg1}
+	cmd tempbot remove tntpickup
+	cmd tempbot add tntpickup {pickupx} {pickupy} {pickupz} 45 0 0 &f
+	cmd tempbot model tntpickup tnt|0.7
+	set hastnt false
+quit
+
+#pickuptnt
+	if hastnt quit
+
+	cmd holdsilent tnt
+	setadd pickupy 0.3
+
+	effect fire {pickupx} {pickupy} {pickupz} 0 0 0
+	effect fire {pickupx} {pickupy} {pickupz} 0 0 0
+	effect fire {pickupx} {pickupy} {pickupz} 0 0 0
+
+	effect sparkle {pickupx} {pickupy} {pickupz} 0 0 0
+	effect sparkle {pickupx} {pickupy} {pickupz} 0 0 0
+	effect sparkle {pickupx} {pickupy} {pickupz} 0 0 0
+
+	effect exclamation {pickupx} {pickupy} {pickupz} 0 0 0
+
+	cmd tempbot remove tntpickup
+
+	set hastnt true
 quit
 
 #input
