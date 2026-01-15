@@ -54,7 +54,7 @@ quit
 	set pickupz {runArg3}
 	cmd tempbot remove tntpickup
 	cmd tempbot add tntpickup {pickupx} {pickupy} {pickupz} 45 0 0 &f
-	cmd tempbot model tntpickup tnt|0.7
+	cmd tempbot model tntpickup 738|0.7
 	set hastnt false
 quit
 
