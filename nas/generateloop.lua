@@ -20,20 +20,15 @@ local labelno = 0
 for x = -3, 3 do
 	for y = -3, 3 do
 		for z = -3, 3 do
-			local chance = "{l_id}"
-			local dorandom = false
-			if math.abs(x) == 3 then
-				dorandom = true
-				chance = chance.."|7"
+			local xd = math.max(0, math.abs(x) - 1)
+			local yd = math.max(0, math.abs(y) - 1)
+			local zd = math.max(0, math.abs(y) - 1)
+			local weak = math.max(0, xd + yd + zd - 1)
+			local chance = "{l_id}"..string.rep("|7", weak)
+			if weak > 3 then
+				goto continue
 			end
-			if math.abs(y) == 3 then
-				dorandom = true
-				chance = chance.."|7"
-			end
-			if math.abs(z) == 3 then
-				dorandom = true
-				chance = chance.."|7"
-			end
+			local color = 115 + weak
 			if lx ~= x then
 				local dx = x - lx
 				lx = x
@@ -52,7 +47,7 @@ li("		setadd l_z "..dz)
 l1 "		set l_id {world[{l_x},{l_y},{l_z}]}"
 l1 "		if l_id|=|\"\" setblockid l_id {l_x} {l_y} {l_z}"
 l2 "		setblockid l_id {l_x} {l_y} {l_z}"
-			if dorandom then
+			if weak > 0 then
 l1("		setrandlist l_id "..chance)
 			end
 l1("		ifnot label #d[{l_id}] jump #exp"..labelno)
@@ -61,15 +56,12 @@ l1 "			ifnot particle[{l_id}]|=|\"\" effect {particle[{l_id}]} {l_x} {l_y} {l_z}
 			end
 l1 "			tempblock 0 {l_x} {l_y} {l_z}"
 l1 "			set world[{l_x},{l_y},{l_z}] 0"
-			if dorandom then
-l2 "		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}"
-			else
-l2 "		if label #d[{l_id}] tempblock 115 {l_x} {l_y} {l_z}"
-			end
+l2("		if label #d[{l_id}] tempblock "..color.." {l_x} {l_y} {l_z}")
 l2 "		if label #d[{l_id}] setadd l_affected 1"
 l2 "		ifnot world[{l_x},{l_y},{l_z}]|=|\"\" set world[{l_x},{l_y},{l_z}]"
 l1("		#exp"..labelno)
 			labelno = labelno + 1
+		    ::continue::
 		end
 	end
 end

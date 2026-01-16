@@ -342,7 +342,7 @@ quit
 	cs pos {l_x} {l_y} {l_z} explode:choose({l_explodesound})
 	// setup for loop (this whole loop is hardcoded)
 		setadd l_x -3
-		setadd l_y -3
+		setadd l_y -2
 		setadd l_z -3
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
@@ -355,7 +355,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp1
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -364,7 +364,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp2
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -373,7 +373,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp3
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -382,7 +382,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp4
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -391,7 +391,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp5
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -410,7 +410,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp7
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -464,7 +464,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp13
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -474,7 +474,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp14
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -528,7 +528,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp20
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -538,7 +538,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp21
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -592,7 +592,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp27
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -602,7 +602,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp28
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -611,7 +611,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp29
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -620,7 +620,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp30
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -629,7 +629,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp31
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -638,7 +638,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp32
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -647,7 +647,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp33
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -656,13 +656,14 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp34
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp34
-		setadd l_y 1
+		setadd l_x 1
+		setadd l_y -4
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
@@ -675,7 +676,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp36
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -684,7 +685,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp37
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -693,7 +694,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp38
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -702,7 +703,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp39
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -711,7 +712,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp40
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -730,7 +731,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp42
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -739,7 +739,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp43
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -748,7 +747,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp44
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -757,7 +755,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp45
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -766,7 +763,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp46
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -775,7 +771,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp47
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -784,18 +779,15 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp48
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp48
-		setadd l_x 1
-		setadd l_y -6
+		setadd l_y 1
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp49
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -804,7 +796,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp50
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -813,7 +804,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp51
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -822,7 +812,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp52
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -831,7 +820,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp53
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -840,7 +828,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp54
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -849,7 +836,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp55
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -859,7 +845,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp56
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -908,7 +893,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp62
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -918,7 +902,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp63
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -927,6 +911,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp64
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -935,6 +920,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp65
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -943,6 +929,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp66
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -951,6 +938,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp67
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -959,6 +947,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp68
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -967,17 +956,18 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp69
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp69
-		setadd l_y 1
+		setadd l_x 1
+		setadd l_y -5
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp70
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -986,6 +976,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp71
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -994,6 +985,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp72
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1002,6 +994,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp73
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1010,6 +1003,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp74
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1018,6 +1012,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp75
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1026,7 +1021,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp76
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1045,6 +1040,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp78
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1053,6 +1049,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp79
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1061,6 +1058,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp80
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1069,6 +1067,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp81
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1077,6 +1076,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp82
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1095,7 +1095,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp84
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1144,7 +1143,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp90
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1154,7 +1152,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp91
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1163,7 +1160,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp92
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1172,7 +1168,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp93
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1181,7 +1176,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp94
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1190,7 +1184,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp95
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1199,7 +1192,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp96
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1208,18 +1200,15 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp97
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp97
-		setadd l_x 1
-		setadd l_y -6
+		setadd l_y 1
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp98
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1228,7 +1217,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp99
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1237,7 +1225,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp100
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1246,7 +1233,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp101
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1255,7 +1241,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp102
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1264,7 +1249,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp103
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1273,7 +1257,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp104
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1292,6 +1275,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp106
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1300,6 +1284,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp107
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1308,6 +1293,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp108
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1316,6 +1302,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp109
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1324,6 +1311,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp110
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1342,7 +1330,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp112
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1351,6 +1339,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp113
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1359,6 +1348,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp114
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1367,6 +1357,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp115
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1375,6 +1366,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp116
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1383,6 +1375,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp117
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1391,17 +1384,18 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp118
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp118
-		setadd l_y 1
+		setadd l_x 1
+		setadd l_y -6
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp119
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1410,6 +1404,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp120
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1418,6 +1413,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp121
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1426,6 +1422,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp122
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1434,6 +1431,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp123
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1442,6 +1440,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp124
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1450,7 +1449,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp125
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1469,6 +1468,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp127
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1477,6 +1477,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp128
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1485,6 +1486,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp129
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1493,6 +1495,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp130
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1501,6 +1504,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp131
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1519,7 +1523,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp133
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1568,7 +1571,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp139
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1578,7 +1580,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp140
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1587,7 +1588,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp141
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1596,7 +1596,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp142
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1605,16 +1604,13 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp143
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp143
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp144
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1623,7 +1619,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp145
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1632,18 +1627,15 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp146
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp146
-		setadd l_x 1
-		setadd l_y -6
+		setadd l_y 1
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp147
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1652,7 +1644,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp148
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1661,7 +1652,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp149
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1670,7 +1660,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp150
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1679,7 +1668,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp151
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1688,7 +1676,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp152
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1697,7 +1684,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp153
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1716,6 +1702,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp155
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1724,6 +1711,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp156
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1732,6 +1720,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp157
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1740,6 +1729,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp158
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1748,6 +1738,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp159
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1766,7 +1757,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp161
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1775,6 +1766,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp162
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1783,6 +1775,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp163
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1791,6 +1784,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp164
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1799,6 +1793,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp165
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1807,6 +1802,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp166
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1815,17 +1811,18 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp167
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp167
-		setadd l_y 1
+		setadd l_x 1
+		setadd l_y -6
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp168
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1834,6 +1831,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp169
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1842,6 +1840,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp170
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1850,13 +1849,16 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp171
+			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp171
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp172
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1865,6 +1867,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp173
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1873,7 +1876,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp174
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1892,6 +1895,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp176
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1900,6 +1904,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp177
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1908,6 +1913,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp178
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1916,6 +1922,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp179
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1924,6 +1931,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp180
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1942,7 +1950,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp182
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -1991,7 +1998,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp188
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2001,7 +2007,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp189
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2010,7 +2015,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp190
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2019,7 +2023,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp191
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2028,7 +2031,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp192
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2037,7 +2039,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp193
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2046,7 +2047,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp194
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2055,18 +2055,15 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp195
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp195
-		setadd l_x 1
-		setadd l_y -6
+		setadd l_y 1
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp196
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2075,7 +2072,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp197
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2084,7 +2080,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp198
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2093,7 +2088,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp199
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2102,7 +2096,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp200
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2111,7 +2104,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp201
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2120,7 +2112,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp202
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2139,6 +2130,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp204
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2147,6 +2139,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp205
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2155,6 +2148,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp206
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2163,6 +2157,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp207
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2171,6 +2166,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp208
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2189,7 +2185,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp210
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2198,6 +2194,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp211
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2206,6 +2203,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp212
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2214,6 +2212,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp213
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2222,6 +2221,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp214
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2230,6 +2230,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp215
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2238,17 +2239,18 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp216
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp216
-		setadd l_y 1
+		setadd l_x 1
+		setadd l_y -5
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp217
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2257,6 +2259,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp218
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2265,6 +2268,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp219
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2273,6 +2277,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp220
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2281,6 +2286,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp221
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2289,6 +2295,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp222
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2297,7 +2304,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp223
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2307,7 +2314,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp224
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2356,7 +2362,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp230
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2366,7 +2371,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp231
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2415,7 +2419,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp237
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2425,7 +2428,6 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp238
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2434,7 +2436,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp239
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2443,7 +2444,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp240
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2452,7 +2452,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp241
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2461,7 +2460,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp242
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2470,7 +2468,6 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp243
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2479,14 +2476,12 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp244
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp244
-		setadd l_x 1
-		setadd l_y -6
+		setadd l_y 1
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
@@ -2499,7 +2494,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp246
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2508,7 +2503,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp247
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2517,7 +2512,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp248
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2526,7 +2521,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp249
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2535,7 +2530,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7
 		ifnot label #d[{l_id}] jump #exp250
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2550,11 +2545,12 @@ quit
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp251
-		setadd l_y 1
+		setadd l_x 1
+		setadd l_y -4
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp252
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2563,6 +2559,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp253
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2571,6 +2568,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp254
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2579,6 +2577,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp255
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2587,6 +2586,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp256
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2595,6 +2595,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp257
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2603,7 +2604,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp258
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2622,6 +2623,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp260
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2630,6 +2632,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp261
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2638,6 +2641,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp262
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2646,6 +2650,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp263
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2654,6 +2659,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp264
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2681,6 +2687,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp267
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2689,6 +2696,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp268
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2697,6 +2705,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp269
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2705,6 +2714,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp270
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2713,6 +2723,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp271
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2740,6 +2751,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp274
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2748,6 +2760,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp275
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2756,6 +2769,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp276
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2764,6 +2778,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp277
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2772,6 +2787,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7
 		ifnot label #d[{l_id}] jump #exp278
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2790,7 +2806,7 @@ quit
 		setadd l_z -6
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp280
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2799,6 +2815,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp281
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2807,6 +2824,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp282
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2815,6 +2833,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp283
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2823,6 +2842,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp284
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2831,6 +2851,7 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp285
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
@@ -2839,525 +2860,12 @@ quit
 		setadd l_z 1
 		set l_id {world[{l_x},{l_y},{l_z}]}
 		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
+		setrandlist l_id {l_id}|7|7|7
 		ifnot label #d[{l_id}] jump #exp286
 			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
 			tempblock 0 {l_x} {l_y} {l_z}
 			set world[{l_x},{l_y},{l_z}] 0
 		#exp286
-		setadd l_y 1
-		setadd l_z -6
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp287
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp287
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp288
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp288
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp289
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp289
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp290
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp290
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp291
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp291
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp292
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp292
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp293
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp293
-		setadd l_x 1
-		setadd l_y -6
-		setadd l_z -6
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7|7
-		ifnot label #d[{l_id}] jump #exp294
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp294
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp295
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp295
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp296
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp296
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp297
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp297
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp298
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp298
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp299
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp299
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7|7
-		ifnot label #d[{l_id}] jump #exp300
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp300
-		setadd l_y 1
-		setadd l_z -6
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp301
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp301
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp302
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp302
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp303
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp303
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp304
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp304
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp305
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp305
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp306
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp306
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp307
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp307
-		setadd l_y 1
-		setadd l_z -6
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp308
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp308
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp309
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp309
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp310
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp310
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp311
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp311
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp312
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp312
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp313
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp313
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp314
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp314
-		setadd l_y 1
-		setadd l_z -6
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp315
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp315
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp316
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp316
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp317
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp317
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp318
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp318
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp319
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp319
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp320
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp320
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp321
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp321
-		setadd l_y 1
-		setadd l_z -6
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp322
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp322
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp323
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp323
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp324
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp324
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp325
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp325
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp326
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp326
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp327
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp327
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp328
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp328
-		setadd l_y 1
-		setadd l_z -6
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp329
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp329
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp330
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp330
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp331
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp331
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp332
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp332
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp333
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp333
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7
-		ifnot label #d[{l_id}] jump #exp334
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp334
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp335
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp335
-		setadd l_y 1
-		setadd l_z -6
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7|7
-		ifnot label #d[{l_id}] jump #exp336
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp336
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp337
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp337
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp338
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp338
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp339
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp339
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp340
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp340
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7
-		ifnot label #d[{l_id}] jump #exp341
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp341
-		setadd l_z 1
-		set l_id {world[{l_x},{l_y},{l_z}]}
-		if l_id|=|"" setblockid l_id {l_x} {l_y} {l_z}
-		setrandlist l_id {l_id}|7|7|7
-		ifnot label #d[{l_id}] jump #exp342
-			ifnot particle[{l_id}]|=|"" effect {particle[{l_id}]} {l_x} {l_y} {l_z} 0 0 0
-			tempblock 0 {l_x} {l_y} {l_z}
-			set world[{l_x},{l_y},{l_z}] 0
-		#exp342
 quit
 
 #explodecheck
@@ -3372,12 +2880,18 @@ quit
 	setadd l_xend 3
 	setadd l_yend 3
 	setadd l_zend 3
-		setadd l_x -3
-		setadd l_y -3
-		setadd l_z -3
+	setadd l_x -3
+	setadd l_y -3
+	setadd l_z -3
 	ifnot expchunk|=|"" tempchunk {expchunk}
 	set expchunk {l_x} {l_y} {l_z} {l_xend} {l_yend} {l_zend} {l_x} {l_y} {l_z}
 	set exppos {runArg1} {runArg2} {runArg3}
+	setadd l_x 3
+	setadd l_y 3
+	setadd l_z 3
+		setadd l_x -3
+		setadd l_y -3
+		setadd l_z -3
 		setblockid l_id {l_x} {l_y} {l_z}
 		if label #d[{l_id}] tempblock 117 {l_x} {l_y} {l_z}
 		if label #d[{l_id}] setadd l_affected 1
