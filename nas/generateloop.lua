@@ -22,7 +22,7 @@ for x = -3, 3 do
 		for z = -3, 3 do
 			local xd = math.max(0, math.abs(x) - 1)
 			local yd = math.max(0, math.abs(y) - 1)
-			local zd = math.max(0, math.abs(y) - 1)
+			local zd = math.max(0, math.abs(z) - 1)
 			local weak = math.max(0, xd + yd + zd - 1)
 			local chance = "{l_id}"..string.rep("|7", weak)
 			if weak > 3 then
