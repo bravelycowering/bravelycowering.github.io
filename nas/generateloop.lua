@@ -17,6 +17,9 @@ end
 local lx, ly, lz = 0, 0, 0
 local labelno = 0
 
+l1 "//explode:start"
+l2 "//explodecheck:start"
+
 for x = -3, 3 do
 	for y = -3, 3 do
 		for z = -3, 3 do
@@ -24,7 +27,14 @@ for x = -3, 3 do
 			local yd = math.max(0, math.abs(y) - 1)
 			local zd = math.max(0, math.abs(z) - 1)
 			local weak = math.max(0, xd + yd + zd - 1)
-			local chance = "{l_id}"..string.rep("|7", weak)
+			local chance = "{l_id}"
+			if weak == 1 then
+				chance = "{l_id}|{l_id}|{l_id}|7"
+			elseif weak == 2 then
+				chance = "{l_id}|7"
+			elseif weak == 3 then
+				chance = "{l_id}|7|7|7"
+			end
 			if weak > 3 then
 				goto continue
 			end
@@ -66,5 +76,15 @@ l1("		#exp"..labelno)
 	end
 end
 
-assert(io.open("loop.txt", "w+b")):write(table.concat(lines1, "\n")):close()
-assert(io.open("loop2.txt", "w+b")):write(table.concat(lines2, "\n")):close()
+l1 "//explode:end"
+l2 "//explodecheck:end"
+
+local f = assert(io.open("explosion.nas", "rb"))
+local content = f:read("a")
+f:close()
+
+local outcontent = content
+	:gsub("//explode:start[%S%s]*//explode:end", table.concat(lines1, "\n"))
+	:gsub("//explodecheck:start[%S%s]*//explodecheck:end", table.concat(lines2, "\n"))
+
+assert(io.open("explosion.nas", "w+b")):write(outcontent):close()
