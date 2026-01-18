@@ -250,6 +250,7 @@ quit
 	set z {coords[2]}
 	call #getblock|id|{coords[0]}|{coords[1]}|{coords[2]}
 	if id|=|46 jump #explode|{x}|{y}|{z}
+	if id|=|729 jump #grapple|{x}|{y}|{z}
 quit
 
 #click:Right[46]
