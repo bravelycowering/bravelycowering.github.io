@@ -309,7 +309,7 @@ quit
 	setdiv l_dz {l_distance}
 	// calculate the velocity based on distance
 	set l_velocity {l_distance}
-	setmul l_velocity -1
+	setmul l_velocity -1.5
 	// set new dir vector
 	setmul l_dx {l_velocity}
 	setmul l_dy {l_velocity}
