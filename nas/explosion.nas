@@ -275,23 +275,45 @@ quit
 	if id|=|0 call #setblock|46|{x}|{y}|{z}
 quit
 
-#setatan2
-// &angle, x, y
-	if runArg2|=|0 jump #setatan2=0
-	set {runArg1} {runArg3}
-	setdiv {runArg1} {runArg2}
-	setarctan {runArg1} {{runArg1}}
-	if runArg2|<|0 jump #setatan2<0
-quit
-	#setatan2<0
-	if runArg3|>=|0 setadd {runArg1} {PI}
-	if runArg3|<|0 setsub {runArg1} {PI}
-quit
-	#setatan2=0
-	if runArg3|>|0 setdegtorad {runArg1} 90
-	if runArg3|<|0 setdegtorad {runArg1} -90
-	// should technically be undefined, we are going to set it to 0 instead
-	if runArg3|=|0 set {runArg1} 0
+#grapple
+	// save the runargs
+	set l_x {runArg1}
+	set l_y {runArg2}
+	set l_z {runArg3}
+	// find the distance between the middle of the tnt block and the middle of the player on all axes
+	setsplit PlayerCoordsDecimal " "
+	set l_dx {PlayerCoordsDecimal[0]}
+	set l_dy {PlayerCoordsDecimal[1]}
+	set l_dz {PlayerCoordsDecimal[2]}
+	setsub l_dx {l_x}
+	if l_x|=|PlayerX set l_dx 0
+	setsub l_dy {l_y}
+	setadd l_dy 0.5
+	setsub l_dz {l_z}
+	if l_z|=|PlayerZ set l_dz 0
+	// calculate the distance
+	set l_dx2 {l_dx}
+	setpow l_dx2 2
+	set l_dy2 {l_dy}
+	setpow l_dy2 2
+	set l_dz2 {l_dz}
+	setpow l_dz2 2
+	set l_distance {l_dx2}
+	setadd l_distance {l_dy2}
+	setadd l_distance {l_dz2}
+	setsqrt l_distance {l_distance}
+	// normalize the vector fuck you
+	setdiv l_dx {l_distance}
+	setdiv l_dy {l_distance}
+	setdiv l_dz {l_distance}
+	// calculate the velocity based on distance
+	set l_velocity {l_distance}
+	// set new dir vector
+	setmul l_dx {l_velocity}
+	setmul l_dy {l_velocity}
+	setmul l_dz {l_velocity}
+	// finally, do the explosion velocity
+	boost {l_dx} {l_dy} {l_dz} 0 0 0
 quit
 
 #explode
