@@ -309,12 +309,13 @@ quit
 	setdiv l_dz {l_distance}
 	// calculate the velocity based on distance
 	set l_velocity {l_distance}
+	setmul l_velocity -1
 	// set new dir vector
 	setmul l_dx {l_velocity}
 	setmul l_dy {l_velocity}
 	setmul l_dz {l_velocity}
 	// finally, do the explosion velocity
-	boost {l_dx} {l_dy} {l_dz} 0 0 0
+	boost {l_dx} {l_dy} {l_dz} 1 1 1
 quit
 
 #explode
