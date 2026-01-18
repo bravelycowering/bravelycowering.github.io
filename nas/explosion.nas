@@ -45,6 +45,7 @@ using local_packages
 	set particle[765]
 	set particle[766] sparkle
 	set particle[767] electric
+	reach 5
 	call #spawntntpickup|79.5|69.5|50.5
 quit
 
