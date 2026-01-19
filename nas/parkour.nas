@@ -87,6 +87,8 @@ quit
 	set l_i 0
 	#writehighscoreloop
 		placeblock {Digit->Block[{l_value[{l_i}]}]} {l_x} 70 48
+		setadd l_i 1
+		setadd l_x 1
 	if l_i|<|l_value.length jump #writehighscoreloop
 quit
 
