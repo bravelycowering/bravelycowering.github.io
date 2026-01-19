@@ -36,9 +36,11 @@ quit
 	msg {actionCount}
 	msg {PlayerZ}
 	if PlayerZ|<|46 quit
+	set l_pos {PlayerZ}
 	set l_reltpdist 0
 	#dojumps
 		setadd l_reltpdist 4
+		setsub l_pos 4
 		setadd Score 1
 		set l_modscore {Score}
 		setmod l_modscore 10
@@ -48,7 +50,7 @@ quit
 		setmod l_modscore 50
 		if l_modscore|=|0 set l_milestonetext &6Score: &f{Score}
 		if l_modscore|=|0 set l_milestonesound collect giant pizza
-	ifnot PlayerZ|<|46 jump #dojumps
+	ifnot l_pos|<|46 jump #dojumps
 	cmd reltp 0 0 -{l_reltpdist}
 	cpemsg top1 &eScore: &f{Score}
 	allowmbrepeat
