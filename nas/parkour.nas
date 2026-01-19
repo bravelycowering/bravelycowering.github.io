@@ -96,6 +96,7 @@ quit
 #died
 	ifnot Alive quit
 	set Alive false
+	set HasBrokenOnRun false
 	cpemsg bigannounce &cGame Over!
 	cpemsg smallannounce &eScore: &f{Score}
 	cpemsg top1
@@ -158,7 +159,10 @@ quit
 	call #readhighscore|69|HighScore
 	if Score|<=|HighScore quit
 	call #readhighscore|70|Holder
+	ifnot HasBrokenOnRun jump #hasntbrokenyet
 	if Holder|=|l_username jump #endupdateholder
+	#hasntbrokenyet
+		set HasBrokenOnRun true
 		localmsg announce @color@nick&7 just broke the Highscore of &b{HighScore}
 		set l_milestonesound collect toppin
 		call #clearhighscore|70
