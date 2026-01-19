@@ -50,21 +50,44 @@ quit
 	set l_x 64
 	#readhighscorestartloop
 		setblockid l_id {l_x} 70 48
-		setsub l_x 1
 		ifnot l_id|=|0 set {runArg1} {Block->Digit[{l_id}]}{{runArg1}}
+		setsub l_x 1
 	ifnot l_id|=|0 jump #readhighscorestartloop
 	set l_x 65
 	#readhighscoreendloop
 		setblockid l_id {l_x} 70 48
-		setadd l_x 1
 		ifnot l_id|=|0 set {runArg1} {{runArg1}}{Block->Digit[{l_id}]}
+		setadd l_x 1
 	ifnot l_id|=|0 jump #readhighscoreendloop
 	if {runArg1}|=|"" set {runArg1} 0
 quit
 
-#printhighscore
-	call #readhighscore|l_hs
-	msg {l_hs}
+#clearhighscore
+	set l_x 64
+	#clearhighscorestartloop
+		setblockid l_id {l_x} 70 48
+		ifnot l_id|=|0 placeblock 0 {l_x} 70 48
+		setsub l_x 1
+	ifnot l_id|=|0 jump #clearhighscorestartloop
+	set l_x 65
+	#clearhighscoreendloop
+		setblockid l_id {l_x} 70 48
+		ifnot l_id|=|0 placeblock 0 {l_x} 70 48
+		setadd l_x 1
+	ifnot l_id|=|0 jump #clearhighscoreendloop
+quit
+
+#writehighscore
+	set l_value {runArg1}
+	setsplit l_value
+	set l_x {l_value.length}
+	setdiv l_x -2
+	setroundup l_x
+	setadd l_x 64
+	set l_i 0
+	#writehighscoreloop
+		placeblock {Digit->Block[{l_value[{l_i}]}]} {l_x} 70 48
+	if l_i|<|l_value.length jump #writehighscoreloop
 quit
 
 #checkjump
