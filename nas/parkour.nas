@@ -43,12 +43,10 @@ quit
 	allowmbrepeat
 	set l_modscore {Score}
 	setmod l_modscore 10
-	if l_modscore|=|0 cs me collect pizza
-	if l_modscore|=|0 newthread #animtext|Score:_{Score}|u
+	if l_modscore|=|0 jump #milestone10
 	set l_modscore {Score}
 	setmod l_modscore 50
-	if l_modscore|=|0 cs me collect giant pizza
-	if l_modscore|=|0 newthread #animtext|Score:_{Score}|6
+	if l_modscore|=|0 jump #milestone50
 	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
 	tempblock 215 4 2 44
@@ -56,24 +54,22 @@ quit
 	tempblock 215 4 2 45
 quit
 
-#animtext
-	cpemsg smallannounce &{runArg2}{runArg1}
+#milestone10
+	cs me collect pizza
+	cpemsg smallannounce &uScore: &f{Score}
+	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
-	cpemsg smallannounce {runArg1}
+	tempblock 215 4 2 44
 	delay 100
-	cpemsg smallannounce &{runArg2}{runArg1}
+	tempblock 215 4 2 45
+quit
+
+#milestone50
+	cs me collect pizza
+	cpemsg smallannounce &uScore: &f{Score}
+	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
-	cpemsg smallannounce {runArg1}
+	tempblock 215 4 2 44
 	delay 100
-	cpemsg smallannounce &{runArg2}{runArg1}
-	delay 100
-	cpemsg smallannounce {runArg1}
-	delay 100
-	cpemsg smallannounce &{runArg2}{runArg1}
-	delay 100
-	cpemsg smallannounce {runArg1}
-	delay 100
-	cpemsg smallannounce &{runArg2}{runArg1}
-	delay 100
-	cpemsg smallannounce {runArg1}
+	tempblock 215 4 2 45
 quit
