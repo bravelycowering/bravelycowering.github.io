@@ -11,4 +11,9 @@ quit
 	setadd Jumps 1
 	cpemsg top1 Jumps: {Jumps}
 	allowmbrepeat
+	tempchunk 4 2 48 4 2 49 4 2 44
+	delay 100
+	tempblock 215 4 2 44
+	delay 100
+	tempblock 215 4 2 45
 quit
