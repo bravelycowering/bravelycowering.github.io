@@ -36,39 +36,25 @@ quit
 	msg {actionCount}
 	msg {PlayerZ}
 	if PlayerZ|<|46 quit
+	set l_reltpdist 0
 	#dojumps
-		cmd reltp 0 0 -4
+		setadd l_reltpdist 4
 		setadd Score 1
-		cpemsg top1 &eScore: &f{Score}
-		cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
-		allowmbrepeat
 		set l_modscore {Score}
 		setmod l_modscore 10
-		if l_modscore|=|0 jump #milestone10
+		if l_modscore|=|0 set l_milestonetext &uScore: &f{Score}
+		if l_modscore|=|0 set l_milestonesound collect pizza
 		set l_modscore {Score}
 		setmod l_modscore 50
-		if l_modscore|=|0 jump #milestone50
+		if l_modscore|=|0 set l_milestonetext &6Score: &f{Score}
+		if l_modscore|=|0 set l_milestonesound collect giant pizza
 	ifnot PlayerZ|<|46 jump #dojumps
-	tempchunk 4 2 48 4 2 49 4 2 44
-	delay 100
-	tempblock 215 4 2 44
-	delay 100
-	tempblock 215 4 2 45
-quit
-
-#milestone10
-	cs me collect pizza
-	cpemsg smallannounce &uScore: &f{Score}
-	tempchunk 4 2 48 4 2 49 4 2 44
-	delay 100
-	tempblock 215 4 2 44
-	delay 100
-	tempblock 215 4 2 45
-quit
-
-#milestone50
-	cs me collect pizza
-	cpemsg smallannounce &uScore: &f{Score}
+	cmd reltp 0 0 -{l_reltpdist}
+	cpemsg top1 &eScore: &f{Score}
+	allowmbrepeat
+	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
+	ifnot l_milestonetext|=|"" cpemsg smallannounce {l_milestonetext}
+	ifnot l_milestonesound|=|"" cs me {l_milestonesound}
 	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
 	tempblock 215 4 2 44
