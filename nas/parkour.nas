@@ -6,7 +6,10 @@ using local_packages
 	set Alive true
 	cpemsg bigannounce
 	cpemsg smallannounce
+	call #readhighscore|69|HighScore
+	call #readhighscore|70|Holder
 	cpemsg top1 &eScore: &f{Score}
+	cpemsg top2 &bHighscore: &f{Score} &7({Holder})
 	boost 0 0 0 1 1 1
 	allowmbrepeat
 	tempchunk 4 2 43 4 2 45 4 2 43
@@ -100,6 +103,7 @@ quit
 	cpemsg bigannounce &cGame Over!
 	cpemsg smallannounce &eScore: &f{Score}
 	cpemsg top1
+	cpemsg top2
 	cs me explosion2
 quit
 
@@ -157,8 +161,8 @@ quit
 	setsplit l_usernameplus +
 	set l_username {l_usernameplus[0]}
 	call #readhighscore|69|HighScore
-	if Score|<=|HighScore quit
 	call #readhighscore|70|Holder
+	if Score|<=|HighScore quit
 	ifnot HasBrokenOnRun jump #hasntbrokenyet
 	if Holder|=|l_username jump #endupdateholder
 	#hasntbrokenyet
