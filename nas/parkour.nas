@@ -29,12 +29,12 @@ quit
 	setmod l_modscore 10
 	allowmbrepeat
 	if l_modscore|=|0 jump #animtext|Score:_{Score}
+	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
 	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
 	tempblock 215 4 2 44
 	delay 100
 	tempblock 215 4 2 45
-	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
 quit
 
 #animtext
