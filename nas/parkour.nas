@@ -46,10 +46,10 @@ quit
 	set CheckingJump false
 	set l_modscore {Score}
 	setmod l_modscore 10
-	if l_modscore|=|0 jump #animtext|Score:_{Score}|6
+	if l_modscore|=|0 jump #animtext|Score:_{Score}|u
 	set l_modscore {Score}
 	setmod l_modscore 50
-	if l_modscore|=|0 jump #animtext|Score:_{Score}|u
+	if l_modscore|=|0 jump #animtext|Score:_{Score}|6
 	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
 	tempblock 215 4 2 44
