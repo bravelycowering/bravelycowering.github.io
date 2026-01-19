@@ -1,9 +1,13 @@
 #Binary:goto
+	// X|Y|Z|axis
 	set Binary.X {runArg1}
 	set Binary.Y {runArg2}
 	set Binary.Z {runArg3}
 	set Binary.dir {runArg4}
 quit
+
+// #Binary:read|package
+// #Binary:write|value
 
 #Binary:readchar
 	setblockid {runArg1} {Bianry.X} {Bianry.Y} {Bianry.Z}
@@ -11,21 +15,38 @@ quit
 	setadd {Binary.dir} 1
 quit
 
+#Binary:writechar
+	set Binary.temp {runArg1}
+	call #Binary:char->byte|Binary.temp
+	placeblock {runArg1} {Bianry.X} {Bianry.Y} {Bianry.Z}
+	setadd {Binary.dir} 1
+quit
+
 #Binary:readbyte
 	setblockid {runArg1} {Bianry.X} {Bianry.Y} {Bianry.Z}
+	setmod {runArg1} 256
 	setadd {Binary.dir} 1
 quit
 
 #Binary:readsignedbyte
 	setblockid {runArg1} {Bianry.X} {Bianry.Y} {Bianry.Z}
+	setmod {runArg1} 256
+	setadd {Binary.dir} 1
 	if {runArg1}|>|127 setsub {runArg1} 256
+quit
+
+#Binary:writebyte
+	setmod runArg1 256
+	placeblock {runArg1} {Bianry.X} {Bianry.Y} {Bianry.Z}
 	setadd {Binary.dir} 1
 quit
 
 #Binary:readshort
 	setblockid {runArg1} {Bianry.X} {Bianry.Y} {Bianry.Z}
+	setmod {runArg1} 256
 	setadd {Binary.dir} 1
 	setblockid Binary.temp {Bianry.X} {Bianry.Y} {Bianry.Z}
+	setmod Binary.temp 256
 	setmul {runArg1} 256
 	setadd {runArg1} {Binary.temp}
 	setadd {Binary.dir} 1
@@ -33,11 +54,26 @@ quit
 
 #Binary:readsignedshort
 	setblockid {runArg1} {Bianry.X} {Bianry.Y} {Bianry.Z}
+	setmod {runArg1} 256
 	setadd {Binary.dir} 1
 	setblockid Binary.temp {Bianry.X} {Bianry.Y} {Bianry.Z}
+	setmod Binary.temp 256
 	setmul {runArg1} 256
 	setadd {runArg1} {Binary.temp}
+	setadd {Binary.dir} 1
 	if {runArg1}|>|32767 setsub {runArg1} 65536
+quit
+
+#Binary:writeshort
+	set Binary.temp {runArg1}
+	setmod Binary.temp 256
+	placeblock {Binary.temp} {Bianry.X} {Bianry.Y} {Bianry.Z}
+	setadd {Binary.dir} 1
+	setdiv runArg1 256
+	setrounddown runArg1
+	set Binary.temp {runArg1}
+	setmod Binary.temp 256
+	placeblock {Binary.temp} {Bianry.X} {Bianry.Y} {Bianry.Z}
 	setadd {Binary.dir} 1
 quit
 
