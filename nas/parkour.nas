@@ -33,8 +33,6 @@ quit
 		delay 100
 		ifnot Alive quit
 	ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop2
-	msg {actionCount}
-	msg {PlayerZ}
 	if PlayerZ|<|46 quit
 	set l_pos {PlayerZ}
 	set l_reltpdist 0
