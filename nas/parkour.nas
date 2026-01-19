@@ -203,6 +203,7 @@ quit
 	// do post score update things
 	call #checkupdateleaderboard
 	cpemsg top1 &eScore: &f{Score}
+	cpemsg top2 &bHighscore: &f{Score} &7({Holder})
 	allowmbrepeat
 	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
 	ifnot l_milestonetext|=|"" cpemsg smallannounce {l_milestonetext}
