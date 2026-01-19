@@ -23,7 +23,7 @@ quit
 
 #checkjump
 	#checkjumploop
-		setsplit PlayerCoordsDecimal
+		setsplit PlayerCoordsDecimal " "
 		delay 100
 		ifnot Alive quit
 	ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop
