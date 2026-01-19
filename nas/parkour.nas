@@ -22,28 +22,34 @@ quit
 quit
 
 #checkjump
+	if CheckingJump quit
+	set CheckingJump true
 	#checkjumploop
 		setsplit PlayerCoordsDecimal " "
-		ifnot Alive quit
+		ifnot Alive jump #endcheckjump
 		ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop2
 		delay 100
 	jump #checkjumploop
 	#checkjumploop2
 		setsplit PlayerCoordsDecimal " "
 		delay 100
-		ifnot Alive quit
+		ifnot Alive jump #endcheckjump
 	ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop2
 	msg {actionCount}
 	msg {PlayerZ}
-	if PlayerZ|<|46 quit
+	if PlayerZ|<|46 jump #endcheckjump
 	cmd reltp 0 0 -4
 	setadd Score 1
 	cpemsg top1 &eScore: &f{Score}
+	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
+	allowmbrepeat
+	set CheckingJump false
 	set l_modscore {Score}
 	setmod l_modscore 10
-	allowmbrepeat
-	if l_modscore|=|0 jump #animtext|Score:_{Score}
-	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
+	if l_modscore|=|0 jump #animtext|Score:_{Score}|6
+	set l_modscore {Score}
+	setmod l_modscore 50
+	if l_modscore|=|0 jump #animtext|Score:_{Score}|u
 	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
 	tempblock 215 4 2 44
@@ -51,13 +57,24 @@ quit
 	tempblock 215 4 2 45
 quit
 
+#endcheckjump
+	set CheckingJump false
+quit
+
 #animtext
-	set l_text {runArg1}
-	cpemsg smallannounce {l_text}
+	cs me collect pizza
 	tempchunk 4 2 48 4 2 49 4 2 44
+	cpemsg smallannounce &{runArg2}{runArg1}
 	delay 100
 	tempblock 215 4 2 44
+	cpemsg smallannounce {runArg2}{runArg1}
 	delay 100
 	tempblock 215 4 2 45
-	cs me collect pizza
+	cpemsg smallannounce &{runArg2}{runArg1}
+	delay 100
+	cpemsg smallannounce {runArg2}{runArg1}
+	delay 100
+	cpemsg smallannounce &{runArg2}{runArg1}
+	delay 100
+	cpemsg smallannounce {runArg2}{runArg1}
 quit
