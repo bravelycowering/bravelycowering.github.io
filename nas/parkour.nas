@@ -9,7 +9,7 @@ using local_packages
 	call #readhighscore|69|HighScore
 	call #readhighscore|70|Holder
 	cpemsg top1 &eScore: &f{Score}
-	cpemsg top2 &bHighscore: &f{Score} &7({Holder})
+	cpemsg top2 &bHighscore: &f{HighScore} &7({Holder})
 	boost 0 0 0 1 1 1
 	allowmbrepeat
 	tempchunk 4 2 43 4 2 45 4 2 43
@@ -208,7 +208,7 @@ quit
 	// do post score update things
 	call #checkupdateleaderboard
 	cpemsg top1 &eScore: &f{Score}
-	cpemsg top2 &bHighscore: &f{Score} &7({Holder})
+	cpemsg top2 &bHighscore: &f{HighScore} &7({Holder})
 	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
 	ifnot l_milestonetext|=|"" cpemsg smallannounce {l_milestonetext}
 	ifnot l_milestonesound|=|"" cs me {l_milestonesound}
