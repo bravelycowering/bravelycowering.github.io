@@ -21,7 +21,13 @@ quit
 	cs me explosion2
 quit
 
-#didjump
+#checkjump
+	#checkjumploop
+		setsplit PlayerCoordsDecimal
+		delay 100
+		ifnot Alive quit
+	ifnot PlayerCoordsDecimal[1]|=|3
+	if PlayerX|<|46 quit
 	cmd reltp 0 0 -4
 	setadd Score 1
 	cpemsg top1 &eScore: &f{Score}
