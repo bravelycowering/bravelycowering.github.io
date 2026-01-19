@@ -12,6 +12,7 @@ quit
 
 #died
 	ifnot Alive quit
+	set Alive false
 	cpemsg bigannounce &cGame Over!
 	cpemsg smallannounce &eScore: &f{Score}
 	cpemsg top1
