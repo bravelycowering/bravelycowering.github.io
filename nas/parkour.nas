@@ -58,6 +58,7 @@ quit
 quit
 
 #endcheckjump
+	allowmbrepeat
 	set CheckingJump false
 quit
 
