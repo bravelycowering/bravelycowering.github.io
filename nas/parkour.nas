@@ -26,7 +26,7 @@ quit
 		setsplit PlayerCoordsDecimal
 		delay 100
 		ifnot Alive quit
-	ifnot PlayerCoordsDecimal[1]|=|3
+	ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop
 	if PlayerX|<|46 quit
 	cmd reltp 0 0 -4
 	setadd Score 1
