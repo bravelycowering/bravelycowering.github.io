@@ -4,6 +4,7 @@
 	cpemsg top1 Jumps: {Jumps}
 	boost 0 0 0 1 1 1
 	allowmbrepeat
+	tempchunk 4 2 43 4 2 45 4 2 43
 quit
 
 #didjump
