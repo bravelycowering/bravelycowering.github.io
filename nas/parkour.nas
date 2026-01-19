@@ -161,6 +161,7 @@ quit
 	if Holder|=|l_username jump #endupdateholder
 		localmsg announce @color@nick&7 just broke the Highscore of &b{HighScore}
 		set l_milestonesound collect toppin
+		call #clearhighscore|70
 		call #writehighscore|70|{l_username}
 	#endupdateholder
 	call #writehighscore|69|{Score}
