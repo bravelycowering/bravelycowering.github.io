@@ -36,17 +36,19 @@ quit
 	msg {actionCount}
 	msg {PlayerZ}
 	if PlayerZ|<|46 quit
-	cmd reltp 0 0 -4
-	setadd Score 1
-	cpemsg top1 &eScore: &f{Score}
-	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
-	allowmbrepeat
-	set l_modscore {Score}
-	setmod l_modscore 10
-	if l_modscore|=|0 jump #milestone10
-	set l_modscore {Score}
-	setmod l_modscore 50
-	if l_modscore|=|0 jump #milestone50
+	#dojumps
+		cmd reltp 0 0 -4
+		setadd Score 1
+		cpemsg top1 &eScore: &f{Score}
+		cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
+		allowmbrepeat
+		set l_modscore {Score}
+		setmod l_modscore 10
+		if l_modscore|=|0 jump #milestone10
+		set l_modscore {Score}
+		setmod l_modscore 50
+		if l_modscore|=|0 jump #milestone50
+	ifnot PlayerZ|<|46 jump #dojumps
 	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
 	tempblock 215 4 2 44
