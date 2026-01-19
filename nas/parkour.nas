@@ -24,9 +24,17 @@ quit
 #checkjump
 	#checkjumploop
 		setsplit PlayerCoordsDecimal " "
+		ifnot Alive quit
+		ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop2
+		delay 100
+	jump #checkjumploop
+	#checkjumploop2
+		setsplit PlayerCoordsDecimal " "
 		delay 100
 		ifnot Alive quit
-	ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop
+	ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop2
+	msg {actionCount}
+	msg {PlayerX}
 	if PlayerX|<|46 quit
 	cmd reltp 0 0 -4
 	setadd Score 1
