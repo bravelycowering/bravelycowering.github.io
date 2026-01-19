@@ -158,7 +158,7 @@ quit
 	call #readhighscore|69|HighScore
 	if Score|<=|HighScore quit
 	call #readhighscore|70|Holder
-	ifnot Holder|=|l_username jump #endupdateholder
+	if Holder|=|l_username jump #endupdateholder
 		localmsg announce @color@nick&7 just broke the Highscore of &b{HighScore}
 		call #writehighscore|70|{l_username}
 	#endupdateholder
