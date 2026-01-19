@@ -34,8 +34,8 @@ quit
 		ifnot Alive quit
 	ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop2
 	msg {actionCount}
-	msg {PlayerX}
-	if PlayerX|<|46 quit
+	msg {PlayerZ}
+	if PlayerZ|<|46 quit
 	cmd reltp 0 0 -4
 	setadd Score 1
 	cpemsg top1 &eScore: &f{Score}
