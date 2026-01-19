@@ -169,10 +169,12 @@ quit
 		set HasBrokenOnRun true
 		localmsg announce @color@nick&7 just broke the Highscore of &b{HighScore}
 		set l_milestonesound collect toppin
+		set Holder {l_username}
 		call #clearhighscore|70
-		call #writehighscore|70|{l_username}
+		call #writehighscore|70|{Holder}
 	#endupdateholder
-	call #writehighscore|69|{Score}
+	set HighScore {Score}
+	call #writehighscore|69|{HighScore}
 quit
 
 #checkjump
