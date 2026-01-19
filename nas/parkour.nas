@@ -67,14 +67,22 @@ quit
 	cpemsg smallannounce &{runArg2}{runArg1}
 	delay 100
 	tempblock 215 4 2 44
-	cpemsg smallannounce {runArg2}{runArg1}
+	cpemsg smallannounce {runArg1}
 	delay 100
 	tempblock 215 4 2 45
 	cpemsg smallannounce &{runArg2}{runArg1}
 	delay 100
-	cpemsg smallannounce {runArg2}{runArg1}
+	cpemsg smallannounce {runArg1}
 	delay 100
 	cpemsg smallannounce &{runArg2}{runArg1}
 	delay 100
-	cpemsg smallannounce {runArg2}{runArg1}
+	cpemsg smallannounce {runArg1}
+	delay 100
+	cpemsg smallannounce &{runArg2}{runArg1}
+	delay 100
+	cpemsg smallannounce {runArg1}
+	delay 100
+	cpemsg smallannounce &{runArg2}{runArg1}
+	delay 100
+	cpemsg smallannounce {runArg1}
 quit
