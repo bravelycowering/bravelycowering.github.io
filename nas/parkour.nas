@@ -10,30 +10,87 @@ using local_packages
 	boost 0 0 0 1 1 1
 	allowmbrepeat
 	tempchunk 4 2 43 4 2 45 4 2 43
-	call #numberblocks
+	call #charblocks
 quit
 
-#numberblocks
-	set Digit->Block[0] 484
-	set Block->Digit[484] 0
-	set Digit->Block[1] 485
-	set Block->Digit[485] 1
-	set Digit->Block[2] 486
-	set Block->Digit[486] 2
-	set Digit->Block[3] 487
-	set Block->Digit[487] 3
-	set Digit->Block[4] 488
-	set Block->Digit[488] 4
-	set Digit->Block[5] 489
-	set Block->Digit[489] 5
-	set Digit->Block[6] 490
-	set Block->Digit[490] 6
-	set Digit->Block[7] 491
-	set Block->Digit[491] 7
-	set Digit->Block[8] 492
-	set Block->Digit[492] 8
-	set Digit->Block[9] 493
-	set Block->Digit[493] 9
+#charblocks
+	set Char->Block[0] 484
+	set Block->Char[484] 0
+	set Char->Block[1] 485
+	set Block->Char[485] 1
+	set Char->Block[2] 486
+	set Block->Char[486] 2
+	set Char->Block[3] 487
+	set Block->Char[487] 3
+	set Char->Block[4] 488
+	set Block->Char[488] 4
+	set Char->Block[5] 489
+	set Block->Char[489] 5
+	set Char->Block[6] 490
+	set Block->Char[490] 6
+	set Char->Block[7] 491
+	set Block->Char[491] 7
+	set Char->Block[8] 492
+	set Block->Char[492] 8
+	set Char->Block[9] 493
+	set Block->Char[493] 9
+
+	set Char->Block[A] 494
+	set Block->Char[494] A
+	set Char->Block[B] 495
+	set Block->Char[495] B
+	set Char->Block[C] 496
+	set Block->Char[496] C
+	set Char->Block[D] 497
+	set Block->Char[497] D
+	set Char->Block[E] 498
+	set Block->Char[498] E
+	set Char->Block[F] 499
+	set Block->Char[499] F
+	set Char->Block[G] 500
+	set Block->Char[500] G
+	set Char->Block[H] 501
+	set Block->Char[501] H
+	set Char->Block[I] 502
+	set Block->Char[502] I
+	set Char->Block[J] 503
+	set Block->Char[503] J
+	set Char->Block[K] 504
+	set Block->Char[504] K
+	set Char->Block[L] 505
+	set Block->Char[505] L
+	set Char->Block[M] 506
+	set Block->Char[506] M
+	set Char->Block[N] 507
+	set Block->Char[507] N
+	set Char->Block[O] 508
+	set Block->Char[508] O
+	set Char->Block[P] 509
+	set Block->Char[509] P
+	set Char->Block[Q] 510
+	set Block->Char[510] Q
+	set Char->Block[R] 511
+	set Block->Char[511] R
+	set Char->Block[S] 512
+	set Block->Char[512] S
+	set Char->Block[T] 513
+	set Block->Char[513] T
+	set Char->Block[U] 514
+	set Block->Char[514] U
+	set Char->Block[V] 515
+	set Block->Char[515] V
+	set Char->Block[W] 516
+	set Block->Char[516] W
+	set Char->Block[X] 517
+	set Block->Char[517] X
+	set Char->Block[Y] 518
+	set Block->Char[518] Y
+	set Char->Block[Z] 519
+	set Block->Char[519] Z
+	set Char->Block[.] 520
+	set Block->Char[520] .
+	set Char->Block[_] 45
+	set Block->Char[45] _
 quit
 
 #died
@@ -46,39 +103,41 @@ quit
 quit
 
 #readhighscore
-	set {runArg1}
+	// level, package
+	set {runArg2}
 	set l_x 64
 	#readhighscorestartloop
-		setblockid l_id {l_x} 70 48
-		ifnot l_id|=|0 set {runArg1} {Block->Digit[{l_id}]}{{runArg1}}
+		setblockid l_id {l_x} {runArg1} 48
+		ifnot l_id|=|0 set {runArg2} {Block->Char[{l_id}]}{{runArg2}}
 		setsub l_x 1
 	ifnot l_id|=|0 jump #readhighscorestartloop
 	set l_x 65
 	#readhighscoreendloop
-		setblockid l_id {l_x} 70 48
-		ifnot l_id|=|0 set {runArg1} {{runArg1}}{Block->Digit[{l_id}]}
+		setblockid l_id {l_x} {runArg1} 48
+		ifnot l_id|=|0 set {runArg2} {{runArg2}}{Block->Char[{l_id}]}
 		setadd l_x 1
 	ifnot l_id|=|0 jump #readhighscoreendloop
-	if {runArg1}|=|"" set {runArg1} 0
 quit
 
 #clearhighscore
+	// level
 	set l_x 64
 	#clearhighscorestartloop
-		setblockid l_id {l_x} 70 48
-		ifnot l_id|=|0 placeblock 0 {l_x} 70 48
+		setblockid l_id {l_x} {runArg1} 48
+		ifnot l_id|=|0 placeblock 0 {l_x} {runArg1} 48
 		setsub l_x 1
 	ifnot l_id|=|0 jump #clearhighscorestartloop
 	set l_x 65
 	#clearhighscoreendloop
-		setblockid l_id {l_x} 70 48
-		ifnot l_id|=|0 placeblock 0 {l_x} 70 48
+		setblockid l_id {l_x} {runArg1} 48
+		ifnot l_id|=|0 placeblock 0 {l_x} {runArg1} 48
 		setadd l_x 1
 	ifnot l_id|=|0 jump #clearhighscoreendloop
 quit
 
 #writehighscore
-	set l_value {runArg1}
+	// level, value
+	set l_value {runArg2}
 	setsplit l_value
 	set l_x {l_value.length}
 	setdiv l_x -2
@@ -86,10 +145,24 @@ quit
 	setadd l_x 64
 	set l_i 0
 	#writehighscoreloop
-		placeblock {Digit->Block[{l_value[{l_i}]}]} {l_x} 70 48
+		placeblock {Char->Block[{l_value[{l_i}]}]} {l_x} {runArg1} 48
 		setadd l_i 1
 		setadd l_x 1
 	if l_i|<|l_value.length jump #writehighscoreloop
+quit
+
+#checkupdateleaderboard
+	set l_usernameplus @p
+	setsplit l_usernameplus +
+	set l_username {l_usernameplus[0]}
+	call #readhighscore|69|HighScore
+	if Score|<=|HighScore quit
+	call #readhighscore|70|Holder
+	ifnot Holder|=|l_username jump #endupdateholder
+		localmsg announce @color@nick&7 just broke the Highscore of &b{HighScore}
+		call #writehighscore|70|{l_username}
+	#endupdateholder
+	call #writehighscore|69|{Score}
 quit
 
 #checkjump
@@ -121,6 +194,8 @@ quit
 		if l_modscore|=|0 set l_milestonesound collect giant pizza
 	ifnot l_pos|<|46 jump #dojumps
 	cmd reltp 0 0 -{l_reltpdist}
+	// do post score update things
+	call #checkupdateleaderboard
 	cpemsg top1 &eScore: &f{Score}
 	allowmbrepeat
 	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
