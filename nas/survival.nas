@@ -18,7 +18,10 @@ using no_runarg_underscore_conversion
 
 	set debug false
 	set debugpage 1
-	set debugpages 2
+	set debugpages 0
+	#while_1
+		setadd debugpages 1
+	if label #debugpage[{debugpages}] jump #while_1
 
 	set minetimer 0
 	set minepos
@@ -82,6 +85,8 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 	set isTool(axe) true
 	set isTool(spade) true
 
+	definehotkey craft held|E
+
 	set allowSaving false
 	if allowSaving call #initSave
 
@@ -120,19 +125,13 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
-	msg - Fixed a bug where you would not take damage if your head was in lava
-	msg - Graves now have 5 minutes of protection before they can be robbed
-	msg - Saplings now grow over time
-	msg - Dirt will slowly grow back into grass if placed next to other grass
-	msg - Grass will slowly turn into dirt under other blocks
-	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
-	// msg - A different variant of tall tree generates
-	msg - There is now a (purely visual) daylight cycle
-	// msg - Progress now saves every 5 seconds
-	msg &fChanges in the latest minor version:
-	msg - Leaves now decay when far enough from a log
+	msg - Bugfixes and optimization
+	msg - Glass and Lit torches can now be created using regular fire
+	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
+	msg - A different variant of tall tree generates
+	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.1 &726Jan10-21
+msg &fVersion &abeta 4.1 &726Jan20-1
 quit
 
 #initSave
@@ -141,8 +140,8 @@ quit
 	set l_x_1 1
 	set l_z_1 0
 	set l_prefix_1 /nothing2 @p
-	#while_1
-		#while_2
+	#while_2
+		#while_3
 			setblockmessage l_msg_1 {l_x_1} 0 {l_z_1}
 			ifnot l_msg_1|=|"" jump #if_1
 				// set save slot and claim block
@@ -156,10 +155,10 @@ quit
 				jump #load
 			#if_2
 			setadd l_x_1 1
-		if l_x_1|<|LevelZ jump #while_2
+		if l_x_1|<|LevelZ jump #while_3
 		setadd l_z_1 1
 		set l_x_2 0
-	if l_z_1|<|LevelX jump #while_1
+	if l_z_1|<|LevelX jump #while_2
 quit
 
 #save
@@ -176,10 +175,10 @@ quit
 	setsplit l_loaddata_1 |
 	set l_i_1 1
 	ifnot l_i_1|<|saveformat.Length quit
-	#while_3
+	#while_4
 		set {saveformat[{l_i_1}]} {l_loaddata_1[{l_i_1}]}
 		setadd l_i_1 1
-	if l_i_1|<|l_loaddata_1.Length jump #while_3
+	if l_i_1|<|l_loaddata_1.Length jump #while_4
 	setsplit inventory ,
 	ifnot PlayerPos|=|"" cmd tpp {PlayerPos}
 	ifnot HeldBlock|=|"" cmd holdsilent {HeldBlock}
@@ -733,10 +732,10 @@ quit
 	set axe 8
 	set spade 8
 	set i 0
-	#while_4
+	#while_5
 		set inventory[{i}] 9999
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_4
+	if i|<|{blocks.Length} jump #while_5
 quit
 
 #clearall
@@ -744,10 +743,10 @@ quit
 	set axe 0
 	set spade 0
 	set i 0
-	#while_5
+	#while_6
 		set inventory[{i}] 0
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_5
+	if i|<|{blocks.Length} jump #while_6
 quit
 
 #place
@@ -861,10 +860,10 @@ quit
 	set msg /nothing2 {runArg4}
 	if runArg5|=|"" jump #ifnot_11
 		set l_i_2 5
-		#while_6
+		#while_7
 			set msg {msg}|/nothing2 {runArg{l_i_2}}
 			setadd l_i_2 1
-		ifnot runArg{l_i_2}|=|"" jump #while_6
+		ifnot runArg{l_i_2}|=|"" jump #while_7
 	#ifnot_11
 	setblockid id {runArg1} {runArg2} {runArg3}
 	ifnot allowMapChanges set world[{runArg1},{runArg2},{runArg3}].msg {msg}
@@ -876,17 +875,17 @@ quit
 	set i 0
 	set {runArg1} &{runArg2}
 	ifnot i|<|{runArg3} jump #if_17
-		#while_7
-			set {runArg1} {{runArg1}}|
-			setadd i 1
-		if i|<|{runArg3} jump #while_7
-	#if_17
-	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg4} jump #if_18
 		#while_8
 			set {runArg1} {{runArg1}}|
 			setadd i 1
-		if i|<|{runArg4} jump #while_8
+		if i|<|{runArg3} jump #while_8
+	#if_17
+	set {runArg1} {{runArg1}}&0
+	ifnot i|<|{runArg4} jump #if_18
+		#while_9
+			set {runArg1} {{runArg1}}|
+			setadd i 1
+		if i|<|{runArg4} jump #while_9
 	#if_18
 quit
 
@@ -895,17 +894,17 @@ quit
 	set i 0
 	set {runArg1} &{runArg3}
 	ifnot i|<|{runArg4} jump #if_19
-		#while_9
-			set {runArg1} {{runArg1}}{runArg2}
-			setadd i 1
-		if i|<|{runArg4} jump #while_9
-	#if_19
-	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg5} jump #if_20
 		#while_10
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
-		if i|<|{runArg5} jump #while_10
+		if i|<|{runArg4} jump #while_10
+	#if_19
+	set {runArg1} {{runArg1}}&0
+	ifnot i|<|{runArg5} jump #if_20
+		#while_11
+			set {runArg1} {{runArg1}}{runArg2}
+			setadd i 1
+		if i|<|{runArg5} jump #while_11
 	#if_20
 quit
 
@@ -967,6 +966,7 @@ quit
 		if craftArgs|=|"" jump #ifnot_12
 			set craftArgs[1] 1
 			setsplit craftArgs *
+			if craftArgs[0]|=|"held" set craftArgs[0] {PlayerHeldBlock}
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
 			call #getBlockByName|blockID|{craftArgs[0]}
 			ifnot blockID|=|"" jump #if_27
@@ -987,33 +987,33 @@ quit
 			else msg &eRecipes:
 		#ifnot_13
 		set i 0
-		#while_11
+		#while_12
 			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
 			ifnot canAfford|>|0 jump #if_29
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) &7* {canAfford}
 				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f)
 				set j 0
-				#while_12
+				#while_13
 					set text {recipes[{i}].ingredients[{j}].count} {blocks[{recipes[{i}].ingredients[{j}].id}].name}
 					if ingrediantList|=|"" set ingrediantList &f    {text}
 					else set ingrediantList {ingrediantList}, {text}
 					setadd j 1
-				if j|<|{recipes[{i}].ingredients.Length} jump #while_12
+				if j|<|{recipes[{i}].ingredients.Length} jump #while_13
 				msg {ingrediantList}
 			#if_29
 			setadd i 1
-		if i|<|{recipes.Length} jump #while_11
+		if i|<|{recipes.Length} jump #while_12
 		msg &eType &a/in craft [name]&e to craft something
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
 	#if_26
 	set i 0
 	msg &eResources:
-	#while_13
+	#while_14
 		ifnot inventory[{i}]|=|0 msg &f> &6{blocks[{i}].name}&f (x{inventory[{i}]})
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_13
+	if i|<|{blocks.Length} jump #while_14
 	msg &eTools:
 	msg &f> {toollevel[{pickaxe}]} Pickaxe
 	msg &f> {toollevel[{axe}]} Axe
@@ -1026,13 +1026,13 @@ quit
 	set blockID {recipes[{recipeID}].output.id}
 	set recipeCount {runArg2}
 	set j 0
-	#while_14
+	#while_15
 		set id {recipes[{recipeID}].ingredients[{j}].id}
 		set count {recipes[{recipeID}].ingredients[{j}].count}
 		setmul count {recipeCount}
 		call #take|{id}|{count}
 		setadd j 1
-	if j|<|{recipes[{recipeID}].ingredients.Length} jump #while_14
+	if j|<|{recipes[{recipeID}].ingredients.Length} jump #while_15
 	set count {recipes[{recipeID}].output.count}
 	setmul count {recipeCount}
 	call #give|{blockID}|{count}
@@ -1049,14 +1049,14 @@ quit
 	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_30
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
 	#if_30
-	#while_15
+	#while_16
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {inventory[{id}]}
 		setdiv count {recipes[{runArg1}].ingredients[{j}].count}
 		setrounddown count
 		if {runArg2}|>|count set {runArg2} {count}
 		setadd j 1
-	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_15
+	if j|<|{recipes[{runArg1}].ingredients.Length} jump #while_16
 quit
 
 #getBlockByName
@@ -1066,13 +1066,13 @@ quit
 		quit
 	#ifnot_15
 	set i 0
-	#while_16
+	#while_17
 		ifnot blocks[{i}].name|=|runArg2 jump #if_31
 			set {runArg1} {i}
 			quit
 		#if_31
 		setadd i 1
-	if i|<|{blocks.Length} jump #while_16
+	if i|<|{blocks.Length} jump #while_17
 quit
 
 #getRecipeByOutput
@@ -1081,7 +1081,7 @@ quit
 	set c {runArg3}
 	set {pname}
 	set i 0
-	#while_17
+	#while_18
 		ifnot recipes[{i}].output.id|=|bid jump #if_32
 			call #checkRecipeAfford|{i}|canAfford
 			ifnot canAfford|>=|c jump #if_33
@@ -1090,7 +1090,7 @@ quit
 			#if_33
 		#if_32
 		setadd i 1
-	if i|<|{recipes.Length} jump #while_17
+	if i|<|{recipes.Length} jump #while_18
 quit
 
 #use[61]
@@ -1128,6 +1128,7 @@ quit
 
 #use[70:80]
 #use[68:80]
+#use[54:80]
 	ifnot inventory[80]|>|0 jump #if_35
 		call #take|80|1
 		call #give|70|1
@@ -1135,6 +1136,7 @@ quit
 quit
 
 #use[68:12]
+#use[54:12]
 	ifnot inventory[12]|>|0 jump #if_36
 		call #take|12|1
 		call #give|20|1
@@ -1199,11 +1201,11 @@ jump #give|75|2
 	ifnot canDestroyTombstone quit
 	setsplit data[3] ,
 	set i 0
-	#while_18
+	#while_19
 		if data[3][{i}]|>|0 call #give|{i}|{data[3][{i}]}
 		if data[3][{i}]|>|0 msg &a+{data[3][{i}]} {blocks[{i}].name}
 		setadd i 1
-	if i|<|data[3].Length jump #while_18
+	if i|<|data[3].Length jump #while_19
 jump #give|82|1
 
 #loot[85]
@@ -1291,20 +1293,20 @@ jump #growtree|{runArg1}|{runArg2}|{runArg3}
 	setadd l_z2_1 2
 
 	set l_x_6 {l_x1_1}
-	#while_19
+	#while_20
 		set l_y_4 {l_y1_1}
-		#while_20
+		#while_21
 			set l_z_5 {l_z1_1}
-			#while_21
+			#while_22
 				// localname l_id_3 
 				call #getblock|l_id_3|{l_x_6}|{l_y_4}|{l_z_5}
 				if l_id_3|=|17 quit
 				setadd l_z_5 1
-			if l_z_5|<=|l_z2_1 jump #while_21
+			if l_z_5|<=|l_z2_1 jump #while_22
 			setadd l_y_4 1
-		if l_y_4|<=|l_y2_1 jump #while_20
+		if l_y_4|<=|l_y2_1 jump #while_21
 		setadd l_x_6 1
-	if l_x_6|<=|l_x2_1 jump #while_19
+	if l_x_6|<=|l_x2_1 jump #while_20
 
 	jump {l_decay_1}
 quit
@@ -1320,11 +1322,11 @@ quit
 	call #setblock|3|{l_x_7}|{l_y_5}|{l_z_6}
 	setadd l_y_5 1
 	setrandrange l_i_4 1 3
-	#while_22
+	#while_23
 		call #setblockif|17|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
 		setsub l_i_4 1
 		setadd l_y_5 1
-	if l_i_4|>|0 jump #while_22
+	if l_i_4|>|0 jump #while_23
 	// TREE BIG PART 1
 	// at center
 	call #setblockif|17|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable

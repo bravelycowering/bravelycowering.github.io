@@ -18,7 +18,10 @@ using no_runarg_underscore_conversion
 
 	set debug false
 	set debugpage 1
-	set debugpages 2
+	set debugpages 0
+	while if label #debugpage[{debugpages}]
+		setadd debugpages 1
+	end
 
 	set minetimer 0
 	set minepos
@@ -82,6 +85,8 @@ using no_runarg_underscore_conversion
 	set isTool(axe) true
 	set isTool(spade) true
 
+	definehotkey craft held|E
+
 	set allowSaving false
 	if allowSaving call #initSave
 
@@ -120,17 +125,11 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
-	msg - Fixed a bug where you would not take damage if your head was in lava
-	msg - Graves now have 5 minutes of protection before they can be robbed
-	msg - Saplings now grow over time
-	msg - Dirt will slowly grow back into grass if placed next to other grass
-	msg - Grass will slowly turn into dirt under other blocks
-	// msg - Ores in generation have a much different distribution: diamonds are rarer and found in specific places
-	// msg - A different variant of tall tree generates
-	msg - There is now a (purely visual) daylight cycle
-	// msg - Progress now saves every 5 seconds
-	msg &fChanges in the latest minor version:
-	msg - Leaves now decay when far enough from a log
+	msg - Bugfixes and optimization
+	msg - Glass and Lit torches can now be created using regular fire
+	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
+	msg - A different variant of tall tree generates
+	msg - All progress now saves every 5 seconds
 #version
 	include survival/version
 quit
@@ -967,6 +966,7 @@ quit
 		ifnot craftArgs|=|"" then
 			set craftArgs[1] 1
 			setsplit craftArgs *
+			if craftArgs[0]|=|"held" set craftArgs[0] {PlayerHeldBlock}
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
 			call #getBlockByName|blockID|{craftArgs[0]}
 			if blockID|=|"" then
@@ -1128,6 +1128,7 @@ quit
 
 #use[70:80]
 #use[68:80]
+#use[54:80]
 	if inventory[80]|>|0 then
 		call #take|80|1
 		call #give|70|1
@@ -1135,6 +1136,7 @@ quit
 quit
 
 #use[68:12]
+#use[54:12]
 	if inventory[12]|>|0 then
 		call #take|12|1
 		call #give|20|1
