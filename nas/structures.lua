@@ -13,5 +13,5 @@ return function(filename)
 		local lx, ly, lz = 0, 0, 0
 	end
 
-	return outlines
+	return table.concat(outlines, "\n")
 end

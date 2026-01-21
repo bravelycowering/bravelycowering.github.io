@@ -161,7 +161,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan21-1
+msg &fVersion &abeta 5.0 &726Jan21-2
 quit
 
 #initSave
@@ -1675,7 +1675,7 @@ quit
 	call {#setblockif}|18|{l_x_10}|{l_y_8}|{l_z_9}|growreplaceable
 quit
 
-table: 0x6526c04bae80
+
 
 #initBlacklist
 set blacklist.CODVeteran+ Repeated grief
