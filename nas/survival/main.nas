@@ -4,8 +4,8 @@ using no_runarg_underscore_conversion
 #onJoin
 	ifnot LevelName|has|"bravelycowering+" jump #unregistered-hypercam-2
 
-	set allowMapChanges false
-	if LevelName|=|"bravelycowering+survival" set allowMapChanges true
+	if LevelName|=|"bravelycowering+survival" call #setAllowMapChanges|true
+	else call #setAllowMapChanges|false
 
 	if allowMapChanges call #initBlacklist
 	ifnot blacklist.@p|=|"" jump #blacklisted
@@ -93,6 +93,25 @@ using no_runarg_underscore_conversion
 	if allowSaving call #initSave
 
 	jump #newloop|#tick
+quit
+
+#setAllowMapChanges
+	set allowMapChanges {runArg1}
+
+	if allowMapChanges set #getblock #getblock:perm
+	else set #getblock #getblock:temp
+
+	if allowMapChanges set #setblock #setblock:perm
+	else set #setblock #setblock:temp
+
+	if allowMapChanges set #setblockif #setblockif:perm
+	else set #setblockif #setblockif:temp
+
+	if allowMapChanges set #getblockdata #getblockdata:perm
+	else set #getblockdata #getblockdata:temp
+
+	if allowMapChanges set #setblockdata #setblockdata:perm
+	else set #setblockdata #setblockdata:temp
 quit
 
 #unregistered-hypercam-2
@@ -219,13 +238,13 @@ function #setstandingon
 	local z {*coords[2]}
 	setrounddown *z
 	localname id
-	call #getblock|*id|{x}|{y}|{z}
+	call {#getblock}|*id|{x}|{y}|{z}
 	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
 	setadd *coords[0] 0.5
 	set *x {*coords[0]}
 	setrounddown *x
-	call #getblock|*id|{x}|{y}|{z}
+	call {#getblock}|*id|{x}|{y}|{z}
 	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
 	setsub *coords[0] 0.5
@@ -234,13 +253,13 @@ function #setstandingon
 	setadd *coords[2] 0.5
 	set *z {*coords[2]}
 	setrounddown *z
-	call #getblock|*id|{x}|{y}|{z}
+	call {#getblock}|*id|{x}|{y}|{z}
 	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 
 	setadd *coords[0] 0.5
 	set *x {*coords[0]}
 	setrounddown *x
-	call #getblock|*id|{x}|{y}|{z}
+	call {#getblock}|*id|{x}|{y}|{z}
 	if blocks[{id}].{blockfield}|{comp}|{blockvalue} quit
 	
 	#*exitfalse
@@ -285,11 +304,11 @@ function #tick
 	if autosave|<|0 set autosave 50
 	local py {PlayerY}
 	localname mylowblock
-	call #getblock|*mylowblock|{PlayerX}|{py}|{PlayerZ}
+	call {#getblock}|*mylowblock|{PlayerX}|{py}|{PlayerZ}
 	setadd *py 1.5
 	setrounddown *py
 	localname myhighblock
-	call #getblock|*myhighblock|{PlayerX}|{py}|{PlayerZ}
+	call {#getblock}|*myhighblock|{PlayerX}|{py}|{PlayerZ}
 	if blocks[{mylowblock}].catchFire setadd fireticks 6
 	if blocks[{myhighblock}].catchFire setadd fireticks 6
 	if blocks[{myhighblock}].drowning setsub airticks 1
@@ -349,7 +368,7 @@ function #tick
 			localname z
 			setrandrange *z 0 {LevelZMax}
 			localname id
-			call #getblock|*id|{x}|{y}|{z}
+			call {#getblock}|*id|{x}|{y}|{z}
 			if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
 		if RandomTicks|>|0 jump #randomticks
 	end
@@ -608,7 +627,7 @@ quit
 	if deathmsg|=|"" set deathmsg {deathmessages.unknown}
 	ifnot SpawnBlock|=|"none" then
 		setsplit SpawnBlock " "
-		call #getblock|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
+		call {#getblock}|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
 		if spawnblockid|!=|68 then
 			set SpawnBlock none
 			set DeathSpawn {WorldSpawn}
@@ -617,12 +636,12 @@ quit
 	end
 	set deathY {PlayerY}
 	setrandlist id 82|94
-	call #setblock|{id}|{PlayerX}|{deathY}|{PlayerZ}
+	call {#setblock}|{id}|{PlayerX}|{deathY}|{PlayerZ}
 	include setinvstring
-	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|* &f{deathmsg}|{inventory}
+	call {#setblockdata}|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|* &f{deathmsg}|{inventory}
 	setsub deathY 1
-	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
-	if blocks[{id}].nonsolid call #setblock|3|{PlayerX}|{deathY}|{PlayerZ}
+	call {#getblock}|id|{PlayerX}|{deathY}|{PlayerZ}
+	if blocks[{id}].nonsolid call {#setblock}|3|{PlayerX}|{deathY}|{PlayerZ}
 	if allowMapChanges kill {deathmsg}
 	else kill
 	set fireticks 0
@@ -672,7 +691,7 @@ quit
 	set y {runArg2}
 	set z {runArg3}
 	set coords {x} {y} {z}
-	call #getblock|id|{runArg1}|{runArg2}|{runArg3}
+	call {#getblock}|id|{runArg1}|{runArg2}|{runArg3}
 	cmd tempbot remove minemeter
 	if blocks[{id}].unbreakable quit
 	ifnot minepos|=|coords set minetimer {blocks[{id}].hardness}
@@ -710,7 +729,7 @@ quit
 	set y {runArg2}
 	set z {runArg3}
 	set toomuch {runArg4}
-	call #getblock|id|{x}|{y}|{z}
+	call {#getblock}|id|{x}|{y}|{z}
 	ifnot toomuch then
 		set dontDestroyBlock false
 		if label #loot[{id}] call #loot[{id}]
@@ -719,9 +738,9 @@ quit
 	end
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
-	call #setblock|{empty}|{x}|{y}|{z}
+	call {#setblock}|{empty}|{x}|{y}|{z}
 	setadd y 1
-	call #getblock|id|{x}|{y}|{z}
+	call {#getblock}|id|{x}|{y}|{z}
 	if blocks[{id}].grounded jump #destroyblock|{x}|{y}|{z}|false
 quit
 
@@ -767,7 +786,7 @@ quit
 	set x {runArg1}
 	set y {runArg2}
 	set z {runArg3}
-	call #getblock|id|{x}|{y}|{z}
+	call {#getblock}|id|{x}|{y}|{z}
 	if label #use[{id}:{PlayerHeldBlock}] jump #use[{id}:{PlayerHeldBlock}]|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
 	ifnot blocks[{PlayerHeldBlock}].replaceable then
@@ -779,7 +798,7 @@ quit
 		if PlayerHeldBlock|=|blocks[{id}].merger then
 			if blocks[{id}].mergeFace|=|click.face then
 				call #take|{playerHeldBlock}|1
-				jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
+				jump {#setblock}|{blocks[{id}].mergeInto}|{x}|{y}|{z}
 				quit
 			end
 		end
@@ -790,11 +809,11 @@ quit
 	if click.face|=|"TowardsX" setsub x 1
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
-	call #getblock|id|{x}|{y}|{z}
+	call {#getblock}|id|{x}|{y}|{z}
 	ifnot blocks[{id}].mergeInto|=|"" then
 		if PlayerHeldBlock|=|blocks[{id}].merger then
 			call #take|{playerHeldBlock}|1
-			jump #setblock|{blocks[{id}].mergeInto}|{x}|{y}|{z}
+			jump {#setblock}|{blocks[{id}].mergeInto}|{x}|{y}|{z}
 			quit
 		end
 	end
@@ -810,12 +829,12 @@ quit
 	ifnot blocks[{PlayerHeldBlock}].Face{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
 	if blocks[{placeid}].grounded then
 		setsub y 1
-		call #getblock|id|{x}|{y}|{z}
+		call {#getblock}|id|{x}|{y}|{z}
 		if blocks[{id}].nonsolid quit
 		setadd y 1
 	end
 	call #take|{playerHeldBlock}|1
-	jump #setblock|{placeid}|{x}|{y}|{z}
+	jump {#setblock}|{placeid}|{x}|{y}|{z}
 quit
 
 #itemuse
@@ -833,13 +852,22 @@ quit
 quit
 
 #pick
-	call #getblock|id|{runArg1}|{runArg2}|{runArg3}
+	call {#getblock}|id|{runArg1}|{runArg2}|{runArg3}
 	if inventory[{id}]|>|0 cmd holdsilent {id}
 quit
 
 #getblock
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
 	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
+quit
+
+#getblock:temp
+	set {runArg1} {world[{runArg2},{runArg3},{runArg4}]}
+	if {runArg1}|=|"" setblockid {runArg1} {runArg2} {runArg3} {runArg4}
+quit
+
+#getblock:perm
+	setblockid {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
 #setblock
@@ -851,6 +879,21 @@ quit
 		set world[{runArg2},{runArg3},{runArg4}].msg
 		quit
 	end
+	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
+quit
+
+#setblock:temp
+	setblockid id {runArg2} {runArg3} {runArg4}
+	if id|=|65535 quit
+	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
+	set world[{runArg2},{runArg3},{runArg4}] {runArg1}
+	set world[{runArg2},{runArg3},{runArg4}].msg
+	quit
+quit
+
+#setblock:perm
+	setblockid id {runArg2} {runArg3} {runArg4}
+	if id|=|65535 quit
 	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
@@ -866,9 +909,38 @@ quit
 	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
+#setblockif:temp
+	set id {world[{runArg2},{runArg3},{runArg4}]}
+	if id|=|"" setblockid id {runArg2} {runArg3} {runArg4}
+	ifnot blocks[{id}].{runArg5} quit
+	tempblock {runArg1} {runArg2} {runArg3} {runArg4}
+	set world[{runArg2},{runArg3},{runArg4}] {runArg1}
+	set world[{runArg2},{runArg3},{runArg4}].msg
+	quit
+quit
+
+#setblockif:perm
+	setblockid id {runArg2} {runArg3} {runArg4}
+	ifnot blocks[{id}].{runArg5} quit
+	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
+quit
+
 #getblockdata
 	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
 	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
+	ifnot {runArg1}|=|"" set {runArg1} |{{runArg1}}
+	ifnot {runArg1}|=|"" setsplit {runArg1} |/nothing2 {}
+quit
+
+#getblockdata:temp
+	set {runArg1} {world[{runArg2},{runArg3},{runArg4}].msg}
+	if {runArg1}|=|"" setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
+	ifnot {runArg1}|=|"" set {runArg1} |{{runArg1}}
+	ifnot {runArg1}|=|"" setsplit {runArg1} |/nothing2 {}
+quit
+
+#getblockdata:perm
+	setblockmessage {runArg1} {runArg2} {runArg3} {runArg4}
 	ifnot {runArg1}|=|"" set {runArg1} |{{runArg1}}
 	ifnot {runArg1}|=|"" setsplit {runArg1} |/nothing2 {}
 quit
@@ -883,8 +955,37 @@ quit
 		end
 	end
 	setblockid id {runArg1} {runArg2} {runArg3}
+	if id|=|65535 quit
 	ifnot allowMapChanges set world[{runArg1},{runArg2},{runArg3}].msg {msg}
 	else placemessageblock {id} {runArg1} {runArg2} {runArg3} {msg}
+quit
+
+#setblockdata:temp
+	setblockid id {runArg1} {runArg2} {runArg3}
+	if id|=|65535 quit
+	set msg /nothing2 {runArg4}
+	ifnot runArg5|=|"" then
+		local i 5
+		while ifnot runArg{i}|=|""
+			set msg {msg}|/nothing2 {runArg{i}}
+			setadd *i 1
+		end
+	end
+	set world[{runArg1},{runArg2},{runArg3}].msg {msg}
+quit
+
+#setblockdata:perm
+	setblockid id {runArg1} {runArg2} {runArg3}
+	if id|=|65535 quit
+	set msg /nothing2 {runArg4}
+	ifnot runArg5|=|"" then
+		local i 5
+		while ifnot runArg{i}|=|""
+			set msg {msg}|/nothing2 {runArg{i}}
+			setadd *i 1
+		end
+	end
+	placemessageblock {id} {runArg1} {runArg2} {runArg3} {msg}
 quit
 
 #makebar
@@ -1126,7 +1227,7 @@ quit
 	ifnot blocks[{PlayerHeldBlock}].campfireLighter|=|"" then
 		if inventory[{PlayerHeldBlock}]|>|0 then
 			set SpawnBlock {runArg1} {runArg2} {runArg3}
-			call #setblock|68|{runArg1}|{runArg2}|{runArg3}
+			call {#setblock}|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
 			call #give|{blocks[{PlayerHeldBlock}].campfireLighter}|1
 			set DeathSpawn {PlayerCoords} {PlayerYaw} {PlayerPitch}
@@ -1171,7 +1272,7 @@ quit
 quit
 
 #use[80:70]
-	if inventory[70]|>|0 call #setblock|70|{runArg1}|{runArg2}|{runArg3}
+	if inventory[70]|>|0 call {#setblock}|70|{runArg1}|{runArg2}|{runArg3}
 quit
 
 #loot[1]
@@ -1219,7 +1320,7 @@ jump #give|75|2
 #loot[94]
 #loot[82]
 	// block data contains: grave owner | death time | death message | inventory
-	call #getblockdata|data|{x}|{y}|{z}
+	call {#getblockdata}|data|{x}|{y}|{z}
 	if data|=|"" jump #give|82|1
 	set canDestroyTombstone false
 	if data[0]|=|"@p" set canDestroyTombstone true
@@ -1259,7 +1360,7 @@ jump #give|79|1
 
 #use[82]
 #use[94]
-	call #getblockdata|data|{x}|{y}|{z}
+	call {#getblockdata}|data|{x}|{y}|{z}
 	if data|=|"" msg * &fThe tombstone is unreadable...
 	if data|=|"" quit
 	msg * &fThe following is engraved on the tombstone:
@@ -1281,39 +1382,39 @@ function #blocktick[2]
 	local z {runArg3}
 	localname i
 	setadd *y 1
-	call #getblock|*i|{x}|{y}|{z}
+	call {#getblock}|*i|{x}|{y}|{z}
 	setsub *y 1
-	ifnot blocks[{i}].nonsolid jump #setblock|3|{x}|{y}|{z}
+	ifnot blocks[{i}].nonsolid jump {#setblock}|3|{x}|{y}|{z}
 	setrandrange *i -1 1
 	setadd *x {i}
 	setsub *y 1
 	setrandrange *i -1 1
 	setadd *z {i}
 	// bottom grass
-	call #getblock|*i|{x}|{y}|{z}
+	call {#getblock}|*i|{x}|{y}|{z}
 	if *i|=|3 then
 		setadd *y 1
-		call #getblock|*i|{x}|{y}|{z}
+		call {#getblock}|*i|{x}|{y}|{z}
 		setsub *y 1
-		if *i|=|0 jump #setblock|2|{x}|{y}|{z}
+		if *i|=|0 jump {#setblock}|2|{x}|{y}|{z}
 	end
 	// middle grass
 	setadd *y 1
-	call #getblock|*i|{x}|{y}|{z}
+	call {#getblock}|*i|{x}|{y}|{z}
 	if *i|=|3 then
 		setadd *y 1
-		call #getblock|*i|{x}|{y}|{z}
+		call {#getblock}|*i|{x}|{y}|{z}
 		setsub *y 1
-		if *i|=|0 jump #setblock|2|{x}|{y}|{z}
+		if *i|=|0 jump {#setblock}|2|{x}|{y}|{z}
 	end
 	// top grass
 	setadd *y 1
-	call #getblock|*i|{x}|{y}|{z}
+	call {#getblock}|*i|{x}|{y}|{z}
 	if *i|=|3 then
 		setadd *y 1
-		call #getblock|*i|{x}|{y}|{z}
+		call {#getblock}|*i|{x}|{y}|{z}
 		setsub *y 1
-		if *i|=|0 jump #setblock|2|{x}|{y}|{z}
+		if *i|=|0 jump {#setblock}|2|{x}|{y}|{z}
 	end
 end
 
@@ -1322,7 +1423,7 @@ end
 jump #growtree|{runArg1}|{runArg2}|{runArg3}
 
 function #blocktick[18]
-	local decay #setblock|0|{runArg1}|{runArg2}|{runArg3}
+	local decay {#setblock}|0|{runArg1}|{runArg2}|{runArg3}
 	local x1 {runArg1}
 	setsub *x1 2
 	local x2 {runArg1}
@@ -1345,7 +1446,7 @@ function #blocktick[18]
 			local z {z1}
 			while if *z|<=|*z2
 				localname id
-				call #getblock|*id|{x}|{y}|{z}
+				call {#getblock}|*id|{x}|{y}|{z}
 				if *id|=|17 quit
 				setadd *z 1
 			end
@@ -1363,40 +1464,40 @@ function #blocktick[88]
 	local z {runArg3}
 	setadd *y 1
 	localname id
-	call #getblock|*id|{x}|{y}|{z}
+	call {#getblock}|*id|{x}|{y}|{z}
 	ifnot blocks[{id}].soiltick quit
 	if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
 end
 
 function #blocktick[89]
 	ifnot envcycle[{Hour}].isday quit
-	local grow #setblock|90|{runArg1}|{runArg2}|{runArg3}
+	local grow {#setblock}|90|{runArg1}|{runArg2}|{runArg3}
 	local x {runArg1}
 	local y {runArg2}
 	local z {runArg3}
 	setsub *y 1
 	localname id
-	call #getblock|*id|{x}|{y}|{z}
+	call {#getblock}|*id|{x}|{y}|{z}
 	ifnot blocks[{id}].growscrops quit
 	jump {grow}
 end
 
 #blocktick[90]
 	ifnot envcycle[{Hour}].isday quit
-jump #setblock|91|{runArg1}|{runArg2}|{runArg3}
+jump {#setblock}|91|{runArg1}|{runArg2}|{runArg3}
 
 #blocktick[91]
 	ifnot envcycle[{Hour}].isday quit
-jump #setblock|92|{runArg1}|{runArg2}|{runArg3}
+jump {#setblock}|92|{runArg1}|{runArg2}|{runArg3}
 
 function #blocktick[92]
 	ifnot envcycle[{Hour}].isday quit
 	local x {runArg1}
 	local y {runArg2}
 	local z {runArg3}
-	call #setblock|93|{x}|{y}|{z}
+	call {#setblock}|93|{x}|{y}|{z}
 	setsub *y 1
-	call #setblock|88|{x}|{y}|{z}
+	call {#setblock}|88|{x}|{y}|{z}
 end
 
 function #growtree
@@ -1405,174 +1506,176 @@ function #growtree
 	local z {runArg3}
 	localname i
 	setsub *y 1
-	call #getblock|*i|{x}|{y}|{z}
+	call {#getblock}|*i|{x}|{y}|{z}
 	ifnot blocks[{i}].growstree quit
-	call #setblock|88|{x}|{y}|{z}
+	call {#setblock}|88|{x}|{y}|{z}
 	setadd *y 1
 	setrandrange *i 1 3
 	while if *i|>|0
-		call #setblockif|17|{x}|{y}|{z}|growreplaceable
+		call {#setblockif}|17|{x}|{y}|{z}|growreplaceable
 		setsub *i 1
 		setadd *y 1
 	end
 	// TREE BIG PART 1
 	// at center
-	call #setblockif|17|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|17|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -3
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	// at far left
 	setadd *z 2
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 4
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -4
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -4
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	// at bottom left
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 4
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	// at x: 1, z: 4
 	setadd *z -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 1
 	setadd *y 1
 	// TREE BIG PART 2
 	// at center
-	call #setblockif|17|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|17|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -3
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	// at far left
 	setadd *z 2
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 4
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -4
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -4
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	// at bottom left
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 4
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	// at x: 1, z: 4
 	setadd *z -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 1
 	setadd *y 1
 	// TREE SMALL PART 1
 	// at center
-	call #setblockif|17|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|17|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 2
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -1
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -1
 	setrandlist *i 0|18
-	if *i|=|18 call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	if *i|=|18 call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z 1
 	setadd *y 1
 	// TREE SMALL PART 2
 	// at center
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x -2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *x 1
 	setadd *z 1
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 	setadd *z -2
-	call #setblockif|18|{x}|{y}|{z}|growreplaceable
+	call {#setblockif}|18|{x}|{y}|{z}|growreplaceable
 end
+
+include structures survival/structures
 
 #initBlacklist
 	include struct blacklist survival/blacklist

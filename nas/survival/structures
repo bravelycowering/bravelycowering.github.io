@@ -1,0 +1,21 @@
+// comment
+
+#structure:redmushroomtop {
+	origin: 2, 0, 2
+	R: 64
+	S: 65
+	[
+		[     ]
+		[ RRR ]
+		[ RRR ]
+		[ RRR ]
+		[     ]
+	]
+	[
+		[ RRR ]
+		[R   R]
+		[R S R]
+		[R   R]
+		[ RRR ]
+	]
+}
