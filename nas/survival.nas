@@ -125,13 +125,14 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
-	msg - Bugfixes and optimization
+	msg - Fixed a bug where leaves would look in the wrong place for logs before trying to decay
+	msg - Made the &aE&7 key craft whatever you have in your hand
 	msg - Glass and Lit torches can now be created using regular fire
 	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
 	msg - A different variant of tall tree generates
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 4.1 &726Jan20-1
+msg &fVersion &abeta 5.0 &726Jan20-2
 quit
 
 #initSave
@@ -1005,6 +1006,7 @@ quit
 			setadd i 1
 		if i|<|{recipes.Length} jump #while_12
 		msg &eType &a/in craft [name]&e to craft something
+		msg &eOr press &aE&e to try and craft what's in your hand.
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
 	#if_26
@@ -1019,6 +1021,7 @@ quit
 	msg &f> {toollevel[{axe}]} Axe
 	msg &f> {toollevel[{spade}]} Spade
 	msg &eType &a/in craft&e to show the crafting menu.
+	msg &eOr press &aE&e to try and craft what's in your hand.
 quit
 
 #doCraft
@@ -1282,14 +1285,14 @@ jump #growtree|{runArg1}|{runArg2}|{runArg3}
 	set l_x2_1 {runArg1}
 	setadd l_x2_1 2
 
-	set l_y1_1 {runArg1}
+	set l_y1_1 {runArg2}
 	setsub l_y1_1 2
-	set l_y2_1 {runArg1}
+	set l_y2_1 {runArg2}
 	setadd l_y2_1 2
 
-	set l_z1_1 {runArg1}
+	set l_z1_1 {runArg3}
 	setsub l_z1_1 2
-	set l_z2_1 {runArg1}
+	set l_z2_1 {runArg3}
 	setadd l_z2_1 2
 
 	set l_x_6 {l_x1_1}

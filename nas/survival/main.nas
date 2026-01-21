@@ -125,7 +125,8 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
-	msg - Bugfixes and optimization
+	msg - Fixed a bug where leaves would look in the wrong place for logs before trying to decay
+	msg - Made the &aE&7 key craft whatever you have in your hand
 	msg - Glass and Lit torches can now be created using regular fire
 	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
 	msg - A different variant of tall tree generates
@@ -1005,6 +1006,7 @@ quit
 			setadd i 1
 		end
 		msg &eType &a/in craft [name]&e to craft something
+		msg &eOr press &aE&e to try and craft what's in your hand.
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
 	end
@@ -1019,6 +1021,7 @@ quit
 	msg &f> {toollevel[{axe}]} Axe
 	msg &f> {toollevel[{spade}]} Spade
 	msg &eType &a/in craft&e to show the crafting menu.
+	msg &eOr press &aE&e to try and craft what's in your hand.
 quit
 
 #doCraft
@@ -1282,14 +1285,14 @@ function #blocktick[18]
 	local x2 {runArg1}
 	setadd *x2 2
 
-	local y1 {runArg1}
+	local y1 {runArg2}
 	setsub *y1 2
-	local y2 {runArg1}
+	local y2 {runArg2}
 	setadd *y2 2
 
-	local z1 {runArg1}
+	local z1 {runArg3}
 	setsub *z1 2
-	local z2 {runArg1}
+	local z2 {runArg3}
 	setadd *z2 2
 
 	local x {x1}
