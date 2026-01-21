@@ -29,6 +29,7 @@ using no_runarg_underscore_conversion
 	set axe 0
 	set spade 0
 
+	set lastate 0
 	set maxhp 30
 	set hp {maxhp}
 	set iframes 0
@@ -125,11 +126,19 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
+	msg - Fixed a bug where items being taken from someone would force that person to hold air, regardless of if they were holding the item taken or not
 	msg - Fixed a bug where leaves would look in the wrong place for logs before trying to decay
-	msg - Made the &aE&7 key craft whatever you have in your hand
-	msg - Glass and Lit torches can now be created using regular fire
-	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
+	msg - Flowers and mushrooms now have a random offset when placed
+	msg - Tombstones can now be placed facing the other direction
+	msg - Grass now only grows if air is on top of it
+	msg - Glass and Lit torches can now be created using regular fire in place of a campfire
 	msg - A different variant of tall tree generates
+	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
+	msg - Added a hotkey: made the &aE&7 key craft whatever you have in your hand
+	msg - Eating any food now has a 1 second cooldown
+	msg - New blocks: Seeds, Soil, Wheat, and Bread
+	msg - Seeds can now be placed on dirt and soil
+	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
 	include survival/version
@@ -407,6 +416,7 @@ quit
 	msg &f/os blockprops 7 mb
 	msg &f/os blockprops 82 mb
 	msg &f/os blockprops 83 mb
+	msg &f/os blockprops 94 mb
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -525,12 +535,12 @@ quit
 	cmd replacebrush 767 random 2/199 767
 	cmd ma
 	cmd foreach 767 tree notch,m ~ ~1 ~
-	cmd replaceall 767 3
+	cmd replaceall 767 88
 	// plant big trees sparsely everywhere
 	cmd replacebrush 2 random 2/1999 767
 	cmd ma
 	cmd foreach 767 tree ash,m ~ ~1 ~
-	cmd replaceall 767 3
+	cmd replaceall 767 88
 	// flowers
 	call #grow|2|767
 	cmd replacebrush 767 cloudy 0/4 767 f=2
@@ -605,7 +615,8 @@ quit
 		end
 	end
 	set deathY {PlayerY}
-	call #setblock|82|{PlayerX}|{deathY}|{PlayerZ}
+	setrandlist id 82|94
+	call #setblock|{id}|{PlayerX}|{deathY}|{PlayerZ}
 	include setinvstring
 	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|* &f{deathmsg}|{inventory}
 	setsub deathY 1
@@ -725,7 +736,8 @@ quit
 #take
 	setsub inventory[{runArg1}] {runArg2}
 	if inventory[{runArg1}]|<|0 set inventory[{runArg1}] 0
-	if inventory[{runArg1}]|=|0 cmd holdsilent 0
+	ifnot inventory[{runArg1}]|=|0 quit
+	if PlayerHeldBlock|=|runArg2 cmd holdsilent 0
 quit
 
 #giveall
@@ -807,6 +819,9 @@ quit
 
 #itemuse
 	ifnot blocks[{PlayerHeldBlock}].food|=|"" then
+		if epochMS|<|lastate quit
+		set lastate {epochMS}
+		setadd lastate 1000
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 		ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 		if hp|<|maxhp then
@@ -1146,6 +1161,14 @@ quit
 	end
 quit
 
+#use[68:79]
+#use[54:79]
+	if inventory[79]|>|0 then
+		call #take|79|1
+		call #give|77|1
+	end
+quit
+
 #use[80:70]
 	if inventory[70]|>|0 call #setblock|70|{runArg1}|{runArg2}|{runArg3}
 quit
@@ -1154,7 +1177,10 @@ quit
 jump #give|4|1
 
 #loot[2]
-jump #give|3|1
+call #give|3|1
+setrandrange sap 1 10
+ifnot sap|=|5 quit
+jump #give|89|1
 
 #loot[18]
 setrandrange sap 1 10
@@ -1189,6 +1215,7 @@ jump #give|73|2
 #loot[76]
 jump #give|75|2
 
+#loot[94]
 #loot[82]
 	// block data contains: grave owner | death time | death message | inventory
 	call #getblockdata|data|{x}|{y}|{z}
@@ -1215,7 +1242,22 @@ jump #give|82|1
 #loot[86]
 jump #give|84|1
 
+#loot[88]
+jump #give|3|1
+
+#loot[89]
+#loot[90]
+#loot[91]
+#loot[92]
+jump #give|89|1
+
+#loot[93]
+setrandrange count 2 3
+call #give|89|{count}
+jump #give|79|1
+
 #use[82]
+#use[94]
 	call #getblockdata|data|{x}|{y}|{z}
 	if data|=|"" msg * &fThe tombstone is unreadable...
 	if data|=|"" quit
@@ -1252,7 +1294,7 @@ function #blocktick[2]
 		setadd *y 1
 		call #getblock|*i|{x}|{y}|{z}
 		setsub *y 1
-		if blocks[{i}].nonsolid jump #setblock|2|{x}|{y}|{z}
+		if *i|=|0 jump #setblock|2|{x}|{y}|{z}
 	end
 	// middle grass
 	setadd *y 1
@@ -1261,7 +1303,7 @@ function #blocktick[2]
 		setadd *y 1
 		call #getblock|*i|{x}|{y}|{z}
 		setsub *y 1
-		if blocks[{i}].nonsolid jump #setblock|2|{x}|{y}|{z}
+		if *i|=|0 jump #setblock|2|{x}|{y}|{z}
 	end
 	// top grass
 	setadd *y 1
@@ -1270,7 +1312,7 @@ function #blocktick[2]
 		setadd *y 1
 		call #getblock|*i|{x}|{y}|{z}
 		setsub *y 1
-		if blocks[{i}].nonsolid jump #setblock|2|{x}|{y}|{z}
+		if *i|=|0 jump #setblock|2|{x}|{y}|{z}
 	end
 end
 
@@ -1314,6 +1356,41 @@ function #blocktick[18]
 	jump {decay}
 end
 
+function #blocktick[88]
+	local x {runArg1}
+	local y {runArg2}
+	local z {runArg3}
+	setadd *y 1
+	localname id
+	call #getblock|*id|{x}|{y}|{z}
+	ifnot blocks[{id}].soiltick quit
+	if label #blocktick[{id}] call #blocktick[{id}]|{x}|{y}|{z}
+end
+
+function #blocktick[89]
+	local grow #setblock|90|{runArg1}|{runArg2}|{runArg3}
+	setsub runArg2 1
+	localname id
+	call #getblock|*id|{x}|{y}|{z}
+	ifnot blocks[{id}].growscrops quit
+	jump {grow}
+end
+
+#blocktick[90]
+jump #setblock|91|{runArg1}|{runArg2}|{runArg3}
+
+#blocktick[91]
+jump #setblock|92|{runArg1}|{runArg2}|{runArg3}
+
+function #blocktick[92]
+	local x {runArg1}
+	local y {runArg2}
+	local z {runArg3}
+	call #setblock|93|{x}|{y}|{z}
+	setsub *y 1
+	call #setblock|88|{x}|{y}|{z}
+end
+
 function #growtree
 	local x {runArg1}
 	local y {runArg2}
@@ -1321,8 +1398,8 @@ function #growtree
 	localname i
 	setsub *y 1
 	call #getblock|*i|{x}|{y}|{z}
-	ifnot blocks[{i}].soil quit
-	call #setblock|3|{x}|{y}|{z}
+	ifnot blocks[{i}].growstree quit
+	call #setblock|88|{x}|{y}|{z}
 	setadd *y 1
 	setrandrange *i 1 3
 	while if *i|>|0

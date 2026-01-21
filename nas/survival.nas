@@ -29,6 +29,7 @@ using no_runarg_underscore_conversion
 	set axe 0
 	set spade 0
 
+	set lastate 0
 	set maxhp 30
 	set hp {maxhp}
 	set iframes 0
@@ -51,7 +52,7 @@ using no_runarg_underscore_conversion
 
 	set RandomTickSpeed 3
 
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
@@ -125,14 +126,22 @@ quit
 
 #changelog
 	msg &fChanges in the latest major version:
+	msg - Fixed a bug where items being taken from someone would force that person to hold air, regardless of if they were holding the item taken or not
 	msg - Fixed a bug where leaves would look in the wrong place for logs before trying to decay
-	msg - Made the &aE&7 key craft whatever you have in your hand
-	msg - Glass and Lit torches can now be created using regular fire
-	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
+	msg - Flowers and mushrooms now have a random offset when placed
+	msg - Tombstones can now be placed facing the other direction
+	msg - Grass now only grows if air is on top of it
+	msg - Glass and Lit torches can now be created using regular fire in place of a campfire
 	msg - A different variant of tall tree generates
+	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
+	msg - Added a hotkey: made the &aE&7 key craft whatever you have in your hand
+	msg - Eating any food now has a 1 second cooldown
+	msg - New blocks: Seeds, Soil, Wheat, and Bread
+	msg - Seeds can now be placed on dirt and soil
+	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan20-2
+msg &fVersion &abeta 5.0 &726Jan20-3
 quit
 
 #initSave
@@ -166,7 +175,7 @@ quit
 	if saveSlot|=|"" quit
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	set HeldBlock {PlayerHeldBlock}
-placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
+placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
 quit
 
 #load
@@ -407,6 +416,7 @@ quit
 	msg &f/os blockprops 7 mb
 	msg &f/os blockprops 82 mb
 	msg &f/os blockprops 83 mb
+	msg &f/os blockprops 94 mb
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -525,12 +535,12 @@ quit
 	cmd replacebrush 767 random 2/199 767
 	cmd ma
 	cmd foreach 767 tree notch,m ~ ~1 ~
-	cmd replaceall 767 3
+	cmd replaceall 767 88
 	// plant big trees sparsely everywhere
 	cmd replacebrush 2 random 2/1999 767
 	cmd ma
 	cmd foreach 767 tree ash,m ~ ~1 ~
-	cmd replaceall 767 3
+	cmd replaceall 767 88
 	// flowers
 	call #grow|2|767
 	cmd replacebrush 767 cloudy 0/4 767 f=2
@@ -605,8 +615,9 @@ quit
 		#if_9
 	#ifnot_3
 	set deathY {PlayerY}
-	call #setblock|82|{PlayerX}|{deathY}|{PlayerZ}
-set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]}
+	setrandlist id 82|94
+	call #setblock|{id}|{PlayerX}|{deathY}|{PlayerZ}
+set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]}
 	call #setblockdata|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|* &f{deathmsg}|{inventory}
 	setsub deathY 1
 	call #getblock|id|{PlayerX}|{deathY}|{PlayerZ}
@@ -617,7 +628,7 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 	cmd holdsilent 0
 quit
@@ -725,7 +736,8 @@ quit
 #take
 	setsub inventory[{runArg1}] {runArg2}
 	if inventory[{runArg1}]|<|0 set inventory[{runArg1}] 0
-	if inventory[{runArg1}]|=|0 cmd holdsilent 0
+	ifnot inventory[{runArg1}]|=|0 quit
+	if PlayerHeldBlock|=|runArg2 cmd holdsilent 0
 quit
 
 #giveall
@@ -807,6 +819,9 @@ quit
 
 #itemuse
 	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_8
+		if epochMS|<|lastate quit
+		set lastate {epochMS}
+		setadd lastate 1000
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 		ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 		ifnot hp|<|maxhp jump #if_16
@@ -1146,6 +1161,14 @@ quit
 	#if_36
 quit
 
+#use[68:79]
+#use[54:79]
+	ifnot inventory[79]|>|0 jump #if_37
+		call #take|79|1
+		call #give|77|1
+	#if_37
+quit
+
 #use[80:70]
 	if inventory[70]|>|0 call #setblock|70|{runArg1}|{runArg2}|{runArg3}
 quit
@@ -1154,7 +1177,10 @@ quit
 jump #give|4|1
 
 #loot[2]
-jump #give|3|1
+call #give|3|1
+setrandrange sap 1 10
+ifnot sap|=|5 quit
+jump #give|89|1
 
 #loot[18]
 setrandrange sap 1 10
@@ -1189,6 +1215,7 @@ jump #give|73|2
 #loot[76]
 jump #give|75|2
 
+#loot[94]
 #loot[82]
 	// block data contains: grave owner | death time | death message | inventory
 	call #getblockdata|data|{x}|{y}|{z}
@@ -1215,7 +1242,22 @@ jump #give|82|1
 #loot[86]
 jump #give|84|1
 
+#loot[88]
+jump #give|3|1
+
+#loot[89]
+#loot[90]
+#loot[91]
+#loot[92]
+jump #give|89|1
+
+#loot[93]
+setrandrange count 2 3
+call #give|89|{count}
+jump #give|79|1
+
 #use[82]
+#use[94]
 	call #getblockdata|data|{x}|{y}|{z}
 	if data|=|"" msg * &fThe tombstone is unreadable...
 	if data|=|"" quit
@@ -1248,30 +1290,30 @@ quit
 	setadd l_z_4 {l_i_3}
 	// bottom grass
 	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
-	ifnot l_i_3|=|3 jump #if_37
-		setadd l_y_3 1
-		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
-		setsub l_y_3 1
-		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
-	#if_37
-	// middle grass
-	setadd l_y_3 1
-	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 	ifnot l_i_3|=|3 jump #if_38
 		setadd l_y_3 1
 		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 		setsub l_y_3 1
-		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
+		if l_i_3|=|0 jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
 	#if_38
-	// top grass
+	// middle grass
 	setadd l_y_3 1
 	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 	ifnot l_i_3|=|3 jump #if_39
 		setadd l_y_3 1
 		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
 		setsub l_y_3 1
-		if blocks[{l_i_3}].nonsolid jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
+		if l_i_3|=|0 jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
 	#if_39
+	// top grass
+	setadd l_y_3 1
+	call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
+	ifnot l_i_3|=|3 jump #if_40
+		setadd l_y_3 1
+		call #getblock|l_i_3|{l_x_5}|{l_y_3}|{l_z_4}
+		setsub l_y_3 1
+		if l_i_3|=|0 jump #setblock|2|{l_x_5}|{l_y_3}|{l_z_4}
+	#if_40
 quit
 
 #blocktick[6]
@@ -1314,179 +1356,214 @@ jump #growtree|{runArg1}|{runArg2}|{runArg3}
 	jump {l_decay_1}
 quit
 
-#growtree
+#blocktick[88]
 	set l_x_7 {runArg1}
 	set l_y_5 {runArg2}
 	set l_z_6 {runArg3}
-	// localname l_i_4 
-	setsub l_y_5 1
-	call #getblock|l_i_4|{l_x_7}|{l_y_5}|{l_z_6}
-	ifnot blocks[{l_i_4}].soil quit
-	call #setblock|3|{l_x_7}|{l_y_5}|{l_z_6}
 	setadd l_y_5 1
+	// localname l_id_4 
+	call #getblock|l_id_4|{l_x_7}|{l_y_5}|{l_z_6}
+	ifnot blocks[{l_id_4}].soiltick quit
+	if label #blocktick[{l_id_4}] call #blocktick[{l_id_4}]|{l_x_7}|{l_y_5}|{l_z_6}
+quit
+
+#blocktick[89]
+	set l_grow_1 #setblock|90|{runArg1}|{runArg2}|{runArg3}
+	setsub runArg2 1
+	// localname l_id_5 
+	call #getblock|l_id_5|{x}|{y}|{z}
+	ifnot blocks[{l_id_5}].growscrops quit
+	jump {l_grow_1}
+quit
+
+#blocktick[90]
+jump #setblock|91|{runArg1}|{runArg2}|{runArg3}
+
+#blocktick[91]
+jump #setblock|92|{runArg1}|{runArg2}|{runArg3}
+
+#blocktick[92]
+	set l_x_8 {runArg1}
+	set l_y_6 {runArg2}
+	set l_z_7 {runArg3}
+	call #setblock|93|{l_x_8}|{l_y_6}|{l_z_7}
+	setsub l_y_6 1
+	call #setblock|88|{l_x_8}|{l_y_6}|{l_z_7}
+quit
+
+#growtree
+	set l_x_9 {runArg1}
+	set l_y_7 {runArg2}
+	set l_z_8 {runArg3}
+	// localname l_i_4 
+	setsub l_y_7 1
+	call #getblock|l_i_4|{l_x_9}|{l_y_7}|{l_z_8}
+	ifnot blocks[{l_i_4}].growstree quit
+	call #setblock|88|{l_x_9}|{l_y_7}|{l_z_8}
+	setadd l_y_7 1
 	setrandrange l_i_4 1 3
 	#while_23
-		call #setblockif|17|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
+		call #setblockif|17|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
 		setsub l_i_4 1
-		setadd l_y_5 1
+		setadd l_y_7 1
 	if l_i_4|>|0 jump #while_23
 	// TREE BIG PART 1
 	// at center
-	call #setblockif|17|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -3
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
+	call #setblockif|17|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -3
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
 	// at far left
-	setadd l_z_6 2
+	setadd l_z_8 2
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 4
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 4
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 -4
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 -4
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -4
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -4
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
 	// at bottom left
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 4
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 4
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
 	// at x: 1, z: 4
-	setadd l_z_6 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 -2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 1
-	setadd l_y_5 1
+	setadd l_z_8 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 -2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 1
+	setadd l_y_7 1
 	// TREE BIG PART 2
 	// at center
-	call #setblockif|17|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -3
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
+	call #setblockif|17|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -3
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
 	// at far left
-	setadd l_z_6 2
+	setadd l_z_8 2
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 4
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 4
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 -4
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 -4
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -4
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -4
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
 	// at bottom left
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 4
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 4
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
 	// at x: 1, z: 4
-	setadd l_z_6 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 -2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 1
-	setadd l_y_5 1
+	setadd l_z_8 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 -2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 1
+	setadd l_y_7 1
 	// TREE SMALL PART 1
 	// at center
-	call #setblockif|17|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 -1
+	call #setblockif|17|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 -1
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 2
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 2
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -1
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -1
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 -1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 -1
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 -1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 -1
 	setrandlist l_i_4 0|18
-	if l_i_4|=|18 call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 1
-	setadd l_y_5 1
+	if l_i_4|=|18 call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 1
+	setadd l_y_7 1
 	// TREE SMALL PART 2
 	// at center
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 -2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_x_7 1
-	setadd l_z_6 1
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
-	setadd l_z_6 -2
-	call #setblockif|18|{l_x_7}|{l_y_5}|{l_z_6}|growreplaceable
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 -2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_x_9 1
+	setadd l_z_8 1
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
+	setadd l_z_8 -2
+	call #setblockif|18|{l_x_9}|{l_y_7}|{l_z_8}|growreplaceable
 quit
 
 #initBlacklist
@@ -1494,7 +1571,7 @@ set blacklist.CODVeteran+ Repeated grief
 quit
 
 #initStructs
-set blocks.Length 88
+set blocks.Length 95
 set blocks[0].growreplaceable true
 set blocks[0].id 0
 set blocks[0].name Air
@@ -1585,10 +1662,10 @@ set blocks[28].id 28
 set blocks[28].name Cyan
 set blocks[29].id 29
 set blocks[29].name Blue
+set blocks[2].growstree true
 set blocks[2].hardness 3
 set blocks[2].id 2
 set blocks[2].name Grass
-set blocks[2].soil true
 set blocks[2].tooltype spade
 set blocks[30].id 30
 set blocks[30].name Indigo
@@ -1621,10 +1698,11 @@ set blocks[39].growreplaceable true
 set blocks[39].id 39
 set blocks[39].name Brown mushroom
 set blocks[39].nonsolid true
+set blocks[3].growscrops true
+set blocks[3].growstree true
 set blocks[3].hardness 3
 set blocks[3].id 3
 set blocks[3].name Dirt
-set blocks[3].soil true
 set blocks[3].tooltype spade
 set blocks[40].consume true
 set blocks[40].food 3
@@ -1788,6 +1866,7 @@ set blocks[6].growreplaceable true
 set blocks[6].id 6
 set blocks[6].name Sapling
 set blocks[6].nonsolid true
+set blocks[6].soiltick true
 set blocks[70].campfireLighter 70
 set blocks[70].grounded true
 set blocks[70].id 70
@@ -1829,6 +1908,8 @@ set blocks[76].id 76
 set blocks[76].name Double cobblestone slab
 set blocks[76].tooltype pickaxe
 set blocks[76].touchness 1
+set blocks[77].consume true
+set blocks[77].food 8
 set blocks[77].grounded true
 set blocks[77].id 77
 set blocks[77].name Bread
@@ -1856,6 +1937,8 @@ set blocks[81].id 81
 set blocks[81].name Compost pit
 set blocks[81].nonsolid true
 set blocks[81].tooltype pickaxe
+set blocks[82].FaceNorth 94
+set blocks[82].FaceSouth 94
 set blocks[82].breakScale 0.8 0.93 0.3
 set blocks[82].grounded true
 set blocks[82].hardness 4
@@ -1896,6 +1979,18 @@ set blocks[87].id 87
 set blocks[87].name Cage
 set blocks[87].tooltype pickaxe
 set blocks[87].toughness 6
+set blocks[88].growscrops true
+set blocks[88].growstree true
+set blocks[88].hardness 3
+set blocks[88].id 88
+set blocks[88].name Soil
+set blocks[88].tooltype spade
+set blocks[89].grounded true
+set blocks[89].growreplaceable true
+set blocks[89].id 89
+set blocks[89].name Seeds
+set blocks[89].nonsolid true
+set blocks[89].soiltick true
 set blocks[8].drowning true
 set blocks[8].extinguishFire true
 set blocks[8].fluid true
@@ -1905,6 +2000,35 @@ set blocks[8].name Water
 set blocks[8].nonsolid true
 set blocks[8].replaceable true
 set blocks[8].unbreakable true
+set blocks[90].grounded true
+set blocks[90].growreplaceable true
+set blocks[90].id 90
+set blocks[90].name Wheat crop stage 1
+set blocks[90].nonsolid true
+set blocks[90].soiltick true
+set blocks[91].grounded true
+set blocks[91].growreplaceable true
+set blocks[91].id 91
+set blocks[91].name Wheat crop stage 2
+set blocks[91].nonsolid true
+set blocks[91].soiltick true
+set blocks[92].grounded true
+set blocks[92].growreplaceable true
+set blocks[92].id 92
+set blocks[92].name Wheat crop stage 3
+set blocks[92].nonsolid true
+set blocks[92].soiltick true
+set blocks[93].grounded true
+set blocks[93].growreplaceable true
+set blocks[93].id 93
+set blocks[93].name Wheat crop stage 4
+set blocks[93].nonsolid true
+set blocks[94].breakScale 0.3 0.93 0.8
+set blocks[94].grounded true
+set blocks[94].hardness 4
+set blocks[94].id 94
+set blocks[94].name Tombstone-NS
+set blocks[94].nonsolid true
 set blocks[9].drowning true
 set blocks[9].extinguishFire true
 set blocks[9].fluid true
