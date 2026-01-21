@@ -1368,8 +1368,12 @@ function #blocktick[88]
 end
 
 function #blocktick[89]
+	ifnot envcycle[{Hour}].isday quit
 	local grow #setblock|90|{runArg1}|{runArg2}|{runArg3}
-	setsub runArg2 1
+	local x {runArg1}
+	local y {runArg2}
+	local z {runArg3}
+	setsub *y 1
 	localname id
 	call #getblock|*id|{x}|{y}|{z}
 	ifnot blocks[{id}].growscrops quit
@@ -1377,12 +1381,15 @@ function #blocktick[89]
 end
 
 #blocktick[90]
+	ifnot envcycle[{Hour}].isday quit
 jump #setblock|91|{runArg1}|{runArg2}|{runArg3}
 
 #blocktick[91]
+	ifnot envcycle[{Hour}].isday quit
 jump #setblock|92|{runArg1}|{runArg2}|{runArg3}
 
 function #blocktick[92]
+	ifnot envcycle[{Hour}].isday quit
 	local x {runArg1}
 	local y {runArg2}
 	local z {runArg3}
