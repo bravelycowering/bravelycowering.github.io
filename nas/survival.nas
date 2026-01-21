@@ -141,7 +141,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan20-4
+msg &fVersion &abeta 5.0 &726Jan20-5
 quit
 
 #initSave
@@ -737,7 +737,7 @@ quit
 	setsub inventory[{runArg1}] {runArg2}
 	if inventory[{runArg1}]|<|0 set inventory[{runArg1}] 0
 	ifnot inventory[{runArg1}]|=|0 quit
-	if PlayerHeldBlock|=|runArg2 cmd holdsilent 0
+	if PlayerHeldBlock|=|runArg1 cmd holdsilent 0
 quit
 
 #giveall

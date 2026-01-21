@@ -737,7 +737,7 @@ quit
 	setsub inventory[{runArg1}] {runArg2}
 	if inventory[{runArg1}]|<|0 set inventory[{runArg1}] 0
 	ifnot inventory[{runArg1}]|=|0 quit
-	if PlayerHeldBlock|=|runArg2 cmd holdsilent 0
+	if PlayerHeldBlock|=|runArg1 cmd holdsilent 0
 quit
 
 #giveall
