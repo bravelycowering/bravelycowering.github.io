@@ -22,6 +22,7 @@ using no_runarg_underscore_conversion
 	while if label #debugpage[{debugpages}]
 		setadd debugpages 1
 	end
+	setsub debugpages 1
 
 	set minetimer 0
 	set minepos
