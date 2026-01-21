@@ -22,6 +22,7 @@ using no_runarg_underscore_conversion
 	#while_1
 		setadd debugpages 1
 	if label #debugpage[{debugpages}] jump #while_1
+	setsub debugpages 1
 
 	set minetimer 0
 	set minepos
@@ -141,7 +142,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan20-5
+msg &fVersion &abeta 5.0 &726Jan20-6
 quit
 
 #initSave
