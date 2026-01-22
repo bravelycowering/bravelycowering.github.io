@@ -162,7 +162,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan21-8
+msg &fVersion &abeta 5.0 &726Jan21-9
 quit
 
 #initSave
@@ -706,6 +706,7 @@ quit
 	if toomuch set barcol c
 	else set barcol a
 	setsub minetimer {minespeed}
+	set mineDamage {blocks[{id}].mineDamage}
 	ifnot minetimer|>|0 jump #if_10
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
@@ -719,12 +720,12 @@ quit
 		cmd tempbot model minemeter {model}|1.07
 		ifnot blocks[{id}].breakScale|=|"" cmd tempbot scale minemeter {blocks[{id}].breakScale}
 		cmd tempbot tp minemeter {x} {boty} {z} 0 0
-		ifnot blocks[{id}].mineDamage|=|"" call #damage|{blocks[{id}].mineDamage}|{blocks[{id}].damageType}
+		ifnot mineDamage|=|"" call #damage|{mineDamage}|{blocks[{id}].damageType}
 		quit
 	#if_10
 	set minepos
 	call #destroyblock|{x}|{y}|{z}|{toomuch}
-	ifnot blocks[{id}].mineDamage|=|"" call #damage|{blocks[{id}].mineDamage}|{blocks[{id}].damageType}
+	ifnot mineDamage|=|"" call #damage|{mineDamage}|{blocks[{id}].damageType}
 quit
 
 #destroyblock
