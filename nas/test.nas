@@ -5,7 +5,8 @@
 	delay 1000
 	msg 3
 	allowmbrepeat
-goto #test2
+newthread #test2
+quit
 #test2
 	delay 1000
 	msg 4
