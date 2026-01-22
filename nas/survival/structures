@@ -1,5 +1,3 @@
-// comment
-
 #structure:redmushroomtop {
 	origin: 2, 0, 2
 	R: 64 ? growreplaceable
@@ -17,5 +15,29 @@
 		[R S R]
 		[R   R]
 		[ RRR ]
+	]
+}
+
+#structure:brownmushroomtop {
+	origin: 3, 0, 3
+	B: { setrandlist %b 64|63 } ? growreplaceable
+	S: 65
+	[
+		[  BBB  ]
+		[ BBBBB ]
+		[BBBBBBB]
+		[BBBBBBB]
+		[BBBBBBB]
+		[ BBBBB ]
+		[  BBB  ]
+	]
+	[
+		[ BBBBB ]
+		[BB   BB]
+		[B     B]
+		[B  S  B]
+		[B     B]
+		[BB   BB]
+		[ BBBBB ]
 	]
 }
