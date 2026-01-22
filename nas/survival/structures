@@ -20,7 +20,7 @@
 
 #structure:brownmushroomtop {
 	origin: 3, 0, 3
-	B: { setrandlist %b 64|63 } ? growreplaceable
+	B: 63 ? growreplaceable
 	S: 65
 	[
 		[  BBB  ]
