@@ -27,14 +27,14 @@ return function(filename)
 				legend[name:byte()] = { id = tonumber(value) }
 			end
 		end
-		for name, actions in body:gmatch("(%w+)%s*:%s*(%d+)") do
+		for name, actions in body:gmatch("(%w+)%s*:%s*(%b{})") do
 			if #name == 1 then
 				local actiontbl = {}
 				for line in actions:sub(2, -2):gmatch("([^\n]+)") do
 					actiontbl[#actiontbl+1] = line
 				end
 				legend[name:byte()] = {
-					id = "%b",
+					id = "{%b}",
 					actions = actiontbl,
 				}
 			end
