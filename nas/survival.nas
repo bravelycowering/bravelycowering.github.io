@@ -162,7 +162,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan21-9
+msg &fVersion &abeta 5.0 &726Jan21-10
 quit
 
 #initSave
@@ -1369,6 +1369,9 @@ jump #give|89|1
 setrandrange count 2 3
 call #give|89|{count}
 jump #give|79|1
+
+#loot[97]
+jump #give|96|1
 
 #use[82]
 #use[94]

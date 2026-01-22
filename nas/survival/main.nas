@@ -1370,6 +1370,9 @@ setrandrange count 2 3
 call #give|89|{count}
 jump #give|79|1
 
+#loot[97]
+jump #give|96|1
+
 #use[82]
 #use[94]
 	call {#getblockdata}|data|{x}|{y}|{z}
