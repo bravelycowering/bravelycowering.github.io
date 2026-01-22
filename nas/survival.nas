@@ -162,7 +162,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan21-3
+msg &fVersion &abeta 5.0 &726Jan21-4
 quit
 
 #initSave
@@ -1677,7 +1677,64 @@ quit
 	call {#setblockif}|18|{l_x_10}|{l_y_8}|{l_z_9}|growreplaceable
 quit
 
-
+#structure:redmushroomtop
+set l_x_11 {runArg1}
+set l_y_9 {runArg2}
+set l_z_10 {runArg3}
+setadd l_x_11 -1
+setadd l_z_10 -2
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 -3
+setadd l_z_10 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 4
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 -4
+setadd l_z_10 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 2
+call {#setblock}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}
+setadd l_x_11 2
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 -4
+setadd l_z_10 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 4
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 -3
+setadd l_z_10 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 -2
+setadd l_y_9 1
+setadd l_z_10 -3
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 -2
+setadd l_z_10 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 -2
+setadd l_z_10 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+setadd l_x_11 1
+call {#setblockif}|l_b_2|{l_x_11}|{l_y_9}|{l_z_10}|growreplaceable
+quit
 
 #initBlacklist
 set blacklist.CODVeteran+ Repeated grief

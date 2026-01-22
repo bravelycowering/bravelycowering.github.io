@@ -2,7 +2,7 @@
 
 #structure:redmushroomtop {
 	origin: 2, 0, 2
-	R: 64
+	R: 64 ? growreplaceable
 	S: 65
 	[
 		[     ]
