@@ -209,8 +209,6 @@ quit
 		if l_modscore|=|0 set l_milestonetext &6Score: &f{Score}
 		if l_modscore|=|0 set l_milestonesound collect giant pizza
 	ifnot l_pos|<|46 jump #dojumps
-	cmd reltp 0 0 -{l_reltpdist}
-	tempchunk 4 2 48 4 2 49 4 2 44
 	// do post score update things
 	call #checkupdateleaderboard
 	cpemsg top1 &eScore: &f{Score}
@@ -218,6 +216,8 @@ quit
 	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
 	ifnot l_milestonetext|=|"" cpemsg smallannounce {l_milestonetext}
 	ifnot l_milestonesound|=|"" cs me {l_milestonesound}
+	cmd reltp 0 0 -{l_reltpdist}
+	tempchunk 4 2 48 4 2 49 4 2 44
 	// force allow mb repeat (boost so silly)
 	set CheckingJump false
 	boost 0 0 0 0 0 0 0 1
