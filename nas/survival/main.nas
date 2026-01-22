@@ -148,6 +148,7 @@ quit
 	msg &fChanges in the latest major version:
 	msg - Fixed a bug where items being taken from someone would force that person to hold air, regardless of if they were holding the item taken or not
 	msg - Fixed a bug where leaves would look in the wrong place for logs before trying to decay
+	msg - Fixed pick block not working on double slab blocks
 	msg - Flowers and mushrooms now have a random offset when placed
 	msg - Tombstones can now be placed facing the other direction
 	msg - Grass now only grows if air is on top of it
@@ -853,6 +854,7 @@ quit
 
 #pick
 	call {#getblock}|id|{runArg1}|{runArg2}|{runArg3}
+	ifnot blocks[{id}].parent|=|"" set id {blocks[{id}].parent}
 	if inventory[{id}]|>|0 cmd holdsilent {id}
 quit
 

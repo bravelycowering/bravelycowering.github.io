@@ -148,6 +148,7 @@ quit
 	msg &fChanges in the latest major version:
 	msg - Fixed a bug where items being taken from someone would force that person to hold air, regardless of if they were holding the item taken or not
 	msg - Fixed a bug where leaves would look in the wrong place for logs before trying to decay
+	msg - Fixed pick block not working on double slab blocks
 	msg - Flowers and mushrooms now have a random offset when placed
 	msg - Tombstones can now be placed facing the other direction
 	msg - Grass now only grows if air is on top of it
@@ -161,7 +162,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan21-2
+msg &fVersion &abeta 5.0 &726Jan21-3
 quit
 
 #initSave
@@ -853,6 +854,7 @@ quit
 
 #pick
 	call {#getblock}|id|{runArg1}|{runArg2}|{runArg3}
+	ifnot blocks[{id}].parent|=|"" set id {blocks[{id}].parent}
 	if inventory[{id}]|>|0 cmd holdsilent {id}
 quit
 
@@ -1835,6 +1837,7 @@ set blocks[42].toughness 2
 set blocks[43].hardness 8
 set blocks[43].id 43
 set blocks[43].name Double slab
+set blocks[43].parent 44
 set blocks[43].tooltype pickaxe
 set blocks[43].toughness 1
 set blocks[44].breakScale 1.07 0.57 1.07
@@ -2003,6 +2006,7 @@ set blocks[73].tooltype axe
 set blocks[74].hardness 6
 set blocks[74].id 74
 set blocks[74].name Double wood slab
+set blocks[74].parent 73
 set blocks[74].tooltype axe
 set blocks[75].breakScale 1.07 0.57 1.07
 set blocks[75].hardness 3
@@ -2017,6 +2021,7 @@ set blocks[75].touchness 1
 set blocks[76].hardness 6
 set blocks[76].id 76
 set blocks[76].name Double cobblestone slab
+set blocks[76].parent 75
 set blocks[76].tooltype pickaxe
 set blocks[76].touchness 1
 set blocks[77].consume true
@@ -2076,6 +2081,7 @@ set blocks[85].hardness 12
 set blocks[85].id 85
 set blocks[85].name Pipe-Z
 set blocks[85].nonsolid true
+set blocks[85].parent 84
 set blocks[85].tooltype pickaxe
 set blocks[85].toughness 3
 set blocks[86].breakScale 1.07 0.8 0.55
@@ -2083,6 +2089,7 @@ set blocks[86].hardness 12
 set blocks[86].id 86
 set blocks[86].name Pipe-X
 set blocks[86].nonsolid true
+set blocks[86].parent 84
 set blocks[86].tooltype pickaxe
 set blocks[86].toughness 3
 set blocks[87].hardness 20
@@ -2116,30 +2123,35 @@ set blocks[90].growreplaceable true
 set blocks[90].id 90
 set blocks[90].name Wheat crop stage 1
 set blocks[90].nonsolid true
+set blocks[90].parent 89
 set blocks[90].soiltick true
 set blocks[91].grounded true
 set blocks[91].growreplaceable true
 set blocks[91].id 91
 set blocks[91].name Wheat crop stage 2
 set blocks[91].nonsolid true
+set blocks[91].parent 89
 set blocks[91].soiltick true
 set blocks[92].grounded true
 set blocks[92].growreplaceable true
 set blocks[92].id 92
 set blocks[92].name Wheat crop stage 3
 set blocks[92].nonsolid true
+set blocks[92].parent 89
 set blocks[92].soiltick true
 set blocks[93].grounded true
 set blocks[93].growreplaceable true
 set blocks[93].id 93
 set blocks[93].name Wheat crop stage 4
 set blocks[93].nonsolid true
+set blocks[93].parent 89
 set blocks[94].breakScale 0.3 0.93 0.8
 set blocks[94].grounded true
 set blocks[94].hardness 4
 set blocks[94].id 94
 set blocks[94].name Tombstone-NS
 set blocks[94].nonsolid true
+set blocks[94].parent 82
 set blocks[9].drowning true
 set blocks[9].extinguishFire true
 set blocks[9].fluid true

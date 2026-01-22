@@ -277,6 +277,7 @@ return {
 		hardness = 8,
 		toughness = 1,
 		tooltype = "pickaxe",
+		parent = 44,
 	},
 	{
 		id = 44,
@@ -491,6 +492,7 @@ return {
 		name = "Double wood slab",
 		hardness = 6,
 		tooltype = "axe",
+		parent = 73,
 	},
 	{
 		id = 75,
@@ -510,6 +512,7 @@ return {
 		hardness = 6,
 		touchness = 1,
 		tooltype = "pickaxe",
+		parent = 75,
 	},
 	{
 		id = 77,
@@ -584,6 +587,7 @@ return {
 		tooltype = "pickaxe",
 		nonsolid = true,
 		breakScale = "0.55 0.8 1.07",
+		parent = 84,
 	},
 	{
 		id = 86,
@@ -593,6 +597,7 @@ return {
 		tooltype = "pickaxe",
 		nonsolid = true,
 		breakScale = "1.07 0.8 0.55",
+		parent = 84,
 	},
 	{
 		id = 87,
@@ -624,6 +629,7 @@ return {
 		nonsolid = true,
 		growreplaceable = true,
 		soiltick = true,
+		parent = 89,
 	},
 	{
 		id = 91,
@@ -632,6 +638,7 @@ return {
 		nonsolid = true,
 		growreplaceable = true,
 		soiltick = true,
+		parent = 89,
 	},
 	{
 		id = 92,
@@ -640,6 +647,7 @@ return {
 		nonsolid = true,
 		growreplaceable = true,
 		soiltick = true,
+		parent = 89,
 	},
 	{
 		id = 93,
@@ -647,6 +655,7 @@ return {
 		grounded = true,
 		nonsolid = true,
 		growreplaceable = true,
+		parent = 89,
 	},
 	{
 		id = 94,
@@ -655,5 +664,6 @@ return {
 		grounded = true,
 		nonsolid = true,
 		breakScale = "0.3 0.93 0.8",
+		parent = 82,
 	},
 }
