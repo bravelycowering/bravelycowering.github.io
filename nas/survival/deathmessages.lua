@@ -9,4 +9,5 @@ return {
 	drown = "@color@nick&f ran out of air",
 	freeze = "@color@nick&f froze to death",
 	unknown = "@color@nick&f lost their life to unknown forces",
+	thorn = "@color@nick&f was pricked to death",
 }

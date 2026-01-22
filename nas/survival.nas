@@ -53,7 +53,7 @@ using no_runarg_underscore_conversion
 
 	set RandomTickSpeed 3
 
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
@@ -162,7 +162,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan21-6
+msg &fVersion &abeta 5.0 &726Jan21-7
 quit
 
 #initSave
@@ -196,7 +196,7 @@ quit
 	if saveSlot|=|"" quit
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	set HeldBlock {PlayerHeldBlock}
-placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
+placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]},{inventory[95]},{inventory[96]},{inventory[97]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
 quit
 
 #load
@@ -638,7 +638,7 @@ quit
 	set deathY {PlayerY}
 	setrandlist id 82|94
 	call {#setblock}|{id}|{PlayerX}|{deathY}|{PlayerZ}
-set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]}
+set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]},{inventory[95]},{inventory[96]},{inventory[97]}
 	call {#setblockdata}|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|* &f{deathmsg}|{inventory}
 	setsub deathY 1
 	call {#getblock}|id|{PlayerX}|{deathY}|{PlayerZ}
@@ -649,7 +649,7 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 	cmd holdsilent 0
 quit
@@ -706,6 +706,7 @@ quit
 	if toomuch set barcol c
 	else set barcol a
 	setsub minetimer {minespeed}
+	ifnot blocks[{id}].mineDamage|=|"" call #damage|{blocks[{id}].mineDamage}|{blocks[{id}].damageType}
 	ifnot minetimer|>|0 jump #if_10
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
@@ -740,9 +741,16 @@ quit
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
 	call {#setblock}|{empty}|{x}|{y}|{z}
-	setadd y 1
+	set attached y -1
+	setsub {attached}
 	call {#getblock}|id|{x}|{y}|{z}
-	if blocks[{id}].grounded jump #destroyblock|{x}|{y}|{z}|false
+	if blocks[{id}].attached|=|attached call #destroyblock|{x}|{y}|{z}|false
+	setadd {attached}
+	set attached y 1
+	setsub {attached}
+	call {#getblock}|id|{x}|{y}|{z}
+	if blocks[{id}].attached|=|attached call #destroyblock|{x}|{y}|{z}|false
+	setadd {attached}
 quit
 
 #give
@@ -828,28 +836,28 @@ quit
 	set placedir {Directions[{placedir}]}
 	ifnot blocks[{PlayerHeldBlock}].Face{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
 	ifnot blocks[{PlayerHeldBlock}].Face{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
-	ifnot blocks[{placeid}].grounded jump #if_15
-		setsub y 1
+	if blocks[{placeid}].attached|=|"" jump #ifnot_8
+		setadd {blocks[{placeid}].attached}
 		call {#getblock}|id|{x}|{y}|{z}
 		if blocks[{id}].nonsolid quit
-		setadd y 1
-	#if_15
+		setsub {blocks[{placeid}].attached}
+	#ifnot_8
 	call #take|{playerHeldBlock}|1
 	jump {#setblock}|{placeid}|{x}|{y}|{z}
 quit
 
 #itemuse
-	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_8
+	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_9
 		if epochMS|<|lastate quit
 		set lastate {epochMS}
 		setadd lastate 1000
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
 		ifnot inventory[{PlayerHeldBlock}]|>|0 quit
-		ifnot hp|<|maxhp jump #if_16
+		ifnot hp|<|maxhp jump #if_15
 			call #take|{playerHeldBlock}|1
 			call #heal|{blocks[{PlayerHeldBlock}].food}
-		#if_16
-	#ifnot_8
+		#if_15
+	#ifnot_9
 quit
 
 #pick
@@ -875,12 +883,12 @@ quit
 #setblock
 	setblockid id {runArg2} {runArg3} {runArg4}
 	if id|=|65535 quit
-	if allowMapChanges jump #ifnot_9
+	if allowMapChanges jump #ifnot_10
 		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
 		set world[{runArg2},{runArg3},{runArg4}].msg
 		quit
-	#ifnot_9
+	#ifnot_10
 	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
@@ -902,12 +910,12 @@ quit
 #setblockif
 	setblockid id {runArg2} {runArg3} {runArg4}
 	ifnot blocks[{id}].{runArg5} quit
-	if allowMapChanges jump #ifnot_10
+	if allowMapChanges jump #ifnot_11
 		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
 		set world[{runArg2},{runArg3},{runArg4}].msg
 		quit
-	#ifnot_10
+	#ifnot_11
 	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
@@ -949,13 +957,13 @@ quit
 
 #setblockdata
 	set msg /nothing2 {runArg4}
-	if runArg5|=|"" jump #ifnot_11
+	if runArg5|=|"" jump #ifnot_12
 		set l_i_2 5
 		#while_7
 			set msg {msg}|/nothing2 {runArg{l_i_2}}
 			setadd l_i_2 1
 		ifnot runArg{l_i_2}|=|"" jump #while_7
-	#ifnot_11
+	#ifnot_12
 	setblockid id {runArg1} {runArg2} {runArg3}
 	if id|=|65535 quit
 	ifnot allowMapChanges set world[{runArg1},{runArg2},{runArg3}].msg {msg}
@@ -966,13 +974,13 @@ quit
 	setblockid id {runArg1} {runArg2} {runArg3}
 	if id|=|65535 quit
 	set msg /nothing2 {runArg4}
-	if runArg5|=|"" jump #ifnot_12
+	if runArg5|=|"" jump #ifnot_13
 		set l_i_3 5
 		#while_8
 			set msg {msg}|/nothing2 {runArg{l_i_3}}
 			setadd l_i_3 1
 		ifnot runArg{l_i_3}|=|"" jump #while_8
-	#ifnot_12
+	#ifnot_13
 	set world[{runArg1},{runArg2},{runArg3}].msg {msg}
 quit
 
@@ -980,13 +988,13 @@ quit
 	setblockid id {runArg1} {runArg2} {runArg3}
 	if id|=|65535 quit
 	set msg /nothing2 {runArg4}
-	if runArg5|=|"" jump #ifnot_13
+	if runArg5|=|"" jump #ifnot_14
 		set l_i_4 5
 		#while_9
 			set msg {msg}|/nothing2 {runArg{l_i_4}}
 			setadd l_i_4 1
 		ifnot runArg{l_i_4}|=|"" jump #while_9
-	#ifnot_13
+	#ifnot_14
 	placemessageblock {id} {runArg1} {runArg2} {runArg3} {msg}
 quit
 
@@ -994,54 +1002,54 @@ quit
 // package, color, amount, max
 	set i 0
 	set {runArg1} &{runArg2}
-	ifnot i|<|{runArg3} jump #if_17
+	ifnot i|<|{runArg3} jump #if_16
 		#while_10
 			set {runArg1} {{runArg1}}|
 			setadd i 1
 		if i|<|{runArg3} jump #while_10
-	#if_17
+	#if_16
 	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg4} jump #if_18
+	ifnot i|<|{runArg4} jump #if_17
 		#while_11
 			set {runArg1} {{runArg1}}|
 			setadd i 1
 		if i|<|{runArg4} jump #while_11
-	#if_18
+	#if_17
 quit
 
 #makecharbar
 // package, char, color, amount, max
 	set i 0
 	set {runArg1} &{runArg3}
-	ifnot i|<|{runArg4} jump #if_19
+	ifnot i|<|{runArg4} jump #if_18
 		#while_12
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
 		if i|<|{runArg4} jump #while_12
-	#if_19
+	#if_18
 	set {runArg1} {{runArg1}}&0
-	ifnot i|<|{runArg5} jump #if_20
+	ifnot i|<|{runArg5} jump #if_19
 		#while_13
 			set {runArg1} {{runArg1}}{runArg2}
 			setadd i 1
 		if i|<|{runArg5} jump #while_13
-	#if_20
+	#if_19
 quit
 
 #debug
-	ifnot runArg1|=|"next" jump #if_21
+	ifnot runArg1|=|"next" jump #if_20
 		setmod debugpage {debugpages}
 		setadd debugpage 1
-	#if_21
-	ifnot runArg1|=|"prev" jump #if_22
+	#if_20
+	ifnot runArg1|=|"prev" jump #if_21
 		setsub debugpage 2
 		setmod debugpage {debugpages}
 		setadd debugpage 1
-	#if_22
-	ifnot runArg1|=|"reupload" jump #if_23
+	#if_21
+	ifnot runArg1|=|"reupload" jump #if_22
 		cmd osus https://bravelycowering.net/nas/survival.nas
-	#if_23
-	ifnot runArg1|=|"reload" jump #if_24
+	#if_22
+	ifnot runArg1|=|"reload" jump #if_23
 		set TerminatePrematurely true
 		set l_startprofile_1 {actionCount}
 		setadd l_startprofile_1 2
@@ -1051,15 +1059,15 @@ quit
 		msg &fReloading structs took {l_profile_1} actions!
 		msg &fRestarting...
 		jump #version
-	#if_24
-	ifnot runArg1|=|"" jump #if_25
+	#if_23
+	ifnot runArg1|=|"" jump #if_24
 		if debug set debug false
 		else set debug true
 		if debug definehotkey debug next|PERIOD|shift
 		else undefinehotkey COMMA|shift
 		if debug definehotkey debug prev|COMMA|shift
 		else undefinehotkey COMMA|shift
-	#if_25
+	#if_24
 	if debug quit
 	cpemsg top1
 	cpemsg top2
@@ -1081,36 +1089,36 @@ quit
 	if runArg1|=|"debug" jump #debug|{runArg2}
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
-	ifnot runArg1|=|"craft" jump #if_26
+	ifnot runArg1|=|"craft" jump #if_25
 		set craftArgs {runArg2}
-		if craftArgs|=|"" jump #ifnot_14
+		if craftArgs|=|"" jump #ifnot_15
 			set craftArgs[1] 1
 			setsplit craftArgs *
 			if craftArgs[0]|=|"held" set craftArgs[0] {PlayerHeldBlock}
 			if isTool({craftArgs[0]}) set craftArgs[1] 1
 			call #getBlockByName|blockID|{craftArgs[0]}
-			ifnot blockID|=|"" jump #if_27
+			ifnot blockID|=|"" jump #if_26
 				msg &cInvalid item name or ID
 				quit
-			#if_27
+			#if_26
 			call #getRecipeByOutput|recipeID|{blockID}|{craftArgs[1]}
-			ifnot recipeID|=|"" jump #if_28
+			ifnot recipeID|=|"" jump #if_27
 				msg &cYou cannot craft {blocks[{blockID}].name}!
 				quit
-			#if_28
+			#if_27
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
-		#ifnot_14
+		#ifnot_15
 		if usingWorkbench msg &eWorkbench Recipes:
-		if usingWorkbench jump #ifnot_15
+		if usingWorkbench jump #ifnot_16
 			if usingStonecutter msg &eStonecutter Recipes:
 			else msg &eRecipes:
-		#ifnot_15
+		#ifnot_16
 		set i 0
 		#while_14
 			call #checkRecipeAfford|{i}|canAfford
 			set ingrediantList
-			ifnot canAfford|>|0 jump #if_29
+			ifnot canAfford|>|0 jump #if_28
 				ifnot isTool({recipes[{i}].output.id}) msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f (x{recipes[{i}].output.count}) &7* {canAfford}
 				else msg &f> &6{blocks[{recipes[{i}].output.id}].name}&f ({toollevel[{recipes[{i}].output.count}]}&f)
 				set j 0
@@ -1121,14 +1129,14 @@ quit
 					setadd j 1
 				if j|<|{recipes[{i}].ingredients.Length} jump #while_15
 				msg {ingrediantList}
-			#if_29
+			#if_28
 			setadd i 1
 		if i|<|{recipes.Length} jump #while_14
 		msg &eType &a/in craft [name]&e to craft something
 		msg &eOr press &aE&e to try and craft what's in your hand.
 		// msg &eTo craft multiple at once, type &a/in craft [name]*<count>
 		quit
-	#if_26
+	#if_25
 	set i 0
 	msg &eResources:
 	#while_16
@@ -1165,12 +1173,12 @@ quit
 #checkRecipeAfford
 	set j 0
 	set {runArg2} 999
-	if recipes[{runArg1}].condition|=|"" jump #ifnot_16
+	if recipes[{runArg1}].condition|=|"" jump #ifnot_17
 		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
-	#ifnot_16
-	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_30
+	#ifnot_17
+	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_29
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
-	#if_30
+	#if_29
 	#while_18
 		set id {recipes[{runArg1}].ingredients[{j}].id}
 		set count {inventory[{id}]}
@@ -1183,16 +1191,16 @@ quit
 
 #getBlockByName
 	set {runArg1}
-	if blocks[{runArg2}].name|=|"" jump #ifnot_17
+	if blocks[{runArg2}].name|=|"" jump #ifnot_18
 		set {runArg1} {runArg2}
 		quit
-	#ifnot_17
+	#ifnot_18
 	set i 0
 	#while_19
-		ifnot blocks[{i}].name|=|runArg2 jump #if_31
+		ifnot blocks[{i}].name|=|runArg2 jump #if_30
 			set {runArg1} {i}
 			quit
-		#if_31
+		#if_30
 		setadd i 1
 	if i|<|{blocks.Length} jump #while_19
 quit
@@ -1204,13 +1212,13 @@ quit
 	set {pname}
 	set i 0
 	#while_20
-		ifnot recipes[{i}].output.id|=|bid jump #if_32
+		ifnot recipes[{i}].output.id|=|bid jump #if_31
 			call #checkRecipeAfford|{i}|canAfford
-			ifnot canAfford|>=|c jump #if_33
+			ifnot canAfford|>=|c jump #if_32
 				set {pname} {i}
 				quit
-			#if_33
-		#if_32
+			#if_32
+		#if_31
 		setadd i 1
 	if i|<|{recipes.Length} jump #while_20
 quit
@@ -1226,8 +1234,8 @@ quit
 quit
 
 #use[67]
-	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_18
-		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_34
+	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_19
+		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_33
 			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			call {#setblock}|68|{runArg1}|{runArg2}|{runArg3}
 			call #take|{PlayerHeldBlock}|1
@@ -1236,8 +1244,8 @@ quit
 			setdeathspawn {DeathSpawn}
 			msg &fRespawn point set
 			quit
-		#if_34
-	#ifnot_18
+		#if_33
+	#ifnot_19
 	msg &cYou can't light a campfire with that
 quit
 
@@ -1251,26 +1259,26 @@ quit
 #use[70:80]
 #use[68:80]
 #use[54:80]
-	ifnot inventory[80]|>|0 jump #if_35
+	ifnot inventory[80]|>|0 jump #if_34
 		call #take|80|1
 		call #give|70|1
-	#if_35
+	#if_34
 quit
 
 #use[68:12]
 #use[54:12]
-	ifnot inventory[12]|>|0 jump #if_36
+	ifnot inventory[12]|>|0 jump #if_35
 		call #take|12|1
 		call #give|20|1
-	#if_36
+	#if_35
 quit
 
 #use[68:79]
 #use[54:79]
-	ifnot inventory[79]|>|0 jump #if_37
+	ifnot inventory[79]|>|0 jump #if_36
 		call #take|79|1
 		call #give|77|1
-	#if_37
+	#if_36
 quit
 
 #use[80:70]
@@ -1394,13 +1402,22 @@ quit
 	setadd l_z_4 {l_i_5}
 	// bottom grass
 	call {#getblock}|l_i_5|{l_x_5}|{l_y_3}|{l_z_4}
+	ifnot l_i_5|=|3 jump #if_37
+		setadd l_y_3 1
+		call {#getblock}|l_i_5|{l_x_5}|{l_y_3}|{l_z_4}
+		setsub l_y_3 1
+		if l_i_5|=|0 jump {#setblock}|2|{l_x_5}|{l_y_3}|{l_z_4}
+	#if_37
+	// middle grass
+	setadd l_y_3 1
+	call {#getblock}|l_i_5|{l_x_5}|{l_y_3}|{l_z_4}
 	ifnot l_i_5|=|3 jump #if_38
 		setadd l_y_3 1
 		call {#getblock}|l_i_5|{l_x_5}|{l_y_3}|{l_z_4}
 		setsub l_y_3 1
 		if l_i_5|=|0 jump {#setblock}|2|{l_x_5}|{l_y_3}|{l_z_4}
 	#if_38
-	// middle grass
+	// top grass
 	setadd l_y_3 1
 	call {#getblock}|l_i_5|{l_x_5}|{l_y_3}|{l_z_4}
 	ifnot l_i_5|=|3 jump #if_39
@@ -1409,15 +1426,6 @@ quit
 		setsub l_y_3 1
 		if l_i_5|=|0 jump {#setblock}|2|{l_x_5}|{l_y_3}|{l_z_4}
 	#if_39
-	// top grass
-	setadd l_y_3 1
-	call {#getblock}|l_i_5|{l_x_5}|{l_y_3}|{l_z_4}
-	ifnot l_i_5|=|3 jump #if_40
-		setadd l_y_3 1
-		call {#getblock}|l_i_5|{l_x_5}|{l_y_3}|{l_z_4}
-		setsub l_y_3 1
-		if l_i_5|=|0 jump {#setblock}|2|{l_x_5}|{l_y_3}|{l_z_4}
-	#if_40
 quit
 
 #blocktick[6]
@@ -1742,204 +1750,143 @@ set l_y_10 {runArg2}
 set l_z_11 {runArg3}
 setadd l_x_12 -2
 setadd l_z_11 -3
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -5
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 4
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -6
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 6
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -6
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 3
 call {#setblock}|65|{l_x_12}|{l_y_10}|{l_z_11}
 setadd l_x_12 3
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -6
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 6
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -6
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 4
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -5
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -3
 setadd l_y_10 1
 setadd l_z_11 -6
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -3
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -5
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -6
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -6
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -5
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 -3
 setadd l_z_11 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 setadd l_x_12 1
- setrandlist l_b_3 64|63 
-call {#setblockif}|{l_b_3}|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
+call {#setblockif}|63|{l_x_12}|{l_y_10}|{l_z_11}|growreplaceable
 quit
 
 #initBlacklist
@@ -1947,7 +1894,7 @@ set blacklist.CODVeteran+ Repeated grief
 quit
 
 #initStructs
-set blocks.Length 95
+set blocks.Length 98
 set blocks[0].growreplaceable true
 set blocks[0].id 0
 set blocks[0].name Air
@@ -2057,19 +2004,19 @@ set blocks[35].id 35
 set blocks[35].name Gray
 set blocks[36].id 36
 set blocks[36].name White
-set blocks[37].grounded true
+set blocks[37].attached y -1
 set blocks[37].growreplaceable true
 set blocks[37].id 37
 set blocks[37].name Dandelion
 set blocks[37].nonsolid true
-set blocks[38].grounded true
+set blocks[38].attached y -1
 set blocks[38].growreplaceable true
 set blocks[38].id 38
 set blocks[38].name Rose
 set blocks[38].nonsolid true
+set blocks[39].attached y -1
 set blocks[39].consume true
 set blocks[39].food 1
-set blocks[39].grounded true
 set blocks[39].growreplaceable true
 set blocks[39].id 39
 set blocks[39].name Brown mushroom
@@ -2080,9 +2027,9 @@ set blocks[3].hardness 3
 set blocks[3].id 3
 set blocks[3].name Dirt
 set blocks[3].tooltype spade
+set blocks[40].attached y -1
 set blocks[40].consume true
 set blocks[40].food 3
-set blocks[40].grounded true
 set blocks[40].growreplaceable true
 set blocks[40].id 40
 set blocks[40].name Red mushroom
@@ -2159,26 +2106,26 @@ set blocks[53].id 53
 set blocks[53].name Diamond
 set blocks[53].tooltype pickaxe
 set blocks[53].toughness 3
+set blocks[54].attached y -1
 set blocks[54].catchFire true
 set blocks[54].damage 3
 set blocks[54].damageType fire
-set blocks[54].grounded true
 set blocks[54].id 54
 set blocks[54].name Fire
 set blocks[54].nonsolid true
-set blocks[55].grounded true
+set blocks[55].attached y -1
 set blocks[55].id 55
 set blocks[55].name Gold bar
 set blocks[55].nonsolid true
-set blocks[56].grounded true
+set blocks[56].attached y -1
 set blocks[56].id 56
 set blocks[56].name Iron bar
 set blocks[56].nonsolid true
-set blocks[57].grounded true
+set blocks[57].attached y -1
 set blocks[57].id 57
 set blocks[57].name Coal lump
 set blocks[57].nonsolid true
-set blocks[58].grounded true
+set blocks[58].attached y -1
 set blocks[58].id 58
 set blocks[58].name Diamond gem
 set blocks[58].nonsolid true
@@ -2218,17 +2165,17 @@ set blocks[65].name Mushroom stem
 set blocks[65].tooltype spade
 set blocks[66].id 66
 set blocks[66].name Stick
+set blocks[67].attached y -1
 set blocks[67].breakScale 0.65 0.5 0.65
-set blocks[67].grounded true
 set blocks[67].hardness 3
 set blocks[67].id 67
 set blocks[67].name Campfire
 set blocks[67].nonsolid true
 set blocks[67].tooltype axe
+set blocks[68].attached y -1
 set blocks[68].catchFire true
 set blocks[68].damage 3
 set blocks[68].damageType fire
-set blocks[68].grounded true
 set blocks[68].id 68
 set blocks[68].name Lit campfire
 set blocks[68].nonsolid true
@@ -2238,14 +2185,14 @@ set blocks[69].id 69
 set blocks[69].name Cobweb
 set blocks[69].nonsolid true
 set blocks[69].tooltype spade
-set blocks[6].grounded true
+set blocks[6].attached y -1
 set blocks[6].growreplaceable true
 set blocks[6].id 6
 set blocks[6].name Sapling
 set blocks[6].nonsolid true
 set blocks[6].soiltick true
+set blocks[70].attached y -1
 set blocks[70].campfireLighter 70
-set blocks[70].grounded true
 set blocks[70].id 70
 set blocks[70].name Lit torch
 set blocks[70].nonsolid true
@@ -2253,7 +2200,7 @@ set blocks[71].hardness 2
 set blocks[71].id 71
 set blocks[71].name Snow
 set blocks[71].tooltype spade
-set blocks[72].grounded true
+set blocks[72].attached y -1
 set blocks[72].id 72
 set blocks[72].name Snow ball
 set blocks[72].nonsolid true
@@ -2287,26 +2234,26 @@ set blocks[76].name Double cobblestone slab
 set blocks[76].parent 75
 set blocks[76].tooltype pickaxe
 set blocks[76].touchness 1
+set blocks[77].attached y -1
 set blocks[77].consume true
 set blocks[77].food 8
-set blocks[77].grounded true
 set blocks[77].id 77
 set blocks[77].name Bread
 set blocks[77].nonsolid true
-set blocks[78].grounded true
+set blocks[78].attached y -1
 set blocks[78].growreplaceable true
 set blocks[78].id 78
 set blocks[78].name Flax
 set blocks[78].nonsolid true
-set blocks[79].grounded true
+set blocks[79].attached y -1
 set blocks[79].id 79
 set blocks[79].name Wheat
 set blocks[79].nonsolid true
 set blocks[7].id 7
 set blocks[7].name Bedrock
 set blocks[7].unbreakable true
+set blocks[80].attached y -1
 set blocks[80].campfireLighter 70
-set blocks[80].grounded true
 set blocks[80].id 80
 set blocks[80].name Torch
 set blocks[80].nonsolid true
@@ -2318,8 +2265,8 @@ set blocks[81].nonsolid true
 set blocks[81].tooltype pickaxe
 set blocks[82].FaceNorth 94
 set blocks[82].FaceSouth 94
+set blocks[82].attached y -1
 set blocks[82].breakScale 0.8 0.93 0.3
-set blocks[82].grounded true
 set blocks[82].hardness 4
 set blocks[82].id 82
 set blocks[82].name Tombstone
@@ -2366,7 +2313,7 @@ set blocks[88].hardness 3
 set blocks[88].id 88
 set blocks[88].name Soil
 set blocks[88].tooltype spade
-set blocks[89].grounded true
+set blocks[89].attached y -1
 set blocks[89].growreplaceable true
 set blocks[89].id 89
 set blocks[89].name Seeds
@@ -2381,40 +2328,66 @@ set blocks[8].name Water
 set blocks[8].nonsolid true
 set blocks[8].replaceable true
 set blocks[8].unbreakable true
-set blocks[90].grounded true
+set blocks[90].attached y -1
 set blocks[90].growreplaceable true
 set blocks[90].id 90
 set blocks[90].name Wheat crop stage 1
 set blocks[90].nonsolid true
 set blocks[90].parent 89
 set blocks[90].soiltick true
-set blocks[91].grounded true
+set blocks[91].attached y -1
 set blocks[91].growreplaceable true
 set blocks[91].id 91
 set blocks[91].name Wheat crop stage 2
 set blocks[91].nonsolid true
 set blocks[91].parent 89
 set blocks[91].soiltick true
-set blocks[92].grounded true
+set blocks[92].attached y -1
 set blocks[92].growreplaceable true
 set blocks[92].id 92
 set blocks[92].name Wheat crop stage 3
 set blocks[92].nonsolid true
 set blocks[92].parent 89
 set blocks[92].soiltick true
-set blocks[93].grounded true
+set blocks[93].attached y -1
 set blocks[93].growreplaceable true
 set blocks[93].id 93
 set blocks[93].name Wheat crop stage 4
 set blocks[93].nonsolid true
 set blocks[93].parent 89
+set blocks[94].attached y -1
 set blocks[94].breakScale 0.3 0.93 0.8
-set blocks[94].grounded true
 set blocks[94].hardness 4
 set blocks[94].id 94
 set blocks[94].name Tombstone-NS
 set blocks[94].nonsolid true
 set blocks[94].parent 82
+set blocks[95].hardness 8
+set blocks[95].id 95
+set blocks[95].name Flower stem
+set blocks[95].tooltype axe
+set blocks[96].FaceAwayY 97
+set blocks[96].attached y -1
+set blocks[96].damage 4
+set blocks[96].damageType thorn
+set blocks[96].hardness 6
+set blocks[96].id 96
+set blocks[96].mineDamage 4
+set blocks[96].name Thorn
+set blocks[96].nonsolid true
+set blocks[96].tooltype axe
+set blocks[96].toughness 1
+set blocks[97].attached y 1
+set blocks[97].damage 4
+set blocks[97].damageType thorn
+set blocks[97].hardness 6
+set blocks[97].id 97
+set blocks[97].mineDamage 4
+set blocks[97].name Thorn-U
+set blocks[97].nonsolid true
+set blocks[97].parent 96
+set blocks[97].tooltype axe
+set blocks[97].toughness 1
 set blocks[9].drowning true
 set blocks[9].extinguishFire true
 set blocks[9].fluid true
@@ -2733,6 +2706,7 @@ set deathmessages.freeze @color@nick&f froze to death
 set deathmessages.lava @color@nick&f tried to swim in lava
 set deathmessages.magma @color@nick&f discovered the floor was lava
 set deathmessages.suffocation @color@nick&f suffocated in a wall
+set deathmessages.thorn @color@nick&f was pricked to death
 set deathmessages.unknown @color@nick&f lost their life to unknown forces
 set saveformat.Length 12
 set saveformat[0] .

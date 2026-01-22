@@ -706,6 +706,7 @@ quit
 	if toomuch set barcol c
 	else set barcol a
 	setsub minetimer {minespeed}
+	ifnot blocks[{id}].mineDamage|=|"" call #damage|{blocks[{id}].mineDamage}|{blocks[{id}].damageType}
 	if minetimer|>|0 then
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
@@ -740,9 +741,16 @@ quit
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
 	call {#setblock}|{empty}|{x}|{y}|{z}
-	setadd y 1
+	set attached y -1
+	setsub {attached}
 	call {#getblock}|id|{x}|{y}|{z}
-	if blocks[{id}].grounded jump #destroyblock|{x}|{y}|{z}|false
+	if blocks[{id}].attached|=|attached call #destroyblock|{x}|{y}|{z}|false
+	setadd {attached}
+	set attached y 1
+	setsub {attached}
+	call {#getblock}|id|{x}|{y}|{z}
+	if blocks[{id}].attached|=|attached call #destroyblock|{x}|{y}|{z}|false
+	setadd {attached}
 quit
 
 #give
@@ -828,11 +836,11 @@ quit
 	set placedir {Directions[{placedir}]}
 	ifnot blocks[{PlayerHeldBlock}].Face{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
 	ifnot blocks[{PlayerHeldBlock}].Face{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
-	if blocks[{placeid}].grounded then
-		setsub y 1
+	ifnot blocks[{placeid}].attached|=|"" then
+		setadd {blocks[{placeid}].attached}
 		call {#getblock}|id|{x}|{y}|{z}
 		if blocks[{id}].nonsolid quit
-		setadd y 1
+		setsub {blocks[{placeid}].attached}
 	end
 	call #take|{playerHeldBlock}|1
 	jump {#setblock}|{placeid}|{x}|{y}|{z}
