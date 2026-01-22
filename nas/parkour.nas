@@ -104,6 +104,7 @@ quit
 	cpemsg smallannounce &eScore: &f{Score}
 	cpemsg top1
 	cpemsg top2
+	cs me sh
 	cs me explosion2
 quit
 
@@ -214,7 +215,7 @@ quit
 	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
 	ifnot l_milestonetext|=|"" cpemsg smallannounce {l_milestonetext}
 	ifnot l_milestonesound|=|"" cs me {l_milestonesound}
-	// force allow mb repeat
+	// force allow mb repeat (boost so silly)
 	boost 0 0 0 0 0 0 0 1
 	// do animation stuffs
 	tempchunk 4 2 48 4 2 49 4 2 44
@@ -222,4 +223,11 @@ quit
 	tempblock 215 4 2 44
 	delay 100
 	tempblock 215 4 2 45
+quit
+
+#cleverlydone
+	// cheat with chatsounds
+	msg &0@truename: cleverly done mr freeman but youre not supposed to be here as a matter of fact you are not:cut(5.5)
+	delay 6000
+	kill
 quit
