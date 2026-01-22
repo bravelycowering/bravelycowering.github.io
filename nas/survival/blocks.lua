@@ -557,8 +557,8 @@ return {
 		attached = "y -1",
 		nonsolid = true,
 		breakScale = "0.8 0.93 0.3",
-		FaceNorth = 94,
-		FaceSouth = 94,
+		FaceEast = 94,
+		FaceWest = 94,
 	},
 	{
 		id = 83,

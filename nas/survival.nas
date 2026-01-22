@@ -162,7 +162,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan21-12
+msg &fVersion &abeta 5.0 &726Jan21-13
 quit
 
 #initSave
@@ -2268,8 +2268,8 @@ set blocks[81].id 81
 set blocks[81].name Compost pit
 set blocks[81].nonsolid true
 set blocks[81].tooltype pickaxe
-set blocks[82].FaceNorth 94
-set blocks[82].FaceSouth 94
+set blocks[82].FaceEast 94
+set blocks[82].FaceWest 94
 set blocks[82].attached y -1
 set blocks[82].breakScale 0.8 0.93 0.3
 set blocks[82].hardness 4
