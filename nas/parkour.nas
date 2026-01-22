@@ -180,18 +180,20 @@ quit
 
 #checkjump
 	allowmbrepeat
+	if CheckingJump quit
+	set CheckingJump true
 	#checkjumploop
 		setsplit PlayerCoordsDecimal " "
-		ifnot Alive quit
+		ifnot Alive jump #abortjumpcheck
 		ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop2
 		delay 100
 	jump #checkjumploop
 	#checkjumploop2
 		setsplit PlayerCoordsDecimal " "
 		delay 100
-		ifnot Alive quit
+		ifnot Alive jump #abortjumpcheck
 	ifnot PlayerCoordsDecimal[1]|=|3 jump #checkjumploop2
-	if PlayerZ|<|46 quit
+	if PlayerZ|<|46 jump #abortjumpcheck
 	set l_pos {PlayerZ}
 	set l_reltpdist 0
 	#dojumps
@@ -208,6 +210,7 @@ quit
 		if l_modscore|=|0 set l_milestonesound collect giant pizza
 	ifnot l_pos|<|46 jump #dojumps
 	cmd reltp 0 0 -{l_reltpdist}
+	tempchunk 4 2 48 4 2 49 4 2 44
 	// do post score update things
 	call #checkupdateleaderboard
 	cpemsg top1 &eScore: &f{Score}
@@ -216,13 +219,17 @@ quit
 	ifnot l_milestonetext|=|"" cpemsg smallannounce {l_milestonetext}
 	ifnot l_milestonesound|=|"" cs me {l_milestonesound}
 	// force allow mb repeat (boost so silly)
+	set CheckingJump false
 	boost 0 0 0 0 0 0 0 1
 	// do animation stuffs
-	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
 	tempblock 215 4 2 44
 	delay 100
 	tempblock 215 4 2 45
+quit
+
+#abortjumpcheck
+	set CheckingJump false
 quit
 
 #cleverlydone
