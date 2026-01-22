@@ -706,7 +706,6 @@ quit
 	if toomuch set barcol c
 	else set barcol a
 	setsub minetimer {minespeed}
-	ifnot blocks[{id}].mineDamage|=|"" call #damage|{blocks[{id}].mineDamage}|{blocks[{id}].damageType}
 	if minetimer|>|0 then
 		call #makebar|bar|{barcol}|{minetimer}|{blocks[{id}].hardness}
 		set model {minetimer}
@@ -720,10 +719,12 @@ quit
 		cmd tempbot model minemeter {model}|1.07
 		ifnot blocks[{id}].breakScale|=|"" cmd tempbot scale minemeter {blocks[{id}].breakScale}
 		cmd tempbot tp minemeter {x} {boty} {z} 0 0
+		ifnot blocks[{id}].mineDamage|=|"" call #damage|{blocks[{id}].mineDamage}|{blocks[{id}].damageType}
 		quit
 	end
 	set minepos
-	jump #destroyblock|{x}|{y}|{z}|{toomuch}
+	call #destroyblock|{x}|{y}|{z}|{toomuch}
+	ifnot blocks[{id}].mineDamage|=|"" call #damage|{blocks[{id}].mineDamage}|{blocks[{id}].damageType}
 quit
 
 #destroyblock

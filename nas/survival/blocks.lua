@@ -677,7 +677,7 @@ return {
 		name = "Thorn",
 		attached = "y -1",
 		nonsolid = true,
-		FaceAwayY = 97,
+		FaceTowardsY = 97,
 		damage = 4,
 		damageType = "thorn",
 		mineDamage = 4,
