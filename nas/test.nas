@@ -1,16 +1,13 @@
-#onJoin
-	set threads 0
+#test
+	msg 1
+	delay 1000
+	msg 2
+	delay 1000
+	msg 3
+goto #test2
+#test2
+	delay 1000
+	msg 4
+	delay 1000
+	msg 5
 quit
-
-#tick
-	cpemsg top1 AC: {actionCount}
-	delay 200
-	if actionCount|>=|100 jump #newloop|#tick
-	ifnot ABORT jump #tick
-quit
-
-#newloop
-	newthread {runArg1}
-	setadd threads 1
-	msg THREATS: {threads}
-terminate
