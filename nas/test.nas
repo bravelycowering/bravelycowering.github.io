@@ -4,6 +4,7 @@
 	msg 2
 	delay 1000
 	msg 3
+	allowmbrepeat
 goto #test2
 #test2
 	delay 1000
