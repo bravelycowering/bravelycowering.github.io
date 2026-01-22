@@ -214,6 +214,9 @@ quit
 	cs me ding:choose(4):cut(0.1) ding:choose(4):pitch(2)
 	ifnot l_milestonetext|=|"" cpemsg smallannounce {l_milestonetext}
 	ifnot l_milestonesound|=|"" cs me {l_milestonesound}
+	// force allow mb repeat
+	boost 0 0 0 0 0 0 0 1
+	// do animation stuffs
 	tempchunk 4 2 48 4 2 49 4 2 44
 	delay 100
 	tempblock 215 4 2 44
