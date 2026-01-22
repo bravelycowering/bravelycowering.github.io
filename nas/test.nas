@@ -4,8 +4,9 @@
 	msg 2
 	delay 1000
 	msg 3
-	allowmbrepeat
 	newthread #test2
+	msg post thread creation
+	allowmbrepeat
 terminate
 
 #test2
