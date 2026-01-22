@@ -76,7 +76,7 @@ using no_runarg_underscore_conversion
 
 	call #initStructs
 	set Directions North|East|South|West
-	setsplit Directions
+	setsplit Directions " "
 
 	// compat with id finder thingy
 	set blocks[pickaxe].name Pickaxe

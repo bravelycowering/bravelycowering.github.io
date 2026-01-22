@@ -76,7 +76,7 @@ set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 
 	call #initStructs
 	set Directions North|East|South|West
-	setsplit Directions
+	setsplit Directions " "
 
 	// compat with id finder thingy
 	set blocks[pickaxe].name Pickaxe
@@ -162,7 +162,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan21-10
+msg &fVersion &abeta 5.0 &726Jan21-11
 quit
 
 #initSave
