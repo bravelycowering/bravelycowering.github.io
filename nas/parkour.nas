@@ -228,6 +228,17 @@ quit
 #cleverlydone
 	// cheat with chatsounds
 	msg &0@truename: cleverly done mr freeman but youre not supposed to be here as a matter of fact you are not:cut(5.5)
-	delay 6000
-	kill
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive delay 500
+	if Alive kill
 quit
