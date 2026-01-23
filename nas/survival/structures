@@ -41,3 +41,38 @@
 		[ BBBBB ]
 	]
 }
+
+#structure:treetop {
+	origin: 2, 0, 2
+	L: 18 ? growreplaceable
+	l: {setrandlist %b 0|18} ? growreplaceable
+	O: 17
+	[
+		[     ]
+		[  L  ]
+		[ LLL ]
+		[  L  ]
+		[     ]
+	]
+	[
+		[     ]
+		[ lLl ]
+		[ LOL ]
+		[ lLl ]
+		[     ]
+	]
+	[
+		[lLLLl]
+		[LLLLL]
+		[LLOLL]
+		[LLLLL]
+		[lLLLl]
+	]
+	[
+		[lLLLl]
+		[LLLLL]
+		[LLOLL]
+		[LLLLL]
+		[lLLLl]
+	]
+}

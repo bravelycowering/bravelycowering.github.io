@@ -69,6 +69,7 @@ return function(filename)
 			for _, row in ipairs(layer) do
 				local x = 0
 				for _, block in ipairs(row) do
+					local line
 					if block.skip then
 						goto continue
 					end
@@ -90,10 +91,14 @@ return function(filename)
 						end
 					end
 					if block.condition then
-						l[#l+1] = "call {#setblockif}|"..block.id.."|{%x}|{%y}|{%z}|"..block.condition
+						line = "call {#setblockif}|"..block.id.."|{%x}|{%y}|{%z}|"..block.condition
 					else
-						l[#l+1] = "call {#setblock}|"..block.id.."|{%x}|{%y}|{%z}"
+						line = "call {#setblock}|"..block.id.."|{%x}|{%y}|{%z}"
 					end
+					if block.actions then
+						line = "ifnot %b|=|0 "..line
+					end
+					l[#l+1] = line
 					blockc = blockc + 1
 				    ::continue::
 					x = x + 1
