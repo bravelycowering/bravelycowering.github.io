@@ -162,7 +162,7 @@ quit
 	msg - Trees now create soil when grown
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan23-2
+msg &fVersion &abeta 5.0 &726Jan23-3
 quit
 
 #initSave
@@ -408,6 +408,7 @@ quit
 
 #sunlightexposed
 	set l_pkg_1 {runArg1}
+	// localname l_exit_1 
 	set l_x_5 {runArg2}
 	set l_y_3 {runArg3}
 	set l_z_4 {runArg4}
@@ -416,11 +417,13 @@ quit
 		call {#getblock}|l_id_3|{l_x_5}|{l_y_3}|{l_z_4}
 		if l_id_3|=|0 jump #ifnot_3
 			set {l_pkg_1} false
-			quit
+			jump #l_exit_1
 		#ifnot_3
 		setadd l_y_3 1
 	if l_y_3|<|LevelY jump #while_5
 	set {l_pkg_1} true
+	#l_exit_1
+	msg actions: {ActionCount}, exposed: {{l_pkg_1}}
 quit
 
 #generate

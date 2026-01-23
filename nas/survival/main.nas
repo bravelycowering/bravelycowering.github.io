@@ -408,6 +408,7 @@ quit
 
 function #sunlightexposed
 	local pkg {runArg1}
+	localname exit
 	local x {runArg2}
 	local y {runArg3}
 	local z {runArg4}
@@ -416,11 +417,13 @@ function #sunlightexposed
 		call {#getblock}|*id|{x}|{y}|{z}
 		ifnot *id|=|0 then
 			set {pkg} false
-			quit
+			jump #*exit
 		end
 		setadd *y 1
 	end
 	set {pkg} true
+	#*exit
+	msg actions: {ActionCount}, exposed: {{pkg}}
 end
 
 #generate
