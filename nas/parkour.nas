@@ -238,17 +238,8 @@ quit
 	set Clever true
 	// cheat with chatsounds
 	msg &0@truename: cleverly done mr freeman but youre not supposed to be here as a matter of fact you are not:cut(5.5)
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
-	if Alive delay 500
+	freeze
+	delay 6000
+	unfreeze
 	if Alive kill
 quit
