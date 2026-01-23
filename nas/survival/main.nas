@@ -406,6 +406,23 @@ end
 	cmd brush normal
 quit
 
+function #sunlightexposed
+	local pkg {runArg1}
+	local x {runArg2}
+	local y {runArg3}
+	local z {runArg4}
+	while if *y|<|LevelY
+		localname id
+		call {#getblock}|*id|{x}|{y}|{z}
+		ifnot *id|=|0 then
+			set {pkg} false
+			quit
+		end
+		setadd *y 1
+	end
+	set {pkg} true
+end
+
 #generate
 	// get seed
 	set RandomTickSpeed 0
@@ -545,6 +562,9 @@ quit
 	cmd replacebrush 1 random 1/1499 52
 	cmd m 0 0 0
 	cmd m {LevelX} 20 {LevelZ}
+	// mycelium
+	cmd replacebrush 1 cloudy 1/300 3 98 a=2 f=0.5 o=5 p=1.1
+	cmd ma
 quit
 
 #generate.plants
@@ -575,6 +595,12 @@ quit
 	cmd replacebrush 767 cloudy 0/4 767
 	cmd ma
 	cmd replacebrush 767 cloudy 0 39/2 f=.2
+	cmd ma
+	cmd replacebrush 39 random 39 40 0/12
+	cmd ma
+	// mushrooms on mycelium
+	call #grow|98|767
+	cmd replacebrush 767 cloudy 0 39 f=.2
 	cmd ma
 	cmd replacebrush 39 random 39 40 0/12
 	cmd ma
@@ -1532,6 +1558,48 @@ function #growtree
 		setadd *y 1
 	end
 	jump #structure:treetop|{x}|{y}|{z}
+end
+
+function #growredmushroom
+	local x {runArg1}
+	local y {runArg2}
+	local z {runArg3}
+	localname i
+	setsub *y 1
+	call {#getblock}|*i|{x}|{y}|{z}
+	// TODO: make this require mycelium or soil
+	ifnot blocks[{i}].growstree quit
+	// TODO: make this mycelium
+	call {#setblock}|88|{x}|{y}|{z}
+	setadd *y 1
+	setrandrange *i 3 5
+	while if *i|>|0
+		call {#setblockif}|65|{x}|{y}|{z}|growreplaceable
+		setsub *i 1
+		setadd *y 1
+	end
+	jump #structure:redmushroomtop|{x}|{y}|{z}
+end
+
+function #growbrownmushroom
+	local x {runArg1}
+	local y {runArg2}
+	local z {runArg3}
+	localname i
+	setsub *y 1
+	call {#getblock}|*i|{x}|{y}|{z}
+	// TODO: make this require mycelium or soil
+	ifnot blocks[{i}].growstree quit
+	// TODO: make this mycelium
+	call {#setblock}|88|{x}|{y}|{z}
+	setadd *y 1
+	setrandrange *i 3 5
+	while if *i|>|0
+		call {#setblockif}|65|{x}|{y}|{z}|growreplaceable
+		setsub *i 1
+		setadd *y 1
+	end
+	jump #structure:brownmushroomtop|{x}|{y}|{z}
 end
 
 include structures survival/structures
