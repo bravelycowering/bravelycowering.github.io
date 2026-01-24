@@ -160,9 +160,10 @@ quit
 	msg - New blocks: Seeds, Soil, Wheat, and Bread
 	msg - Seeds can now be placed on dirt and soil
 	msg - Trees now create soil when grown
+	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan24-1
+msg &fVersion &abeta 5.0 &726Jan24-2
 quit
 
 #initSave
@@ -2208,7 +2209,7 @@ set blocks[44].tooltype pickaxe
 set blocks[44].toughness 1
 set blocks[45].hardness 6
 set blocks[45].id 45
-set blocks[45].name Brick
+set blocks[45].name Bricks
 set blocks[45].tooltype pickaxe
 set blocks[45].toughness 1
 set blocks[46].id 46
@@ -2843,6 +2844,7 @@ set recipes[51].ingredients.Length 1
 set recipes[51].ingredients[0].count 4
 set recipes[51].ingredients[0].id 104
 set recipes[51].output.count 1
+set recipes[51].output.id 45
 set recipes[5].condition usingWorkbench
 set recipes[5].ingredients.Length 2
 set recipes[5].ingredients[0].count 1
