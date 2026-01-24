@@ -163,7 +163,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan24-4
+msg &fVersion &abeta 5.0 &726Jan24-5
 quit
 
 #initSave
