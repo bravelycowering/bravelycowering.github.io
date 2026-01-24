@@ -76,3 +76,121 @@
 		[lLLLl]
 	]
 }
+
+#structure:dandeliontop {
+	origin: 3, 0, 3
+	Y: 23 ? growreplaceable
+	S: 95
+	[
+		[   Y   ]
+		[ Y   Y ]
+		[       ]
+		[Y     Y]
+		[       ]
+		[ Y   Y ]
+		[   Y   ]
+	]
+	[
+		[   Y   ]
+		[   Y   ]
+		[  YYY  ]
+		[YYYYYYY]
+		[  YYY  ]
+		[   Y   ]
+		[   Y   ]
+	]
+	[
+		[       ]
+		[ Y Y Y ]
+		[  YYY  ]
+		[ YYSYY ]
+		[  YYY  ]
+		[ Y Y Y ]
+		[       ]
+	]
+	[
+		[       ]
+		[       ]
+		[   S   ]
+		[  SSS  ]
+		[   S   ]
+		[       ]
+		[       ]
+	]
+}
+
+#structure:rosetop {
+	origin: 2, 0, 2
+	R: 21 ? growreplaceable
+	[
+		[  R  ]
+		[R RR ]
+		[ R  R]
+		[ R  R]
+		[  R  ]
+	]
+	[
+		[ RRR ]
+		[RRRRR]
+		[RRR R]
+		[ R RR]
+		[ RRR ]
+	]
+	[
+		[RRRR ]
+		[RRRRR]
+		[RRRRR]
+		[RRRRR]
+		[ RRRR]
+	]
+	[
+		[  R  ]
+		[ RRR ]
+		[RRRRR]
+		[ RRR ]
+		[  R  ]
+	]
+}
+
+#structure:flaxtop {
+	origin: 3, 0, 3
+	B: 29 ? growreplaceable
+	W: 36 ? growreplaceable
+	Y: 23 ? growreplaceable
+	[
+		[       ]
+		[       ]
+		[       ]
+		[    Y  ]
+		[       ]
+		[       ]
+		[       ]
+	]
+	[
+		[  B B  ]
+		[ B   B ]
+		[B     B]
+		[   W   ]
+		[B     B]
+		[ B   B ]
+		[  B B  ]
+	]
+	[
+		[       ]
+		[  BBB  ]
+		[ B   B ]
+		[ B W B ]
+		[ B   B ]
+		[  BBB  ]
+		[       ]
+	]
+	[
+		[       ]
+		[   B   ]
+		[  BBB  ]
+		[ BBBBB ]
+		[  BBB  ]
+		[   B   ]
+		[       ]
+	]
+}

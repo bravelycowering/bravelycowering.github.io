@@ -163,7 +163,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan24-3
+msg &fVersion &abeta 5.0 &726Jan24-4
 quit
 
 #initSave
@@ -2008,6 +2008,384 @@ call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
 setadd l_x_17 -1
 setadd l_z_16 1
 call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
+quit
+
+#structure:dandeliontop
+set l_x_18 {runArg1}
+set l_y_16 {runArg2}
+set l_z_17 {runArg3}
+setadd l_z_17 -1
+call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
+setadd l_x_18 -1
+setadd l_z_17 1
+call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
+setadd l_x_18 1
+call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
+setadd l_x_18 1
+call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
+setadd l_x_18 -1
+setadd l_z_17 1
+call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
+setadd l_x_18 -2
+setadd l_y_16 1
+setadd l_z_17 -3
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 2
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 2
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -3
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -3
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -3
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -3
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 2
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 2
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -2
+setadd l_y_16 1
+setadd l_z_17 -5
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -1
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -4
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -4
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -1
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_y_16 1
+setadd l_z_17 -6
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -2
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 4
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -5
+setadd l_z_17 2
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 6
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -5
+setadd l_z_17 2
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 4
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+setadd l_x_18 -2
+setadd l_z_17 1
+call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+quit
+
+#structure:rosetop
+set l_x_19 {runArg1}
+set l_y_17 {runArg2}
+set l_z_18 {runArg3}
+setadd l_z_18 -2
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -1
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -1
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -2
+setadd l_y_17 1
+setadd l_z_18 -4
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -4
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -4
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_y_17 1
+setadd l_z_18 -4
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -4
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 2
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 2
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -1
+setadd l_y_17 1
+setadd l_z_18 -4
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -2
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 2
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -2
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 3
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -3
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 3
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+setadd l_x_19 -2
+setadd l_z_18 1
+call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+quit
+
+#structure:flaxtop
+set l_x_20 {runArg1}
+set l_y_18 {runArg2}
+set l_z_19 {runArg3}
+setadd l_z_19 -2
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -1
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -3
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -3
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -1
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -1
+setadd l_y_18 1
+setadd l_z_19 -4
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -3
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 4
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -4
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 2
+call {#setblockif}|36|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 2
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -4
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 4
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -3
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -2
+setadd l_y_18 1
+setadd l_z_19 -5
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 2
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -3
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 4
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -5
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 6
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -3
+setadd l_z_19 1
+call {#setblockif}|36|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -3
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 6
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -5
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 4
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 -3
+setadd l_z_19 1
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_x_20 2
+call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+setadd l_y_18 1
+setadd l_z_19 -3
+call {#setblockif}|23|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
 quit
 
 #initBlacklist
