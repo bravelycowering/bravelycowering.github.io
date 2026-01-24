@@ -293,7 +293,7 @@ return {
 	},
 	{
 		id = 45,
-		name = "Brick",
+		name = "Bricks",
 		hardness = 6,
 		toughness = 1,
 		tooltype = "pickaxe",
