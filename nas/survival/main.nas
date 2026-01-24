@@ -160,6 +160,7 @@ quit
 	msg - New blocks: Seeds, Soil, Wheat, and Bread
 	msg - Seeds can now be placed on dirt and soil
 	msg - Trees now create soil when grown
+	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
 	include survival/version
@@ -423,6 +424,27 @@ function #sunlightexposed
 	end
 	set {pkg} true
 	#*exit
+end
+
+function #spaceabove
+	local pkg {runArg1}
+	localname exit
+	local x {runArg2}
+	local y {runArg3}
+	local z {runArg4}
+	local space {y}
+	setadd *space {runArg5}
+	while if *y|<|*space
+		localname id
+		call {#getblock}|*id|{x}|{y}|{z}
+		ifnot *id|=|0 then
+			set {pkg} false
+			jump #*exit
+		end
+		setadd *y 1
+	end
+	set {pkg} true
+	#*exit
 	msg actions: {ActionCount}, exposed: {{pkg}}
 end
 
@@ -603,9 +625,7 @@ quit
 	cmd ma
 	// mushrooms on mycelium
 	call #grow|98|767
-	cmd replacebrush 767 cloudy 0 39 f=.2
-	cmd ma
-	cmd replacebrush 39 random 39 40 0/12
+	cmd replacebrush 767 random 39 40 0
 	cmd ma
 quit
 
@@ -1312,6 +1332,14 @@ quit
 	end
 quit
 
+#use[68:103]
+#use[54:103]
+	if inventory[103]|>|0 then
+		call #take|103|1
+		call #give|104|1
+	end
+quit
+
 #use[80:70]
 	if inventory[70]|>|0 call {#setblock}|70|{runArg1}|{runArg2}|{runArg3}
 quit
@@ -1401,6 +1429,12 @@ jump #give|79|1
 
 #loot[97]
 jump #give|96|1
+
+#loot[101]
+jump #give|100|2
+
+#loot[102]
+jump #give|103|4
 
 #use[82]
 #use[94]
