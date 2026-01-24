@@ -163,7 +163,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan24-2
+msg &fVersion &abeta 5.0 &726Jan24-3
 quit
 
 #initSave
@@ -1500,6 +1500,14 @@ quit
 	ifnot envcycle[{Hour}].isday quit
 jump #growtree|{runArg1}|{runArg2}|{runArg3}
 
+#blocktick[39]
+	if envcycle[{Hour}].isday quit
+jump #growbrownmushroom|{runArg1}|{runArg2}|{runArg3}
+
+#blocktick[40]
+	if envcycle[{Hour}].isday quit
+jump #growredmushroom|{runArg1}|{runArg2}|{runArg3}
+
 #blocktick[18]
 	set l_decay_1 {#setblock}|0|{runArg1}|{runArg2}|{runArg3}
 	set l_x1_1 {runArg1}
@@ -1604,10 +1612,7 @@ quit
 	// localname l_i_7 
 	setsub l_y_11 1
 	call {#getblock}|l_i_7|{l_x_13}|{l_y_11}|{l_z_12}
-	// TODO: make this require mycelium or soil
-	ifnot blocks[{l_i_7}].growstree quit
-	// TODO: make this mycelium
-	call {#setblock}|88|{l_x_13}|{l_y_11}|{l_z_12}
+	ifnot blocks[{l_i_7}].growsmushrooms quit
 	setadd l_y_11 1
 	setrandrange l_i_7 3 5
 	#while_28
@@ -1625,10 +1630,7 @@ quit
 	// localname l_i_8 
 	setsub l_y_12 1
 	call {#getblock}|l_i_8|{l_x_14}|{l_y_12}|{l_z_13}
-	// TODO: make this require mycelium or soil
-	ifnot blocks[{l_i_8}].growstree quit
-	// TODO: make this mycelium
-	call {#setblock}|88|{l_x_14}|{l_y_12}|{l_z_13}
+	ifnot blocks[{l_i_8}].growsmushrooms quit
 	setadd l_y_12 1
 	setrandrange l_i_8 3 5
 	#while_29
@@ -2455,6 +2457,8 @@ set blocks[87].name Cage
 set blocks[87].tooltype pickaxe
 set blocks[87].toughness 6
 set blocks[88].growscrops true
+set blocks[88].growsflowers true
+set blocks[88].growsmushrooms true
 set blocks[88].growstree true
 set blocks[88].hardness 3
 set blocks[88].id 88
