@@ -613,6 +613,8 @@ return {
 		tooltype = "spade",
 		growstree = true,
 		growscrops = true,
+		growsflowers = true,
+		growsmushrooms = true,
 	},
 	{
 		id = 89,

@@ -1500,6 +1500,14 @@ end
 	ifnot envcycle[{Hour}].isday quit
 jump #growtree|{runArg1}|{runArg2}|{runArg3}
 
+#blocktick[39]
+	if envcycle[{Hour}].isday quit
+jump #growbrownmushroom|{runArg1}|{runArg2}|{runArg3}
+
+#blocktick[40]
+	if envcycle[{Hour}].isday quit
+jump #growredmushroom|{runArg1}|{runArg2}|{runArg3}
+
 function #blocktick[18]
 	local decay {#setblock}|0|{runArg1}|{runArg2}|{runArg3}
 	local x1 {runArg1}
@@ -1604,10 +1612,7 @@ function #growredmushroom
 	localname i
 	setsub *y 1
 	call {#getblock}|*i|{x}|{y}|{z}
-	// TODO: make this require mycelium or soil
-	ifnot blocks[{i}].growstree quit
-	// TODO: make this mycelium
-	call {#setblock}|88|{x}|{y}|{z}
+	ifnot blocks[{i}].growsmushrooms quit
 	setadd *y 1
 	setrandrange *i 3 5
 	while if *i|>|0
@@ -1625,10 +1630,7 @@ function #growbrownmushroom
 	localname i
 	setsub *y 1
 	call {#getblock}|*i|{x}|{y}|{z}
-	// TODO: make this require mycelium or soil
-	ifnot blocks[{i}].growstree quit
-	// TODO: make this mycelium
-	call {#setblock}|88|{x}|{y}|{z}
+	ifnot blocks[{i}].growsmushrooms quit
 	setadd *y 1
 	setrandrange *i 3 5
 	while if *i|>|0
