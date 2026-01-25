@@ -1,12 +1,12 @@
 using local_packages
 
 #onJoin
-	set next[36] 34
-	set next[34] 171
-	set next[171] 608
-	set next[608] 36
+	set next[36] black
+	set next[34] sign
+	set next[171] plaque
+	set next[608] white
 	setblockid current 1 0 0
-	if next[{current}]|=|"" set next[{current}] 36
+	if next[{current}]|=|"" set next[{current}] white
 jump #newloop|#tick
 
 #input
