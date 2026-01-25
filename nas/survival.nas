@@ -163,7 +163,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-1
+msg &fVersion &abeta 5.0 &726Jan25-2
 quit
 
 #initSave
@@ -317,6 +317,8 @@ quit
 	if blocks[{l_myhighblock_1}].drowning setsub airticks 1
 	else set airticks 100
 	set l_air_1 {airticks}
+	setdiv l_air_1 10
+	setrounddown l_air_1
 	if air|=|prevair jump #ifnot_2
 		// localname l_airbar_1 
 		call #makecharbar|l_airbar_1|○|b|{l_air_1}|10
