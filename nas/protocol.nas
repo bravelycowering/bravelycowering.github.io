@@ -6,6 +6,7 @@ using local_packages
 	set next[171] 608
 	set next[608] 36
 	setblockid current 1 0 0
+	if next[{current}]|=|"" set next[{current}] 36
 jump #newloop|#tick
 
 #input
