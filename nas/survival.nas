@@ -1,4 +1,4 @@
-using local_packages
+// using local_packages
 using no_runarg_underscore_conversion
 
 #onJoin
@@ -163,7 +163,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-2
+msg &fVersion &abeta 5.0 &726Jan25-3
 quit
 
 #initSave
