@@ -163,7 +163,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan24-5
+msg &fVersion &abeta 5.0 &726Jan25-1
 quit
 
 #initSave
@@ -289,6 +289,7 @@ quit
 	// localname l_prevhp_1 
 	// localname l_prevHour_1 
 	// localname l_profilestart_1 
+	// localname l_prevair_1 
 	if TerminatePrematurely jump #newloop|#tick
 	set Hour {epochms}
 	setdiv Hour 10000
@@ -314,7 +315,14 @@ quit
 	if blocks[{l_mylowblock_1}].catchFire setadd fireticks 6
 	if blocks[{l_myhighblock_1}].catchFire setadd fireticks 6
 	if blocks[{l_myhighblock_1}].drowning setsub airticks 1
-	else set airticks 1
+	else set airticks 100
+	set l_air_1 {airticks}
+	if air|=|prevair jump #ifnot_2
+		// localname l_airbar_1 
+		call #makecharbar|l_airbar_1|○|b|{l_air_1}|10
+		cpemsg smallannounce {l_airbar_1}
+	#ifnot_2
+	set l_prevair_1 {l_air_1}
 	ifnot blocks[{l_mylowblock_1}].damage|=|"" call #damage|{blocks[{l_mylowblock_1}].damage}|{blocks[{l_mylowblock_1}].damageType}
 	ifnot blocks[{l_myhighblock_1}].damage|=|"" call #damage|{blocks[{l_myhighblock_1}].damage}|{blocks[{l_myhighblock_1}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
@@ -350,12 +358,12 @@ quit
 		else gui barSize 1
 	#if_6
 	// redraw hp bar if hp changed
-	if hp|=|l_prevhp_1 jump #ifnot_2
+	if hp|=|l_prevhp_1 jump #ifnot_3
 		set l_prevhp_1 {hp}
 		// localname l_hpbar_1 
 		call #makebar|l_hpbar_1|c|{hp}|{maxhp}
 		cpemsg bot1 &c♥ {l_hpbar_1}
-	#ifnot_2
+	#ifnot_3
 	// random ticks
 	ifnot RandomTickSpeed|>|0 jump #if_7
 		set RandomTicks {RandomTickSpeed}
@@ -416,10 +424,10 @@ quit
 	#while_5
 		// localname l_id_3 
 		call {#getblock}|l_id_3|{l_x_5}|{l_y_3}|{l_z_4}
-		if l_id_3|=|0 jump #ifnot_3
+		if l_id_3|=|0 jump #ifnot_4
 			set {l_pkg_1} false
 			jump #l_exit_1
-		#ifnot_3
+		#ifnot_4
 		setadd l_y_3 1
 	if l_y_3|<|LevelY jump #while_5
 	set {l_pkg_1} true
@@ -437,10 +445,10 @@ quit
 	#while_6
 		// localname l_id_4 
 		call {#getblock}|l_id_4|{l_x_6}|{l_y_4}|{l_z_5}
-		if l_id_4|=|0 jump #ifnot_4
+		if l_id_4|=|0 jump #ifnot_5
 			set {l_pkg_2} false
 			jump #l_exit_2
-		#ifnot_4
+		#ifnot_5
 		setadd l_y_4 1
 	if l_y_4|<|l_space_1 jump #while_6
 	set {l_pkg_2} true
@@ -675,7 +683,7 @@ quit
 #die
 	set deathmsg {runArg1}
 	if deathmsg|=|"" set deathmsg {deathmessages.unknown}
-	if SpawnBlock|=|"none" jump #ifnot_5
+	if SpawnBlock|=|"none" jump #ifnot_6
 		setsplit SpawnBlock " "
 		call {#getblock}|spawnblockid|{SpawnBlock[0]}|{SpawnBlock[1]}|{SpawnBlock[2]}
 		ifnot spawnblockid|!=|68 jump #if_9
@@ -683,7 +691,7 @@ quit
 			set DeathSpawn {WorldSpawn}
 			setdeathspawn {DeathSpawn}
 		#if_9
-	#ifnot_5
+	#ifnot_6
 	set deathY {PlayerY}
 	setrandlist id 82|94
 	call {#setblock}|{id}|{PlayerX}|{deathY}|{PlayerZ}
@@ -783,12 +791,12 @@ quit
 	set z {runArg3}
 	set toomuch {runArg4}
 	call {#getblock}|id|{x}|{y}|{z}
-	if toomuch jump #ifnot_6
+	if toomuch jump #ifnot_7
 		set dontDestroyBlock false
 		if label #loot[{id}] call #loot[{id}]
 		else call #give|{id}|1
 		if dontDestroyBlock quit
-	#ifnot_6
+	#ifnot_7
 	if blocks[{id}].remainder|=|"" set empty 0
 	else set empty {blocks[{id}].remainder}
 	call {#setblock}|{empty}|{x}|{y}|{z}
@@ -849,12 +857,12 @@ quit
 	call {#getblock}|id|{x}|{y}|{z}
 	if label #use[{id}:{PlayerHeldBlock}] jump #use[{id}:{PlayerHeldBlock}]|{x}|{y}|{z}
 	if label #use[{id}] jump #use[{id}]|{x}|{y}|{z}
-	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_7
+	if blocks[{PlayerHeldBlock}].replaceable jump #ifnot_8
 		ifnot inventory[{PlayerHeldBlock}]|>|0 msg &cYou don't have any &f{blocks[{PlayerHeldBlock}].name}!
-	#ifnot_7
+	#ifnot_8
 	ifnot inventory[{PlayerHeldBlock}]|>|0 quit
 	if blocks[{id}].replaceable quit
-	if blocks[{id}].mergeInto|=|"" jump #ifnot_8
+	if blocks[{id}].mergeInto|=|"" jump #ifnot_9
 		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_12
 			ifnot blocks[{id}].mergeFace|=|click.face jump #if_13
 				call #take|{playerHeldBlock}|1
@@ -862,7 +870,7 @@ quit
 				quit
 			#if_13
 		#if_12
-	#ifnot_8
+	#ifnot_9
 	if click.face|=|"AwayX" setadd x 1
 	if click.face|=|"AwayY" setadd y 1
 	if click.face|=|"AwayZ" setadd z 1
@@ -870,13 +878,13 @@ quit
 	if click.face|=|"TowardsY" setsub y 1
 	if click.face|=|"TowardsZ" setsub z 1
 	call {#getblock}|id|{x}|{y}|{z}
-	if blocks[{id}].mergeInto|=|"" jump #ifnot_9
+	if blocks[{id}].mergeInto|=|"" jump #ifnot_10
 		ifnot PlayerHeldBlock|=|blocks[{id}].merger jump #if_14
 			call #take|{playerHeldBlock}|1
 			jump {#setblock}|{blocks[{id}].mergeInto}|{x}|{y}|{z}
 			quit
 		#if_14
-	#ifnot_9
+	#ifnot_10
 	ifnot blocks[{id}].replaceable quit
 	set placeid {PlayerHeldBlock}
 	set placedir {PlayerYaw}
@@ -887,18 +895,18 @@ quit
 	set placedir {Directions[{placedir}]}
 	ifnot blocks[{PlayerHeldBlock}].Face{click.face}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{click.face}}
 	ifnot blocks[{PlayerHeldBlock}].Face{placedir}|=|"" set placeid {blocks[{PlayerHeldBlock}].Face{placedir}}
-	if blocks[{placeid}].attached|=|"" jump #ifnot_10
+	if blocks[{placeid}].attached|=|"" jump #ifnot_11
 		setadd {blocks[{placeid}].attached}
 		call {#getblock}|id|{x}|{y}|{z}
 		if blocks[{id}].nonsolid quit
 		setsub {blocks[{placeid}].attached}
-	#ifnot_10
+	#ifnot_11
 	call #take|{playerHeldBlock}|1
 	jump {#setblock}|{placeid}|{x}|{y}|{z}
 quit
 
 #itemuse
-	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_11
+	if blocks[{PlayerHeldBlock}].food|=|"" jump #ifnot_12
 		if epochMS|<|lastate quit
 		set lastate {epochMS}
 		setadd lastate 1000
@@ -908,7 +916,7 @@ quit
 			call #take|{playerHeldBlock}|1
 			call #heal|{blocks[{PlayerHeldBlock}].food}
 		#if_15
-	#ifnot_11
+	#ifnot_12
 quit
 
 #pick
@@ -934,12 +942,12 @@ quit
 #setblock
 	setblockid id {runArg2} {runArg3} {runArg4}
 	if id|=|65535 quit
-	if allowMapChanges jump #ifnot_12
+	if allowMapChanges jump #ifnot_13
 		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
 		set world[{runArg2},{runArg3},{runArg4}].msg
 		quit
-	#ifnot_12
+	#ifnot_13
 	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
@@ -961,12 +969,12 @@ quit
 #setblockif
 	setblockid id {runArg2} {runArg3} {runArg4}
 	ifnot blocks[{id}].{runArg5} quit
-	if allowMapChanges jump #ifnot_13
+	if allowMapChanges jump #ifnot_14
 		tempblock {runArg1} {runArg2} {runArg3} {runArg4}
 		set world[{runArg2},{runArg3},{runArg4}] {runArg1}
 		set world[{runArg2},{runArg3},{runArg4}].msg
 		quit
-	#ifnot_13
+	#ifnot_14
 	placemessageblock {runArg1} {runArg2} {runArg3} {runArg4}
 quit
 
@@ -1008,13 +1016,13 @@ quit
 
 #setblockdata
 	set msg /nothing2 {runArg4}
-	if runArg5|=|"" jump #ifnot_14
+	if runArg5|=|"" jump #ifnot_15
 		set l_i_2 5
 		#while_9
 			set msg {msg}|/nothing2 {runArg{l_i_2}}
 			setadd l_i_2 1
 		ifnot runArg{l_i_2}|=|"" jump #while_9
-	#ifnot_14
+	#ifnot_15
 	setblockid id {runArg1} {runArg2} {runArg3}
 	if id|=|65535 quit
 	ifnot allowMapChanges set world[{runArg1},{runArg2},{runArg3}].msg {msg}
@@ -1025,13 +1033,13 @@ quit
 	setblockid id {runArg1} {runArg2} {runArg3}
 	if id|=|65535 quit
 	set msg /nothing2 {runArg4}
-	if runArg5|=|"" jump #ifnot_15
+	if runArg5|=|"" jump #ifnot_16
 		set l_i_3 5
 		#while_10
 			set msg {msg}|/nothing2 {runArg{l_i_3}}
 			setadd l_i_3 1
 		ifnot runArg{l_i_3}|=|"" jump #while_10
-	#ifnot_15
+	#ifnot_16
 	set world[{runArg1},{runArg2},{runArg3}].msg {msg}
 quit
 
@@ -1039,13 +1047,13 @@ quit
 	setblockid id {runArg1} {runArg2} {runArg3}
 	if id|=|65535 quit
 	set msg /nothing2 {runArg4}
-	if runArg5|=|"" jump #ifnot_16
+	if runArg5|=|"" jump #ifnot_17
 		set l_i_4 5
 		#while_11
 			set msg {msg}|/nothing2 {runArg{l_i_4}}
 			setadd l_i_4 1
 		ifnot runArg{l_i_4}|=|"" jump #while_11
-	#ifnot_16
+	#ifnot_17
 	placemessageblock {id} {runArg1} {runArg2} {runArg3} {msg}
 quit
 
@@ -1142,7 +1150,7 @@ quit
 	if runArg1|=|"rules" jump #rules
 	ifnot runArg1|=|"craft" jump #if_25
 		set craftArgs {runArg2}
-		if craftArgs|=|"" jump #ifnot_17
+		if craftArgs|=|"" jump #ifnot_18
 			set craftArgs[1] 1
 			setsplit craftArgs *
 			if craftArgs[0]|=|"held" set craftArgs[0] {PlayerHeldBlock}
@@ -1159,12 +1167,12 @@ quit
 			#if_27
 			call #doCraft|{recipeID}|{craftArgs[1]}
 			quit
-		#ifnot_17
+		#ifnot_18
 		if usingWorkbench msg &eWorkbench Recipes:
-		if usingWorkbench jump #ifnot_18
+		if usingWorkbench jump #ifnot_19
 			if usingStonecutter msg &eStonecutter Recipes:
 			else msg &eRecipes:
-		#ifnot_18
+		#ifnot_19
 		set i 0
 		#while_16
 			call #checkRecipeAfford|{i}|canAfford
@@ -1224,9 +1232,9 @@ quit
 #checkRecipeAfford
 	set j 0
 	set {runArg2} 999
-	if recipes[{runArg1}].condition|=|"" jump #ifnot_19
+	if recipes[{runArg1}].condition|=|"" jump #ifnot_20
 		ifnot {recipes[{runArg1}].condition} set {runArg2} 0
-	#ifnot_19
+	#ifnot_20
 	ifnot isTool({recipes[{runArg1}].output.id}) jump #if_29
 		if {recipes[{runArg1}].output.id}|>=|recipes[{runArg1}].output.count set {runArg2} 0
 	#if_29
@@ -1242,10 +1250,10 @@ quit
 
 #getBlockByName
 	set {runArg1}
-	if blocks[{runArg2}].name|=|"" jump #ifnot_20
+	if blocks[{runArg2}].name|=|"" jump #ifnot_21
 		set {runArg1} {runArg2}
 		quit
-	#ifnot_20
+	#ifnot_21
 	set i 0
 	#while_21
 		ifnot blocks[{i}].name|=|runArg2 jump #if_30
@@ -1285,7 +1293,7 @@ quit
 quit
 
 #use[67]
-	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_21
+	if blocks[{PlayerHeldBlock}].campfireLighter|=|"" jump #ifnot_22
 		ifnot inventory[{PlayerHeldBlock}]|>|0 jump #if_33
 			set SpawnBlock {runArg1} {runArg2} {runArg3}
 			call {#setblock}|68|{runArg1}|{runArg2}|{runArg3}
@@ -1296,7 +1304,7 @@ quit
 			msg &fRespawn point set
 			quit
 		#if_33
-	#ifnot_21
+	#ifnot_22
 	msg &cYou can't light a campfire with that
 quit
 

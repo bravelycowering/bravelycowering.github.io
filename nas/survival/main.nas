@@ -289,6 +289,7 @@ function #tick
 	localname prevhp
 	localname prevHour
 	localname profilestart
+	localname prevair
 	if TerminatePrematurely jump #newloop|#tick
 	set Hour {epochms}
 	setdiv Hour 10000
@@ -314,7 +315,14 @@ function #tick
 	if blocks[{mylowblock}].catchFire setadd fireticks 6
 	if blocks[{myhighblock}].catchFire setadd fireticks 6
 	if blocks[{myhighblock}].drowning setsub airticks 1
-	else set airticks 1
+	else set airticks 100
+	local air {airticks}
+	ifnot air|=|prevair then
+		localname airbar
+		call #makecharbar|*airbar|○|b|{air}|10
+		cpemsg smallannounce {airbar}
+	end
+	set *prevair {air}
 	ifnot blocks[{mylowblock}].damage|=|"" call #damage|{blocks[{mylowblock}].damage}|{blocks[{mylowblock}].damageType}
 	ifnot blocks[{myhighblock}].damage|=|"" call #damage|{blocks[{myhighblock}].damage}|{blocks[{myhighblock}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
