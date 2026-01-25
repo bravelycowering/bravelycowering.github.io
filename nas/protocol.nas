@@ -29,7 +29,7 @@ quit
 	setblockid l_state 1 0 0
 	if l_state|=|current jump #skipreadpackets
 		set current {l_state}
-		setblockmessage l_data
+		setblockmessage l_data 1 0 0
 		setsplit l_data |
 		set l_i 0
 		#loophandlepackets
