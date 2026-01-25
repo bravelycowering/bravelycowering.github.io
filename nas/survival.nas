@@ -165,7 +165,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-5
+msg &fVersion &abeta 5.0 &726Jan25-6
 quit
 
 #initSave
@@ -307,13 +307,16 @@ quit
 	set l_py_1 {PlayerY}
 	// localname l_mylowblock_1 
 	call {#getblock}|l_mylowblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
-	setadd l_py_1 1.5
+	setadd l_py_1 1
+	// localname l_myheadblock_1 
+	call {#getblock}|l_myheadblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
+	setadd l_py_1 0.5
 	setrounddown l_py_1
 	// localname l_myhighblock_1 
 	call {#getblock}|l_myhighblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
 	if blocks[{l_mylowblock_1}].catchFire setadd fireticks 6
 	if blocks[{l_myhighblock_1}].catchFire setadd fireticks 6
-	if blocks[{l_myhighblock_1}].drowning setsub airticks 1
+	if blocks[{l_myheadblock_1}].drowning setsub airticks 1
 	else set airticks 100
 	set l_air_1 {airticks}
 	setdiv l_air_1 10

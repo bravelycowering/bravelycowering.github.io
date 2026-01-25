@@ -307,13 +307,16 @@ function #tick
 	local py {PlayerY}
 	localname mylowblock
 	call {#getblock}|*mylowblock|{PlayerX}|{py}|{PlayerZ}
-	setadd *py 1.5
+	setadd *py 1
+	localname myheadblock
+	call {#getblock}|*myheadblock|{PlayerX}|{py}|{PlayerZ}
+	setadd *py 0.5
 	setrounddown *py
 	localname myhighblock
 	call {#getblock}|*myhighblock|{PlayerX}|{py}|{PlayerZ}
 	if blocks[{mylowblock}].catchFire setadd fireticks 6
 	if blocks[{myhighblock}].catchFire setadd fireticks 6
-	if blocks[{myhighblock}].drowning setsub airticks 1
+	if blocks[{myheadblock}].drowning setsub airticks 1
 	else set airticks 100
 	local air {airticks}
 	setdiv *air 10
