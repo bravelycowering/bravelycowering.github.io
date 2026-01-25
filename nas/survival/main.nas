@@ -325,12 +325,12 @@ function #tick
 	setdiv *air 10
 	setrounddown *air
 	ifnot *air|=|prevair then
+		set prevair {air}
 		localname airbar
 		call #makecharbar|*airbar|○|b|{air}|10
 		cpemsg smallannounce {airbar}
 		if *air|<|0 call #damage|3|drown
 	end
-	set prevair {air}
 	ifnot blocks[{mylowblock}].damage|=|"" call #damage|{blocks[{mylowblock}].damage}|{blocks[{mylowblock}].damageType}
 	ifnot blocks[{myhighblock}].damage|=|"" call #damage|{blocks[{myhighblock}].damage}|{blocks[{myhighblock}].damageType}
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
@@ -346,12 +346,12 @@ function #tick
 	setdiv *fire 10
 	setroundup *fire
 	ifnot *fire|=|prevfire then
+		set prevfire {fire}
 		localname firebar
 		call #makecharbar|*firebar|▐|6|{fire}|10
 		cpemsg smallannounce {firebar}
 		if *fire|>|0 call #damage|2|burn
 	end
-	set prevfire {fire}
 	if iframes|>|0 then
 		setsub iframes 1
 		ifnot iframes|<|2 gui barColor #ff0000 0.25

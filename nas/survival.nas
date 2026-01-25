@@ -165,7 +165,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-10
+msg &fVersion &abeta 5.0 &726Jan25-11
 quit
 
 #initSave
@@ -325,12 +325,12 @@ quit
 	setdiv l_air_1 10
 	setrounddown l_air_1
 	if l_air_1|=|prevair jump #ifnot_2
+		set prevair {l_air_1}
 		// localname l_airbar_1 
 		call #makecharbar|l_airbar_1|○|b|{l_air_1}|10
 		cpemsg smallannounce {l_airbar_1}
 		if l_air_1|<|0 call #damage|3|drown
 	#ifnot_2
-	set prevair {l_air_1}
 	ifnot blocks[{l_mylowblock_1}].damage|=|"" call #damage|{blocks[{l_mylowblock_1}].damage}|{blocks[{l_mylowblock_1}].damageType}
 	ifnot blocks[{l_myhighblock_1}].damage|=|"" call #damage|{blocks[{l_myhighblock_1}].damage}|{blocks[{l_myhighblock_1}].damageType}
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
@@ -346,12 +346,12 @@ quit
 	setdiv l_fire_1 10
 	setroundup l_fire_1
 	if l_fire_1|=|prevfire jump #ifnot_3
+		set prevfire {l_fire_1}
 		// localname l_firebar_1 
 		call #makecharbar|l_firebar_1|▐|6|{l_fire_1}|10
 		cpemsg smallannounce {l_firebar_1}
 		if l_fire_1|>|0 call #damage|2|burn
 	#ifnot_3
-	set prevfire {l_fire_1}
 	ifnot iframes|>|0 jump #if_4
 		setsub iframes 1
 		ifnot iframes|<|2 gui barColor #ff0000 0.25
