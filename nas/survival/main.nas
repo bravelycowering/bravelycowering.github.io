@@ -307,10 +307,10 @@ function #tick
 	local py {PlayerY}
 	localname mylowblock
 	call {#getblock}|*mylowblock|{PlayerX}|{py}|{PlayerZ}
-	setadd *py 1
+	setadd *py 2
 	localname myheadblock
 	call {#getblock}|*myheadblock|{PlayerX}|{py}|{PlayerZ}
-	setadd *py 0.5
+	setadd *py -0.5
 	setrounddown *py
 	localname myhighblock
 	call {#getblock}|*myhighblock|{PlayerX}|{py}|{PlayerZ}
@@ -704,6 +704,9 @@ quit
 	if allowMapChanges kill {deathmsg}
 	else kill
 	set fireticks 0
+	set prevfire 0
+	set airticks 100
+	set prevair 10
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}

@@ -165,7 +165,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-6
+msg &fVersion &abeta 5.0 &726Jan25-7
 quit
 
 #initSave
@@ -307,10 +307,10 @@ quit
 	set l_py_1 {PlayerY}
 	// localname l_mylowblock_1 
 	call {#getblock}|l_mylowblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
-	setadd l_py_1 1
+	setadd l_py_1 2
 	// localname l_myheadblock_1 
 	call {#getblock}|l_myheadblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
-	setadd l_py_1 0.5
+	setadd l_py_1 -0.5
 	setrounddown l_py_1
 	// localname l_myhighblock_1 
 	call {#getblock}|l_myhighblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
@@ -704,6 +704,9 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	if allowMapChanges kill {deathmsg}
 	else kill
 	set fireticks 0
+	set prevfire 0
+	set airticks 100
+	set prevair 10
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
