@@ -312,7 +312,7 @@ function #tick
 	setadd *pdy 1.625
 	setrounddown *pdy
 	localname myheadblock
-	call {#getblock}|*myheadblock|{PlayerX}|{py}|{PlayerZ}
+	call {#getblock}|*myheadblock|{PlayerX}|{pdy}|{PlayerZ}
 	setadd *py 1.5
 	setrounddown *py
 	localname myhighblock
@@ -333,9 +333,6 @@ function #tick
 	set prevair {air}
 	ifnot blocks[{mylowblock}].damage|=|"" call #damage|{blocks[{mylowblock}].damage}|{blocks[{mylowblock}].damageType}
 	ifnot blocks[{myhighblock}].damage|=|"" call #damage|{blocks[{myhighblock}].damage}|{blocks[{myhighblock}].damageType}
-	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
-	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
-	set PrevPlayerCoords {PlayerCoords}
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot2 Holding: &cNothing
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
@@ -1155,6 +1152,9 @@ quit
 	if runArg1|=|"debug" jump #debug|{runArg2}
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
+	set PrevPlayerCoords {PlayerCoords}
 	if runArg1|=|"craft" then
 		set craftArgs {runArg2}
 		ifnot craftArgs|=|"" then

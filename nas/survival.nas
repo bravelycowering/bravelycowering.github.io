@@ -165,7 +165,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-8
+msg &fVersion &abeta 5.0 &726Jan25-9
 quit
 
 #initSave
@@ -312,7 +312,7 @@ quit
 	setadd l_pdy_1 1.625
 	setrounddown l_pdy_1
 	// localname l_myheadblock_1 
-	call {#getblock}|l_myheadblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
+	call {#getblock}|l_myheadblock_1|{PlayerX}|{l_pdy_1}|{PlayerZ}
 	setadd l_py_1 1.5
 	setrounddown l_py_1
 	// localname l_myhighblock_1 
@@ -333,9 +333,6 @@ quit
 	set prevair {l_air_1}
 	ifnot blocks[{l_mylowblock_1}].damage|=|"" call #damage|{blocks[{l_mylowblock_1}].damage}|{blocks[{l_mylowblock_1}].damageType}
 	ifnot blocks[{l_myhighblock_1}].damage|=|"" call #damage|{blocks[{l_myhighblock_1}].damage}|{blocks[{l_myhighblock_1}].damageType}
-	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
-	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
-	set PrevPlayerCoords {PlayerCoords}
 	if inventory[{PlayerHeldBlock}]|>|0 cpemsg bot2 Holding: &6{blocks[{PlayerHeldBlock}].name} &f(x{inventory[{PlayerHeldBlock}]})
 	else cpemsg bot2 Holding: &cNothing
 	cpemsg bot3 {toollevel[{pickaxe}]} Pickaxe &f| {toollevel[{axe}]} Axe &f| {toollevel[{spade}]} Spade
@@ -1155,6 +1152,9 @@ quit
 	if runArg1|=|"debug" jump #debug|{runArg2}
 	if runArg1|=|"changes" jump #changelog
 	if runArg1|=|"rules" jump #rules
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
+	ifnot PlayerCoords|=|PrevPlayerCoords set usingStonecutter false
+	set PrevPlayerCoords {PlayerCoords}
 	ifnot runArg1|=|"craft" jump #if_23
 		set craftArgs {runArg2}
 		if craftArgs|=|"" jump #ifnot_19
