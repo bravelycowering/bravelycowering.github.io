@@ -317,6 +317,8 @@ function #tick
 	if blocks[{myhighblock}].drowning setsub airticks 1
 	else set airticks 100
 	local air {airticks}
+	setdiv *air 10
+	setrounddown *air
 	ifnot air|=|prevair then
 		localname airbar
 		call #makecharbar|*airbar|○|b|{air}|10
