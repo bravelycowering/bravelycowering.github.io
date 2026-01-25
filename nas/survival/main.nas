@@ -35,7 +35,9 @@ using no_runarg_underscore_conversion
 	set hp {maxhp}
 	set iframes 0
 	set fireticks 0
+	set prevfire 0
 	set airticks 100
+	set prevair 10
 	set autosave 50
 
 	set Weather 0
@@ -286,10 +288,7 @@ end
 
 function #tick
 	// prev storage
-	localname prevhp
-	localname prevHour
 	localname profilestart
-	localname prevair
 	if TerminatePrematurely jump #newloop|#tick
 	set Hour {epochms}
 	setdiv Hour 10000
@@ -319,12 +318,13 @@ function #tick
 	local air {airticks}
 	setdiv *air 10
 	setrounddown *air
-	ifnot *air|=|*prevair then
+	ifnot *air|=|prevair then
 		localname airbar
 		call #makecharbar|*airbar|○|b|{air}|10
 		cpemsg smallannounce {airbar}
+		if *air|<|0 call #damage|3|drown
 	end
-	set *prevair {air}
+	set prevair {air}
 	ifnot blocks[{mylowblock}].damage|=|"" call #damage|{blocks[{mylowblock}].damage}|{blocks[{mylowblock}].damageType}
 	ifnot blocks[{myhighblock}].damage|=|"" call #damage|{blocks[{myhighblock}].damage}|{blocks[{myhighblock}].damageType}
 	ifnot PlayerCoords|=|PrevPlayerCoords set usingWorkbench false
@@ -338,21 +338,17 @@ function #tick
 		if fireticks|>|100 set fireticks 100
 		if blocks[{mylowblock}].extinguishFire set fireticks 0
 		if blocks[{myhighblock}].extinguishFire set fireticks 0
-		local *firetickmod {fireticks}
-		setmod *firetickmod 10
-		if *firetickmod|=|0 then
-			if fireticks|>|0 then
-				localname temp
-				set *temp {fireticks}
-				setdiv *temp 10
-				localname firebar
-				call #makecharbar|*firebar|▐|6|{temp}|10
-				cpemsg smallannounce {firebar}
-			end
-			ifnot fireticks|>|0 cpemsg smallannounce
-			call #damage|2|burn
-		end
 	end
+	local fire {fireticks}
+	setdiv *fire 10
+	setroundup *fire
+	ifnot *fire|=|prevfire then
+		localname firebar
+		call #makecharbar|*firebar|▐|6|{fire}|10
+		cpemsg smallannounce {firebar}
+		if *fire|>|0 call #damage|2|burn
+	end
+	set prevfire {fire}
 	if iframes|>|0 then
 		setsub iframes 1
 		ifnot iframes|<|2 gui barColor #ff0000 0.25
@@ -360,8 +356,8 @@ function #tick
 		else gui barSize 1
 	end
 	// redraw hp bar if hp changed
-	ifnot hp|=|*prevhp then
-		set *prevhp {hp}
+	ifnot hp|=|prevhp then
+		set prevhp {hp}
 		localname hpbar
 		call #makebar|*hpbar|c|{hp}|{maxhp}
 		cpemsg bot1 &c♥ {hpbar}
