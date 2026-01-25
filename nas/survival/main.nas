@@ -1,4 +1,4 @@
-// using local_packages
+using local_packages
 using no_runarg_underscore_conversion
 
 #onJoin
@@ -319,7 +319,7 @@ function #tick
 	local air {airticks}
 	setdiv *air 10
 	setrounddown *air
-	ifnot air|=|prevair then
+	ifnot *air|=|*prevair then
 		localname airbar
 		call #makecharbar|*airbar|○|b|{air}|10
 		cpemsg smallannounce {airbar}
