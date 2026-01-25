@@ -157,6 +157,7 @@ quit
 	msg - Glass and Lit torches can now be created using regular fire in place of a campfire
 	msg - A different variant of tall tree generates
 	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
+	msg - You can now drown
 	msg - Added a hotkey: made the &aE&7 key craft whatever you have in your hand
 	msg - Eating any food now has a 1 second cooldown
 	msg - New blocks: Seeds, Soil, Wheat, and Bread
