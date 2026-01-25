@@ -307,7 +307,7 @@ function #tick
 	local py {PlayerY}
 	localname mylowblock
 	call {#getblock}|*mylowblock|{PlayerX}|{py}|{PlayerZ}
-	setsplit PlayerCoordsDecimal
+	setsplit PlayerCoordsDecimal " "
 	local pdy {PlayerCoordsDecimal[1]}
 	setadd *pdy 1.625
 	setrounddown *pdy

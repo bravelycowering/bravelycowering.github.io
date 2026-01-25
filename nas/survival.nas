@@ -165,7 +165,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-9
+msg &fVersion &abeta 5.0 &726Jan25-10
 quit
 
 #initSave
@@ -307,7 +307,7 @@ quit
 	set l_py_1 {PlayerY}
 	// localname l_mylowblock_1 
 	call {#getblock}|l_mylowblock_1|{PlayerX}|{l_py_1}|{PlayerZ}
-	setsplit PlayerCoordsDecimal
+	setsplit PlayerCoordsDecimal " "
 	set l_pdy_1 {PlayerCoordsDecimal[1]}
 	setadd l_pdy_1 1.625
 	setrounddown l_pdy_1
