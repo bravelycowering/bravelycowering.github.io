@@ -166,7 +166,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-12
+msg &fVersion &abeta 5.0 &726Jan25-13
 quit
 
 #initSave
@@ -490,6 +490,7 @@ quit
 	msg &f/os blockprops 82 mb
 	msg &f/os blockprops 83 mb
 	msg &f/os blockprops 94 mb
+	msg &f/os blockprops 111 mb
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -1618,7 +1619,7 @@ quit
 		setsub l_i_6 1
 		setadd l_y_10 1
 	if l_i_6|>|0 jump #while_27
-	jump #structure:treetop|{l_x_12}|{l_y_10}|{l_z_11}
+	jump #structure:treetop|{l_x_12}|{l_y_10}|{l_z_11}|+++|---|012
 quit
 
 #growredmushroom
@@ -1636,7 +1637,7 @@ quit
 		setsub l_i_7 1
 		setadd l_y_11 1
 	if l_i_7|>|0 jump #while_28
-	jump #structure:redmushroomtop|{l_x_13}|{l_y_11}|{l_z_12}
+	jump #structure:redmushroomtop|{l_x_13}|{l_y_11}|{l_z_12}|+++|---|012
 quit
 
 #growbrownmushroom
@@ -1654,754 +1655,784 @@ quit
 		setsub l_i_8 1
 		setadd l_y_12 1
 	if l_i_8|>|0 jump #while_29
-	jump #structure:brownmushroomtop|{l_x_14}|{l_y_12}|{l_z_13}
+	jump #structure:brownmushroomtop|{l_x_14}|{l_y_12}|{l_z_13}|+++|---|012
 quit
 
 #structure:redmushroomtop
-set l_x_15 {runArg1}
-set l_y_13 {runArg2}
-set l_z_14 {runArg3}
-setadd l_x_15 -1
-setadd l_z_14 -2
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 -3
-setadd l_z_14 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 4
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 -4
-setadd l_z_14 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 2
-call {#setblock}|65|{l_x_15}|{l_y_13}|{l_z_14}
-setadd l_x_15 2
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 -4
-setadd l_z_14 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 4
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 -3
-setadd l_z_14 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 -2
-setadd l_y_13 1
-setadd l_z_14 -3
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 -2
-setadd l_z_14 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 -2
-setadd l_z_14 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
-setadd l_x_15 1
-call {#setblockif}|64|{l_x_15}|{l_y_13}|{l_z_14}|growreplaceable
+set l_coords_2 {runArg1},{runArg2},{runArg3}
+setsplit l_coords_2 ,
+set l_positive_1 {runArg4}
+setsplit l_positive_1
+set l_negative_1 {runArg5}
+setsplit l_negative_1
+set l_coordorder_1 {runArg6}
+setsplit l_coordorder_1
+setadd l_coords_2[{l_coordorder_1[0]}] {l_negative_1[{l_coordorder_1[0]}]}1
+setadd l_coords_2[{l_coordorder_1[2]}] {l_negative_1[{l_coordorder_1[2]}]}2
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_negative_1[{l_coordorder_1[0]}]}3
+setadd l_coords_2[{l_coordorder_1[2]}] {l_positive_1[{l_coordorder_1[2]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}4
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_negative_1[{l_coordorder_1[0]}]}4
+setadd l_coords_2[{l_coordorder_1[2]}] {l_positive_1[{l_coordorder_1[2]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}2
+call {#setblock}|65|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}2
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_negative_1[{l_coordorder_1[0]}]}4
+setadd l_coords_2[{l_coordorder_1[2]}] {l_positive_1[{l_coordorder_1[2]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}4
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_negative_1[{l_coordorder_1[0]}]}3
+setadd l_coords_2[{l_coordorder_1[2]}] {l_positive_1[{l_coordorder_1[2]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_negative_1[{l_coordorder_1[0]}]}2
+setadd l_coords_2[{l_coordorder_1[1]}] {l_positive_1[{l_coordorder_1[1]}]}1
+setadd l_coords_2[{l_coordorder_1[2]}] {l_negative_1[{l_coordorder_1[2]}]}3
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_negative_1[{l_coordorder_1[0]}]}2
+setadd l_coords_2[{l_coordorder_1[2]}] {l_positive_1[{l_coordorder_1[2]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_negative_1[{l_coordorder_1[0]}]}2
+setadd l_coords_2[{l_coordorder_1[2]}] {l_positive_1[{l_coordorder_1[2]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
+setadd l_coords_2[{l_coordorder_1[0]}] {l_positive_1[{l_coordorder_1[0]}]}1
+call {#setblockif}|64|{l_coords_2[{l_coordorder_1[0]}]}|{l_coords_2[{l_coordorder_1[1]}]}|{l_coords_2[{l_coordorder_1[2]}]}|growreplaceable
 quit
 
 #structure:brownmushroomtop
-set l_x_16 {runArg1}
-set l_y_14 {runArg2}
-set l_z_15 {runArg3}
-setadd l_x_16 -2
-setadd l_z_15 -3
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -5
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 4
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -6
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 6
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -6
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 3
-call {#setblock}|65|{l_x_16}|{l_y_14}|{l_z_15}
-setadd l_x_16 3
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -6
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 6
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -6
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 4
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -5
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -3
-setadd l_y_14 1
-setadd l_z_15 -6
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -3
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -5
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -6
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -6
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -5
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 -3
-setadd l_z_15 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
-setadd l_x_16 1
-call {#setblockif}|63|{l_x_16}|{l_y_14}|{l_z_15}|growreplaceable
+set l_coords_3 {runArg1},{runArg2},{runArg3}
+setsplit l_coords_3 ,
+set l_positive_2 {runArg4}
+setsplit l_positive_2
+set l_negative_2 {runArg5}
+setsplit l_negative_2
+set l_coordorder_2 {runArg6}
+setsplit l_coordorder_2
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}2
+setadd l_coords_3[{l_coordorder_2[2]}] {l_negative_2[{l_coordorder_2[2]}]}3
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}5
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}4
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}6
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}6
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}6
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}3
+call {#setblock}|65|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}3
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}6
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}6
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}6
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}4
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}5
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}3
+setadd l_coords_3[{l_coordorder_2[1]}] {l_positive_2[{l_coordorder_2[1]}]}1
+setadd l_coords_3[{l_coordorder_2[2]}] {l_negative_2[{l_coordorder_2[2]}]}6
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}3
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}5
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}6
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}6
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}5
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_negative_2[{l_coordorder_2[0]}]}3
+setadd l_coords_3[{l_coordorder_2[2]}] {l_positive_2[{l_coordorder_2[2]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
+setadd l_coords_3[{l_coordorder_2[0]}] {l_positive_2[{l_coordorder_2[0]}]}1
+call {#setblockif}|63|{l_coords_3[{l_coordorder_2[0]}]}|{l_coords_3[{l_coordorder_2[1]}]}|{l_coords_3[{l_coordorder_2[2]}]}|growreplaceable
 quit
 
 #structure:treetop
-set l_x_17 {runArg1}
-set l_y_15 {runArg2}
-set l_z_16 {runArg3}
-setadd l_x_17 -2
-setadd l_z_16 -2
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblock}|17|{l_x_17}|{l_y_15}|{l_z_16}
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_z_16 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_y_15 1
-setadd l_z_16 -4
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblock}|17|{l_x_17}|{l_y_15}|{l_z_16}
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -4
-setadd l_z_16 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -3
-setadd l_y_15 1
-setadd l_z_16 -3
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -2
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblock}|17|{l_x_17}|{l_y_15}|{l_z_16}
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -2
-setadd l_z_16 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-setrandlist l_b_4 0|18
-ifnot l_b_4|=|0 call {#setblockif}|{l_b_4}|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -1
-setadd l_y_15 1
-setadd l_z_16 -2
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -1
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
-setadd l_x_17 -1
-setadd l_z_16 1
-call {#setblockif}|18|{l_x_17}|{l_y_15}|{l_z_16}|growreplaceable
+set l_coords_4 {runArg1},{runArg2},{runArg3}
+setsplit l_coords_4 ,
+set l_positive_3 {runArg4}
+setsplit l_positive_3
+set l_negative_3 {runArg5}
+setsplit l_negative_3
+set l_coordorder_3 {runArg6}
+setsplit l_coordorder_3
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}2
+setadd l_coords_4[{l_coordorder_3[2]}] {l_negative_3[{l_coordorder_3[2]}]}2
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblock}|17|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[1]}] {l_positive_3[{l_coordorder_3[1]}]}1
+setadd l_coords_4[{l_coordorder_3[2]}] {l_negative_3[{l_coordorder_3[2]}]}4
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblock}|17|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}4
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}3
+setadd l_coords_4[{l_coordorder_3[1]}] {l_positive_3[{l_coordorder_3[1]}]}1
+setadd l_coords_4[{l_coordorder_3[2]}] {l_negative_3[{l_coordorder_3[2]}]}3
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}2
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblock}|17|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}2
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+setrandlist l_b_2 0|18
+ifnot l_b_2|=|0 call {#setblockif}|{l_b_2}|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}1
+setadd l_coords_4[{l_coordorder_3[1]}] {l_positive_3[{l_coordorder_3[1]}]}1
+setadd l_coords_4[{l_coordorder_3[2]}] {l_negative_3[{l_coordorder_3[2]}]}2
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}1
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_positive_3[{l_coordorder_3[0]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
+setadd l_coords_4[{l_coordorder_3[0]}] {l_negative_3[{l_coordorder_3[0]}]}1
+setadd l_coords_4[{l_coordorder_3[2]}] {l_positive_3[{l_coordorder_3[2]}]}1
+call {#setblockif}|18|{l_coords_4[{l_coordorder_3[0]}]}|{l_coords_4[{l_coordorder_3[1]}]}|{l_coords_4[{l_coordorder_3[2]}]}|growreplaceable
 quit
 
 #structure:dandeliontop
-set l_x_18 {runArg1}
-set l_y_16 {runArg2}
-set l_z_17 {runArg3}
-setadd l_z_17 -1
-call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
-setadd l_x_18 -1
-setadd l_z_17 1
-call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
-setadd l_x_18 1
-call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
-setadd l_x_18 1
-call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
-setadd l_x_18 -1
-setadd l_z_17 1
-call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
-setadd l_x_18 -2
-setadd l_y_16 1
-setadd l_z_17 -3
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 2
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 2
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -3
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -3
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblock}|95|{l_x_18}|{l_y_16}|{l_z_17}
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -3
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -3
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 2
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 2
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -2
-setadd l_y_16 1
-setadd l_z_17 -5
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -1
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -4
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -4
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -1
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_y_16 1
-setadd l_z_17 -6
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -2
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 4
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -5
-setadd l_z_17 2
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 6
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -5
-setadd l_z_17 2
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 4
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
-setadd l_x_18 -2
-setadd l_z_17 1
-call {#setblockif}|23|{l_x_18}|{l_y_16}|{l_z_17}|growreplaceable
+set l_coords_5 {runArg1},{runArg2},{runArg3}
+setsplit l_coords_5 ,
+set l_positive_4 {runArg4}
+setsplit l_positive_4
+set l_negative_4 {runArg5}
+setsplit l_negative_4
+set l_coordorder_4 {runArg6}
+setsplit l_coordorder_4
+setadd l_coords_5[{l_coordorder_4[2]}] {l_negative_4[{l_coordorder_4[2]}]}1
+call {#setblock}|95|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}1
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblock}|95|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblock}|95|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblock}|95|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}1
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblock}|95|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}2
+setadd l_coords_5[{l_coordorder_4[1]}] {l_positive_4[{l_coordorder_4[1]}]}1
+setadd l_coords_5[{l_coordorder_4[2]}] {l_negative_4[{l_coordorder_4[2]}]}3
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}2
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}2
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}3
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}3
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblock}|95|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}3
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}3
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}2
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}2
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}2
+setadd l_coords_5[{l_coordorder_4[1]}] {l_positive_4[{l_coordorder_4[1]}]}1
+setadd l_coords_5[{l_coordorder_4[2]}] {l_negative_4[{l_coordorder_4[2]}]}5
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}1
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}4
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}4
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}1
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[1]}] {l_positive_4[{l_coordorder_4[1]}]}1
+setadd l_coords_5[{l_coordorder_4[2]}] {l_negative_4[{l_coordorder_4[2]}]}6
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}2
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}4
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}5
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}2
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}6
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}5
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}2
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_positive_4[{l_coordorder_4[0]}]}4
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
+setadd l_coords_5[{l_coordorder_4[0]}] {l_negative_4[{l_coordorder_4[0]}]}2
+setadd l_coords_5[{l_coordorder_4[2]}] {l_positive_4[{l_coordorder_4[2]}]}1
+call {#setblockif}|23|{l_coords_5[{l_coordorder_4[0]}]}|{l_coords_5[{l_coordorder_4[1]}]}|{l_coords_5[{l_coordorder_4[2]}]}|growreplaceable
 quit
 
 #structure:rosetop
-set l_x_19 {runArg1}
-set l_y_17 {runArg2}
-set l_z_18 {runArg3}
-setadd l_z_18 -2
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -1
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -1
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -2
-setadd l_y_17 1
-setadd l_z_18 -4
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -4
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -4
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_y_17 1
-setadd l_z_18 -4
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -4
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 2
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 2
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -1
-setadd l_y_17 1
-setadd l_z_18 -4
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -2
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 2
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -2
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 3
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -3
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 3
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
-setadd l_x_19 -2
-setadd l_z_18 1
-call {#setblockif}|21|{l_x_19}|{l_y_17}|{l_z_18}|growreplaceable
+set l_coords_6 {runArg1},{runArg2},{runArg3}
+setsplit l_coords_6 ,
+set l_positive_5 {runArg4}
+setsplit l_positive_5
+set l_negative_5 {runArg5}
+setsplit l_negative_5
+set l_coordorder_5 {runArg6}
+setsplit l_coordorder_5
+setadd l_coords_6[{l_coordorder_5[2]}] {l_negative_5[{l_coordorder_5[2]}]}2
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}1
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}1
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}2
+setadd l_coords_6[{l_coordorder_5[1]}] {l_positive_5[{l_coordorder_5[1]}]}1
+setadd l_coords_6[{l_coordorder_5[2]}] {l_negative_5[{l_coordorder_5[2]}]}4
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}4
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}4
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[1]}] {l_positive_5[{l_coordorder_5[1]}]}1
+setadd l_coords_6[{l_coordorder_5[2]}] {l_negative_5[{l_coordorder_5[2]}]}4
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}4
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}2
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}2
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}1
+setadd l_coords_6[{l_coordorder_5[1]}] {l_positive_5[{l_coordorder_5[1]}]}1
+setadd l_coords_6[{l_coordorder_5[2]}] {l_negative_5[{l_coordorder_5[2]}]}4
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}2
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}2
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}2
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}3
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}3
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_positive_5[{l_coordorder_5[0]}]}3
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
+setadd l_coords_6[{l_coordorder_5[0]}] {l_negative_5[{l_coordorder_5[0]}]}2
+setadd l_coords_6[{l_coordorder_5[2]}] {l_positive_5[{l_coordorder_5[2]}]}1
+call {#setblockif}|21|{l_coords_6[{l_coordorder_5[0]}]}|{l_coords_6[{l_coordorder_5[1]}]}|{l_coords_6[{l_coordorder_5[2]}]}|growreplaceable
 quit
 
 #structure:flaxtop
-set l_x_20 {runArg1}
-set l_y_18 {runArg2}
-set l_z_19 {runArg3}
-setadd l_z_19 -2
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -1
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -3
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -3
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -1
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -1
-setadd l_y_18 1
-setadd l_z_19 -4
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -3
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 4
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -4
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 2
-call {#setblockif}|36|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 2
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -4
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 4
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -3
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -2
-setadd l_y_18 1
-setadd l_z_19 -5
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 2
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -3
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 4
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -5
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 6
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -3
-setadd l_z_19 1
-call {#setblockif}|36|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -3
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 6
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -5
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 4
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 -3
-setadd l_z_19 1
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_x_20 2
-call {#setblockif}|29|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
-setadd l_y_18 1
-setadd l_z_19 -3
-call {#setblockif}|23|{l_x_20}|{l_y_18}|{l_z_19}|growreplaceable
+set l_coords_7 {runArg1},{runArg2},{runArg3}
+setsplit l_coords_7 ,
+set l_positive_6 {runArg4}
+setsplit l_positive_6
+set l_negative_6 {runArg5}
+setsplit l_negative_6
+set l_coordorder_6 {runArg6}
+setsplit l_coordorder_6
+setadd l_coords_7[{l_coordorder_6[2]}] {l_negative_6[{l_coordorder_6[2]}]}2
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}1
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}3
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}3
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}1
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}1
+setadd l_coords_7[{l_coordorder_6[1]}] {l_positive_6[{l_coordorder_6[1]}]}1
+setadd l_coords_7[{l_coordorder_6[2]}] {l_negative_6[{l_coordorder_6[2]}]}4
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}3
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}4
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}4
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}2
+call {#setblockif}|36|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}2
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}4
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}4
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}3
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}2
+setadd l_coords_7[{l_coordorder_6[1]}] {l_positive_6[{l_coordorder_6[1]}]}1
+setadd l_coords_7[{l_coordorder_6[2]}] {l_negative_6[{l_coordorder_6[2]}]}5
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}2
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}3
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}4
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}5
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}6
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}3
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|36|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}3
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}6
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}5
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}4
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_negative_6[{l_coordorder_6[0]}]}3
+setadd l_coords_7[{l_coordorder_6[2]}] {l_positive_6[{l_coordorder_6[2]}]}1
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[0]}] {l_positive_6[{l_coordorder_6[0]}]}2
+call {#setblockif}|29|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
+setadd l_coords_7[{l_coordorder_6[1]}] {l_positive_6[{l_coordorder_6[1]}]}1
+setadd l_coords_7[{l_coordorder_6[2]}] {l_negative_6[{l_coordorder_6[2]}]}3
+call {#setblockif}|23|{l_coords_7[{l_coordorder_6[0]}]}|{l_coords_7[{l_coordorder_6[1]}]}|{l_coords_7[{l_coordorder_6[2]}]}|growreplaceable
 quit
 
 #initBlacklist

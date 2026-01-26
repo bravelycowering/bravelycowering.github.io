@@ -8,11 +8,34 @@ return function(filename)
 	f:close()
 
 	for label, body in filestr:gmatch("(%S+)%s*(%b{})") do
+		local l_coords = "l_"..uuid"coords"
+		local l_coordorder = "l_"..uuid"coordorder"
+		local l_xcoord = l_coordorder.."[0]"
+		local l_ycoord = l_coordorder.."[1]"
+		local l_zcoord = l_coordorder.."[2]"
+		local l_positive = "l_"..uuid"positive"
+		local l_negative = "l_"..uuid"negative"
 		local l = {
 			label,
-			"set %x {runArg1}",
-			"set %y {runArg2}",
-			"set %z {runArg3}",
+			"set "..l_coords.." {runArg1},{runArg2},{runArg3}",
+			"setsplit "..l_coords.." ,",
+			"set "..l_positive.." {runArg4}",
+			"setsplit "..l_positive,
+			"set "..l_negative.." {runArg5}",
+			"setsplit "..l_negative,
+			"set "..l_coordorder.." {runArg6}",
+			"setsplit "..l_coordorder,
+		}
+		local uuids = {
+			x = l_coords.."[{"..l_xcoord.."}]",
+			y = l_coords.."[{"..l_ycoord.."}]",
+			z = l_coords.."[{"..l_zcoord.."}]",
+			Px = l_positive.."[{"..l_xcoord.."}]",
+			Py = l_positive.."[{"..l_ycoord.."}]",
+			Pz = l_positive.."[{"..l_zcoord.."}]",
+			Nx = l_negative.."[{"..l_xcoord.."}]",
+			Ny = l_negative.."[{"..l_ycoord.."}]",
+			Nz = l_negative.."[{"..l_zcoord.."}]",
 		}
 		local ox, oy, oz = 0, 0, 0
 		for x, y, z in body:gmatch("origin%s*:%s*(%d+)%s*,%s*(%d+)%s*,%s*(%d+)") do
@@ -74,15 +97,36 @@ return function(filename)
 						goto continue
 					end
 					if lx ~= x then
-						l[#l+1] = "setadd %x "..(x - lx)
+						local dist = (x - lx)
+						local diststr
+						if dist > 0 then
+							diststr = "{%Px}"..tostring(dist)
+						else
+							diststr = "{%Nx}"..tostring(-dist)
+						end
+						l[#l+1] = "setadd %x "..diststr
 						lx = x
 					end
 					if ly ~= y then
-						l[#l+1] = "setadd %y "..(y - ly)
+						local dist = (y - ly)
+						local diststr
+						if dist > 0 then
+							diststr = "{%Py}"..tostring(dist)
+						else
+							diststr = "{%Ny}"..tostring(-dist)
+						end
+						l[#l+1] = "setadd %y "..diststr
 						ly = y
 					end
 					if lz ~= z then
-						l[#l+1] = "setadd %z "..(z - lz)
+						local dist = (z - lz)
+						local diststr
+						if dist > 0 then
+							diststr = "{%Pz}"..tostring(dist)
+						else
+							diststr = "{%Nz}"..tostring(-dist)
+						end
+						l[#l+1] = "setadd %z "..diststr
 						lz = z
 					end
 					if block.actions then
@@ -108,13 +152,10 @@ return function(filename)
 			y = y + 1
 		end
 		l[#l+1] = "quit"
-		local uuids = {
-			x = "l_"..uuid("x"),
-			y = "l_"..uuid("y"),
-			z = "l_"..uuid("z"),
-			b = "l_"..uuid("b"),
-		}
-		outstructs[#outstructs+1] = table.concat(l, "\n"):gsub("%%([xyzb])", function (m)
+		outstructs[#outstructs+1] = table.concat(l, "\n"):gsub("%%(%w+)", function (m)
+			if not uuids[m] then
+				uuids[m] = "l_"..uuid(m)
+			end
 			return uuids[m]
 		end)
 		print("created structure label "..label.." containing "..blockc.." blocks and "..#l.." actions")

@@ -490,6 +490,7 @@ quit
 	msg &f/os blockprops 82 mb
 	msg &f/os blockprops 83 mb
 	msg &f/os blockprops 94 mb
+	msg &f/os blockprops 111 mb
 	msg &aWHEN YOU ARE DONE, TYPE &f1
 quit
 
@@ -1618,7 +1619,7 @@ function #growtree
 		setsub *i 1
 		setadd *y 1
 	end
-	jump #structure:treetop|{x}|{y}|{z}
+	jump #structure:treetop|{x}|{y}|{z}|+++|---|012
 end
 
 function #growredmushroom
@@ -1636,7 +1637,7 @@ function #growredmushroom
 		setsub *i 1
 		setadd *y 1
 	end
-	jump #structure:redmushroomtop|{x}|{y}|{z}
+	jump #structure:redmushroomtop|{x}|{y}|{z}|+++|---|012
 end
 
 function #growbrownmushroom
@@ -1654,7 +1655,7 @@ function #growbrownmushroom
 		setsub *i 1
 		setadd *y 1
 	end
-	jump #structure:brownmushroomtop|{x}|{y}|{z}
+	jump #structure:brownmushroomtop|{x}|{y}|{z}|+++|---|012
 end
 
 include structures survival/structures
