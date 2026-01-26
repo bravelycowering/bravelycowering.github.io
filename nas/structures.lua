@@ -7,6 +7,19 @@ return function(filename)
 	local filestr = f:read("a")
 	f:close()
 
+	local placeblock = "placeblock %id %x %y %z"
+	local placeblockif = "if %condition placeblock %id %x %y %z"
+
+	filestr = filestr:gsub("placeblock%s*:%s*([^\n]+)", function(line)
+		placeblock = line
+		return ""
+	end)
+
+	filestr = filestr:gsub("placeblockif%s*:%s*([^\n]+)", function(line)
+	placeblockif = line
+		return ""
+	end)
+
 	for label, body in filestr:gmatch("(%S+)%s*(%b{})") do
 		local l_coords = "l_"..uuid"coords"
 		local l_coordorder = "l_"..uuid"coordorder"
@@ -17,20 +30,22 @@ return function(filename)
 		local l_negative = "l_"..uuid"negative"
 		local l = {
 			label,
+			"set "..l_coords.." {runArg1},{runArg2},{runArg3}",
+			"setsplit "..l_coords.." ,",
 			"set "..l_positive.." {runArg4}",
 			"setsplit "..l_positive,
 			"set "..l_negative.." {runArg5}",
 			"setsplit "..l_negative,
 			"set "..l_coordorder.." {runArg6}",
 			"setsplit "..l_coordorder,
-			"set %x {runArg1}",
-			"set %y {runArg2}",
-			"set %z {runArg3}",
 		}
 		local uuids = {
-			x = l_coords.."[{"..l_xcoord.."}]",
-			y = l_coords.."[{"..l_ycoord.."}]",
-			z = l_coords.."[{"..l_zcoord.."}]",
+			pkgx = l_coords.."[{"..l_xcoord.."}]",
+			pkgy = l_coords.."[{"..l_ycoord.."}]",
+			pkgz = l_coords.."[{"..l_zcoord.."}]",
+			x = "{"..l_coords.."[0]}",
+			y = "{"..l_coords.."[1]}",
+			z = "{"..l_coords.."[2]}",
 			Px = l_positive.."[{"..l_xcoord.."}]",
 			Py = l_positive.."[{"..l_ycoord.."}]",
 			Pz = l_positive.."[{"..l_zcoord.."}]",
@@ -58,17 +73,17 @@ return function(filename)
 					actiontbl[#actiontbl+1] = line
 				end
 				legend[name:byte()] = {
-					id = "{%b}",
+					id = "{%%id}",
 					actions = actiontbl,
 				}
 			end
 		end
-		for name, value, cond in body:gmatch("(%w+)%s*:%s*(%d+)%s*%?%s*(%w+)") do
+		for name, value, cond in body:gmatch("(%w+)%s*:%s*(%d+)%s*%?%s*(%S+)") do
 			if #name == 1 then
 				legend[name:byte()].condition = cond
 			end
 		end
-		for name, actions, cond in body:gmatch("(%w+)%s*:%s*(%b{})%s*%?%s*(%w+)") do
+		for name, actions, cond in body:gmatch("(%w+)%s*:%s*(%b{})%s*%?%s*(%S+)") do
 			if #name == 1 then
 				legend[name:byte()].condition = cond
 			end
@@ -105,7 +120,7 @@ return function(filename)
 						else
 							diststr = "{%Nx}"..tostring(-dist)
 						end
-						l[#l+1] = "setadd %x "..diststr
+						l[#l+1] = "setadd %pkgx "..diststr
 						lx = x
 					end
 					if ly ~= y then
@@ -116,7 +131,7 @@ return function(filename)
 						else
 							diststr = "{%Ny}"..tostring(-dist)
 						end
-						l[#l+1] = "setadd %y "..diststr
+						l[#l+1] = "setadd %pkgy "..diststr
 						ly = y
 					end
 					if lz ~= z then
@@ -127,7 +142,7 @@ return function(filename)
 						else
 							diststr = "{%Nz}"..tostring(-dist)
 						end
-						l[#l+1] = "setadd %z "..diststr
+						l[#l+1] = "setadd %pkgz "..diststr
 						lz = z
 					end
 					if block.actions then
@@ -136,12 +151,12 @@ return function(filename)
 						end
 					end
 					if block.condition then
-						line = "call {#setblockif}|"..block.id.."|{%x}|{%y}|{%z}|"..block.condition
+						line = placeblockif:gsub("%%id", block.id):gsub("%%condition", block.condition)
 					else
-						line = "call {#setblock}|"..block.id.."|{%x}|{%y}|{%z}"
+						line = placeblock:gsub("%%id", block.id)
 					end
 					if block.actions then
-						line = "ifnot %b|=|0 "..line
+						line = "ifnot %id|=|0 "..line
 					end
 					l[#l+1] = line
 					blockc = blockc + 1

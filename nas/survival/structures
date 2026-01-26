@@ -1,3 +1,6 @@
+placeblock: call {#setblock}|%id|%x|%y|%z
+placeblockif: call {#setblockif}|%id|%x|%y|%z|%condition
+
 #structure:redmushroomtop {
 	origin: 2, 0, 2
 	R: 64 ? growreplaceable
