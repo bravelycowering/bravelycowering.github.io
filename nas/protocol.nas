@@ -53,7 +53,7 @@ quit
 	// debug
 	cpemsg top1 actionCount: {actionCount}/60000
 	// loop
-	delay 50
+	delay 100
 	if actionCount|>=|60000 jump #newloop|#tick
 jump #tick
 
