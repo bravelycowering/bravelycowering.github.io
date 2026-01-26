@@ -1,4 +1,5 @@
 using local_packages
+using no_runarg_underscore_conversion
 
 #onJoin
 	set next[36] black
@@ -10,9 +11,6 @@ using local_packages
 jump #newloop|#tick
 
 #input
-	call #writepacket|{runArg1}|{runArg2}
-quit
-
 #writepacket
 	setblockid l_state 1 0 0
 	set l_prefix
@@ -20,9 +18,21 @@ quit
 	placemessageblock {next[{current}]} 1 0 0 {l_prefix}{runArg1}|{runArg2}|
 quit
 
-#handlepacket
+#handleunknownpacket
 	msg name: {runArg1}
 	msg data: {runArg2}
+quit
+
+#packet:&+cmd
+	cmd {runArg1}
+quit
+
+#packet:env
+	env {runArg1}
+quit
+
+#packet:motd
+	motd {runArg1}
 quit
 
 #tick
@@ -33,14 +43,15 @@ quit
 		setsplit l_data |
 		set l_i 0
 		#loophandlepackets
-			set l_call #handlepacket|{l_data[{l_i}]}
+			set l_call {l_data[{l_i}]}
 			setadd l_i 1
-			call {l_call}|{l_data[{l_i}]}
+			if label #packet:{l_call} call #packet:{l_call}|{l_data[{l_i}]}
+			else call #handleunknownpacket|{l_call}|{l_data[{l_i}]}
 			setadd l_i 1
 		if l_i|<|l_data.length jump #loophandlepackets
 	#skipreadpackets
 	// debug
-	cpemsg top1 {actionCount}/60000
+	cpemsg top1 actionCount: {actionCount}/60000
 	// loop
 	delay 50
 	if actionCount|>=|60000 jump #newloop|#tick
