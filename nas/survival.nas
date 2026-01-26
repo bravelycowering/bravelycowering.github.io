@@ -55,7 +55,7 @@ using no_runarg_underscore_conversion
 
 	set RandomTickSpeed 3
 
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 
 	if LevelName|=|"bravelycowering+survivaldev" cpemsg smallannounce Please go to &abravelycowering+survival&f instead
@@ -157,6 +157,7 @@ quit
 	msg - Glass and Lit torches can now be created using regular fire in place of a campfire
 	msg - A different variant of tall tree generates
 	msg - Ores in generation have a much different distribution, diamonds are rarer and found in specific places
+	msg - You can now drown
 	msg - Added a hotkey: made the &aE&7 key craft whatever you have in your hand
 	msg - Eating any food now has a 1 second cooldown
 	msg - New blocks: Seeds, Soil, Wheat, and Bread
@@ -165,7 +166,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-11
+msg &fVersion &abeta 5.0 &726Jan25-12
 quit
 
 #initSave
@@ -199,7 +200,7 @@ quit
 	if saveSlot|=|"" quit
 	set PlayerPos {PlayerCoordsPrecise} {PlayerYaw} {PlayerPitch}
 	set HeldBlock {PlayerHeldBlock}
-placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]},{inventory[95]},{inventory[96]},{inventory[97]},{inventory[98]},{inventory[99]},{inventory[100]},{inventory[101]},{inventory[102]},{inventory[103]},{inventory[104]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
+placemessageblock 7 {saveSlot} /nothing2 @p|{PlayerPos}|{pickaxe}|{axe}|{spade}|{hp}|{maxhp}|{fireticks}|{inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]},{inventory[95]},{inventory[96]},{inventory[97]},{inventory[98]},{inventory[99]},{inventory[100]},{inventory[101]},{inventory[102]},{inventory[103]},{inventory[104]},{inventory[105]},{inventory[106]},{inventory[107]},{inventory[108]},{inventory[109]},{inventory[110]},{inventory[111]}|{DeathSpawn}|{SpawnBlock}|{HeldBlock}
 quit
 
 #load
@@ -696,7 +697,7 @@ quit
 	set deathY {PlayerY}
 	setrandlist id 82|94
 	call {#setblock}|{id}|{PlayerX}|{deathY}|{PlayerZ}
-set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]},{inventory[95]},{inventory[96]},{inventory[97]},{inventory[98]},{inventory[99]},{inventory[100]},{inventory[101]},{inventory[102]},{inventory[103]},{inventory[104]}
+set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inventory[4]},{inventory[5]},{inventory[6]},{inventory[7]},{inventory[8]},{inventory[9]},{inventory[10]},{inventory[11]},{inventory[12]},{inventory[13]},{inventory[14]},{inventory[15]},{inventory[16]},{inventory[17]},{inventory[18]},{inventory[19]},{inventory[20]},{inventory[21]},{inventory[22]},{inventory[23]},{inventory[24]},{inventory[25]},{inventory[26]},{inventory[27]},{inventory[28]},{inventory[29]},{inventory[30]},{inventory[31]},{inventory[32]},{inventory[33]},{inventory[34]},{inventory[35]},{inventory[36]},{inventory[37]},{inventory[38]},{inventory[39]},{inventory[40]},{inventory[41]},{inventory[42]},{inventory[43]},{inventory[44]},{inventory[45]},{inventory[46]},{inventory[47]},{inventory[48]},{inventory[49]},{inventory[50]},{inventory[51]},{inventory[52]},{inventory[53]},{inventory[54]},{inventory[55]},{inventory[56]},{inventory[57]},{inventory[58]},{inventory[59]},{inventory[60]},{inventory[61]},{inventory[62]},{inventory[63]},{inventory[64]},{inventory[65]},{inventory[66]},{inventory[67]},{inventory[68]},{inventory[69]},{inventory[70]},{inventory[71]},{inventory[72]},{inventory[73]},{inventory[74]},{inventory[75]},{inventory[76]},{inventory[77]},{inventory[78]},{inventory[79]},{inventory[80]},{inventory[81]},{inventory[82]},{inventory[83]},{inventory[84]},{inventory[85]},{inventory[86]},{inventory[87]},{inventory[88]},{inventory[89]},{inventory[90]},{inventory[91]},{inventory[92]},{inventory[93]},{inventory[94]},{inventory[95]},{inventory[96]},{inventory[97]},{inventory[98]},{inventory[99]},{inventory[100]},{inventory[101]},{inventory[102]},{inventory[103]},{inventory[104]},{inventory[105]},{inventory[106]},{inventory[107]},{inventory[108]},{inventory[109]},{inventory[110]},{inventory[111]}
 	call {#setblockdata}|{PlayerX}|{deathY}|{PlayerZ}|@p|{epochMS}|* &f{deathmsg}|{inventory}
 	setsub deathY 1
 	call {#getblock}|id|{PlayerX}|{deathY}|{PlayerZ}
@@ -710,7 +711,7 @@ set inventory {inventory[0]},{inventory[1]},{inventory[2]},{inventory[3]},{inven
 	set hp {maxhp}
 	cpemsg bigannounce &cYou Died!
 	cpemsg smallannounce {deathmsg}
-set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+set inventory 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	setsplit inventory ,
 	cmd holdsilent 0
 quit
@@ -2408,7 +2409,7 @@ set blacklist.CODVeteran+ Repeated grief
 quit
 
 #initStructs
-set blocks.Length 105
+set blocks.Length 112
 set blocks[0].growreplaceable true
 set blocks[0].id 0
 set blocks[0].name Air
@@ -2443,6 +2444,32 @@ set blocks[104].attached y -1
 set blocks[104].id 104
 set blocks[104].name Brick
 set blocks[104].nonsolid true
+set blocks[105].hardness 8
+set blocks[105].id 105
+set blocks[105].name Oven-N
+set blocks[105].tooltype pickaxe
+set blocks[106].hardness 8
+set blocks[106].id 106
+set blocks[106].name Oven-S
+set blocks[106].tooltype pickaxe
+set blocks[107].hardness 8
+set blocks[107].id 107
+set blocks[107].name Oven-E
+set blocks[107].tooltype pickaxe
+set blocks[108].hardness 8
+set blocks[108].id 108
+set blocks[108].name Oven-W
+set blocks[108].tooltype pickaxe
+set blocks[109].breakScale 1.07 0.57 1.07
+set blocks[109].hardness 3
+set blocks[109].id 109
+set blocks[109].mergeFace AwayY
+set blocks[109].mergeInto 110
+set blocks[109].merger 109
+set blocks[109].name Bricks slab
+set blocks[109].nonsolid true
+set blocks[109].tooltype pickaxe
+set blocks[109].touchness 1
 set blocks[10].catchFire true
 set blocks[10].damage 6
 set blocks[10].damageType lava
@@ -2453,6 +2480,15 @@ set blocks[10].name Lava
 set blocks[10].nonsolid true
 set blocks[10].replaceable true
 set blocks[10].unbreakable true
+set blocks[110].hardness 6
+set blocks[110].id 110
+set blocks[110].name Double bricks slab
+set blocks[110].parent 109
+set blocks[110].tooltype pickaxe
+set blocks[110].touchness 1
+set blocks[111].id 111
+set blocks[111].name Bedrock2
+set blocks[111].unbreakable true
 set blocks[11].catchFire true
 set blocks[11].damage 6
 set blocks[11].damageType lava
