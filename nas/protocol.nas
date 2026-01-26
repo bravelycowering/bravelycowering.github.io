@@ -23,7 +23,7 @@ quit
 	msg data: {runArg2}
 quit
 
-#packet:&+cmd
+#packet:#+cmd
 	cmd {runArg1}
 quit
 
