@@ -17,14 +17,15 @@ return function(filename)
 		local l_negative = "l_"..uuid"negative"
 		local l = {
 			label,
-			"set "..l_coords.." {runArg1},{runArg2},{runArg3}",
-			"setsplit "..l_coords.." ,",
 			"set "..l_positive.." {runArg4}",
 			"setsplit "..l_positive,
 			"set "..l_negative.." {runArg5}",
 			"setsplit "..l_negative,
 			"set "..l_coordorder.." {runArg6}",
 			"setsplit "..l_coordorder,
+			"set %x {runArg1}",
+			"set %y {runArg2}",
+			"set %z {runArg3}",
 		}
 		local uuids = {
 			x = l_coords.."[{"..l_xcoord.."}]",
