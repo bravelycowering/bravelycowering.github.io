@@ -1293,11 +1293,13 @@ quit
 
 #use[61]
 	set usingWorkbench true
+	set PrevPlayerCoords {PlayerCoords}
 	call #input|craft
 quit
 
 #use[62]
 	set usingStonecutter true
+	set PrevPlayerCoords {PlayerCoords}
 	call #input|craft
 quit
 

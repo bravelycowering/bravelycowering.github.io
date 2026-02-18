@@ -166,7 +166,7 @@ quit
 	msg - More new blocks: mycelium, sandstone, sandstone slab, clay, and bricks
 	msg - All progress now saves every 5 seconds
 #version
-msg &fVersion &abeta 5.0 &726Jan25-15
+msg &fVersion &abeta 5.0 &726Feb18-1
 quit
 
 #initSave
@@ -1293,11 +1293,13 @@ quit
 
 #use[61]
 	set usingWorkbench true
+	set PrevPlayerCoords {PlayerCoords}
 	call #input|craft
 quit
 
 #use[62]
 	set usingStonecutter true
+	set PrevPlayerCoords {PlayerCoords}
 	call #input|craft
 quit
 
