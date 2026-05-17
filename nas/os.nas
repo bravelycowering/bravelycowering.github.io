@@ -31,7 +31,7 @@ quit
 
 #onJoin
 	call #setupsongs
-	call #setupsnow
+	call #setuprain
 	ifnot cef jump #endJoin
 	setblockid id 69 69 67
 	ifnot id|=|709 call #resumesong
@@ -80,7 +80,7 @@ jump #mainloop
 	setsub time {ms}
 	setdiv time 1000
 	set s {blocksong[{id}]}
-	// msg debug: {epochMS} resuming song {id} ({s}: {songname[{s}]}) at epoch {ms} ({time}s) 
+	// msg debug: {epochMS} resuming song {id} ({s}: {songname[{s}]}) at epoch {ms} ({time}s)
 	msg cef create -n m -sgq bravelycowering.net/music/{song[{s}]}
 	msg cef time -n m {time}
 quit
