@@ -3,7 +3,6 @@ include os/shinyiris+towerlib
 #onJoin
 	set ctohlib.is.in.parkour true
 	set ctohlib.DEFAULT.MOTD -hax -push -slap model=humanoid|0.5 jumpheight=0.6
-	set ctohlib.extra.motd -fly
 	msg &fWelcome to probably the most annoying map you will play today
 	msg You can enable setting checkpoints by pressing &aP&7 (or by typing &a/in practice&7)
 	definehotkey practice|P
