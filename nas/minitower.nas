@@ -2,15 +2,8 @@ include os/shinyiris+towerlib
 
 #onJoin
 	set ctohlib.is.in.parkour true
-	setblockmessage data 0 1 0
-	setsplit data ||
-	set i 0
-	#readDataLoop
-		setsplit data[{i}] |:
-		set {data[{i}][0]} {data[{i}][1]}
-		setadd i 1
-	if i|<|data.Length jump #readDataLoop
-	msg {msg}
+	set ctohlib.DEFAULT.MOTD -hax -push -slap model=humanoid|0.5 jumpheight=0.6
+	msg &fwelcome to probably the most annoying map you will play today
 	msg You can enable practice mode by pressing &aP&7 (or by typing &a/in practice&7)
 	definehotkey practice|P
 quit
