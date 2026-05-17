@@ -6,8 +6,8 @@ include os/shinyiris+towerlib
 	setsplit data ||
 	set i 0
 	#readDataLoop
-		setsplit data[i] |:
-		set {data[i][0]} {data[i][1]}
+		setsplit data[{i}] |:
+		set {data[{i}][0]} {data[{i}][1]}
 		setadd i 1
 	if i|<|data.Length jump #readDataLoop
 	msg {msg}
