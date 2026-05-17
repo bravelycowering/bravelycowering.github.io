@@ -8,7 +8,7 @@ include os/shinyiris+towerlib
 	#readDataLoop
 		set {data[i]}
 		setadd i 1
-	if i|<|data.Length
+	if i|<|{data.Length}
 	msg {msg}
 	msg You can enable practice mode by pressing &aP&7 (or by typing &a/in practice&7)
 	definehotkey practice|P
