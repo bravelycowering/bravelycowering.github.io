@@ -6,7 +6,8 @@ include os/shinyiris+towerlib
 	setsplit data ||
 	set i 0
 	#readDataLoop
-		set {data[i]}
+		setsplit data[i] |:
+		set {data[i][0]} {data[i][1]}
 		setadd i 1
 	if i|<|data.Length jump #readDataLoop
 	msg {msg}
@@ -26,4 +27,4 @@ quit
 
 quit
 
-msg welcome to probably the most annoying map you will play today||ctohlib.DEFAULT.MOTD -hax -push -slap model=humanoid|0.5 jumpheight=0.6
+msg|:welcome to probably the most annoying map you will play today||ctohlib.DEFAULT.MOTD|:-hax -push -slap model=humanoid|0.5 jumpheight=0.6
