@@ -26,5 +26,3 @@ quit
 #winPractice
 
 quit
-
-msg|:welcome to probably the most annoying map you will play today||ctohlib.DEFAULT.MOTD|:-hax -push -slap model=humanoid|0.5 jumpheight=0.6
