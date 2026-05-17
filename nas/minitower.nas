@@ -36,6 +36,7 @@ quit
 quit
 
 #win
+	allowmbrepeat
 	if ctohlib.is.in.practice.mode jump #winPractice
 	set final {epochMS}
 	setsub final {start}
