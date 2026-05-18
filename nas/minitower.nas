@@ -71,6 +71,7 @@ quit
 #reset
 	kill
 #resetTime
+	set beaten false
 	set start {epochMS}
 quit
 
@@ -117,6 +118,8 @@ quit
 quit
 
 #win
+	if beaten quit
+	set beaten true
 	allowmbrepeat
 	if ctohlib.is.in.practice.mode jump #winPractice
 	set final {epochMS}
