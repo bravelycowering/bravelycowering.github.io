@@ -84,7 +84,7 @@ quit
 #getNSuffixOverride[13]
 
 #getNSuffix
-	set n {runArg1}
+	set n {{runArg1}}
 	if label #getNSuffixOverride[{n}] jump #getNSuffix_3
 	setmod n 10
 	if n|=|1 jump #getNSuffix_1
