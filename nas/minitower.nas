@@ -72,7 +72,7 @@ quit
 	kill
 #resetTime
 	set beaten false
-	set start {epochMS}
+	set startMS {epochMS}
 quit
 
 #input
@@ -88,7 +88,7 @@ quit
 
 #CTOHLib_Trigger_PracticeModeOff
 	msg Practice mode: &cOFF
-quit
+jump #resetTime
 
 #parseTime
 	setdiv {runArg1} 1000
@@ -123,7 +123,7 @@ quit
 	set beaten true
 	if ctohlib.is.in.practice.mode jump #winPractice
 	set final {epochMS}
-	setsub final {start}
+	setsub final {startMS}
 	call #parseTime|final
 	call #tryAddSelfToClearList|clearNumber
 	if clearNumber|=|"false" jump #localmsgClearNumber_end
