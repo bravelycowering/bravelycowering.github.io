@@ -29,10 +29,13 @@ quit
 	setsplit data ||
 	set clears {data[0]}
 	setsplit clears |
+	if clears.Length|=|0 jump #showEmptyClearList
 	set n {runArg1}
-	msg Clears (Page {n}):
+	if n|<|1 set n 1
+	msg Clears in order of completion:
 	setsub n 1
-	setmul n 10
+	set start {n}
+	setadd start 1
 	set max {n}
 	setadd max 10
 	if max|>|clears.Length set max {clears.Length}
@@ -42,6 +45,12 @@ quit
 		setadd n 1
 		msg   {n}. {user[1]}
 	if n|<|max jump #showClearListLoop
+	setadd n 1
+	msg Showing clears {start}-{max} (out of {clears.Length}) Next: &a/in clears {n}
+quit
+
+#showEmptyClearList
+	msg No one has beaten this map before, complete it to take the first clear!
 quit
 
 #tryAddSelfToClearList
@@ -62,6 +71,7 @@ quit
 quit
 
 #input
+	if runArg1|=|"clears" jump #showClearListLoop|{runArg2}
 	if runArg1|=|"practice" jump #CTOHLib_TogglePracticeMode
 	if ctohlib.is.in.practice.mode quit
 	if runArg1|=|"reset" jump #reset
@@ -109,8 +119,10 @@ quit
 	setsub final {start}
 	call #parseTime|final
 	call #tryAddSelfToClearList|clearNumber
-	ifnot clearNumber|=|"false" call #getNSuffix|clearNumber
-	ifnot clearNumber|=|"false" localmsg chat @color@p&7 becaome the {clearNumber} person to complete &b{LevelName}&7!
+	if clearNumber|=|"false" jump #localmsgClearNumber_end
+		call #getNSuffix|clearNumber
+		localmsg chat @color@p&7 becaome the &6{clearNumber}&7 person to complete &b{LevelName}&7!
+	#localmsgClearNumber_end
 	cpemsg announce &aCongrats on making it to the top!
 	cpemsg smallannounce &fYou had a time of &6{final}s&f.
 	cmd send bravelycowering i beat {LevelName} with a time of {final}
