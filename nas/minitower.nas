@@ -71,7 +71,7 @@ quit
 quit
 
 #input
-	if runArg1|=|"clears" jump #showClearListLoop|{runArg2}
+	if runArg1|=|"clears" jump #showClearList|{runArg2}
 	if runArg1|=|"practice" jump #CTOHLib_TogglePracticeMode
 	if ctohlib.is.in.practice.mode quit
 	if runArg1|=|"reset" jump #reset
