@@ -17,7 +17,7 @@ quit
 	#typeLoop
 		delay 50
 		set showntext {showntext}{text[{i}]}
-		cs typewriter noise:cut(0.1):speed(1.5)
+		cs me typewriter noise:cut(0.1):speed(1.5)
 		cpemsg {slot} {showntext}
 		setadd i 1
 	if i|<|{text.Length} jump #typeLoop
