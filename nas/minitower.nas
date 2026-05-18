@@ -29,8 +29,8 @@ quit
 	env sun 525163
 	env shadow 30304B
 	cmd tp 275 28 216 0 0
-	setspawn 275 28 216
-	setdeathspawn 275 28 216
+	setspawn 275 28 216 0 0
+	setdeathspawn 275 28 216 0 0
 quit
 
 #map:bravelycowering+8
@@ -56,7 +56,7 @@ quit
 	unfreeze
 	set ctohlib.DEFAULT.MOTD -hax model=humanoid|0.5 jumpheight=0.65 jumps=2 -push -slap +thirdperson -aura
 	motd ignore
-	msg if i didnt know any better id think i was in some king of &cdisintegration
+	msg minitower /// disintegration loop
 	msg you can keep your &aextra mid air jump&7 for this one as well
 	msg You can enable setting checkpoints by pressing &aP&7 (or by typing &a/in practice&7)
 	jump #resetTime
