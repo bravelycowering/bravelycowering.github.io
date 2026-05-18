@@ -118,9 +118,9 @@ quit
 quit
 
 #win
+	allowmbrepeat
 	if beaten quit
 	set beaten true
-	allowmbrepeat
 	if ctohlib.is.in.practice.mode jump #winPractice
 	set final {epochMS}
 	setsub final {start}
