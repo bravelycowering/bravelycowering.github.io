@@ -32,6 +32,7 @@ quit
 	if clears.Length|=|0 jump #showEmptyClearList
 	set n {runArg1}
 	if n|<|1 set n 1
+	if n|>|clears.Length set n {clears.Length}
 	msg Clears in order of completion:
 	setsub n 1
 	set start {n}
@@ -46,7 +47,9 @@ quit
 		msg   {n}. {user[1]}
 	if n|<|max jump #showClearListLoop
 	setadd n 1
-	msg Showing clears {start}-{max} (out of {clears.Length}) Next: &a/in clears {n}
+	set clearCountMsg Showing clears {start}-{max} (out of {clears.Length})
+	if max|<|clears.Length set clearCountMsg {clearCountMsg} Next: &a/in clears {n}
+	msg {clearCountMsg}
 quit
 
 #showEmptyClearList
@@ -60,6 +63,7 @@ quit
 	set {runArg1} false
 	if clears|has|"@p:" quit
 	set clears {clears}|@p:@color@nick
+	placemessageblock air 0 1 0 {clears}
 	setlength clears |
 	set {runArg1} {clears.Length}
 quit
@@ -125,7 +129,6 @@ quit
 	#localmsgClearNumber_end
 	cpemsg announce &aCongrats on making it to the top!
 	cpemsg smallannounce &fYou had a time of &6{final}s&f.
-	cmd send bravelycowering i beat {LevelName} with a time of {final}
 quit
 
 #winPractice
