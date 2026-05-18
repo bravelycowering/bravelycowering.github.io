@@ -21,7 +21,7 @@ quit
 quit
 
 #resetAllData
-	placemessageblock air 0 1 0 ShinyIris+:&eShinyIris
+	placemessageblock air 0 1 0
 quit
 
 #showClearList
