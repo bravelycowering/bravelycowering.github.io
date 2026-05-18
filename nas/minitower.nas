@@ -87,15 +87,15 @@ quit
 	set n {{runArg1}}
 	if label #getNSuffixOverride[{n}] jump #getNSuffix_3
 	setmod n 10
-	if n|=|1 jump #getNSuffix_1
+	ifnot n|=|1 jump #getNSuffix_1
 		set {runArg1} {{runArg1}}st
 		quit
 	#getNSuffix_1
-	if n|=|2 jump #getNSuffix_2
+	ifnot n|=|2 jump #getNSuffix_2
 		set {runArg1} {{runArg1}}nd
 		quit
 	#getNSuffix_2
-	if n|=|3 jump #getNSuffix_3
+	ifnot n|=|3 jump #getNSuffix_3
 		set {runArg1} {{runArg1}}rd
 		quit
 	#getNSuffix_3
