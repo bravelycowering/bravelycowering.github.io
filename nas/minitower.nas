@@ -36,15 +36,15 @@ quit
 quit
 
 #minitower4:fakeminitower
-	tempchunk 25 67 20 35 82 30 270 26 211
+	tempchunk 25 67 20 35 82 30 270 90 211
 	env fog D36538
 	env sky 836668
 	env clouds 836668
 	env sun 525163
 	env shadow 30304B
-	cmd tp 275 28 216 0 0
-	setspawn 275 28 216 0 0
-	setdeathspawn 275 28 216 0 0
+	cmd tp 275 92 216 0 0
+	setspawn 275 92 216 0 0
+	setdeathspawn 275 92 216 0 0
 	call #map:bravelycowering+minitower
 quit
 
