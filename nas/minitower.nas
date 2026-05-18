@@ -8,6 +8,21 @@ include os/shinyiris+towerlib
 	jump #resetTime
 quit
 
+#type
+	set slot {runArg1}
+	set text {runArg2}
+	set showntext
+	setsplit text
+	set i 0
+	#typeLoop
+		delay 50
+		set showntext {showntext}{text[{i}]}
+		cs typewriter noise:cut(0.1):speed(1.5)
+		cpemsg {slot} {showntext}
+		setadd i 1
+	if i|<|{text.Length} jump #typeLoop
+quit
+
 #map:bravelycowering+minitower
 	set ctohlib.is.in.parkour true
 	set ctohlib.DEFAULT.MOTD -hax -push -slap model=humanoid|0.5 jumpheight=0.6
@@ -58,10 +73,13 @@ quit
 	setdeathspawn {PlayerCoords} 0 0
 	set ctohlib.DEFAULT.MOTD -hax model=humanoid|0.5 jumpheight=0.65 jumps=2 -push -slap +thirdperson -aura
 	motd ignore
-	msg minitower /// disintegration loop
 	msg you can keep your &aextra mid air jump&7 for this one as well
 	msg You can enable setting checkpoints by pressing &aP&7 (or by typing &a/in practice&7)
-	jump #resetTime
+	call #resetTime
+	call #type|announce|MINITOWER /// THIRD
+	delay 350
+	call #type|bigannounce|DISINTEGRATION LOOP
+	cpemsg announce MINITOWER /// THIRD
 quit
 
 #resetAllData
