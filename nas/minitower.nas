@@ -21,7 +21,6 @@ quit
 quit
 
 #minitower4:fakeminitower
-	call #map:bravelycowering+minitower
 	tempchunk 25 67 20 35 82 30 270 26 211
 	env fog D36538
 	env sky 836668
@@ -31,6 +30,7 @@ quit
 	cmd tp 275 28 216 0 0
 	setspawn 275 28 216 0 0
 	setdeathspawn 275 28 216 0 0
+	call #map:bravelycowering+minitower
 quit
 
 #map:bravelycowering+8
@@ -54,6 +54,8 @@ quit
 	env reset
 	set minitower4:Frozen false
 	unfreeze
+	setspawn {PlayerCoords} 0 0
+	setdeathspawn {PlayerCoords} 0 0
 	set ctohlib.DEFAULT.MOTD -hax model=humanoid|0.5 jumpheight=0.65 jumps=2 -push -slap +thirdperson -aura
 	motd ignore
 	msg minitower /// disintegration loop
