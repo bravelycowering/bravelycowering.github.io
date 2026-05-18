@@ -11,13 +11,54 @@ quit
 #map:bravelycowering+minitower
 	set ctohlib.is.in.parkour true
 	set ctohlib.DEFAULT.MOTD -hax -push -slap model=humanoid|0.5 jumpheight=0.6
-	msg &fWelcome to probably the most annoying map you will play today
+	msg welcome to probably the most annoying map you will play today
 quit
 
 #map:bravelycowering+minitower2
 	set ctohlib.is.in.parkour true
 	set ctohlib.DEFAULT.MOTD -hax model=humanoid|0.5 jumpheight=0.65 jumps=2 -push -slap +thirdperson -aura
-	msg &7I felt bad for making the last one so hard, so I'll give you an &aextra mid air jump&7 to beat this one
+	msg i felt bad for making the last one so hard, so ill give you an &aextra mid air jump&7 to beat this one
+quit
+
+#minitower4:fakeminitower
+	call #map:bravelycowering+minitower
+	tempchunk 25 67 20 35 82 30 270 26 211
+	env fog D36538
+	env sky 836668
+	env clouds 836668
+	env sun 525163
+	env shadow 30304B
+	cmd tp 275 28 216 0 0
+	setspawn 275 28 216
+	setdeathspawn 275 28 216
+quit
+
+#map:bravelycowering+8
+	definehotkey practice|P
+	definehotkey reset|R
+	motd {ctohlib.DEFAULT.MOTD}
+	call #resetTime
+	terminate
+quit
+
+#minitower4:Freeze
+	if minitower4:Frozen quit
+	env reset
+	set minitower4:Frozen true
+	freeze
+quit
+
+#minitower4:Reveal
+	ifnot minitower4:Frozen quit
+	env reset
+	set minitower4:Frozen false
+	unfreeze
+	set ctohlib.DEFAULT.MOTD -hax model=humanoid|0.5 jumpheight=0.65 jumps=2 -push -slap +thirdperson -aura
+	motd ignore
+	msg if i didnt know any better id think i was in some king of &cdisintegration
+	msg you can keep your &aextra mid air jump&7 for this one as well
+	msg You can enable setting checkpoints by pressing &aP&7 (or by typing &a/in practice&7)
+	jump #resetTime
 quit
 
 #resetAllData
