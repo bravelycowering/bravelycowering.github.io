@@ -34,6 +34,7 @@ quit
 quit
 
 #map:bravelycowering+8
+	call #minitower4:fakeminitower
 	definehotkey practice|P
 	definehotkey reset|R
 	motd {ctohlib.DEFAULT.MOTD}
