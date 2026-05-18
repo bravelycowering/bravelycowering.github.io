@@ -69,6 +69,7 @@ quit
 	env reset
 	set minitower4:Frozen false
 	unfreeze
+	tempblock 711 271 80 216
 	setspawn {PlayerCoords} 0 0
 	setdeathspawn {PlayerCoords} 0 0
 	set ctohlib.DEFAULT.MOTD -hax model=humanoid|0.5 jumpheight=0.65 jumps=2 -push -slap +thirdperson -aura
