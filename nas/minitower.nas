@@ -1,7 +1,6 @@
 include os/shinyiris+towerlib
 
 #onJoin
-	set motd ignore
 	call #CTOHLib_Init
 	set ctohlib.error.not.in.parkour.practice.mode &cYou aren't allowed to use practice mode right now
 	zonechangedevent async register #onZoneChanged
@@ -32,7 +31,6 @@ quit
 
 #map:bravelycowering+minitower
 	set ctohlib.is.in.parkour true
-	set motd -hax -push -slap model=humanoid|0.5 jumpheight=0.6
 	msg welcome to probably the most annoying map you will play today
 quit
 
@@ -52,14 +50,14 @@ quit
 	setspawn 275 92 216 0 0
 	setdeathspawn 275 92 216 0 0
 	call #map:bravelycowering+minitower
+	set ctohlib.is.in.parkour false
 quit
 
 #map:bravelycowering+8
 	call #minitower4:fakeminitower
 	definehotkey practice|P
 	definehotkey reset|R
-	motd {motd}
-	set ctohlib.extra.motd {motd}
+	motd -hax -push -slap model=humanoid|0.5 jumpheight=0.6
 	call #resetTime
 	terminate
 quit
@@ -74,15 +72,14 @@ quit
 
 #minitower4:Reveal
 	ifnot minitower4:Frozen quit
+	set ctohlib.is.in.parkour true
 	env reset
 	set minitower4:Frozen false
 	unfreeze
 	tempblock 711 271 80 216
 	setspawn {PlayerCoords} 0 0
 	setdeathspawn {PlayerCoords} 0 0
-	set motd ignore
-	motd {motd}
-	set ctohlib.extra.motd {motd}
+	motd ignore
 	msg you can keep your &aextra mid air jump&7 for this one as well
 	msg You can enable setting checkpoints by pressing &aP&7 (or by typing &a/in practice&7)
 	call #resetTime
