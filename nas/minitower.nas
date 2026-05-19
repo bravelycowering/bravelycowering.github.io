@@ -60,6 +60,7 @@ quit
 #minitower4:Freeze
 	if minitower4:Frozen quit
 	env reset
+	boost 0 0 0 1 0 1
 	set minitower4:Frozen true
 	freeze
 quit
