@@ -111,7 +111,7 @@ quit
 	setsplit coords " "
 	setsub coords[2] 0.5
 	setadd coords[1] 0.5
-	cmd tempbot add {botid} {coords} 0 0 0 empty
+	cmd tempbot add {botid} {coords[0]} {coords[1]} {coords[2]} 0 0 0 empty
 	cmd tempbot model {botid} 54
 	cmd tempbot rot {botid} x -90
 quit
