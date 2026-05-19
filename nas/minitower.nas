@@ -60,7 +60,7 @@ quit
 	set ctohlib.is.in.parkour false
 quit
 
-#map:bravelycowering+8
+#map:bravelycowering+minitower4
 	call #minitower4:fakeminitower
 	definehotkey practice|P
 	definehotkey reset|R
