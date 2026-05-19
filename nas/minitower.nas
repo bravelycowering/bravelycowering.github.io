@@ -125,6 +125,7 @@ quit
 
 #minitower4:OpenWaterfallDoor
 	tempchunk 254 65 219 255 67 219 254 65 218
+	tempblock 735 261 69 221
 quit
 
 #resetAllData
