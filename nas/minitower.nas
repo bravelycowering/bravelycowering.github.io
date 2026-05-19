@@ -123,16 +123,8 @@ quit
 	cmd tempbot rot {botid} x -90
 quit
 
-#minitower4:UnblockWindows
-	tempblock 0 248 52 220
-	tempblock 0 248 53 220
-	tempblock 0 248 65 220
-quit
-
-#minitower4:BlockWindows
-	tempblock 710 248 52 220
-	tempblock 710 248 53 220
-	tempblock 710 248 65 220
+#minitower4:OpenWaterfallDoor
+	tempchunk 254 65 219 255 67 219 254 65 218
 quit
 
 #resetAllData
