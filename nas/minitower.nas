@@ -59,6 +59,21 @@ quit
 	definehotkey reset|R
 	motd -hax -push -slap model=humanoid|0.5 jumpheight=0.6
 	call #resetTime
+	// create fires
+	call #minitower4:CreateSidewaysFire|264 66 209
+	call #minitower4:CreateSidewaysFire|270 67 209
+	call #minitower4:CreateSidewaysFire|274 68 209
+	call #minitower4:CreateSidewaysFire|266 70 209
+	call #minitower4:CreateSidewaysFire|265 72 209
+	call #minitower4:CreateSidewaysFire|274 72 209
+	call #minitower4:CreateSidewaysFire|267 73 209
+	call #minitower4:CreateSidewaysFire|270 74 209
+	call #minitower4:CreateSidewaysFire|274 75 209
+	call #minitower4:CreateSidewaysFire|277 75 209
+	call #minitower4:CreateSidewaysFire|266 76 209
+	call #minitower4:CreateSidewaysFire|273 77 209
+	call #minitower4:CreateSidewaysFire|267 78 209
+	call #minitower4:CreateSidewaysFire|275 78 209
 	terminate
 quit
 
@@ -87,6 +102,18 @@ quit
 	delay 350
 	call #type|bigannounce|DISINTEGRATION LOOP
 	cpemsg announce MINITOWER /// THIRD
+quit
+
+#minitower4:CreateSidewaysFire
+	setadd minitower4:FireCount 1
+	set botid mt4fire_{minitower4:FireCount}
+	set coords {runArg1}
+	setsplit coords " "
+	setsub coords[2] 0.5
+	setadd coords[1] 0.5
+	cmd tempbot add {botid} {coords} 0 0 0 empty
+	cmd tempbot model {botid} 54
+	cmd tempbot rot {botid} x -90
 quit
 
 #resetAllData
