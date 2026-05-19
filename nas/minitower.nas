@@ -1,12 +1,19 @@
 include os/shinyiris+towerlib
 
 #onJoin
+	set motd ignore
+	call #CTOHLib_Init
+	set ctohlib.error.not.in.parkour.practice.mode &cYou aren't allowed to use practice mode right now
+	zonechangedevent async register #onZoneChanged
 	call #map:{LevelName}
 	msg You can enable setting checkpoints by pressing &aP&7 (or by typing &a/in practice&7)
 	definehotkey practice|P
 	definehotkey reset|R
 	jump #resetTime
 quit
+
+#onZoneChanged
+jump #CTOHLib_OnZoneChange
 
 #type
 	set slot {runArg1}
@@ -25,13 +32,12 @@ quit
 
 #map:bravelycowering+minitower
 	set ctohlib.is.in.parkour true
-	set ctohlib.DEFAULT.MOTD -hax -push -slap model=humanoid|0.5 jumpheight=0.6
+	set motd -hax -push -slap model=humanoid|0.5 jumpheight=0.6
 	msg welcome to probably the most annoying map you will play today
 quit
 
 #map:bravelycowering+minitower2
 	set ctohlib.is.in.parkour true
-	set ctohlib.DEFAULT.MOTD -hax model=humanoid|0.5 jumpheight=0.65 jumps=2 -push -slap +thirdperson -aura
 	msg i felt bad for making the last one so hard, so ill give you an &aextra mid air jump&7 to beat this one
 quit
 
@@ -52,7 +58,8 @@ quit
 	call #minitower4:fakeminitower
 	definehotkey practice|P
 	definehotkey reset|R
-	motd {ctohlib.DEFAULT.MOTD}
+	motd {motd}
+	set ctohlib.extra.motd {motd}
 	call #resetTime
 	terminate
 quit
@@ -73,8 +80,9 @@ quit
 	tempblock 711 271 80 216
 	setspawn {PlayerCoords} 0 0
 	setdeathspawn {PlayerCoords} 0 0
-	set ctohlib.DEFAULT.MOTD -hax model=humanoid|0.5 jumpheight=0.65 jumps=2 -push -slap +thirdperson -aura
-	motd ignore
+	set motd ignore
+	motd {motd}
+	set ctohlib.extra.motd {motd}
 	msg you can keep your &aextra mid air jump&7 for this one as well
 	msg You can enable setting checkpoints by pressing &aP&7 (or by typing &a/in practice&7)
 	call #resetTime
