@@ -12,7 +12,14 @@ include os/shinyiris+towerlib
 quit
 
 #onZoneChanged
+	if zoneMotd|has|"+runlabel" call #callZone
 jump #CTOHLib_OnZoneChange
+
+#callZone
+	set zoneName {zone}
+	setsplit zoneName #
+	if zoneName.Length|=|1 jump {zoneName[0]}
+jump {zoneName[1]}
 
 #type
 	set slot {runArg1}
@@ -114,6 +121,18 @@ quit
 	cmd tempbot add {botid} {coords[0]} {coords[1]} {coords[2]} 0 0 0 empty
 	cmd tempbot model {botid} 54
 	cmd tempbot rot {botid} x -90
+quit
+
+#minitower4:UnblockWindows
+	tempblock 0 248 52 220
+	tempblock 0 248 53 220
+	tempblock 0 248 65 220
+quit
+
+#minitower4:BlockWindows
+	tempblock 710 248 52 220
+	tempblock 710 248 53 220
+	tempblock 710 248 65 220
 quit
 
 #resetAllData
