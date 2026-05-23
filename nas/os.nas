@@ -1,4 +1,6 @@
 using cef
+using local_packages
+using no_runarg_underscore_conversion
 
 #click
 	msg cef click -n t
@@ -13,13 +15,16 @@ quit
 quit
 
 #cef:type
-	localmsg chat cef type -n t {runArg1}
+	msg chat cef type -n t {runArg1}
 quit
 
 #input
-	if runArg1|=|"queue" jump #cef:queue|{runArg2}
+	set phrase {runArg2}
+	setlength phrase
 	if runArg1|=|"skip" jump #cef:skip
-	if runArg1|=|"type" jump #cef:type|{runArg2}
+	if phrase.Length|=|0 quit
+	if runArg1|=|"queue" jump #cef:queue|{phrase}
+	if runArg1|=|"type" jump #cef:type|{phrase}
 quit
 
 #globalrandommusic
