@@ -61,6 +61,7 @@ quit
 quit
 
 #map:bravelycowering+minitower4
+	tempchunk 245 0 189 263 9 205 261 80 208
 	call #minitower4:fakeminitower
 	definehotkey practice|P
 	definehotkey reset|R
@@ -125,7 +126,11 @@ quit
 
 #minitower4:OpenWaterfallDoor
 	tempchunk 254 65 219 255 67 219 254 65 218
-	tempblock 735 261 69 221
+	tempblock 722 261 69 221
+quit
+
+#minitower4:OpenCeiling
+	tempchunk 261 80 208 279 90 224 261 80 208
 quit
 
 #resetAllData
