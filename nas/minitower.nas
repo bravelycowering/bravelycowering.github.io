@@ -58,6 +58,11 @@ quit
 	setdeathspawn 275 92 216 0 0
 	call #map:bravelycowering+minitower
 	set ctohlib.is.in.parkour false
+	set minitower4:OpenCeilingPart #minitower4:removefakeminitower
+quit
+
+#minitower4:removefakeminitower
+	tempchunk 270 90 211 280 105 221 270 90 211
 quit
 
 #map:bravelycowering+minitower4
@@ -131,6 +136,7 @@ quit
 
 #minitower4:OpenCeiling
 	tempchunk 261 80 208 279 90 224 261 80 208
+	jump {minitower4:OpenCeilingPart}
 quit
 
 #resetAllData
