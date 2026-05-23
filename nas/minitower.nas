@@ -4,7 +4,7 @@ include os/shinyiris+towerlib
 	call #CTOHLib_Init
 	set ctohlib.error.not.in.parkour.practice.mode &cYou aren't allowed to use practice mode right now
 	zonechangedevent async register #onZoneChanged
-	call #map:{LevelName}
+	if label #map:{LevelName} call #map:{LevelName}
 	msg You can enable setting checkpoints by pressing &aP&7 (or by typing &a/in practice&7)
 	definehotkey practice|P
 	definehotkey reset|R

@@ -1,7 +1,25 @@
 using cef
 
 #click
-	msg cef click -n s
+	msg cef click -n t
+quit
+
+#cef:queue
+	localmsg chat cef queue -n t {runArg1}
+quit
+
+#cef:skip
+	localmsg chat cef skip -n t
+quit
+
+#cef:type
+	localmsg chat cef type -n t {runArg1}
+quit
+
+#input
+	if runArg1|=|"queue" jump #cef:queue|{runArg2}
+	if runArg1|=|"skip" jump #cef:skip
+	if runArg1|=|"type" jump #cef:type|{runArg2}
 quit
 
 #globalrandommusic
@@ -33,6 +51,10 @@ quit
 	call #setupsongs
 	call #setuprain
 	ifnot cef jump #endJoin
+	msg cef create -sn t
+	msg cef size -n t 14 12
+	msg cef resolution -n t 1050 900
+	msg cef at -n t 68.999 66.1875 59.5 270 0 0.0625
 	setblockid id 69 69 67
 	ifnot id|=|709 call #resumesong
 	else msg cef create -n m -sgqa bravelycowering.net/music/womp.mp3
