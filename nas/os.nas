@@ -2,6 +2,8 @@ using cef
 using local_packages
 using no_runarg_underscore_conversion
 
+#clickevent
+	ifnot click.coords|=|"69 66 59" quit
 #click
 	msg cef click -n t
 quit
@@ -56,6 +58,7 @@ quit
 	call #setupsongs
 	call #setuprain
 	ifnot cef jump #endJoin
+	clickevent sync register #clickevent
 	msg cef create -sn t
 	msg cef size -n t 14 12
 	msg cef resolution -n t 1050 900
