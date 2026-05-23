@@ -60,7 +60,7 @@ quit
 	call #setuprain
 	ifnot cef jump #endJoin
 	clickevent sync register #clickevent
-	msg cef create -sn t
+	msg cef create -n t
 	msg cef size -n t 14 12
 	msg cef resolution -n t 1050 900
 	msg cef at -n t 68.999 66.1875 59.5 270 0 0.0625
