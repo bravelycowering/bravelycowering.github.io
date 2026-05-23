@@ -92,6 +92,7 @@ quit
 
 #minitower4:Freeze
 	if minitower4:Frozen quit
+	if minitower4:preventFreezing quit
 	env reset
 	boost 0 0 0 1 0 1
 	set minitower4:Frozen true
@@ -135,6 +136,7 @@ quit
 quit
 
 #minitower4:OpenCeiling
+	set minitower4:preventFreezing true
 	tempchunk 261 80 208 279 90 224 261 80 208
 	jump {minitower4:OpenCeilingPart}
 quit
