@@ -3,7 +3,8 @@ using local_packages
 using no_runarg_underscore_conversion
 
 #clickevent
-	ifnot click.coords|=|"69 66 59" quit
+	set blockcoords 69 66 59
+	ifnot click.coords|=|blockcoords quit
 #click
 	msg cef click -n t
 quit
