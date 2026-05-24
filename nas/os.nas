@@ -6,7 +6,7 @@ using no_runarg_underscore_conversion
 	set blockcoords 69 66 59
 	ifnot click.coords|=|blockcoords quit
 #click
-	msg cef click -n t
+// 	msg cef click -n t
 quit
 
 #cef:queue
@@ -44,7 +44,7 @@ quit
 #playsong
 	ifnot cef jump #nocef
 	if song|=|"" jump #nosong
-	localmsg chat cef create -n m -sgq bravelycowering.net/music/{song[{song}]}
+	localmsg chat cef queue -sqn m bravelycowering.net/music/{song[{song}]}
 	localmsg chat &fNow playing &b{songname[{song}]}
 	placeblock {songblock[{song}]} 69 69 67
 	call #saveepochms
@@ -60,13 +60,13 @@ quit
 	call #setuprain
 	ifnot cef jump #endJoin
 	clickevent sync register #clickevent
-	msg cef create -n t
-	msg cef size -n t 14 12
-	msg cef resolution -n t 1050 900
-	msg cef at -n t 68.999 66.1875 59.5 270 0 0.0625
+// 	msg cef create -n t http://orteil.dashnet.org/cookieclicker/
+// 	msg cef size -n t 14 12
+// 	msg cef resolution -n t 1050 900
+// 	msg cef at -n t 68.999 66.1875 59.5 270 0 0.0625
 	setblockid id 69 69 67
+	msg cef create -sqgan m bravelycowering.net/music/womp.mp3
 	ifnot id|=|709 call #resumesong
-	else msg cef create -n m -sgqa bravelycowering.net/music/womp.mp3
 #endJoin
 	cmd m 0 0 3
 quit
@@ -112,7 +112,7 @@ jump #mainloop
 	setdiv time 1000
 	set s {blocksong[{id}]}
 	// msg debug: {epochMS} resuming song {id} ({s}: {songname[{s}]}) at epoch {ms} ({time}s)
-	msg cef create -n m -sgq bravelycowering.net/music/{song[{s}]}
+	msg cef queue -sqn m bravelycowering.net/music/{song[{s}]}
 	msg cef time -n m {time}
 quit
 
