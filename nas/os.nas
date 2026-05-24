@@ -6,7 +6,8 @@ using no_runarg_underscore_conversion
 	set blockcoords 69 66 59
 	ifnot click.coords|=|blockcoords quit
 #click
-	msg cef click -n t
+	msg It doesn't seem to be working...
+// 	msg cef click -n t
 quit
 
 #cef:queue
