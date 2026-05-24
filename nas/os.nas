@@ -46,7 +46,7 @@ quit
 	if song|=|"" jump #nosong
 	localmsg chat cef create -n m -sgq bravelycowering.net/music/{song[{song}]}
 	localmsg chat cef at 69 69 67
-	localmsg chat cef volume 12 0.75
+	localmsg chat cef volume {volumeParameters}
 	localmsg chat &fNow playing &b{songname[{song}]}
 	placeblock {songblock[{song}]} 69 69 67
 	call #saveepochms
@@ -61,6 +61,7 @@ quit
 	call #setupsongs
 	call #setuprain
 	ifnot cef jump #endJoin
+	set volumeParameters 18 0.75
 	clickevent sync register #clickevent
 // 	msg cef create -n t http://orteil.dashnet.org/cookieclicker/
 // 	msg cef size -n t 14 12
@@ -116,7 +117,7 @@ jump #mainloop
 	// msg debug: {epochMS} resuming song {id} ({s}: {songname[{s}]}) at epoch {ms} ({time}s)
 	msg cef create -n m -sgq bravelycowering.net/music/{song[{s}]}
 	msg cef at 69 69 67
-	msg cef volume 12 0.75
+	msg cef volume {volumeParameters}
 	msg cef time -n m {time}
 quit
 
