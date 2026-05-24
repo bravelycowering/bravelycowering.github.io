@@ -209,6 +209,7 @@ quit
 
 #CTOHLib_Trigger_PracticeModeOff
 	msg Practice mode: &cOFF
+	kill
 jump #resetTime
 
 #parseTime
