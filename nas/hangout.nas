@@ -1,3 +1,5 @@
+using local_packages
+
 #MOVABLE[141]
 #MOVABLE[142]
 #MOVABLE[143]
@@ -16,6 +18,20 @@
 #FALLS[143]
 #FALLS[602]
 #FALLS[603]
+
+// #Set:add({set}, value)
+#Set:add
+	set l_check @!::{runArg2}
+	if {runArg1}|has|l_check quit
+	set {runArg1} {{runArg1}}{l_check}
+quit
+
+// #Set:sethas({result}, {set}, value)
+#Set:sethas
+	set l_check @!::{runArg3}
+	if {runArg2}|has|l_check set {runArg1} true
+	else set {runArg1} false
+quit
 
 #onJoin
 	clickevent sync register #onClick
@@ -47,7 +63,17 @@ quit
 
 #onClick
 	setblockid clickedID {click.coords}
+	if label #onClickBlock[{clickedID}] jump #onClickBlock[{clickedID}]
 jump #on{click.button}Click
+
+// chests
+#onClickBlock[216]
+#onClickBlock[217]
+#onClickBlock[218]
+#onClickBlock[219]
+	tempblock 624 {click.coords}
+	effect coin {click.coords} 0 0 0
+quit
 
 #onLeftClick
 	if label #MOVABLE[{clickedID}] jump #onMoveClick|PUSH
@@ -69,6 +95,7 @@ quit
 	set moveby {{runArg1}[{face}]}
 	setblockid myID {click.coords}
 	set potentialTransform {TRANSFORM[{myID}][{face}]}
+	cs me wood stepleft
 	ifnot potentialTransform|=|"" set myID {potentialTransform}
 	ifnot moveby|=|"" jump #tryMoveBy|{myID}|{click.coords}|{moveby}
 quit
@@ -94,6 +121,7 @@ jump #tryMove|{runArg1}|{runArg2}|{moveto[0]} {moveto[1]} {moveto[2]}
 	setadd coords[1] 1
 	setblockid above {coords[0]} {coords[1]} {coords[2]}
 	if label #HEAVY[{above}] quit
+	if label #FALLS[{above}] quit
 	setblockid movetoID {runArg3}
 	ifnot label #SWAPPABLE[{movetoID}] quit
 	set floorcoords {runArg3}
