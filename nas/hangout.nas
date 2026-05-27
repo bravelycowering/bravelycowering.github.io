@@ -1,8 +1,21 @@
+#MOVABLE[141]
+#MOVABLE[142]
 #MOVABLE[143]
 #MOVABLE[602]
 #MOVABLE[603]
 
 #SWAPPABLE[0]
+
+#HEAVY[216]
+#HEAVY[217]
+#HEAVY[218]
+#HEAVY[219]
+
+#FALLS[141]
+#FALLS[142]
+#FALLS[143]
+#FALLS[602]
+#FALLS[603]
 
 #onJoin
 	clickevent sync register #onClick
@@ -76,8 +89,18 @@ jump #tryMove|{runArg1}|{runArg2}|{moveto[0]} {moveto[1]} {moveto[2]}
 
 #tryMove
 	set myID {runArg1}
+	set coords {runArg2}
+	setsplit coords " "
+	setadd coords[1] 1
+	setblockid above {coords[0]} {coords[1]} {coords[2]}
+	if label #HEAVY[{above}] quit
 	setblockid movetoID {runArg3}
 	ifnot label #SWAPPABLE[{movetoID}] quit
+	set floorcoords {runArg3}
+	setsplit floorcoords " "
+	setsub floorcoords[1] 1
+	setblockid floorID {floorcoords[0]} {floorcoords[1]} {floorcoords[2]}
+	if label #SWAPPABLE[{floorID}] quit
 	placeblock {movetoID} {runArg2}
 	placeblock {myID} {runArg3}
 quit
