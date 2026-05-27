@@ -75,7 +75,7 @@ jump #on{click.button}Click
 	set coords {click.coords}
 	setsplit coords " "
 	setadd coords[1] 1
-	effect coin {coords[0]} {coords[1]} {coords[2]} 0 0 0
+	effect coin {coords[0]} {coords[1]} {coords[2]} 0 1 0
 quit
 
 #onLeftClick
