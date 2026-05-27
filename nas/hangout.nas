@@ -16,6 +16,11 @@
 	set PULL[TowardsX] -1 0 0
 	set PULL[AwayZ] 0 0 1
 	set PULL[TowardsZ] 0 0 -1
+	// set direction faces
+	set DIRFACE[0] AwayZ
+	set DIRFACE[1] TowardsX
+	set DIRFACE[2] TowardsZ
+	set DIRFACE[3] AwayX
 	// set movable transforms
 	set TRANSFORM[143][AwayX] 602
 	set TRANSFORM[143][TowardsX] 602
@@ -40,9 +45,17 @@ quit
 quit
 
 #onMoveClick
-	set moveby {{runArg1}[{click.face}]}
+	set face {click.face}
+	ifnot face|=|"AwayY" jump #ifnot_face_is_AwayY__end
+		set dir {PlayerYaw}
+		setdiv dir 90
+		setround dir
+		setmod dir 4
+		set face {DIRFACE[{dir}]}
+	#ifnot_face_is_AwayY__end
+	set moveby {{runArg1}[{face}]}
 	setblockid myID {click.coords}
-	set potentialTransform {TRANSFORM[{myID}][{click.face}]}
+	set potentialTransform {TRANSFORM[{myID}][{face}]}
 	ifnot potentialTransform|=|"" set myID {potentialTransform}
 	ifnot moveby|=|"" jump #tryMoveBy|{myID}|{click.coords}|{moveby}
 quit
