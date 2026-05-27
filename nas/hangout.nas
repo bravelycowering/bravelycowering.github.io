@@ -85,6 +85,16 @@ quit
 	cs pos {click.coords} computercalculatefinish
 quit
 
+#onClickBlock[656]
+	placeblock 759 {click.coords}
+	cs pos {click.coords} click:choose(3)
+quit
+
+#onClickBlock[759]
+	placeblock 656 {click.coords}
+	cs pos {click.coords} click:choose(3):pitch(1.5)
+quit
+
 #onClickBlock[55]
 #onClickBlock[760]
 #onClickBlock[761]
