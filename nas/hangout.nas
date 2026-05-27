@@ -72,7 +72,10 @@ jump #on{click.button}Click
 #onClickBlock[218]
 #onClickBlock[219]
 	tempblock 624 {click.coords}
-	effect coin {click.coords} 0 0 0
+	set coords {click.coords}
+	setsplit coords " "
+	setadd coords[1] 1
+	effect coin {coords[0]} {coords[1]} {coords[2]} 0 0 0
 quit
 
 #onLeftClick
