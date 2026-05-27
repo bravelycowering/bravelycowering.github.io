@@ -76,6 +76,9 @@ jump #on{click.button}Click
 	setsplit coords " "
 	setadd coords[1] 0.75
 	effect coin {coords[0]} {coords[1]} {coords[2]} 0 -2 0
+	setrandrange variant 2 13
+	cs pos {click.coords} wood:choose({variant})
+	msg You just found &f1 &6imaginary coin&7!
 quit
 
 #onClickBlock[762]
