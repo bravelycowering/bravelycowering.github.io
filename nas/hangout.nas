@@ -78,6 +78,10 @@ jump #on{click.button}Click
 	effect coin {coords[0]} {coords[1]} {coords[2]} 0 -1 0
 quit
 
+#onClickBlock[762]
+	cs pos {click.coords} computercalculatefinish
+quit
+
 #onLeftClick
 	if label #MOVABLE[{clickedID}] jump #onMoveClick|PUSH
 quit
@@ -98,7 +102,7 @@ quit
 	set moveby {{runArg1}[{face}]}
 	setblockid myID {click.coords}
 	set potentialTransform {TRANSFORM[{myID}][{face}]}
-	cs me wood stepleft
+	cs pos {click.coords} wood stepleft
 	ifnot potentialTransform|=|"" set myID {potentialTransform}
 	ifnot moveby|=|"" jump #tryMoveBy|{myID}|{click.coords}|{moveby}
 quit
