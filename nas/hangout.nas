@@ -7,15 +7,15 @@
 #onJoin
 	clickevent sync register #onClick
 	// set push constants
-	set PUSH[AwayX] 1 0 0
-	set PUSH[TowardsX] -1 0 0
-	set PUSH[AwayZ] 0 0 1
-	set PUSH[TowardsZ] 0 0 -1
+	set PUSH[AwayX] -1 0 0
+	set PUSH[TowardsX] 1 0 0
+	set PUSH[AwayZ] 0 0 -1
+	set PUSH[TowardsZ] 0 0 1
 	// set pull constants
-	set PULL[AwayX] -1 0 0
-	set PULL[TowardsX] 1 0 0
-	set PULL[AwayZ] 0 0 -1
-	set PULL[TowardsZ] 0 0 1
+	set PULL[AwayX] 1 0 0
+	set PULL[TowardsX] -1 0 0
+	set PULL[AwayZ] 0 0 1
+	set PULL[TowardsZ] 0 0 -1
 	// set movable transforms
 	set TRANSFORM[143][AwayX] 602
 	set TRANSFORM[143][TowardsX] 602
