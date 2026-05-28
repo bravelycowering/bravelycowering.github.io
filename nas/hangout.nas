@@ -80,12 +80,14 @@ quit
 	set statistics.interact.door 0
 	set statistics.interact.lantern 0
 	set statistics.interact.computer 0
-	// set translation keys
-	set translate(statistics.moved.barrel) Barrels rolled
-	set translate(statistics.moved.crate) Crates moved
-	set translate(statistics.moved.bench) Benches misplaced
-	set translate(statistics.chests) Chests discovered
-
+	// set help texts
+	set HELP.ICON &r(&fi&r)&7
+	set HELP.GENERIC.MOVE Right click to push this block, left click to pull it.
+	set HELP.BLOCK[141] {HELP.GENERIC.MOVE}
+	set HELP.BLOCK[142] {HELP.GENERIC.MOVE}
+	set HELP.BLOCK[143] {HELP.GENERIC.MOVE}
+	set HELP.BLOCK[602] {HELP.GENERIC.MOVE}
+	set HELP.BLOCK[603] {HELP.GENERIC.MOVE}
 quit
 
 #showStats
@@ -100,6 +102,7 @@ quit
 
 #onClick
 	setblockid clickedID {click.coords}
+	if click.button|=|"Middle" jump #onMiddleClick
 	if label #onClickBlock[{clickedID}] jump #onClickBlock[{clickedID}]
 jump #on{click.button}Click
 
@@ -125,7 +128,7 @@ quit
 #onClickBlock[762]
 	cs pos {click.coords} computercalculatefinish
 	setadd statistics.interact.computer 1
-	msg &fThe computer says: &uHello @nick!
+	cmd msgme &fThe computer says:&u jokerdril
 	jump #showStats
 quit
 
@@ -174,7 +177,8 @@ quit
 quit
 
 #onMiddleClick
-
+	if HELP.BLOCK[{clickedID}]|=|"" msg No help/tip is available for this block.
+	else msg {HELP.ICON} {HELP.BLOCK[{clickedID}]}
 quit
 
 #tryMoveBy
