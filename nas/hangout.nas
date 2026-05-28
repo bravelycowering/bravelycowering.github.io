@@ -149,11 +149,11 @@ quit
 quit
 
 #onLeftClick
-	if label #MOVABLE[{clickedID}] jump #onMoveClick|PUSH
+	if label #MOVABLE[{clickedID}] jump #onMoveClick|PULL
 quit
 
 #onRightClick
-	if label #MOVABLE[{clickedID}] jump #onMoveClick|PULL
+	if label #MOVABLE[{clickedID}] jump #onMoveClick|PUSH
 quit
 
 #onMoveClick
