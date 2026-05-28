@@ -21,6 +21,10 @@ using local_packages
 #FALLS[602]
 #FALLS[603]
 
+#UNSTABLE[9]
+#UNSTABLE[11]
+#UNSTABLE[461]
+
 // #Set:add({set}, value)
 #Set:add
 	set l_check @!::{runArg2}
@@ -157,6 +161,7 @@ jump #tryMove|{runArg1}|{runArg2}|{moveto[0]} {moveto[1]} {moveto[2]}
 	setsub floorcoords[1] 1
 	setblockid floorID {floorcoords[0]} {floorcoords[1]} {floorcoords[2]}
 	if label #SWAPPABLE[{floorID}] quit
+	if label #UNSTABLE[{floorID}] quit
 	placeblock {movetoID} {runArg2}
 	placeblock {myID} {runArg3}
 quit
