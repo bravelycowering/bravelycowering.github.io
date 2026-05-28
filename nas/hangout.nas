@@ -12,6 +12,8 @@ using local_packages
 #HEAVY[217]
 #HEAVY[218]
 #HEAVY[219]
+#HEAVY[656]
+#HEAVY[759]
 
 #FALLS[141]
 #FALLS[142]
@@ -121,7 +123,7 @@ quit
 	set moveby {{runArg1}[{face}]}
 	setblockid myID {click.coords}
 	set potentialTransform {TRANSFORM[{myID}][{face}]}
-	cs pos {click.coords} wood stepleft
+	cs pos {click.coords} wood stepleft:volume(2)
 	ifnot potentialTransform|=|"" set myID {potentialTransform}
 	ifnot moveby|=|"" jump #tryMoveBy|{myID}|{click.coords}|{moveby}
 quit
