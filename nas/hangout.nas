@@ -91,6 +91,9 @@ quit
 quit
 
 #showStats
+	if coins|=|1 set coinword coin
+	else set coinword coins
+	msg &uYou have &f{coins}&6 imaginary {coinword}&u.
 	msg &uHere's some stats:
 	msg &u  - Computers read:&a {statistics.interact.computer}
 	msg &u  - Barrels rolled:&a {statistics.moved.barrel}
