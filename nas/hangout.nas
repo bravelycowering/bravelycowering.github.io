@@ -79,7 +79,7 @@ jump #on{click.button}Click
 	setadd coords[1] 0.75
 	effect coin {coords[0]} {coords[1]} {coords[2]} 0 -2 0
 	setrandrange variant 2 13
-	cs pos {click.coords} wood:choose({variant})
+	cs pos {click.coords} wood:choose({variant}):volume(2)
 	msg You just found &f1 &6imaginary coin&7!
 quit
 
