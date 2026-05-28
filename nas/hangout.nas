@@ -41,6 +41,7 @@ quit
 
 #onJoin
 	clickevent sync register #onClick
+	set coins 0
 	// set push constants
 	set PUSH[AwayX] -1 0 0
 	set PUSH[TowardsX] 1 0 0
@@ -56,6 +57,12 @@ quit
 	set DIRFACE[1] TowardsX
 	set DIRFACE[2] TowardsZ
 	set DIRFACE[3] AwayX
+	// set movement statistics
+	set MOVESTAT[141] bench
+	set MOVESTAT[142] crate
+	set MOVESTAT[143] barrel
+	set MOVESTAT[602] barrel
+	set MOVESTAT[603] barrel
 	// set movable transforms
 	set TRANSFORM[143][AwayX] 602
 	set TRANSFORM[143][TowardsX] 602
@@ -65,6 +72,30 @@ quit
 	set TRANSFORM[602][TowardsX] 143
 	set TRANSFORM[603][AwayZ] 143
 	set TRANSFORM[603][TowardsZ] 143
+	// set statistics
+	set statistics.moved.barrel 0
+	set statistics.moved.crate 0
+	set statistics.moved.bench 0
+	set statistics.chests 0
+	set statistics.interact.door 0
+	set statistics.interact.lantern 0
+	set statistics.interact.computer 0
+	// set translation keys
+	set translate(statistics.moved.barrel) Barrels rolled
+	set translate(statistics.moved.crate) Crates moved
+	set translate(statistics.moved.bench) Benches misplaced
+	set translate(statistics.chests) Chests discovered
+
+quit
+
+#showStats
+	msg &uHere's some stats:
+	msg &u  - Computers read:&a {statistics.interact.computer}
+	msg &u  - Barrels rolled:&a {statistics.moved.barrel}
+	msg &u  - Crates moved:&a {statistics.moved.crate}
+	msg &u  - Benches misplaced:&a {statistics.moved.bench}
+	msg &u  - Chests discovered:&a {statistics.chests}
+	msg &u  - Doors knocked:&a {statistics.interact.door}
 quit
 
 #onClick
@@ -77,6 +108,9 @@ jump #on{click.button}Click
 #onClickBlock[217]
 #onClickBlock[218]
 #onClickBlock[219]
+	if chest_{click.coordsX}_{click.coordsY}_{click.coordsZ} quit
+	setadd statistics.chests 1
+	set chest_{click.coordsX}_{click.coordsY}_{click.coordsZ} true
 	tempblock 624 {click.coords}
 	set coords {click.coords}
 	setsplit coords " "
@@ -85,26 +119,33 @@ jump #on{click.button}Click
 	setrandrange variant 2 13
 	cs pos {click.coords} wood:choose({variant}):volume(2)
 	msg You just found &f1 &6imaginary coin&7!
+	setadd coins 1
 quit
 
 #onClickBlock[762]
 	cs pos {click.coords} computercalculatefinish
+	setadd statistics.interact.computer 1
+	msg &fThe computer says: &uHello @nick!
+	jump #showStats
 quit
 
 #onClickBlock[656]
 	placeblock 759 {click.coords}
 	cs pos {click.coords} click:choose(3)
+	setadd statistics.interact.lantern 1
 quit
 
 #onClickBlock[759]
 	placeblock 656 {click.coords}
 	cs pos {click.coords} click:choose(3):pitch(1.5)
+	setadd statistics.interact.lantern 1
 quit
 
 #onClickBlock[55]
 #onClickBlock[760]
 #onClickBlock[761]
 	cs pos {click.coords} knocking
+	setadd statistics.interact.door 1
 quit
 
 #onLeftClick
@@ -164,4 +205,5 @@ jump #tryMove|{runArg1}|{runArg2}|{moveto[0]} {moveto[1]} {moveto[2]}
 	if label #UNSTABLE[{floorID}] quit
 	placeblock {movetoID} {runArg2}
 	placeblock {myID} {runArg3}
+	ifnot MOVESTAT[{myID}]|=|"" setadd statistics.moved.{MOVESTAT[{myID}]} 1
 quit
