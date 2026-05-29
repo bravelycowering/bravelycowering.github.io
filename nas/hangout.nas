@@ -82,7 +82,7 @@ quit
 	set statistics.interact.computer 0
 	// set help texts
 	set HELP.ICON &r(&fi&r)&7
-	set HELP.GENERIC.MOVE Right click to push this block, left click to pull it.
+	set HELP.GENERIC.MOVE This type of block is movable. Right click to push, left click to pull.
 	set HELP.BLOCK[141] {HELP.GENERIC.MOVE}
 	set HELP.BLOCK[142] {HELP.GENERIC.MOVE}
 	set HELP.BLOCK[143] {HELP.GENERIC.MOVE}
@@ -145,6 +145,24 @@ quit
 	placeblock 656 {click.coords}
 	cs pos {click.coords} click:choose(3):pitch(1.5)
 	setadd statistics.interact.lantern 1
+quit
+
+#onClickBlock[755]
+#onClickBlock[756]
+#onClickBlock[757]
+#onClickBlock[758]
+	setsub clickedID 4
+	placeblock {clickedID} {click.coords}
+	cs pos {click.coords} click:choose(3)
+quit
+
+#onClickBlock[751]
+#onClickBlock[752]
+#onClickBlock[753]
+#onClickBlock[754]
+	setadd clickedID 4
+	placeblock 656 {click.coords}
+	cs pos {click.coords} click:choose(3):pitch(1.5)
 quit
 
 #onClickBlock[55]
