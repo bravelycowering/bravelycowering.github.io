@@ -161,7 +161,7 @@ quit
 #onClickBlock[753]
 #onClickBlock[754]
 	setadd clickedID 4
-	placeblock 656 {click.coords}
+	placeblock {clickedID} {click.coords}
 	cs pos {click.coords} click:choose(3):pitch(1.5)
 quit
 
