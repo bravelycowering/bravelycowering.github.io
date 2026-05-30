@@ -7,6 +7,10 @@ using local_packages
 #MOVABLE[603]
 
 #SWAPPABLE[0]
+#SWAPPABLE[8]
+#SWAPPABLE[9]
+#SWAPPABLE[10]
+#SWAPPABLE[11]
 
 #HEAVY[216]
 #HEAVY[217]
@@ -21,8 +25,6 @@ using local_packages
 #FALLS[602]
 #FALLS[603]
 
-#UNSTABLE[9]
-#UNSTABLE[11]
 #UNSTABLE[461]
 
 // #Set:add({set}, value)
