@@ -4,7 +4,9 @@
 quit
 
 #thread
-	newthread #thread2
+	show LevelName
+	if LevelName|=|"bravelycowering+8" newthread #thread
+	else newthread #thread2
 quit
 
 #thread2
