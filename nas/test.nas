@@ -1,12 +1,12 @@
 #test
-	msg 1
+	newthread #thread
+	cmd main
+quit
+
+#thread
+	msg one
 	delay 1000
-	msg 2
+	msg two
 	delay 1000
-	msg 3
-	boost 0 0 0 0 0 0 0 1
-	delay 1000
-	msg 4
-	delay 1000
-	msg 5
+	msg three
 quit

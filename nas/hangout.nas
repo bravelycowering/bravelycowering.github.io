@@ -32,6 +32,15 @@ using local_packages
 	set {runArg1} {{runArg1}}{l_check}
 quit
 
+// #Set:remove({set}, value)
+#Set:remove
+	set l_check @!::{runArg2}
+	ifnot {runArg1}|has|l_check quit
+	set l_set {{runArg1}}
+	setsplit l_set {l_check}
+	set {runArg1} {l_set[0]}{l_set[1]}
+quit
+
 // #Set:sethas({result}, {set}, value)
 #Set:sethas
 	set l_check @!::{runArg3}
