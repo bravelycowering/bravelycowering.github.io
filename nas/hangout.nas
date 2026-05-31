@@ -141,6 +141,8 @@ quit
 #onClick
 	setblockid clickedID {click.coords}
 	if click.button|=|"Middle" jump #onMiddleClick
+	setblockmessage clickedMSG {click.coords}
+	ifnot clickedMSG|=|"" quit
 	if label #onClickBlock[{clickedID}] jump #onClickBlock[{clickedID}]
 jump #on{click.button}Click
 
@@ -149,18 +151,49 @@ jump #on{click.button}Click
 #onClickBlock[217]
 #onClickBlock[218]
 #onClickBlock[219]
-	if chest_{click.coordsX}_{click.coordsY}_{click.coordsZ} quit
-	setadd statistics.chests 1
-	set chest_{click.coordsX}_{click.coordsY}_{click.coordsZ} true
-	tempblock 624 {click.coords}
+	ifnot $reward|=|"" jump #setChestReward
 	set coords {click.coords}
-	setsplit coords " "
+jump #chest.preCoorded|coins|1
+
+#setChestReward
+	setblockid myID {coords}
+	if $reward|=|"coins|1" placemessageblock {myID} {coords}
+	else placemessageblock {myID} {coords} /oss #chest|{$reward}
+	set $reward
+quit
+
+#chest
+	set coords {MBCoords}
+	#chest.preCoorded
+		// split the coords
+		setsplit coords " "
+		// dont re-open chest if already opened
+		if chest_{coords[0]}_{coords[1]}_{coords[2]} quit
+		// open chest
+		setadd statistics.chests 1
+		set chest_{coords[0]}_{coords[1]}_{coords[2]} true
+		tempblock 624 {coords}
+		setrandrange variant 2 13
+		cs pos {coords} wood:choose({variant}):volume(2)
+	if label #chestReward:{runArg1} jump #chestReward:{runArg1}
+	effect puff {coords[0]} {coords[1]} {coords[2]} 0 -1 0
+	msg The chest is empty... bummer!
+quit
+
+#chestReward:coins
+	if runArg2|=|1 msg You just found &f1 &6imaginary coin&7!
+	else msg You just found &f{runArg2} &6imaginary coins&7!
+	setadd coins {runArg2}
 	setadd coords[1] 0.75
-	effect coin {coords[0]} {coords[1]} {coords[2]} 0 -2 0
-	setrandrange variant 2 13
-	cs pos {click.coords} wood:choose({variant}):volume(2)
-	msg You just found &f1 &6imaginary coin&7!
-	setadd coins 1
+	effect coin {coords[0]} {coords[1]} {coords[2]} 0 -1 0
+quit
+
+#chestReward:item
+	setadd coords[1] 0.75
+	if item {runArg2} effect puff {coords[0]} {coords[1]} {coords[2]} 0 -1 0
+	else effect exclamation {coords[0]} {coords[1]} {coords[2]} 0 -1 0
+	if item {runArg2} msg &7You've already found the item that was here!
+	item give {runArg2}
 quit
 
 #onClickBlock[762]
