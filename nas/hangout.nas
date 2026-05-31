@@ -153,7 +153,6 @@ jump #on{click.button}Click
 #onClickBlock[217]
 #onClickBlock[218]
 #onClickBlock[219]
-	ifnot $reward|=|"" jump #setChestReward
 	set coords {click.coords}
 jump #chest.preCoorded|{DEFAULTREWARD}
 
@@ -167,6 +166,7 @@ quit
 #chest
 	set coords {MBCoords}
 	#chest.preCoorded
+		ifnot $reward|=|"" jump #setChestReward
 		// split the coords
 		setsplit coords " "
 		// dont re-open chest if already opened
