@@ -50,6 +50,30 @@ quit
 	else set {runArg1} false
 quit
 
+// #Struct:pack({struct}, format)
+#Struct:pack
+	set l_format {runArg2}
+	setsplit l_format ;
+	set {runArg1}
+	set l_i 0
+	#Struct:pack.loop
+		set {runArg1} {{runArg1}}{l_format[{l_i}]}:={{l_format[{l_i}]}};
+		setadd l_i 1
+	if l_i|<|l_format.Length jump #Struct:pack.loop
+quit
+
+// #Struct:unpack({struct})
+#Struct:unpack
+	set l_struct {{runArg1}}
+	setsplit l_struct ;
+	set l_i 0
+	#Struct:unpack.loop
+		setsplit l_struct[{l_i}] :=
+		set {l_struct[{l_i}][0]} {l_struct[{l_i}][1]}
+		setadd l_i 1
+	if l_i|<|l_format.Length jump #Struct:unpack.loop
+quit
+
 #onJoin
 	clickevent sync register #onClick
 	set coins 0
