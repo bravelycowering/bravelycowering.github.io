@@ -123,6 +123,8 @@ quit
 	set HELP.BLOCK[143] {HELP.GENERIC.MOVE}
 	set HELP.BLOCK[602] {HELP.GENERIC.MOVE}
 	set HELP.BLOCK[603] {HELP.GENERIC.MOVE}
+	// misc contsts
+	set DEFAULTREWARD coins|1
 quit
 
 #showStats
@@ -153,11 +155,11 @@ jump #on{click.button}Click
 #onClickBlock[219]
 	ifnot $reward|=|"" jump #setChestReward
 	set coords {click.coords}
-jump #chest.preCoorded|coins|1
+jump #chest.preCoorded|{DEFAULTREWARD}
 
 #setChestReward
 	setblockid myID {coords}
-	if $reward|=|"coins|1" placemessageblock {myID} {coords}
+	if $reward|=|DEFAULTREWARD placemessageblock {myID} {coords}
 	else placemessageblock {myID} {coords} /oss #chest|{$reward}
 	set $reward
 quit
