@@ -263,6 +263,7 @@ jump #tryMove|{runArg1}|{runArg2}|{moveto[0]} {moveto[1]} {moveto[2]}
 	setblockid floorID {floorcoords[0]} {floorcoords[1]} {floorcoords[2]}
 	if label #SWAPPABLE[{floorID}] quit
 	if label #UNSTABLE[{floorID}] quit
+	ifnot label #MOVABLE[{clickedID}] quit
 	placeblock {movetoID} {runArg2}
 	placeblock {myID} {runArg3}
 	ifnot MOVESTAT[{myID}]|=|"" setadd statistics.moved.{MOVESTAT[{myID}]} 1
