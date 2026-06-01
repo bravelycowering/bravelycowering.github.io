@@ -117,6 +117,7 @@ quit
 	set statistics.interact.door 0
 	set statistics.interact.lantern 0
 	set statistics.interact.computer 0
+	set statistics.interact.flowers 0
 	// set help texts
 	set HELP.ICON &r(&fi&r)&7
 	set HELP.GENERIC.MOVE This type of block is movable. Right click to push, left click to pull.
@@ -253,12 +254,13 @@ quit
 	if click.coords|=|PlayerCoords jump #flowersteppedon
 	if flowertalkstate|=|"monologue" jump #flowermonologue
 	if flowertalkstate|=|"steppedon" jump #flowerwassteppedon
-	msg &fThe flowers say: &nWe aren't quite sure what happened, but we're not supposed to be saying this. Maybe this is some kind of error handling message..?
+	msg &fThe flowers say: &kWe aren't quite sure what happened, but we're not supposed to be saying this. Maybe this is some kind of error handling message..?
 	set flowertalkstate monologue
 quit
 
 #flowermonologue
-	msg &fThe flowers say: &n{FLOWERTALK[{flowertalkprogress}]}
+	if flowertalkprogress|=|12 setadd statistics.interact.flowers 1
+	msg &fThe flowers say: &k{FLOWERTALK[{flowertalkprogress}]}
 	setadd flowertalkprogress 1
 	if flowertalkprogress|>=|FLOWERTALK.Length setsub flowertalkprogress 1
 quit
@@ -266,14 +268,14 @@ quit
 #flowersteppedon
 	set flowertalkstate steppedon
 	setrandrange variant 1 3
-	if variant|=|1 msg &fThe flowers say: &nWe'd appreciate it if you didn't step on us while we talk.
-	if variant|=|2 msg &fThe flowers say: &nIt's kinda hard to see you when you're standing on us like this.
-	if variant|=|3 msg &fThe flowers say: &nCould you step off of us please?
+	if variant|=|1 msg &fThe flowers say: &kWe'd appreciate it if you didn't step on us while we talk.
+	if variant|=|2 msg &fThe flowers say: &kIt's kinda hard to see you when you're standing on us like this.
+	if variant|=|3 msg &fThe flowers say: &kCould you step off of us please?
 quit
 
 #flowerwassteppedon
 	set flowertalkstate monologue
-	msg &fThe flowers say: &nThanks! :)
+	msg &fThe flowers say: &kThanks! :)
 quit
 
 #onLeftClick
