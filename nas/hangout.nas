@@ -185,12 +185,15 @@ quit
 #chestReward:coins
 	if runArg2|=|1 msg You just found &f1 &6imaginary coin&7!
 	else msg You just found &f{runArg2} &6imaginary coins&7!
+	setrandrange variant 2 4
+	cs pos {coords} coin:choose({variant})
 	setadd coins {runArg2}
 	setadd coords[1] 0.75
 	effect coin {coords[0]} {coords[1]} {coords[2]} 0 -1 0
 quit
 
 #chestReward:item
+	cs pos {coords} item bag pickup
 	setadd coords[1] 0.75
 	if item {runArg2} effect puff {coords[0]} {coords[1]} {coords[2]} 0 -1 0
 	else effect exclamation {coords[0]} {coords[1]} {coords[2]} 0 -1 0
