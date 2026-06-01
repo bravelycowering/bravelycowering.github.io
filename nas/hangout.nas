@@ -195,6 +195,14 @@ quit
 	setadd coins {runArg2}
 	setadd coords[1] 0.75
 	effect coin {coords[0]} {coords[1]} {coords[2]} 0 -1 0
+	ifnot runArg2|>|1 quit
+	set l_i 2
+	#chestReward:coins.loop
+		setadd l_i 1
+		setrandrange l_x -10 10
+		setrandrange l_z -10 10
+		effect coin {coords[0]} {coords[1]} {coords[2]} {l_x} -10 {l_z}
+	if l_i|<|runArg2 jump #chestReward:coins.loop
 quit
 
 #chestReward:item
