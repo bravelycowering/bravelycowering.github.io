@@ -78,7 +78,7 @@ quit
 	clickevent sync register #onClick
 	set coins 0
 	set flowertalkprogress 0
-	set flowertalkstate 0
+	set flowertalkstate monologue
 	// set push constants
 	set PUSH[AwayX] -1 0 0
 	set PUSH[TowardsX] 1 0 0
@@ -127,7 +127,7 @@ quit
 	set HELP.BLOCK[603] {HELP.GENERIC.MOVE}
 	// misc contsts
 	set DEFAULTREWARD coins|1
-	set FLOWERTALK Hi!|Don't mind us :)|Just some regular talking flowers!|We know historically talking flowers aren't the most trustworthy, We're just doing our job.|You're curious?|Well, since you clicked on us, we'll assume you already know how to move crates and barrels.|You may have also figured out that you cant push them if another crate is in front of them.|It's just too heavy!|As it turns out, if you're clever you can use the barrels to trap people inside this house.|The map creator has to come by and unblock the entrances when that happens.|That's where we come in! :)|Our job is to not let any movable objects pass.|If they try, we ask them nicely not to, and usually that works!|:)|...|Golly, we can't imagine talking to some flowers is that exciting.|Especially not here!|We appreciate you taking the time to listen to what we had to say, but...|Don't you have anything better to do?
+	set FLOWERTALK Hi!|Don't mind us :)|Just some regular talking flowers!|We know historically talking flowers aren't the most trustworthy, but we're just doing our job.|You're curious?|Well, since you clicked on us, we'll assume you already know how to move crates and barrels.|You may have also figured out that you cant push them if another crate is in front of them.|It's just too heavy!|As it turns out, if you're clever you can use the barrels to trap people inside this house.|The map creator has to come by and unblock the entrances when that happens.|That's where we come in! :)|Our job is to not let any movable objects pass.|If they try, we ask them nicely not to, and usually that works!|:)|...|Golly, we can't imagine talking to some flowers is that exciting.|Especially not here!|We appreciate you taking the time to listen to what we had to say, but...|Don't you have anything better to do?
 	setsplit FLOWERTALK |
 quit
 
@@ -250,14 +250,30 @@ quit
 quit
 
 #onClickBlock[96]
-	if flowertalkstate|=|0 jump #flowermonologue
+	if click.coords|=|PlayerCoords jump #flowersteppedon
+	if flowertalkstate|=|monologue jump #flowermonologue
+	if flowertalkstate|=|steppedon jump #flowerwassteppedon
 	msg &fThe flowers say: &nWe aren't quite sure what happened, but we're not supposed to be saying this. Maybe this is some kind of error handling message..?
+	set flowertalkstate monologue
 quit
 
 #flowermonologue
 	msg &fThe flowers say: &n{FLOWERTALK[{flowertalkprogress}]}
 	setadd flowertalkprogress 1
 	if flowertalkprogress|>=|FLOWERTALK.Length setsub flowertalkprogress 1
+quit
+
+#flowersteppedon
+	set flowertalkstate steppedon
+	setrandrange variant 1 3
+	if variant|=|1 msg &fThe flowers say: &nWe'd appreciate it if you didn't step on us while we talk.
+	if variant|=|2 msg &fThe flowers say: &nIt's kinda hard to see you when you're standing on us like this.
+	if variant|=|3 msg &fThe flowers say: &nCould you step off of us please?
+quit
+
+#flowerwassteppedon
+	set flowertalkstate monologue
+	msg &fThe flowers say: &nThanks! :)
 quit
 
 #onLeftClick
