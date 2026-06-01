@@ -251,8 +251,8 @@ quit
 
 #onClickBlock[96]
 	if click.coords|=|PlayerCoords jump #flowersteppedon
-	if flowertalkstate|=|monologue jump #flowermonologue
-	if flowertalkstate|=|steppedon jump #flowerwassteppedon
+	if flowertalkstate|=|"monologue" jump #flowermonologue
+	if flowertalkstate|=|"steppedon" jump #flowerwassteppedon
 	msg &fThe flowers say: &nWe aren't quite sure what happened, but we're not supposed to be saying this. Maybe this is some kind of error handling message..?
 	set flowertalkstate monologue
 quit
