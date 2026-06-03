@@ -1,3 +1,5 @@
+using local_packages
+
 include os/shinyiris+towerlib
 
 #onJoin
@@ -213,6 +215,7 @@ jump #resetTime
 
 #parseTime
 	setdiv {runArg1} 1000
+	set {runArg1} {{runArg1}}s
 quit
 
 #getNSuffixOverride[11]
@@ -252,7 +255,8 @@ quit
 		localmsg chat @color@p&7 becaome the &6{clearNumber}&7 person to complete &b{LevelName}&7!
 	#localmsgClearNumber_end
 	cpemsg announce &aCongrats on making it to the top!
-	cpemsg smallannounce &fYou had a time of &6{final}s&f.
+	cpemsg smallannounce &fYou had a time of &6{final}&f.
+	msg &fYou completed &b{LevelName}&7 in &6{final}&f.
 quit
 
 #winPractice
