@@ -189,13 +189,13 @@ quit
 
 #onClickBlock[656]
 	placeblock 759 {click.coords}
-	localcs pos {click.coords} click:choose(3)
+	cs pos {click.coords} click:choose(3)
 	setadd statistics.interact.lantern 1
 quit
 
 #onClickBlock[759]
 	placeblock 656 {click.coords}
-	localcs pos {click.coords} click:choose(3):pitch(1.5)
+	cs pos {click.coords} click:choose(3):pitch(1.5)
 	setadd statistics.interact.lantern 1
 quit
 
@@ -205,7 +205,7 @@ quit
 #onClickBlock[758]
 	setsub clickedID 4
 	placeblock {clickedID} {click.coords}
-	localcs pos {click.coords} click:choose(3)
+	cs pos {click.coords} click:choose(3)
 quit
 
 #onClickBlock[751]
@@ -214,7 +214,7 @@ quit
 #onClickBlock[754]
 	setadd clickedID 4
 	placeblock {clickedID} {click.coords}
-	localcs pos {click.coords} click:choose(3):pitch(1.5)
+	cs pos {click.coords} click:choose(3):pitch(1.5)
 quit
 
 #onClickBlock[55]
