@@ -110,5 +110,6 @@ quit
 
 #Item:items
 	msg &efucking ill make it look nice later idc rn
+	setsplit Item:items @!::
 	msg {Item:items}
 quit

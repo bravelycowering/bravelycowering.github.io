@@ -88,6 +88,7 @@ using no_runarg_underscore_conversion
 	set FLOWERTALK Hi!|Don't mind us :)|Just some regular talking flowers!|We know historically talking flowers aren't the most trustworthy, but we're just doing our job.|...Are you curious about that?|Well, since you clicked on us, we'll assume you already know how to move crates and barrels.|You may have also figured out that you cant push them if another crate is in front of them.|It's just too heavy!|As it turns out, if you're clever you can use the barrels to trap people inside this house.|The map creator has to come by and unblock the entrances when that happens.|That's where we come in! :)|Our job is to not let any movable objects pass.|If they try, we ask them nicely not to, and usually that works!|:)|...|Golly, we can't imagine talking to some flowers is that exciting.|Especially not here!|We appreciate you taking the time to listen to what we had to say, but...|Don't you have anything better to do?
 	setsplit FLOWERTALK |
 	// setup item library
+	call #Item:setup
 	set Item:itemsCmdTip /in
 	set Item:lookCmdTip /in look
 	set Item:dropCmdTip /in drop
@@ -188,13 +189,13 @@ quit
 
 #onClickBlock[656]
 	placeblock 759 {click.coords}
-	cs pos {click.coords} click:choose(3)
+	localcs pos {click.coords} click:choose(3)
 	setadd statistics.interact.lantern 1
 quit
 
 #onClickBlock[759]
 	placeblock 656 {click.coords}
-	cs pos {click.coords} click:choose(3):pitch(1.5)
+	localcs pos {click.coords} click:choose(3):pitch(1.5)
 	setadd statistics.interact.lantern 1
 quit
 
@@ -204,7 +205,7 @@ quit
 #onClickBlock[758]
 	setsub clickedID 4
 	placeblock {clickedID} {click.coords}
-	cs pos {click.coords} click:choose(3)
+	localcs pos {click.coords} click:choose(3)
 quit
 
 #onClickBlock[751]
@@ -213,13 +214,13 @@ quit
 #onClickBlock[754]
 	setadd clickedID 4
 	placeblock {clickedID} {click.coords}
-	cs pos {click.coords} click:choose(3):pitch(1.5)
+	localcs pos {click.coords} click:choose(3):pitch(1.5)
 quit
 
 #onClickBlock[55]
 #onClickBlock[760]
 #onClickBlock[761]
-	cs pos {click.coords} knocking
+	localcs pos {click.coords} knocking
 	setadd statistics.interact.door 1
 quit
 
