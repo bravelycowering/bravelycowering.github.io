@@ -1,4 +1,7 @@
+include os/bravelycowering+lib
+
 using local_packages
+using quit_resets_runargs
 
 #MOVABLE[141]
 #MOVABLE[142]
@@ -26,53 +29,6 @@ using local_packages
 #FALLS[603]
 
 #UNSTABLE[461]
-
-// #Set:add({set}, value)
-#Set:add
-	set l_check @!::{runArg2}
-	if {runArg1}|has|l_check quit
-	set {runArg1} {{runArg1}}{l_check}
-quit
-
-// #Set:remove({set}, value)
-#Set:remove
-	set l_check @!::{runArg2}
-	ifnot {runArg1}|has|l_check quit
-	set l_set {{runArg1}}
-	setsplit l_set {l_check}
-	set {runArg1} {l_set[0]}{l_set[1]}
-quit
-
-// #Set:sethas({result}, {set}, value)
-#Set:sethas
-	set l_check @!::{runArg3}
-	if {runArg2}|has|l_check set {runArg1} true
-	else set {runArg1} false
-quit
-
-// #Struct:pack({struct}, format)
-#Struct:pack
-	set l_format {runArg2}
-	setsplit l_format ;
-	set {runArg1}
-	set l_i 0
-	#Struct:pack.loop
-		set {runArg1} {{runArg1}}{l_format[{l_i}]}:={{l_format[{l_i}]}};
-		setadd l_i 1
-	if l_i|<|l_format.Length jump #Struct:pack.loop
-quit
-
-// #Struct:unpack({struct})
-#Struct:unpack
-	set l_struct {{runArg1}}
-	setsplit l_struct ;
-	set l_i 0
-	#Struct:unpack.loop
-		setsplit l_struct[{l_i}] :=
-		set {l_struct[{l_i}][0]} {l_struct[{l_i}][1]}
-		setadd l_i 1
-	if l_i|<|l_format.Length jump #Struct:unpack.loop
-quit
 
 #onJoin
 	clickevent sync register #onClick
@@ -130,6 +86,14 @@ quit
 	set DEFAULTREWARD coins|1
 	set FLOWERTALK Hi!|Don't mind us :)|Just some regular talking flowers!|We know historically talking flowers aren't the most trustworthy, but we're just doing our job.|...Are you curious about that?|Well, since you clicked on us, we'll assume you already know how to move crates and barrels.|You may have also figured out that you cant push them if another crate is in front of them.|It's just too heavy!|As it turns out, if you're clever you can use the barrels to trap people inside this house.|The map creator has to come by and unblock the entrances when that happens.|That's where we come in! :)|Our job is to not let any movable objects pass.|If they try, we ask them nicely not to, and usually that works!|:)|...|Golly, we can't imagine talking to some flowers is that exciting.|Especially not here!|We appreciate you taking the time to listen to what we had to say, but...|Don't you have anything better to do?
 	setsplit FLOWERTALK |
+	// setup item library
+	set Item:itemsCmdTip /in
+	set Item:lookCmdTip /in look
+	set Item:dropCmdTip /in drop
+quit
+
+#input
+	if runArg1|=|"" jump #Item:items
 quit
 
 #showStats
