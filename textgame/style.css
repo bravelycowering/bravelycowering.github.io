@@ -1,0 +1,22 @@
+.body, .nav {
+	background: linear-gradient(-25deg, #80ff80, #abffab);
+}
+
+pre.log {
+	background: #000000;
+	color: white;
+	padding: 10px;
+	overflow: hidden;
+	height: 50vh;
+	font-size: 1.25em;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	cursor: text;
+}
+
+textarea.editor {
+	width: 100%;
+	resize: none;
+	height: 50vh;
+	color-scheme: dark;
+}

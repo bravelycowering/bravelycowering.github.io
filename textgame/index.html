@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>bravelycowering - TextGame (Beta)</title>
+		<meta name="author" content="bravelycowering">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link href="/global.css" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+	</head>
+	<body>
+		<ul class="nav">
+			<li><a href="/">< Go Home</a></li>
+		</ul>
+		<div class="body">
+			<h1>TextGame (Beta)</h1>
+			<p>Not sure how you found this page, but good for you. Nothing here is close to finished :D.</p>
+			<pre id="gamepre" class="log"><span id="game"></span><span style="background:white"> </span></pre>
+			<textarea id="editor" class="editor">"You wake up in a vast empty area with no discernible features. It's impossible to tell where the horizon begins."
+ask "What do you do?"
+if $answer==eat cookie then "YOU WIN!"
+if $answer!=eat cookie then "YOU LOSE!"</textarea>
+		</div>
+		<script src="index.js"></script>
+	</body>
+</html>
